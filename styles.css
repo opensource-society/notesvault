@@ -554,8 +554,28 @@ body.dark {
 
   /* Theme Toggle Button Styles */
   #theme-toggle {
-    margin-right: 3vw;
-    order: 4;
+    background: var(--header-bg);
+    border: 1.5px solid var(--foreground);
+    cursor: pointer;
+    margin-right: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, border 0.2s;
+    width: 40px;
+    height: 40px;
+  }
+  #theme-toggle:hover {
+    background: rgba(100,100,100,0.08);
+  }
+  #theme-toggle svg {
+    stroke: var(--foreground);
+    transition: stroke 0.3s;
+    display: block;
+    margin: auto;
   }
 }
 
