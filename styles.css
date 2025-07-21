@@ -642,3 +642,13 @@ body {
     margin: 8px 0;
   }
 }
+.hero-illustration {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.hero-illustration img {
+    max-width: 90%;
+    height: auto;
+}
+
