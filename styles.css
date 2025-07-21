@@ -278,7 +278,6 @@ body {
 }
 
 /*# sourceMappingURL=styles.css.map */
-=======
 
 .navbar {
     /* Navbar container */
@@ -375,4 +374,46 @@ body {
 .navbar-right .signup-btn:hover {
     /* Hover effect for signup button */
     background-color: #0f3333;
+}
+
+/*  footer css */
+
+.footer-wrapper {
+  text-align: center;
+  border-top: 1px solid #9ca3af; /* Tailwind's gray-400 */
+  margin: 1.5rem 10% 0 10%; /* top right bottom left */
+  padding: 0.5rem 0; /* was 1.5rem 0 */
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 1rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .footer-links {
+    margin-top: 0;
+  }
+}
+
+.footer-links a {
+  color: #1f2937; /* Tailwind's gray-800 */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
