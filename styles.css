@@ -642,3 +642,88 @@ body {
     margin: 8px 0;
   }
 }
+
+/* --- Community Footer Styles --- */
+.community-footer {
+    border-top: 2px solid #ccc;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1d1d1d;
+     background-color: #f4f7f2;
+}
+
+.community-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    text-align: center;
+}
+
+.community-box {
+    flex: 1 1 250px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #c9cfc5; 0%, #f0f0f0 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.community-box:hover {
+    transform: translateY(-5px);
+    background-color: #a2ad9c;
+}
+
+.community-heading {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+}
+
+.community-heading::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #1d1d1d;
+    margin: 8px auto 0;
+    border-radius: 5px;
+}
+
+.community-box a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.community-box a:hover {
+    text-decoration: underline;
+     background-color: #cddebf;
+    
+}
+
+.community-box img {
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+/* --- Matching Hover Effects for Community Footer Cards --- */
+.community-box:hover {
+     background-color: #e6ebe5;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid #ccc;
+   
+}
+
+/* Optional hover effect for link text like your footer-left-link */
+.community-box a:hover {
+    color: #1d1d1d;
+    text-decoration: underline;
+    font-weight: 600;
+}
