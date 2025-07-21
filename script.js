@@ -185,3 +185,97 @@ const words = ["Branch", "Semester", "Subject"];
   }
 
   window.onload = typeWriter;
+
+
+  // Mobile menu toggle functionality
+function toggleMobileMenu() {
+    const nav = document.getElementById('header-navigation');
+    const hamburger = document.getElementById('hamburgerMenu');
+    
+    nav.classList.toggle('show');
+    hamburger.classList.toggle('active');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.getElementById('header-navigation');
+    const hamburger = document.getElementById('hamburgerMenu');
+    
+    if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+        nav.classList.remove('show');
+        hamburger.classList.remove('active');
+    }
+});
+
+// Close mobile menu when clicking on navigation links
+document.querySelectorAll('#header-navigation p').forEach(link => {
+    link.addEventListener('click', function() {
+        const nav = document.getElementById('header-navigation');
+        const hamburger = document.getElementById('hamburgerMenu');
+        
+        nav.classList.remove('show');
+        hamburger.classList.remove('active');
+    });
+});
+
+// Typewriter effect for the dynamic text
+const texts = ['Subject', 'Semester', 'Branch', 'Year'];
+let textIndex = 0;
+let charIndex = 0;
+// let isDeleting = false;
+
+function typeWriter() {
+    const currentText = texts[textIndex];
+    const typewriterElement = document.getElementById('typeWriterText');
+    
+    if (isDeleting) {
+        typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+    }
+    
+    let typeSpeed = isDeleting ? 50 : 100;
+    
+    if (!isDeleting && charIndex === currentText.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        typeSpeed = 500;
+    }
+    
+    setTimeout(typeWriter, typeSpeed);
+}
+
+// Start typewriter effect when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    typeWriter();
+});
+
+// Handle window resize to ensure proper layout
+window.addEventListener('resize', function() {
+    const nav = document.getElementById('header-navigation');
+    const hamburger = document.getElementById('hamburgerMenu');
+    
+    if (window.innerWidth > 600) {
+        nav.classList.remove('show');
+        hamburger.classList.remove('active');
+    }
+});
+
+// Add smooth scrolling for better UX
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
