@@ -1,35 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>NotesVault</title>
-  </head>
-  <body>
-    <main>
-        <header>
-            <h1>NotesVault</h1>
-        </header>
-        <section aria-labelledby="project-description">
-            <p id="project-description" class="info-text">
-                NotesVault is a beginner-friendly open-source project hosted under the Open Source Society. Its purpose is to provide a collaborative platform for sharing academic notes, resources, and previous year questions (PYQs), making quality study material accessible to everyone.
-            </p>
-            <ul id="project-details" class="details-list">
-                <li class="detail-item"><strong>Project Type:</strong> Open Source</li>
-                <li class="detail-item"><strong>Focus:</strong> Academic notes, resources, and PYQs</li>
-                <li class="detail-item"><strong>Purpose:</strong> Promote open-source academic sharing and collaboration</li>
-                <li class="detail-item"><strong>GitHub:</strong> <a href="https://github.com/opensource-society/notesvault" target="_blank" rel="noopener noreferrer" class="github-link">github.com/opensource-society/notesvault</a></li>
-            </ul>
-            <nav aria-label="Project tags" id="project-tags" class="tags"></nav>
-                <span class="tag">#OpenSource</span>
-                <span class="tag">#BeginnerFriendly</span>
-                <span class="tag">#Academic</span>
-                <span class="tag">#Notes</span>
-                <span class="tag">#PYQs</span>
-                <span class="tag">#Resources</span>
-            </nav>
-        </section>
-    </main>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>NotesVault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <header>
+      <div class="navbar-left">
+        <!-- Logo image -->
+        <img src="notepad.png" alt="NotesVault Logo" class="logo">
+
+        <!-- Site title and tagline -->
+        <div class="branding">
+          <h1>NotesVault</h1>
+          <p class="tagline">One place for all notes & PYQs</p>
+        </div>
+      </div>
+
+      <nav class="navbar-center" aria-label="Main navigation">
+        <!-- Navigation links -->
+        <a href="#" class="active" aria-current="page">Overview</a>
+        <a href="#">Student Account</a>
+        <a href="#">About</a>
+        <a href="#">Features</a>
+      </nav>
+
+      <div class="navbar-right">
+        <!-- Signup button -->
+        <a href="#" class="signup-btn">Sign Up ↗</a>
+      </div>
+
+    </header>
+    <section aria-labelledby="project-description">
+      <p id="project-description" class="info-text">
+        NotesVault is a beginner-friendly open-source project hosted under the Open Source Society. Its purpose is to
+        provide a collaborative platform for sharing academic notes, resources, and previous year questions (PYQs),
+        making quality study material accessible to everyone.
+      </p>
+      <ul id="project-details" class="details-list">
+        <li class="detail-item"><strong>Project Type:</strong> Open Source</li>
+        <li class="detail-item"><strong>Focus:</strong> Academic notes, resources, and PYQs</li>
+        <li class="detail-item"><strong>Purpose:</strong> Promote open-source academic sharing and collaboration</li>
+        <li class="detail-item"><strong>GitHub:</strong> <a href="https://github.com/opensource-society/notesvault"
+            target="_blank" rel="noopener noreferrer" class="github-link">github.com/opensource-society/notesvault</a>
+        </li>
+      </ul>
+      <nav aria-label="Project tags" id="project-tags" class="tags"></nav>
+      <span class="tag">#OpenSource</span>
+      <span class="tag">#BeginnerFriendly</span>
+      <span class="tag">#Academic</span>
+      <span class="tag">#Notes</span>
+      <span class="tag">#PYQs</span>
+      <span class="tag">#Resources</span>
+      </nav>
+    </section>
+  </main>
+</body>
+
 </html>
