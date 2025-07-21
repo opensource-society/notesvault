@@ -4,6 +4,26 @@ body {
   margin: 0%;
 }
 
+:root {
+  --bg-color: #f4f7f2;
+  --text-color: #000000;
+  --card-bg: #ffffff;
+  --primary-color: #163d3b;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f5f5f5;
+  --card-bg: #2a2a2a;
+  --primary-color: #32a89b;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
 #header {
   display: flex;
   flex-direction: row;
