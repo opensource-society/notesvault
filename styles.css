@@ -1,8 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 
+/* Theme variables */
+:root {
+  --background: #f4f7f2;
+  --foreground: #163d3b;
+  --header-bg: #fff;
+  --header-title: #163d3b;
+  --button-bg: #163d3b;
+  --button-text: #dff8f8;
+  --main-box-bg: #dae6d7;
+  --main-upper-bg: #f5f9f3;
+  --footer-bg: #fff;
+  --footer-text: #1d1d1d;
+}
+
 body {
-  background-color: #f4f7f2;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background 0.3s, color 0.3s;
   margin: 0%;
+}
+
+body.dark {
+  --background: #181a1b;
+  --foreground: #e0e0e0;
+  --header-bg: #23272a;
+  --header-title: #e0e0e0;
+  --button-bg: #2d3a3a;
+  --button-text: #e0e0e0;
+  --main-box-bg: #23272a;
+  --main-upper-bg: #23272a;
+  --footer-bg: #23272a;
+  --footer-text: #e0e0e0;
 }
 
 #header {
@@ -12,6 +41,7 @@ body {
   align-items: center;
   padding: 10px 0;
   position: relative;
+  background: var(--header-bg);
 }
 
 #header div {
@@ -32,6 +62,7 @@ body {
   font-weight: 500;
   font-style: normal;
   font-size: calc(12px + 1vw);
+  color: var(--header-title);
 }
 
 /* Hamburger Menu Styles */
@@ -99,9 +130,9 @@ body {
   font-weight: 300;
   font-style: normal;
   font-size: calc(9px + 0.4vw);
-  background-color: #163d3b;
+  background-color: var(--button-bg);
   padding: 8px 30px;
-  color: #dff8f8;
+  color: var(--button-text);
   border-radius: 30px;
   vertical-align: middle;
   align-items: center;
@@ -179,14 +210,14 @@ body {
 }
 
 .main-right-box {
-  background-color: #dae6d7;
+  background-color: var(--main-box-bg);
   width: 30vw;
   border-radius: 15px;
 }
 
 .main-right-upper-box {
   margin: 20px;
-  background-color: #f5f9f3;
+  background-color: var(--main-upper-bg);
   border-radius: 15px;
 }
 
@@ -280,6 +311,8 @@ body {
   justify-content: space-between;
   max-width: 100%;
   margin: 5vw;
+  background: var(--footer-bg);
+  color: var(--footer-text);
 }
 
 .footer .footer-left-box {
@@ -517,6 +550,12 @@ body {
     width: 100%;
     margin: 10px 0;
     text-align: center;
+  }
+
+  /* Theme Toggle Button Styles */
+  #theme-toggle {
+    margin-right: 3vw;
+    order: 4;
   }
 }
 
