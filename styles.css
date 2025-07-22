@@ -199,6 +199,18 @@ html, body {
   cursor: pointer;
 }
 
+.nav-menu a{
+  text-decoration: none;
+  color: #000000;
+  font-style: normal;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+  
+}
+.nav-menu a:hover{
+  text-decoration: underline;
+  color: green;
+}
 #header #header-navigation p:hover {
   font-weight: 400;
   text-decoration: underline;
@@ -393,75 +405,76 @@ html, body {
   color: #2E2E2E;
 }
 
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 100%;
-  margin: 5vw;
-}
 
-.footer .footer-left-box {
-  max-width: 20vw;
-}
-
-.footer .footer-left-heading {
+.About {
   font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 2rem; 
+ 
+  margin: 5vw;
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.About-left-box {
+  flex: 1 1 300px; 
+  min-width: 280px;
+}
+
+.About-left-heading {
   font-weight: 500;
-  font-style: normal;
-  font-size: calc(12px + 0.4vw);
+  font-size: 50px;
+  align-items: center;
   letter-spacing: 0.1px;
 }
 
-.footer .footer-left-text {
-  font-family: "Poppins", sans-serif;
+.About-left-text {
   font-weight: 200;
-  font-style: italic;
-  font-style: normal;
-  font-size: calc(9px + 0.4vw);
+  font-size: calc(15px + 0.4vw);
 }
 
-.footer .footer-left-link {
-  font-family: "Poppins", sans-serif;
+.About-left-link {
   font-weight: 500;
-  font-style: bold;
-  font-size: calc(9px + 0.4vw);
+  font-size: calc(12px + 0.4vw);
   color: #6b6eb9;
   cursor: pointer;
 }
 
-.footer-right {
+
+.About-right {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  flex: 2 1 500px; 
 }
 
-.footer-right .footer-right-box {
-  width: 16vw;
-  margin: 0px 2vw;
-  cursor: pointer;
+.About-right-box {
+  flex: 1 1 200px;
+  padding: 1.5rem; 
+  background-color: rgba(165, 201, 160, 0.5607843137);
   border-radius: 20px;
-  padding: 1vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-right .footer-right-box:hover {
+.About-right-box:hover {
   background-color: #e6ebe5;
+  transform: translateY(-5px); /* Adds a nice "lift" effect on hover */
 }
 
-.footer-right .footer-right-heading {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+.About-right-heading {
+  font-weight: 500px;
   font-size: calc(14px + 0.4vw);
   letter-spacing: 0.1px;
 }
 
-.footer-right .footer-right-text {
-  font-family: "Poppins", sans-serif;
+.About-right-text {
   font-weight: 300;
-  font-style: italic;
-  font-style: normal;
+  font-style: italic; /* CORRECTED: Kept the italic style and removed the conflicting one */
   font-size: calc(9px + 0.4vw);
 }
 
@@ -681,21 +694,21 @@ html, body {
     width: calc(90vw - 110px);
   }
 
-  .footer {
+  .About {
     margin: 4vw 2vw;
   }
 
-  .footer .footer-left-heading,
-  .footer-right .footer-right-heading {
+  .About .About-left-heading,
+  .About-right .About-right-heading {
     font-size: calc(12px + 0.8vw);
   }
 
-  .footer .footer-left-text,
-  .footer-right .footer-right-text {
+  .About .About-left-text,
+  .About-right .About-right-text {
     font-size: calc(10px + 0.6vw);
   }
 
-  .footer-right .footer-right-box {
+  .About-right .About-right-box {
     padding: 20px;
     margin: 10px 0;
   }
@@ -877,26 +890,26 @@ html, body {
   color: #e0e0e0;
 }
 
-[data-theme="dark"] .footer-left-heading,
-[data-theme="dark"] .footer-right-heading {
+[data-theme="dark"] .About-left-heading,
+[data-theme="dark"] .About-right-heading {
   color: #ffffff;
 }
 
-[data-theme="dark"] .footer-left-text,
-[data-theme="dark"] .footer-right-text {
+[data-theme="dark"] .About-left-text,
+[data-theme="dark"] .About-right-text {
   color: #cccccc;
 }
 
-[data-theme="dark"] .footer-left-link {
+[data-theme="dark"] .About-left-link {
   color: #8a8ddb;
 }
 
-[data-theme="dark"] .footer-right .footer-right-box:hover {
+[data-theme="dark"] .About-right .About-right-box:hover {
   background-color: #2a2a2a;
   color: #ffffff;
 }
 
-[data-theme="dark"] .footer-right svg {
+[data-theme="dark"] .About-right svg {
   stroke: #e0e0e0;
 }
 
@@ -1455,6 +1468,92 @@ html, body {
 
 }
 
+
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* ===== Upload Page Navbar Styling ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #f5f5f5;
+  padding: 16px 0;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.links-text {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.links-text:hover {
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+
 .footer{
   background-color: #1e1e1e;
   color: #fff;
@@ -1476,3 +1575,4 @@ html, body {
   }
 
 }
+

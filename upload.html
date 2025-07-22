@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upload Notes | NotesVault</title>
+
+  <meta charset="UTF-8">
+  <title>Upload Notes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="search.html">Search</a>
+    <a href="upload.html">Upload Notes</a>
+  </nav>
+
+  <main class="container">
+    <h1>Upload Notes</h1>
+    <form>
+<!--       <label>Title:<br><input type="text" name="title" required></label><br><br> -->
+      <label for="title">Title:</label><br>
+<input type="text" id="title" name="title" required>
+
+      <label>Description:<br><textarea name="description" rows="4" required></textarea></label><br><br>
+      <label>File:<br><input type="file" name="file" required></label><br><br>
+      <button type="submit">Upload</button>
+    </form>
+  </main>
+
+  
 
   <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com" ></script>
@@ -168,9 +191,11 @@
 
     document.getElementById("uploadForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      document.getElementById("message").innerText = "✅ Notes uploaded successfully (demo only)";
+      document.getElementById("message").innerText = "✅ Notes uploaded successfully (for demo purposes only — not stored)"
+";
       this.reset();
     });
   </script>
+
 </body>
 </html>
