@@ -84,11 +84,11 @@ Simply open `index.html` in your browser. All data is stored locally via JSON or
  **Add screenshots or video demo links here for better visual understanding**
 
 ![Home Page](Screenshots/home.png)
- ![Search Page](screenshots/Second.png)
- ![Third](screenshots/Thirdpage.png)
- ![fourth Page](screenshots/fourthpage.png)
- ![fifth Page](screenshots/fifthpage.png)
- ![Sxith Page](screenshots/Sxith.png)
+ ![Search Page](Screenshots/Second.png)
+ ![Third](Screenshots/Thirdpage.png)
+ ![fourth Page](Screenshots/fourthpage.png)
+ ![fifth Page](Screenshots/fifthpage.png)
+ ![Sxith Page](Screenshots/Sxith.png)
 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
