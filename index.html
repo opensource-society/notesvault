@@ -1,208 +1,442 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"/>
-    <title>NotesVault Home</title>
-    <script
-  src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
-  crossorigin="anonymous"
-></script>
+    <title>StudySphere | Academic Resource Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
-    <header>
-        <div id="header">
-            <div id="header-title-box">
-                <p id="header-title">NotesVault</p>
-            </div>
-            
-            <!-- Hamburger Menu Button -->
-            <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-
-            
-            <!-- Navigation Menu -->
-            <div id="header-navigation" class="nav-menu">
-                <p>Overview</p>
-                <p>Student Account</p>
-                <p>About</p>
-                <p>Features</p>
-            </div>
-            
-            <div id="header-signup-box">
-                <p>Sign Up</p>
-                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-                </svg>
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
-            </div>
+    <!-- Header Section -->
+    <header id="header">
+        <div id="header-title-box">
+            <p id="header-title">StudySphere</p>
+        </div>
+        <nav id="header-navigation">
+            <p><a href="#main">Home</a></p>
+            <p><a href="#resources-section">Resources</a></p>
+            <p><a href="#upload-section">Upload</a></p>
+            <p><a href="#tutorials-section">Tutorials</a></p>
+            <p><a href="#about-us-section">About</a></p>
+        </nav>
+        <div id="header-signup-box">
+            <p>Sign Up</p>
+        </div>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
     </header>
 
-    <div id="main">
-        <div class="main-left">
-            <p class="main-text welcome">Welcome Back</p>
-            <h1 class="main-heading">Your Go-To Companion for<br>Organized Learning.</h1>
-            <p class="main-text">Keep your study notes and PYQs organized, easy to find,<br>and always just a click away with NotesVault.</p>
+    <!-- Hero Section -->
+    <main id="main">
+        <section class="main-left">
+            <p class="welcome">👋 Welcome to StudySphere</p>
+            <h1 class="main-heading">
+                Explore a vast collection of notes,
+                previous year questions, and
+                important resources for any
+                <br><span id="typeWriterText"></span><span class="typewriter-cursor"></span>
+            </h1>
+            <p class="main-text">
+                Your one-stop solution for academic success! Find what you need to ace your exams. 
+                Join thousands of students already benefiting from our platform.
+            </p>
             <div class="main-left-links">
-                <p class="links-text features-box">Browse Notes</p>
-                <p class="links-text try-box">Upload Notes</p>
+                <p class="links-text features-box"><i class="fas fa-compass"></i> Explore Features</p>
+                <p class="links-text try-box"><i class="fas fa-rocket"></i> Try for Free</p>
             </div>
-        </div>
-        <div class="main-right">
-            <div class="main-right-box">
-                <div class="main-right-upper-box">
-                    <div class="right-text-div">
-                        <p class="right-text">Notes Organised by</p>
-                        <p class="right-text" id="typeWriterText">Subject</p>
+        </section>
+
+        <section class="main-right">
+            <div class="card">
+                <div class="progress-section">
+                    <h3 class="section-title">Your Learning Progress</h3>
+                    <span class="progress-text">50% Completed</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill"></div>
                     </div>
-                    <div class="main-right-search">
-                        <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
-                            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
-                            <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search">
+                </div>
 
-                            <div id="search-parameters-branch" class="search-parameters-div">
-                                
-                            </div>
-                            <div id="search-parameters-semester" class="search-parameters-div"></div>
-                            <div id="search-parameters-subject" class="search-parameters-div">
-                                
-                            </div>
+                <hr class="section-divider">
 
-                            <input type="submit" style="display: none;">
-                        </form>
+                <div class="search-filters-section">
+                    <h3 class="section-title">Find Resources</h3>
+
+                    <div class="search-input-group">
+                        <input type="text" class="search-form-input" placeholder="Search notes, PYQs, subjects...">
+                        <button class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <div class="filter-dropdowns">
+                        <div class="filter-group">
+                            <label class="filter-label">Branch</label>
+                            <select class="search-parameters-select">
+                                <option value="">Select Branch</option>
+                                <option value="cs">Computer Science</option>
+                                <option value="ece">Electronics</option>
+                                <option value="mech">Mechanical</option>
+                                <option value="civil">Civil</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Semester</label>
+                            <select class="search-parameters-select">
+                                <option value="">Select Semester</option>
+                                <option value="1">Semester 1</option>
+                                <option value="2">Semester 2</option>
+                                <option value="3">Semester 3</option>
+                                <option value="4">Semester 4</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Subject</label>
+                            <select class="search-parameters-select">
+                                <option value="">Select Subject</option>
+                                <option value="math">Mathematics</option>
+                                <option value="physics">Physics</option>
+                                <option value="dsa">Data Structures</option>
+                                <option value="oop">Object Oriented Programming</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <!-- Resources Section -->
+    <section id="resources-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-large">Popular Resources</h2>
+            <p class="section-subtitle">Discover the most sought-after study materials curated by top students and professors</p>
         </div>
-    </div>
-    
-    <div class="footer">
-        <div class="footer-left-box">
-            <p class="footer-left-heading">About NotesVault</p>
-            <p class="footer-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
-            <p class="footer-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
-        </div>
 
-        <div class="footer-right">
-            <div class="footer-right-box">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v12" />
-                        <polyline points="5 9 12 2 19 9"/>
-                    <path d="M5 20h14" />
-                </svg>
-
-                <p class="footer-right-heading">Easy Upload</p>
-                <p class="footer-right-text">Add your notes quickly and effortlessly</p>
-            </div>
-            <div class="footer-right-box">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 6h5l2 3h11v11H3z" />
-                    <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
-                </svg>
-
-
-                <p class="footer-right-heading">Sort The Chaos</p>
-                <p class="footer-right-text">Neatly arrange all your notes in one place</p>
-            </div>
-            <div class="footer-right-box">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
-                    <circle cx="16" cy="8" r="1.5" />
-                </svg>
-
-
-                <p class="footer-right-heading">Search By Tags</p>
-                <p class="footer-right-text">Find notes using subject tags</p>
-            </div>
-        </div>
-    </div>
-
-
-     <footer class="modern-footer">
-        <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <div class="footer-logo">NotesVault</div>
-                    <p class="footer-description">
-                        Your go-to companion for organized learning. Keep your study notes and PYQs organized, easy to find, and always just a click away.
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-type">Lecture Notes</span>
+                    <h3 class="resource-title">Data Structures & Algorithms</h3>
+                    <div class="resource-meta">
+                        <span class="resource-meta-item"><i class="fas fa-graduation-cap"></i> Semester 3</span>
+                        <span class="resource-meta-item"><i class="fas fa-code-branch"></i> Computer Science</span>
+                        <span class="resource-meta-item"><i class="fas fa-file-pdf"></i> PDF</span>
+                    </div>
+                    <p class="resource-description">
+                        Comprehensive notes covering all major data structures and algorithms with implementation examples.
                     </p>
-                    <div class="social-links">
-                        <a href="https://github.com/opensource-society/notesvault" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.300 24 12c0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                        <a href="#discord" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/>
-                            </svg>
-                        </a>
+                    <div class="resource-tags">
+                        <span class="resource-tag">Arrays</span>
+                        <span class="resource-tag">Linked Lists</span>
+                        <span class="resource-tag">Trees</span>
+                    </div>
+                    <div class="resource-actions">
+                        <button class="action-button"><i class="fas fa-eye"></i> Preview</button>
+                        <button class="action-button"><i class="fas fa-download"></i> Download</button>
                     </div>
                 </div>
+            </div>
 
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-type">PYQs</span>
+                    <h3 class="resource-title">Calculus - Previous Year Papers</h3>
+                    <div class="resource-meta">
+                        <span class="resource-meta-item"><i class="fas fa-graduation-cap"></i> Semester 1</span>
+                        <span class="resource-meta-item"><i class="fas fa-code-branch"></i> All Branches</span>
+                        <span class="resource-meta-item"><i class="fas fa-file-pdf"></i> PDF</span>
+                    </div>
+                    <p class="resource-description">
+                        5 years of previous question papers with model solutions for Calculus course.
+                    </p>
+                    <div class="resource-tags">
+                        <span class="resource-tag">Integrals</span>
+                        <span class="resource-tag">Derivatives</span>
+                        <span class="resource-tag">Limits</span>
+                    </div>
+                    <div class="resource-actions">
+                        <button class="action-button"><i class="fas fa-eye"></i> Preview</button>
+                        <button class="action-button"><i class="fas fa-download"></i> Download</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-image">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="resource-content">
+                    <span class="resource-type">Project Guide</span>
+                    <h3 class="resource-title">Web Development Projects</h3>
+                    <div class="resource-meta">
+                        <span class="resource-meta-item"><i class="fas fa-graduation-cap"></i> Semester 6</span>
+                        <span class="resource-meta-item"><i class="fas fa-code-branch"></i> IT/CS</span>
+                        <span class="resource-meta-item"><i class="fas fa-folder"></i> ZIP</span>
+                    </div>
+                    <p class="resource-description">
+                        10 complete web development projects with source code and documentation for final year students.
+                    </p>
+                    <div class="resource-tags">
+                        <span class="resource-tag">React</span>
+                        <span class="resource-tag">Node.js</span>
+                        <span class="resource-tag">MongoDB</span>
+                    </div>
+                    <div class="resource-actions">
+                        <button class="action-button"><i class="fas fa-eye"></i> Preview</button>
+                        <button class="action-button"><i class="fas fa-download"></i> Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-large">Share Your Resources</h2>
+            <p class="section-subtitle">Contribute to the community by sharing your notes, PYQs, or study materials</p>
+        </div>
+
+        <form id="uploadForm" class="upload-form">
+            <div class="upload-form-group">
+                <label class="upload-label">Resource Title</label>
+                <input type="text" class="upload-input" placeholder="Enter resource title">
+            </div>
+            
+            <div class="upload-form-group">
+                <label class="upload-label">Resource Type</label>
+                <select class="upload-input">
+                    <option value="">Select resource type</option>
+                    <option value="notes">Lecture Notes</option>
+                    <option value="pyq">Previous Year Questions</option>
+                    <option value="book">Textbook/Reference</option>
+                    <option value="project">Project Report</option>
+                </select>
+            </div>
+            
+            <div class="upload-form-group">
+                <label class="upload-label">Branch</label>
+                <select class="upload-input">
+                    <option value="">Select branch</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="ece">Electronics</option>
+                    <option value="mech">Mechanical</option>
+                    <option value="civil">Civil</option>
+                </select>
+            </div>
+            
+            <div class="upload-form-group">
+                <label class="upload-label">Semester</label>
+                <select class="upload-input">
+                    <option value="">Select semester</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                </select>
+            </div>
+            
+            <div class="upload-form-group">
+                <label class="upload-label">Subject</label>
+                <input type="text" class="upload-input" placeholder="Enter subject name">
+            </div>
+            
+            <div class="upload-form-group">
+                <label class="upload-label">Tags</label>
+                <input type="text" class="upload-input" placeholder="Enter tags (comma separated)">
+            </div>
+            
+            <div class="upload-dropzone">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drag & Drop your files here</h3>
+                <p>or click to browse</p>
+                <p class="main-text">Supported formats: PDF, DOC, PPT, ZIP (Max 50MB)</p>
+            </div>
+            
+            <button type="submit" class="upload-button">Upload Resource</button>
+        </form>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-large">Learning Tutorials</h2>
+            <p class="section-subtitle">Master complex topics with our step-by-step tutorials and video guides</p>
+        </div>
+
+        <div class="tutorials-container">
+            <div class="tutorial-card">
+                <div class="tutorial-image">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="tutorial-content">
+                    <span class="tutorial-level">Beginner</span>
+                    <h3 class="tutorial-title">Python Programming Fundamentals</h3>
+                    <p class="tutorial-description">
+                        Learn Python from scratch with this comprehensive tutorial series. Perfect for absolute beginners with no prior programming experience.
+                    </p>
+                    <div class="tutorial-meta">
+                        <span><i class="far fa-clock"></i> 8 hours</span>
+                        <span><i class="fas fa-film"></i> 24 videos</span>
+                    </div>
+                    <a href="#" class="tutorial-button">Start Learning</a>
+                </div>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="tutorial-image">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="tutorial-content">
+                    <span class="tutorial-level">Intermediate</span>
+                    <h3 class="tutorial-title">Linear Algebra Masterclass</h3>
+                    <p class="tutorial-description">
+                        Master linear algebra concepts with practical examples and visualization techniques. Essential for engineering students.
+                    </p>
+                    <div class="tutorial-meta">
+                        <span><i class="far fa-clock"></i> 12 hours</span>
+                        <span><i class="fas fa-film"></i> 35 videos</span>
+                    </div>
+                    <a href="#" class="tutorial-button">Start Learning</a>
+                </div>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="tutorial-image">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="tutorial-content">
+                    <span class="tutorial-level">Advanced</span>
+                    <h3 class="tutorial-title">Circuit Analysis Techniques</h3>
+                    <p class="tutorial-description">
+                        Advanced techniques for analyzing complex electrical circuits with real-world examples and simulation exercises.
+                    </p>
+                    <div class="tutorial-meta">
+                        <span><i class="far fa-clock"></i> 10 hours</span>
+                        <span><i class="fas fa-film"></i> 28 videos</span>
+                    </div>
+                    <a href="#" class="tutorial-button">Start Learning</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-us-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-large">Why Choose StudySphere?</h2>
+            <p class="section-subtitle">We're dedicated to revolutionizing the way students access and share academic resources</p>
+        </div>
+
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 class="feature-title">Powerful Search</h3>
+                <p class="feature-description">
+                    Find exactly what you need with our intelligent search system that understands academic context and relationships.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3 class="feature-title">Smart Tagging</h3>
+                <p class="feature-description">
+                    Our AI-powered tagging system automatically categorizes resources for easier discovery and organization.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="feature-title">Mobile Optimized</h3>
+                <p class="feature-description">
+                    Access your study materials anytime, anywhere with our fully responsive platform that works on all devices.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Quality Control</h3>
+                <p class="feature-description">
+                    All resources are reviewed by subject experts to ensure accuracy and educational value.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">StudySphere</div>
+                <p class="footer-text">
+                   Open Source
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-box">
+                <h3 class="footer-links-title">Resources</h3>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#overview">Overview</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#browse">Browse Notes</a></li>
-                        <li><a href="#upload">Upload Notes</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-community">
-                    <h4>Community</h4>
-                    <div class="community-badges">
-                        <a href="https://gssoc.girlscript.tech/" class="gssoc-badge" target="_blank" rel="noopener noreferrer">
-                            <img src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0a1ea17-12ac-433f-9266-afb96c11f06a_200x200.jpeg" />
-                        </a>
-                        <a href="https://github.com/opensource-society" class="oss-link" target="_blank" rel="noopener noreferrer">
-                            <div class="oss-badge">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm0 2.19l8.392 4.85v9.92L12 21.81l-8.392-4.85V7.04L12 2.19z"/>
-                                </svg>
-                                <span>Open Source Society</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="community-text">
-                        Join our vibrant community of learners and contributors
-                    </p>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Lecture Notes</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> PYQs</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Textbooks</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Project Reports</a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <div class="footer-divider"></div>
-                <div class="footer-bottom-content">
-                    <p class="copyright">
-                        © 2028 NotesVault. Built with ❤️ by the Open Source Community
-                    </p>
-                    <div class="footer-bottom-links">
-                        <a href="#privacy">Privacy Policy</a>
-                        <a href="#terms">Terms of Service</a>
-                        <a href="https://github.com/opensource-society/notesvault/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
-                    </div>
+            <div class="footer-links-box">
+                <h3 class="footer-links-title">Company</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Careers</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Blog</a>
                 </div>
             </div>
+
+            <div class="footer-links-box">
+                <h3 class="footer-links-title">Support</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Help Center</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> FAQ</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Privacy Policy</a>
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Terms of Service</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 StudySphere. All rights reserved. | Designed with ❤️ for students</p>
         </div>
     </footer>
-    
-    <script src="script.js" defer></script>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+    <script src="script.js"></script>
+
 </body>
 </html>
