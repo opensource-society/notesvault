@@ -5,6 +5,13 @@ body {
   margin: 0%;
 }
 
+
+.popup-box, .popup-box input, .popup-box button, .popup-box p, .popup-box h2 {
+  font-family: 'Inter', sans-serif;
+}
+
+
+
 #header {
   display: flex;
   flex-direction: row;
@@ -107,6 +114,122 @@ body {
   align-items: center;
   max-height: 50px;
 }
+
+
+
+
+/* popup overlays  */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(22, 61, 59, 0.9);
+  display: none; /* Changed from visible top shift */
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+  z-index: 9999;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+
+/* Popup Box */
+.popup-box {
+  background: white;
+  width: 90vw;
+  max-width: 400px;
+  padding: 30px;
+  margin: 0 15px; 
+  border-radius: 12px;
+  position: relative;
+  animation: slideDown 0.4s ease;
+  text-align: center;
+}
+
+
+.popup-box input {
+  width: 80%;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.popup-box button {
+  background-color: #163d3b;
+  color: #dff8f8;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.popup-box .toggle-link {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.popup-box .toggle-link span {
+  color: #163d3b;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .popup-box {
+    padding: 20px;
+  }
+
+  .popup-box input,
+  .popup-box button {
+    font-size: 13px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #main {
   display: flex;

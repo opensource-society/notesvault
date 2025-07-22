@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // setup search parameters
@@ -279,3 +281,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function openPopup(type) {
+    closePopup(); // close any open popup
+    document.getElementById(type + "Overlay").classList.add("active");
+  }
+
+  function closePopup() {
+    document.getElementById("loginOverlay").classList.remove("active");
+    document.getElementById("signupOverlay").classList.remove("active");
+  }
+
+  function toggleForms() {
+    const login = document.getElementById("loginOverlay");
+    const signup = document.getElementById("signupOverlay");
+    login.classList.toggle("active");
+    signup.classList.toggle("active");
+  }

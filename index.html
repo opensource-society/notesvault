@@ -11,6 +11,34 @@
 ></script>
 </head>
 <body>
+
+    <!-- Login Popup -->
+<div class="overlay" id="loginOverlay">
+  <div class="popup-box">
+    <h2>Login to NotesVault</h2>
+    <input type="email" placeholder="Email" required />
+    <input type="password" placeholder="Password" required />
+    <button>Login</button>
+    <p class="toggle-link">Don't have an account? <span onclick="toggleForms()">Sign Up</span></p>
+    <span class="close-btn" onclick="closePopup()">✖</span>
+  </div>
+</div>
+
+<!-- Signup Popup -->
+<div class="overlay" id="signupOverlay">
+  <div class="popup-box">
+    <h2>Sign Up to NotesVault</h2>
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email" required />
+    <input type="password" placeholder="Password" required />
+    <button>Sign Up</button>
+    <p class="toggle-link">Already have an account? <span onclick="toggleForms()">Login</span></p>
+    <span class="close-btn" onclick="closePopup()">✖</span>
+  </div>
+</div>
+
+
+
     <header>
         <div id="header">
             <div id="header-title-box">
@@ -32,11 +60,25 @@
                 <p>Features</p>
             </div>
             
+            <!-- <div id="header-signup-box">
+                <a href="/Pages/login.html"><p>Sign Up</p></a>
+            </div> -->
+
             <div id="header-signup-box">
-                <p>Sign Up</p>
+                <p onclick="openPopup('signup')">Sign Up</p>
             </div>
+
+
         </div>
     </header>
+
+
+
+
+
+
+
+
 
     <div id="main">
         <div class="main-left">
@@ -81,6 +123,9 @@
         </div>
     </div>
     
+
+
+
     <div class="footer">
         <div class="footer-left-box">
             <p class="footer-left-heading">About NotesVault</p>
