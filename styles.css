@@ -701,14 +701,5 @@ body.dark .footer-right .footer-right-box {
   }
 }
 
-.footer .footer-left-box {
-  background: var(--footer-about-bg, #fff);
-  color: var(--footer-text);
-  padding: 1.5vw;
-  border-radius: 12px;
-}
 
-body.dark .footer .footer-left-box {
-  background: #fff;
-  color: #23272a;
 }
