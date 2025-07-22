@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
     <title>NotesVault Home</title>
-    <script
-  src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
-  crossorigin="anonymous"
-></script>
+    <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <div id="header">
             <div id="header-title-box">
                 <p id="header-title">NotesVault</p>
             </div>
-            
+
             <!-- Hamburger Menu Button -->
             <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
                 <span class="hamburger-line"></span>
@@ -24,27 +23,31 @@
                 <span class="hamburger-line"></span>
             </button>
 
-            
-            <!-- Navigation Menu -->
-           <div id="header-navigation" class="nav-menu">
-  <a href="../pages/overview.html">Overview</a>
-  <a href="/">Student Account</a>
-  <a href="about.html">About</a>
-  <a href="/">Features</a>
-</div>
 
-            
+            <!-- Navigation Menu -->
+            <div id="header-navigation" class="nav-menu">
+                <a href="../pages/overview.html">Overview</a>
+                <a href="/">Student Account</a>
+                <a href="about.html">About</a>
+                <a href="/">Features</a>
+            </div>
+
+
             <div id="header-signup-box">
                 <p>Sign Up</p>
                 <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-                </svg>
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
@@ -53,70 +56,76 @@
         <div class="main-left">
             <p class="main-text welcome">Welcome Back</p>
             <h1 class="main-heading">Your Go-To Companion for<br>Organized Learning.</h1>
-            <p class="main-text">Keep your study notes and PYQs organized, easy to find,<br>and always just a click away with NotesVault.</p>
+            <p class="main-text">Keep your study notes and PYQs organized, easy to find,<br>and always just a click away
+                with NotesVault.</p>
             <!-- <div class="main-left-links">
                 <p class="links-text features-box">Browse Notes</p>
 
-               
+                
             </div> -->
             <div class="main-left-links">
-  <a href="search.html" class="links-text features-box" style="text-decoration: none; color: inherit;">
-    Browse Notes
-  </a>
-  <a href="upload.html" class="links-text try-box" style="text-decoration: none; color: inherit;">
-    Upload Notes
-  </a>
-</div>
-
-
-
-                <p class="links-text try-box upload-btn">Upload Notes</p>
+                <a href="search.html" class="links-text features-box" style="text-decoration: none; color: inherit;">
+                    Browse Notes
+                </a>
+                <a href="upload.html" class="links-text try-box" style="text-decoration: none; color: inherit;">
+                    Upload Notes
+                </a>
             </div>
 
+
+
+
         </div>
-        <div class="main-right">
-            <div class="main-right-box">
-                <div class="main-right-upper-box">
-                    <div class="right-text-div">
-                        <p class="right-text">Notes Organised by</p>
-                        <p class="right-text" id="typeWriterText">Subject</p>
-                    </div>
-                    <div class="main-right-search">
-                        <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
-                            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
-                            <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search">
 
-                            <div id="search-parameters-branch" class="search-parameters-div">
-                                
-                            </div>
-                            <div id="search-parameters-semester" class="search-parameters-div"></div>
-                            <div id="search-parameters-subject" class="search-parameters-div">
-                                
-                            </div>
+    
+    <div class="main-right">
+        <div class="main-right-box">
+            <div class="main-right-upper-box">
+                <div class="right-text-div">
+                    <p class="right-text">Notes Organised by</p>
+                    <p class="right-text" id="typeWriterText">Subject</p>
+                </div>
+                <div class="main-right-search">
+                    <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
+                        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input class="main-right-search-form-input" type="text" name="query" autocomplete="off"
+                            placeholder="Search">
 
-                            <input type="submit" style="display: none;">
-                        </form>
-                    </div>
+                        <div id="search-parameters-branch" class="search-parameters-div">
+
+                        </div>
+                        <div id="search-parameters-semester" class="search-parameters-div"></div>
+                        <div id="search-parameters-subject" class="search-parameters-div">
+
+                        </div>
+
+                        <input type="submit" style="display: none;">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    
+    </div>
+
     <div class="About">
         <div class="About">
-            <p class="About-left-heading">About NotesVault</p><br/>
+            <p class="About-left-heading">About NotesVault</p><br />
             <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
-            <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
+            <p class="About-left-link"
+                onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>
+                Learn More →</p>
         </div>
 
         <div class="About-right">
             <div class="About-right-box">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
+                    stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3v12" />
-                        <polyline points="5 9 12 2 19 9"/>
+                    <polyline points="5 9 12 2 19 9" />
                     <path d="M5 20h14" />
                 </svg>
 
@@ -125,7 +134,8 @@
             </div>
             <div class="About-right-box">
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
+                    stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 6h5l2 3h11v11H3z" />
                     <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
                 </svg>
@@ -136,7 +146,8 @@
             </div>
             <div class="About-right-box">
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
+                    stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
                     <circle cx="16" cy="8" r="1.5" />
                 </svg>
@@ -159,12 +170,6 @@
             </a>
         </div>
 
-        <!-- OSS Community Contact / Discord -->
-        <div class="community-box">
-            <p class="community-heading">OSS Community</p>
-            <a href="https://discord.gg/opensource" target="_blank" rel="noopener noreferrer">
-                Join Our Discord →
-            </a>
         </div>
 
         <!-- GSSoC Badge or Link -->
@@ -181,6 +186,8 @@
         </div>
 </footer>
 
+
     <script src="script.js" defer></script>
 </body>
+
 </html>

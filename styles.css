@@ -238,12 +238,13 @@ html, body {
   align-items: center;
   max-height: 50px;
 }
-
+/* flex box solved */
 #main {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   margin: 5vw;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 #main .welcome {
@@ -259,16 +260,17 @@ html, body {
 .main-text {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
-  font-style: italic;
-  font-style: normal;
+  font-style: italic; /* OR normal — choose one */
   font-size: calc(9px + 0.4vw);
 }
+
 
 .main-heading {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
+  font-optical-sizing: auto;
   font-variation-settings: "wdth" 100;
   font-size: calc(20px + 1.5vw);
   line-height: 1.6;
@@ -462,8 +464,8 @@ html, body {
 }
 
 .About-right-box:hover {
-  background-color: #e6ebe5;
-  transform: translateY(-5px); /* Adds a nice "lift" effect on hover */
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .About-right-heading {
@@ -477,6 +479,35 @@ html, body {
   font-style: italic; /* CORRECTED: Kept the italic style and removed the conflicting one */
   font-size: calc(9px + 0.4vw);
 }
+
+/* added Simple Fade-In Animation on Page Load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.About-right-box {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Optional: stagger the boxes */
+.About-right-box:nth-child(1) {
+  animation-delay: 0.8s;
+}
+.About-right-box:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.About-right-box:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
 
 /* RESPONSIVE BREAKPOINTS */
 
