@@ -1,6 +1,6 @@
 {
     "branches": [
-        {  
+        {
             "name": "CSE",
             "semesters": [
                 {
@@ -99,5 +99,35 @@
                     ]
                 }
             ]
-        }, "CSBS", "EX", "EE", "EC", "AIR", "ME", "CE"]
+        },
+        {
+            "name": "CSBS",
+            "semesters": []
+        },
+        {
+            "name": "EX",
+            "semesters": []
+        },
+        {
+            "name": "EE",
+            "semesters": []
+        },
+        {
+            "name": "EC",
+            "semesters": []
+        },
+        {
+            "name": "AIR",
+            "semesters": []
+        },
+        {
+            "name": "ME",
+            "semesters": []
+        },
+        {
+            "name": "CE",
+            "semesters": []
+        }
+    ]
 }
+               
