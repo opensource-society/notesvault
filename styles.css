@@ -2,7 +2,7 @@
 
 /* Theme variables */
 :root {
-  --background: #f4f7f2;
+  --background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
   --foreground: #163d3b;
   --header-bg: #fff;
   --header-title: #163d3b;
@@ -15,14 +15,14 @@
 }
 
 body {
-  background-color: var(--background);
+  background: var(--background);
   color: var(--foreground);
   transition: background 0.3s, color 0.3s;
   margin: 0%;
 }
 
 body.dark {
-  --background: #181a1b;
+  --background: linear-gradient(135deg, #232526 0%, #414345 100%);
   --foreground: #e0e0e0;
   --header-bg: #23272a;
   --header-title: #e0e0e0;
@@ -34,163 +34,182 @@ body.dark {
   --footer-text: #e0e0e0;
 }
 
+/* --- General Button Hover Effects --- */
+button, .hamburger-menu, #theme-toggle {
+  transition: background 0.22s cubic-bezier(0.4,0,0.2,1),
+              color 0.22s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.22s cubic-bezier(0.4,0,0.2,1),
+              border-color 0.22s cubic-bezier(0.4,0,0.2,1),
+              transform 0.18s cubic-bezier(0.4,0,0.2,1);
+}
+button:hover, .hamburger-menu:hover, #theme-toggle:hover {
+  background: rgba(22,61,59,0.10);
+  color: #163d3b;
+  box-shadow: 0 4px 16px 0 rgba(22,61,59,0.13);
+  transform: scale(1.06);
+}
+
+/* --- Hamburger Menu Specific --- */
+.hamburger-menu {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.hamburger-menu:hover {
+  background: rgba(22,61,59,0.10);
+  box-shadow: 0 2px 8px 0 rgba(22,61,59,0.10);
+}
+
+/* --- Theme Toggle Button --- */
+#theme-toggle {
+  background: var(--header-bg);
+  border: 1.5px solid var(--foreground);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s, transform 0.18s;
+  width: 40px;
+  height: 40px;
+}
+#theme-toggle:hover {
+  background: rgba(100,100,100,0.08);
+  box-shadow: 0 4px 16px 0 rgba(22,61,59,0.13);
+  transform: scale(1.08);
+}
+
+/* --- Footer Link Hover --- */
+.footer .footer-left-link {
+  transition: color 0.2s, text-decoration 0.2s, text-shadow 0.2s;
+}
+.footer .footer-left-link:hover {
+  color: #3d2c00;
+  text-decoration: underline;
+  text-shadow: 0 2px 8px rgba(247,184,110,0.18);
+}
+
+/* --- Footer Feature Card Hover --- */
+.footer-right .footer-right-box {
+  transition: background 0.22s, box-shadow 0.22s, transform 0.18s;
+  cursor: pointer;
+}
+.footer-right .footer-right-box:hover {
+  background: linear-gradient(120deg, #e0eafc 60%, #cfdef3 100%);
+  box-shadow: 0 4px 18px 0 rgba(22,61,59,0.10);
+  transform: translateY(-3px) scale(1.03);
+}
+body.dark .footer-right .footer-right-box:hover {
+  background: linear-gradient(120deg, #232526 60%, #414345 100%);
+}
+
+/* --- Navbar Flex Alignment & Spacing --- */
 #header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  position: relative;
-  background: var(--header-bg);
+  padding: 0 5vw;
+  min-height: 64px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1.5px solid rgba(255,255,255,0.35);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
 }
-
-#header div {
-  display: flex;
-}
-
-#header div p {
-  display: flex;
-  align-items: center;
-}
-
 #header #header-title-box {
-  margin-left: 5vw;
+  margin-left: 0;
 }
-
-#header #header-title-box #header-title {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: calc(12px + 1vw);
-  color: var(--header-title);
-}
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-}
-
-.hamburger-line {
-  width: 100%;
-  height: 3px;
-  background-color: #163d3b;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.hamburger-menu.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.hamburger-menu.active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-menu.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Navigation Menu Styles */
 #header #header-navigation {
-  width: 30vw;
-  justify-content: space-between;
-}
-
-#header #header-navigation p {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: calc(9px + 0.4vw);
-  transition: font-weight 0.1s, text-decoration 0.1s;
-  cursor: pointer;
-}
-
-#header #header-navigation p:hover {
-  font-weight: 400;
-  text-decoration: underline;
-}
-
-#header #header-signup-box {
-  margin-right: 5vw;
-  cursor: pointer;
-}
-
-#header #header-signup-box p {
-  display: inline-flex;
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: calc(9px + 0.4vw);
-  background-color: var(--button-bg);
-  padding: 8px 30px;
-  color: var(--button-text);
-  border-radius: 30px;
-  vertical-align: middle;
-  align-items: center;
-  max-height: 50px;
-}
-
-#main {
   display: flex;
   flex-direction: row;
-  margin: 5vw;
-  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+  width: auto;
+  justify-content: center;
+}
+#header #header-navigation p {
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 18px;
+  transition: background 0.2s, color 0.2s;
+}
+#header #header-navigation p:hover {
+  background: rgba(22,61,59,0.08);
+  color: #163d3b;
+  text-decoration: none;
+}
+#header #header-signup-box {
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+}
+#header #header-signup-box p {
+  margin: 0;
+  padding: 10px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #163d3b 60%, #2d3a3a 100%);
+  color: #dff8f8;
+  box-shadow: 0 2px 8px 0 rgba(22,61,59,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+#header #header-signup-box p:hover {
+  background: linear-gradient(90deg, #2d3a3a 60%, #163d3b 100%);
+  box-shadow: 0 4px 16px 0 rgba(22,61,59,0.13);
 }
 
-#main .welcome {
-  font-weight: 600;
-  font-size: calc(7px + 0.4vw);
-  background-color: #f8e1ca;
-  color: #eda950;
-  width: fit-content;
-  padding: 0px 15px;
-  border-radius: 15px;
-}
-
-.main-text {
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-  font-style: normal;
-  font-size: calc(9px + 0.4vw);
-}
-
-.main-heading {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-  font-size: calc(20px + 1.5vw);
-  line-height: 1.6;
-}
-
+/* --- Main Action Buttons Alignment & Style --- */
 .main-left-links {
   display: flex;
   flex-direction: row;
+  gap: 1.5vw;
+  margin-top: 2.5vh;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main-left-links .links-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  min-height: 48px;
+  padding: 0 32px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  border-radius: 28px;
+  box-shadow: 0 2px 8px 0 rgba(22,61,59,0.04);
+  margin: 0;
+}
+.main-left-links .features-box {
+  background: linear-gradient(90deg, #f7b86e 60%, #ffcf8b 100%);
+  color: #544c1e;
+  border: none;
+}
+.main-left-links .features-box:hover {
+  background: linear-gradient(90deg, #ffcf8b 60%, #f7b86e 100%);
+  color: #3d2c00;
+}
+.main-left-links .try-box {
+  border: 2px solid #163d3b;
+  background: #fff;
+  color: #163d3b;
+}
+.main-left-links .try-box:hover {
+  background: #163d3b;
+  color: #dff8f8;
+  border-color: #163d3b;
 }
 
-.main-left-links .links-text {
-  display: inline-flex;
-  margin-right: 1vw;
-  padding: 0px 30px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: calc(9px + 0.4vw);
-  min-height: calc(50px - 0.4vw);
-  align-items: center;
-  border-radius: 30px;
-  cursor: pointer;
+/* Optional: Add focus styles for accessibility */
+.main-left-links .links-text:focus {
+  outline: 2px solid #eda950;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(237,169,80,0.18);
 }
 
 .main-left-links .features-box {
@@ -711,4 +730,111 @@ body.dark .footer-right .footer-right-box {
 body.dark .footer .footer-left-box {
   background: #fff;
   color: #23272a;
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 900px) {
+  #header {
+    flex-direction: column;
+    padding: 0 2vw;
+    min-height: 56px;
+  }
+  #header #header-navigation {
+    gap: 1vw;
+  }
+  .main-left-links {
+    gap: 2vw;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main-left-links {
+    flex-direction: column;
+    gap: 2vh;
+    align-items: stretch;
+    margin-top: 2vh;
+  }
+  .main-left-links .links-text {
+    min-width: 0;
+    width: 100%;
+    padding: 0 0.5em;
+    font-size: 1rem;
+  }
+}
+body.dark .main-left-links .features-box:hover,
+body.dark .main-left-links .try-box:hover,
+body.dark #header #header-signup-box p:hover {
+  color: #fff !important;
+}
+
+body.dark .footer-right .footer-right-box:hover,
+body.dark .footer-right .footer-right-box:hover .footer-right-heading,
+body.dark .footer-right .footer-right-box:hover .footer-right-text {
+  color: #fff !important;
+}
+body.dark .footer-right .footer-right-box:hover svg {
+  stroke: #fff !important;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 5vw auto 0 auto;
+  max-width: 900px;
+  width: 100%;
+}
+
+.main-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.main-left .main-text.welcome {
+  align-self: center;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.main-heading {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.main-left .main-text {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.main-left-links {
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2.5em;
+}
+
+.main-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main-right-box {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  #main {
+    max-width: 100vw;
+    margin: 3vw auto 0 auto;
+  }
+  .main-right-box {
+    max-width: 98vw;
+  }
 }
