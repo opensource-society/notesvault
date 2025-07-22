@@ -1116,463 +1116,88 @@ html, body {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(22, 61, 59, 0.3);
 }
-
-/* Footer Links Section */
-.footer-links h4 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 24px;
-    color: #dff8f8;
-    margin-left: 28px !important; 
+/* --- Community Footer Styles --- */
+.community-footer {
+    border-top: 2px solid #ccc;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1d1d1d;
+     background-color: #f4f7f2;
 }
 
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: #b8d4d1;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 300;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.footer-links a:hover {
-    color: #dff8f8;
-    transform: translateX(4px);
-}
-
-.footer-links a::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #a5c9a0, #f7b86e);
-    transition: width 0.3s ease;
-}
-
-.footer-links a:hover::before {
-    width: 12px;
-}
-
-/* Footer Community Section */
-.footer-community h4 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 24px;
-    color: #dff8f8;
-}
-
-.community-badges {
+.community-container {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    text-align: center;
 }
 
-.gssoc-badge img {
-    height: 32px;
-    border-radius: 6px;
+.community-box {
+    flex: 1 1 250px;
+    padding: 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #c9cfc5 0%, #f0f0f0 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
-.gssoc-badge:hover img {
-    transform: scale(1.05);
+.community-box:hover {
+    transform: translateY(-5px);
+    background-color: #a2ad9c;
 }
 
-.oss-link {
+.community-heading {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+}
+
+.community-heading::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #1d1d1d;
+    margin: 8px auto 0;
+    border-radius: 5px;
+}
+
+.community-box a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #0077cc;
     text-decoration: none;
 }
 
-.oss-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(223, 248, 248, 0.1);
-    border: 1px solid rgba(223, 248, 248, 0.2);
+.community-box a:hover {
+    text-decoration: underline;
+     background-color: #cddebf;
+    
+}
+
+.community-box img {
+    margin-top: 10px;
     border-radius: 8px;
-    color: #dff8f8;
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 0.3s ease;
-    width: fit-content;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+/* --- Matching Hover Effects for Community Footer Cards --- */
+.community-box:hover {
+     background-color: #e6ebe5;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
-.oss-badge:hover {
-    background: rgba(223, 248, 248, 0.2);
-    border-color: rgba(223, 248, 248, 0.4);
-    transform: translateY(-1px);
+/* Optional hover effect for link text like your footer-left-link */
+.community-box a:hover {
+    color: #1d1d1d;
+    text-decoration: underline;
+    font-weight: 600;
 }
-
-.community-text {
-    color: #b8d4d1;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.6;
-}
-
-/* Footer Bottom */
-.footer-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(223, 248, 248, 0.2), transparent);
-    margin-bottom: 30px;
-}
-
-.footer-bottom-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.copyright {
-    color: #b8d4d1;
-    font-size: 14px;
-    font-weight: 300;
-}
-
-.footer-bottom-links {
-    display: flex;
-    gap: 32px;
-}
-
-.footer-bottom-links a {
-    color: #b8d4d1;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 300;
-    transition: color 0.3s ease;
-}
-
-.footer-bottom-links a:hover {
-    color: #dff8f8;
-}
-
-/* Responsive Design */
-
-/* Tablet styles (768px and down) */
-@media screen and (max-width: 768px) {
-    .modern-footer {
-        padding: 50px 4vw 30px;
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-brand {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .footer-logo {
-        font-size: 28px;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .footer-links,
-    .footer-community {
-        text-align: center;
-    }
-
-    .community-badges {
-        align-items: center;
-    }
-
-    .footer-bottom-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-bottom-links {
-        gap: 24px;
-    }
-}
-
-/* Mobile styles (600px and down) */
-@media screen and (max-width: 600px) {
-    .main-content {
-        padding: 40px 20px;
-    }
-
-    .preview-text h2 {
-        font-size: 24px;
-    }
-
-    .preview-text p {
-        font-size: 14px;
-    }
-
-    .modern-footer {
-        padding: 40px 3vw 25px;
-    }
-
-    .footer-top {
-        gap: 35px;
-    }
-
-    .footer-logo {
-        font-size: 26px;
-        margin-bottom: 16px;
-    }
-
-    .footer-description {
-        font-size: 15px;
-        margin-bottom: 25px;
-    }
-
-    .social-links {
-        gap: 12px;
-    }
-
-    .social-link {
-        width: 44px;
-        height: 44px;
-    }
-
-    .footer-links h4,
-    .footer-community h4 {
-        font-size: 17px;
-        margin-bottom: 20px;
-    }
-
-    .footer-links a {
-        font-size: 14px;
-    }
-
-    .community-badges {
-        gap: 12px;
-    }
-
-    .gssoc-badge img {
-        height: 28px;
-    }
-
-    .oss-badge {
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-
-    .footer-bottom-links {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .copyright,
-    .footer-bottom-links a {
-        font-size: 13px;
-    }
-}
-
-
-/* Small mobile styles (480px and down) */
-@media screen and (max-width: 480px) {
-    .modern-footer {
-        padding: 35px 4vw 20px;
-    }
-
-    .footer-top {
-        gap: 30px;
-    }
-
-    .footer-logo {
-        font-size: 24px;
-    }
-
-    .footer-description {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .social-link {
-        width: 40px;
-        height: 40px;
-    }
-
-    .footer-links h4,
-    .footer-community h4 {
-        font-size: 16px;
-        margin-bottom: 18px;
-    }
-
-    .community-text {
-        font-size: 13px;
-    }
-
-    .gssoc-badge img {
-        height: 26px;
-    }
-
-    .oss-badge {
-        padding: 5px 10px;
-        font-size: 12px;
-        gap: 6px;
-    }
-}
-
-/* Extra small mobile styles (360px and down) */
-@media screen and (max-width: 360px) {
-    .preview-text h2 {
-        font-size: 20px;
-    }
-
-    .modern-footer {
-        padding: 30px 5vw 18px;
-    }
-
-    .footer-logo {
-        font-size: 22px;
-    }
-
-    .footer-description {
-        font-size: 13px;
-    }
-
-    .social-link {
-        width: 36px;
-        height: 36px;
-    }
-
-    .footer-links h4,
-    .footer-community h4 {
-        font-size: 15px;
-    }
-
-    .footer-links a {
-        font-size: 13px;
-    }
-
-    .community-text {
-        font-size: 12px;
-    }
-
-    .copyright,
-    .footer-bottom-links a {
-        font-size: 12px;
-    }
-
-}
-
-
-
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.container h1 {
+#footer-sen {
   text-align: center;
-  margin-bottom: 20px;
 }
-
-form label {
-  font-weight: bold;
-  display: block;
-  margin-top: 15px;
-}
-
-form input,
-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-form button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #45a049;
-}
-
-/* ===== Upload Page Navbar Styling ===== */
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  background-color: #f5f5f5;
-  padding: 16px 0;
-  border-bottom: 1px solid #ccc;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 8px 12px;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
-
-nav a:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.links-text {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.links-text:hover {
-  font-weight: 400;
-  text-decoration: underline;
-}
-
-
-.footer{
-  background-color: #1e1e1e;
-  color: #fff;
-  text-align: center;
-  padding: 20px 10px;
-  margin-top: 50px;
-  font-size: 14px;
-}
-
-.footer-content p { 
-  margin: 5px 0;
-
-}
-
-@media (max-width: 600px){
-  .footer {
-    font-size: 12px;
-    padding: 15px 5px;
-  }
-
-}
-
