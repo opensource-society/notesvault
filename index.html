@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
     <title>NotesVault Home</title>
-    <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -13,13 +12,11 @@
             <div id="header-title-box">
                 <p id="header-title">NotesVault</p>
             </div>
-
-            <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+            <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-
             <div id="header-navigation" class="nav-menu">
                 <a href="./pages/overview.html">Overview</a>
                 <a href="/">Student Account</a>
@@ -27,10 +24,9 @@
                 <a href="jotpad.html">Jotpad</a>
                 <a href="/">Features</a>
             </div>
-
             <div id="header-signup-box">
                 <a href="/notesvault/pages/signup.html"><p>Sign Up</p></a>
-                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light or dark theme">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
@@ -49,12 +45,8 @@
             <h1 class="main-heading">Your Go-To Companion for<br>Organized Learning.</h1>
             <p class="main-text">Keep your study notes and PYQs organized, easy to find,<br>and always just a click away with NotesVault.</p>
             <div class="main-left-links">
-                <a href="search.html" class="links-text features-box" style="text-decoration: none; color: inherit;">
-                    Browse Notes
-                </a>
-                <a href="upload.html" class="links-text try-box" style="text-decoration: none; color: inherit;">
-                    Upload Notes
-                </a>
+                <a href="search.html" class="links-text features-box">Browse Notes</a>
+                <a href="upload.html" class="links-text try-box">Upload Notes</a>
             </div>
         </div>
 
@@ -66,7 +58,7 @@
                         <p class="right-text" id="typeWriterText">Subject</p>
                     </div>
                     <div class="main-right-search">
-                        <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
+                        <form id="search-form" class="main-right-search-form" method="get" action="search.html" aria-label="Search notes by subject, branch, or semester">
                             <div class="search-form-input-container">
                                 <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="11" cy="11" r="8"></circle>
@@ -89,14 +81,11 @@
         <div class="About-left">
             <p class="About-left-heading">About NotesVault</p><br />
             <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
-            <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>
-                Learn More →
-            </p>
+            <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
         </div>
-
         <div class="About-right">
             <div class="About-right-box">
-                <a href="upload.html" style="text-decoration: none; color: inherit;">
+                <a href="upload.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 3v12" />
                         <polyline points="5 9 12 2 19 9" />
@@ -106,7 +95,6 @@
                     <p class="About-right-text">Add your notes quickly and effortlessly</p>
                 </a>
             </div>
-
             <div class="About-right-box">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 6h5l2 3h11v11H3z" />
@@ -123,23 +111,20 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo">NotesVault</div>
-                    <p class="footer-description">
-                        Your go-to companion for organized learning. Keep your study notes and PYQs organized, easy to find, and always just a click away.
-                    </p>
+                    <p class="footer-description">Your go-to companion for organized learning. Keep your study notes and PYQs organized, easy to find, and always just a click away.</p>
                     <div class="social-links">
                         <a href="https://github.com/opensource-society/notesvault" class="social-link" target="_blank" rel="noopener noreferrer">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.3 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.300 24 12c0-6.627-5.373-12-12-12z" />
+                                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8..."/>
                             </svg>
                         </a>
                         <a href="https://discord.com" class="social-link" target="_blank" rel="noopener noreferrer">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028z" />
+                                <path d="M20.317 4.492c-1.53-.69-3.17-1.2..."/>
                             </svg>
                         </a>
                     </div>
                 </div>
-
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
@@ -150,41 +135,38 @@
                         <li><a href="about.html">About</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-community">
-                    <h4>Community</h4>
+                    <h4>Community & Contribution</h4>
                     <div class="community-badges">
-                        <a href="https://gssoc.girlscript.tech/" class="gssoc-badge" target="_blank" rel="noopener noreferrer">
-                            <div class="oss-badge">
-                                <img src="https://substack-post-media.s3.amazonaws.com/public/images/e0a1ea17-12ac-433f-9266-afb96c11f06a_200x200.jpeg" alt="GSSOC Badge" />
-                                <span>Girlscript Summer Of Code</span>
-                            </div>
+                        <a href="https://gssoc.girlscript.tech/" class="community-badge" target="_blank" rel="noopener noreferrer">
+                            <img src="https://substack-post-media.s3.amazonaws.com/..." alt="Girlscript Summer Of Code Badge" />
+                            <span>Girlscript Summer Of Code</span>
                         </a>
-                        <a href="https://github.com/opensource-society" class="oss-link" target="_blank" rel="noopener noreferrer">
-                            <div class="oss-badge">
-                                <img src="./assets/index/images/oss.png" alt="oss">
-                                <span>Open Source Society</span>
-                            </div>
+                        <a href="https://github.com/opensource-society/notesvault" class="community-badge" target="_blank" rel="noopener noreferrer">
+                            <img src="./assets/index/images/oss.png" alt="Open Source Society Badge">
+                            <span>Open Source Society</span>
                         </a>
                     </div>
-                    <p class="community-text">Join our vibrant community of learners and contributors</p>
+                    <p class="community-text">Join our vibrant community of learners and contributors.<br>
+                        <a href="https://github.com/opensource-society/notesvault#contributing" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: underline;">Contribute to NotesVault →</a>
+                    </p>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <div class="footer-divider"></div>
-                <div class="footer-bottom-content">
-                    <p class="copyright">© 2025 NotesVault. Built with ❤️ by the Open Source Community</p>
-                    <div class="footer-bottom-links">
-                        <a href="privacy.html">Privacy Policy</a>
-                        <a href="terms.html">Terms of Service</a>
-                        <a href="https://github.com/opensource-society/notesvault/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
-                    </div>
+                <p class="copyright">© <span id="current-year"></span> NotesVault. Built with ❤️ by the Open Source Community</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="https://github.com/opensource-society/notesvault/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Set current year dynamically in footer
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
     <script src="script.js" defer></script>
 </body>
 </html>
