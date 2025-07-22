@@ -1576,3 +1576,12 @@ nav a:hover {
 
 }
 
+.with-navbar-offset {
+  padding-top: 64px;
+}
+@media screen and (max-width: 600px) {
+  .with-navbar-offset {
+    padding-top: 56px;
+  }
+}
+
