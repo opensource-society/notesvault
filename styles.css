@@ -737,6 +737,18 @@ body {
   }
 }
 
+.hero-illustration {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.hero-illustration img {
+    max-width: 90%;
+    height: auto;
+}
+
+
+
 
 
 /* Dark Mode Styles */
@@ -1427,3 +1439,4 @@ body {
         font-size: 12px;
     }
 }
+
