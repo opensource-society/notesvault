@@ -34,7 +34,7 @@
 
 .box-feature {
     /* background-color: #e4f5e9; */
-    border: 2px solid green;
+    border: 2px solid #163d3b;
     border-radius: 15px;
     padding: 20px;
     text-align: center;
@@ -54,7 +54,7 @@
 
 .box-feature i {
     font-size: 30px;
-    color: green;
+    color: #eda950;
     margin-bottom: 12px;
 }
 
@@ -77,7 +77,7 @@
 
 .why-heading {
     font-size: calc(20px + 1vw);
-    color: #1e4d2b;
+    color: #eda950;
     margin-bottom: 40px;
 }
 
@@ -90,7 +90,7 @@
 
 .why-card {
     background-color: #ffffff;
-    border: 2px solid #88c799;
+    border: 2px solid #eda950;
     border-radius: 15px;
     padding: 25px;
     width: 280px;
@@ -105,7 +105,7 @@
 
 .why-card i {
     font-size: 32px;
-    color: #4CAF50;
+    color: #163d3b;
     margin-bottom: 15px;
 }
 
@@ -133,7 +133,7 @@
 }
 
 .section h2 {
-  color: #2d7a2d;
+  color: #4bac4b;
   margin-bottom: 10px;
 }
 
