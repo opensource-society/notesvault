@@ -402,8 +402,13 @@ html, body {
 }
 
 .footer .footer-left-box {
-  max-width: 20vw;
+  max-width: 400px;      /* increased width from 20vw */
+  width: 100%;           /* takes full width within container */
+  padding: 1rem 1.5rem;  /* adds internal spacing */
+  margin-bottom: 1rem;   /* spacing from bottom elements */
+  box-sizing: border-box;
 }
+
 
 .footer .footer-left-heading {
   font-family: "Poppins", sans-serif;
@@ -1221,6 +1226,12 @@ html, body {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .copyright {
