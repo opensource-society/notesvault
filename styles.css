@@ -1476,3 +1476,22 @@ html, body {
   }
 
 }
+
+/* About NotesVault - Dark Mode Fixes */
+[data-theme="dark"] .footer-left-box {
+  background-color: transparent; /* optional */
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .footer-left-heading,
+[data-theme="dark"] .footer-left-text {
+  color: #cccccc;
+}
+
+[data-theme="dark"] .footer-left-link {
+  color: #8a8ddb;
+}
+
+[data-theme="dark"] .footer-left-link:hover {
+  color: #dff8f8;
+}
