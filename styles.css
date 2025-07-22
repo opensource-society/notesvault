@@ -793,11 +793,11 @@ html, body {
 }
 
 [data-theme="dark"] #header #header-navigation p {
-  color: #e0e0e0;
+  color: #ffffff;;
 }
 
 [data-theme="dark"] #header #header-navigation p:hover {
-  color: #ffffff;
+  color: #f7f7f7; ;
 }
 
 [data-theme="dark"] #header #header-signup-box p {
