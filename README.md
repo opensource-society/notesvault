@@ -88,7 +88,7 @@ Simply open `index.html` in your browser. All data is stored locally via JSON or
  ![Third](Screenshots/Thirdpage.png)
  ![fourth Page](Screenshots/fourthpage.png)
  ![fifth Page](Screenshots/fifthpage.png)
- ![Sxith Page](Screenshots/Sxith.png)
+ ![Sxith Page](Screenshots/sxithpage.png)
 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
