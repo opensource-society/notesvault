@@ -86,9 +86,7 @@ Simply open `index.html` in your browser. All data is stored locally via JSON or
 ![Home Page](Screenshots/home.png)
  ![Search Page](Screenshots/Second.png)
  ![Third](Screenshots/Thirdpage.png)
- ![fourth Page](Screenshots/fourthpage.png)
- ![fifth Page](Screenshots/fifthpage.png)
- ![Sxith Page](Screenshots/sixthpage.png)
+![Sxith Page](Screenshots/sixthpage.png)
  ![Sxith Page](Screenshots/eigthpage.png)
 
 
