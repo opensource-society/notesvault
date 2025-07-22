@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="../styles.css"/>
+    <link rel="stylesheet" href="../styling/overview.css">
     <title>NotesVault Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-...hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script
   src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
   crossorigin="anonymous"
@@ -16,15 +19,6 @@
             <div id="header-title-box">
                 <p id="header-title">NotesVault</p>
             </div>
-
-            <div id="header-navigation">
-                <p>Overview</p>
-                <p>Student Account</p>
-                <p>About</p>
-                <p>Features</p>
-            </div>
-            <button id="theme-toggle" style="margin-left: 20px; padding: 6px 14px; border-radius: 8px; border: none; cursor: pointer;">🌙</button>
-
             
             <!-- Hamburger Menu Button -->
             <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
@@ -32,131 +26,97 @@
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-
             
             <!-- Navigation Menu -->
-           <div id="header-navigation" class="nav-menu">
-  <a href="../pages/overview.html">Overview</a>
-  <a href="/">Student Account</a>
-  <a href="about.html">About</a>
-  <a href="/">Features</a>
-</div>
-
+            <div id="header-navigation" class="nav-menu">
+                <a href="overview.html">Overview</a>
+                <a href="/">Student Account</a>
+                <a href="about.html">About</a>
+                <a href="/">Features</a>
+            </div>
             
-
             <div id="header-signup-box">
                 <p>Sign Up</p>
-                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-                </svg>
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
             </div>
         </div>
     </header>
 
-    <div id="main">
-        <div class="main-left">
-            <p class="main-text welcome">Welcome Back</p>
-            <h1 class="main-heading">Your Go-To Companion for<br>Organized Learning.</h1>
-            <p class="main-text">Keep your study notes and PYQs organized, easy to find,<br>and always just a click away with NotesVault.</p>
-            <!-- <div class="main-left-links">
-                <p class="links-text features-box">Browse Notes</p>
+    <div class="main">
+        <h1 class="heading1">NotesVault</h1>
+        <p class="content">One Place for All Your Study Notes and PYQs.</p>
+ 	
+<!-- NotesVault is a beginner-friendly, open-source web application built with students in mind. It serves as a centralized platform to store, browse, and manage academic notes and Previous Year Questions (PYQs) in a well-organized, semester-wise format. Whether you're revising for exams, searching for subject-wise resources, or looking to contribute to an impactful project, NotesVault offers both utility and learning opportunity.</p> -->
+    </div>
+    
+   
 
-               
-            </div> -->
-            <div class="main-left-links">
-  <a href="search.html" class="links-text features-box" style="text-decoration: none; color: inherit;">
-    Browse Notes
-  </a>
-  <a href="upload.html" class="links-text try-box" style="text-decoration: none; color: inherit;">
-    Upload Notes
-  </a>
+    <div class="features">
+    <h3 class="features-heading">Key Features</h3>
+
+    <div class="features-grid">
+        <div class="box-feature">
+            <i class="fas fa-search"></i>
+            <h5 class="feature-title">Browse & Search Notes</h5>
+            <p class="feature-desc">Find notes instantly using filters and keywords.</p>
+        </div>
+
+        <div class="box-feature">
+            <i class="fas fa-upload"></i>
+            <h5 class="feature-title">Upload Your Content</h5>
+            <p class="feature-desc">Easily share your notes and help others learn.</p>
+        </div>
+
+        <div class="box-feature">
+            <i class="fas fa-tags"></i>
+            <h5 class="feature-title">Subject-wise Tagging</h5>
+            <p class="feature-desc">Organize notes by subject for quick discovery.</p>
+        </div>
+
+        <div class="box-feature">
+            <i class="fas fa-layer-group"></i>
+            <h5 class="feature-title">Semester Sorting</h5>
+            <p class="feature-desc">View notes semester-wise with structured layout.</p>
+        </div>
+
+        <div class="box-feature">
+            <i class="fas fa-magnifying-glass"></i>
+            <h5 class="feature-title">Quick Search Bar</h5>
+            <p class="feature-desc">Use the search bar to access any topic in seconds.</p>
+        </div>
+    </div>
 </div>
 
 
-
-                <p class="links-text try-box upload-btn">Upload Notes</p>
-            </div>
-
-        </div>
-        <div class="main-right">
-            <div class="main-right-box">
-                <div class="main-right-upper-box">
-                    <div class="right-text-div">
-                        <p class="right-text">Notes Organised by</p>
-                        <p class="right-text" id="typeWriterText">Subject</p>
-                    </div>
-                    <div class="main-right-search">
-                        <form id="search-form" class="main-right-seach-form" method="get" action="search.html">
-                            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.35-4.35"></path>
-                            </svg>
-                            <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search">
-
-                            <div id="search-parameters-branch" class="search-parameters-div">
-                                
-                            </div>
-                            <div id="search-parameters-semester" class="search-parameters-div"></div>
-                            <div id="search-parameters-subject" class="search-parameters-div">
-                                
-                            </div>
-
-                            <input type="submit" style="display: none;">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="why">
+    <h2 class="why-heading">Why Should You Use It?</h2>
     
-    <div class="About">
-        <div class="About">
-            <p class="About-left-heading">About NotesVault</p><br/>
-            <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
-            <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
+    <div class="why-cards">
+        <div class="why-card">
+            <i class="fas fa-book-open"></i>
+            <h5>Reduces Chaos During Exams</h5>
+            <p>No more hunting for notes across different platforms — find everything in one place.</p>
         </div>
 
-        <div class="About-right">
-            <div class="About-right-box">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3v12" />
-                        <polyline points="5 9 12 2 19 9"/>
-                    <path d="M5 20h14" />
-                </svg>
+        <div class="why-card">
+            <i class="fas fa-users"></i>
+            <h5>Makes Collaboration Easier</h5>
+            <p>Upload and share notes with classmates seamlessly, encouraging group learning.</p>
+        </div>
 
-                <p class="About-right-heading upload-btn">Easy Upload</p>
-                <p class="About-right-text">Add your notes quickly and effortlessly</p>
-            </div>
-            <div class="About-right-box">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 6h5l2 3h11v11H3z" />
-                    <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
-                </svg>
-
-
-                <p class="About-right-heading">Sort The Chaos</p>
-                <p class="About-right-text">Neatly arrange all your notes in one place</p>
-            </div>
-            <div class="About-right-box">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
-                    <circle cx="16" cy="8" r="1.5" />
-                </svg>
-
-
-                <p class="About-right-heading">Search By Tags</p>
-                <p class="About-right-text">Find notes using subject tags</p>
-            </div>
+        <div class="why-card">
+            <i class="fas fa-child"></i>
+            <h5>Beginner Friendly</h5>
+            <p>Simple and intuitive interface that's easy to use even for first-time users.</p>
         </div>
     </div>
+</div>
+
+    
+    
+    
+    
+
+
 
 
      <footer class="modern-footer">
@@ -187,8 +147,8 @@
                         <li><a href="#overview">Overview</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#browse">Browse Notes</a></li>
-                        <li><a href="upload.html">Upload Notes</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="#upload">Upload Notes</a></li>
+                        <li><a href="#about">About</a></li>
                     </ul>
                 </div>
 
@@ -217,7 +177,7 @@
                 <div class="footer-divider"></div>
                 <div class="footer-bottom-content">
                     <p class="copyright">
-                        © 2025 NotesVault. Built with ❤️ by the Open Source Community
+                        © 2028 NotesVault. Built with ❤️ by the Open Source Community
                     </p>
                     <div class="footer-bottom-links">
                         <a href="#privacy">Privacy Policy</a>
@@ -228,8 +188,6 @@
             </div>
         </div>
     </footer>
-
-
     
     <script src="script.js" defer></script>
 </body>

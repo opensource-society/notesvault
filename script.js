@@ -1,210 +1,205 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // setup search parameters
-    const search_branch = document.getElementById("search-parameters-branch");
-    const search_semester = document.getElementById("search-parameters-semester");
-    const search_subject = document.getElementById("search-parameters-subject");
+    // --- Data Storage ---
+    let allData = {};
 
-    // to be filled with data after fetch!
-    Branches = [];
+    // --- Element References ---
+    const searchBranchContainer = document.getElementById("search-parameters-branch");
+    const searchSemesterContainer = document.getElementById("search-parameters-semester");
+    const searchSubjectContainer = document.getElementById("search-parameters-subject");
 
-    // fetch parameters.json file
+    // Helper function to create dropdowns
+    function createDropdown(container, id, defaultText, options) {
+        container.innerHTML = '';
+        const select = document.createElement("select");
+        select.id = id;
+        select.className = "search-parameters-select";
+
+        const defaultOption = document.createElement("option");
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        defaultOption.innerHTML = defaultText;
+        select.appendChild(defaultOption);
+
+        options.forEach(opt => {
+            const option = document.createElement("option");
+            option.value = opt;
+            option.innerHTML = opt;
+            select.appendChild(option);
+        });
+
+        container.appendChild(select);
+        return select;
+    }
+
+    // Update Semesters
+    function updateSemesters() {
+        const selectedBranch = document.getElementById("selectBranch").value;
+        const branchData = allData.branches.find(b => b.name === selectedBranch);
+
+        const semesters = branchData ? branchData.semesters.map(s => s.semester) : [];
+        const semesterSelect = createDropdown(searchSemesterContainer, "selectSemester", "Select Semester", semesters);
+
+        semesterSelect.addEventListener("change", updateSubjects);
+        searchSubjectContainer.innerHTML = '';
+    }
+
+    // Update Subjects
+    function updateSubjects() {
+        const selectedBranch = document.getElementById("selectBranch").value;
+        const selectedSemester = document.getElementById("selectSemester").value;
+
+        const branchData = allData.branches.find(b => b.name === selectedBranch);
+        const semesterData = branchData.semesters.find(s => s.semester == selectedSemester);
+
+        const subjects = semesterData ? semesterData.subjects.map(sub => Object.values(sub)[0]) : [];
+        createDropdown(searchSubjectContainer, "selectSubject", "Select Subject", subjects);
+    }
+
+    // Fetch parameters.json
     fetch("data/search_parameters/parameters.json")
         .then(res => res.json())
         .then(data => {
-            
-            // store all data inside branchList
-            const branchList = data.branches;
-            branchList.forEach(branch => {
-                
-                // store branch name in Branches array
-                if(branch.name){
-                    Branches.push(branch.name);
-                }
-            });
+            allData = data;
+            const branches = data.branches.map(b => b.name);
+            const branchSelect = createDropdown(searchBranchContainer, "selectBranch", "Select Branch", branches);
+            branchSelect.addEventListener("change", updateSemesters);
+        })
+        .catch(err => console.error("Error loading parameters.json", err));
 
-            // create select element for branch and append it
-            const chooseBranch = document.createElement("select");
-            chooseBranch.name = "selectBranch";
-            chooseBranch.id = "selectBranch";
-            chooseBranch.className = "search-parameters-select";
-            search_branch.appendChild(chooseBranch);
+    // --- Typewriter Effect ---
+    const words = ["Branch", "Semester", "Subject", "Year"];
+    let wordIndex = 0, charIndex = 0, deleting = false;
 
-            // create default option in select and append it
-            const chooseBranchDefault = document.createElement("option");
-            chooseBranchDefault.disabled = true;
-            chooseBranchDefault.selected = true;
-            chooseBranchDefault.innerHTML = "Select Branch";
-            chooseBranchDefault.className = "search-parameters-option";
-            const searchBranch = document.getElementById("selectBranch");
-            searchBranch.appendChild(chooseBranchDefault);
+    function typeWriterEffect() {
+        const el = document.getElementById('typeWriterText');
+        if (!el) return;
 
-            // fill options from Branches array
-            Branches.forEach(branch => {
-                const branchOption = document.createElement("option");
-                branchOption.value = branch;
-                branchOption.innerHTML = branch;
-                branchOption.className = "search-parameters-option";
-                searchBranch.appendChild(branchOption);
-            });
-            
+        const currentWord = words[wordIndex];
+        el.textContent = deleting ? currentWord.substring(0, charIndex--) : currentWord.substring(0, charIndex++);
 
-            const branchOptions = document.getElementById("selectBranch");
-            Semesters = [];
-            semesterList = [];
+        let speed = deleting ? 75 : 150;
 
-            // Add semesters if change detected in branches!
-            branchOptions.addEventListener("change", () => {
-                branchList.forEach(branch => {
-                    if(branch.name == branchOptions.value) {
-                        if(branch.semesters) {
-                            semesterList = branch.semesters;
-                            Semesters = [];
-                            semesterList.forEach(semester =>{
-                                Semesters.push(semester.semester);
-                            });
-                            console.log(Semesters);
-                        }
-                    }
-                });
+        if (!deleting && charIndex === currentWord.length) {
+            speed = 2000; deleting = true;
+        } else if (deleting && charIndex === 0) {
+            deleting = false; wordIndex = (wordIndex + 1) % words.length; speed = 500;
+        }
 
-                search_semester.innerHTML = '';
+        setTimeout(typeWriterEffect, speed);
+    }
+    typeWriterEffect();
 
-                // add option to select semester in page and append it
-                const chooseSemester = document.createElement("select");
-                chooseSemester.name = "selectSemester";
-                chooseSemester.id = "selectSemester";
-                chooseSemester.className = "search-parameters-select";
-                search_semester.appendChild(chooseSemester);
+    // --- Hamburger Menu ---
+    const nav = document.getElementById('header-navigation');
+    const hamburger = document.getElementById('hamburgerMenu');
 
-                // default semester option
-                const chooseSemesterDefault = document.createElement("option");
-                chooseSemesterDefault.disabled = true;
-                chooseSemesterDefault.selected = true;
-                chooseSemesterDefault.innerHTML = "Select Semester";
-                chooseSemesterDefault.className = "search-parameters-option";
-                const searchSemester = document.getElementById("selectSemester");
-                searchSemester.appendChild(chooseSemesterDefault);
-
-                // add all semesters
-                semesterList.forEach(semester => {
-                    const semesterOption = document.createElement("option");
-                    semesterOption.value = semester.semester;
-                    semesterOption.innerHTML = semester.semester;
-                    semesterOption.className = "search-parameters-option";
-                    searchSemester.appendChild(semesterOption);
-                });
-
-                // add subjects if semester is selected
-                searchSemester.addEventListener("change", addSubjects());
-            });
-            Subjects = [];
-            subjectList = [];
-
-            // add subjects option
-            function addSubjects() {
-                search_subject.innerHTML = "";
-                const selectSemester = document.getElementById("selectSemester");
-                selectSemester.addEventListener("change", () => {
-                    semesterList.forEach(semester => {
-                        if(semester){
-                            if(semester.semester == selectSemester.value){
-                                subjectList = semester.subjects;
-                                Subjects = [];
-                                subjectList.forEach(subject => {
-                                    Subjects.push(Object.values(subject));
-                                });
-                            }
-                        }
-                    });
-
-                    // add option to select subject and append it
-                    const chooseSubject = document.createElement("select");
-                    chooseSubject.name = "selectSubject";
-                    chooseSubject.id = "selectSubject";
-                    chooseSubject.className = "search-parameters-select";
-                    search_subject.appendChild(chooseSubject);
-
-                    // add default subject
-                    const chooseSubjectDefault = document.createElement("option");
-                    chooseSubjectDefault.disabled = true;
-                    chooseSubjectDefault.selected = true;
-                    chooseSubjectDefault.innerHTML = "Select Subject";
-                    chooseSubjectDefault.className = "search-parameters-option";
-                    const searchSubject = document.getElementById("selectSubject");
-                    searchSubject.appendChild(chooseSubjectDefault);
-
-                    // add options for all subjects.
-                    Subjects.forEach(subject => {
-                        console.log(subject);
-                        const subjectOption = document.createElement("option");
-                        subjectOption.value = subject;
-                        subjectOption.innerHTML = subject;
-                        subjectOption.className = "search-parameters-option";
-                        searchSubject.appendChild(subjectOption);
-                    });
-                });
-            }
-            
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+            hamburger.classList.toggle('active');
         });
-});
 
-// typewriter effect in homepage!
-const words = ["Branch", "Semester", "Subject"];
-  let currentWord = 0;
-  let i = 0;
-  let isDeleting = false;
-  let speed = 100;
-
-  function typeWriter() {
-    const element = document.getElementById("typeWriterText");
-    const word = words[currentWord];
-
-    if (isDeleting) {
-      element.innerHTML = word.substring(0, i - 1);
-      i--;
-    } else {
-      element.innerHTML = word.substring(0, i + 1);
-      i++;
+        document.addEventListener('click', function (e) {
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('show');
+                hamburger.classList.remove('active');
+            }
+        });
     }
 
-    if (!isDeleting && i === word.length) {
-      isDeleting = true;
-      speed = 50;
-      setTimeout(typeWriter, 1000); // Wait before deleting
-      return;
+    // --- Theme Toggle ---
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        const toggleBtn = document.getElementById("theme-toggle");
+        if (toggleBtn) toggleBtn.textContent = theme === "dark" ? "☀️" : "🌙";
     }
 
-    if (isDeleting && i === 0) {
-      isDeleting = false;
-      currentWord = (currentWord + 1) % words.length; // Next word
-      speed = 100;
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme("dark");
     }
 
-    setTimeout(typeWriter, speed);
-  }
-
-  window.onload = typeWriter;
-
-  document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.getElementById("theme-toggle");
-  const currentTheme = localStorage.getItem("theme");
-
-  if (currentTheme === "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
-    toggleBtn.textContent = "☀️";
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-    if (isDark) {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-      toggleBtn.textContent = "🌙";
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-      toggleBtn.textContent = "☀️";
+    const toggleBtn = document.getElementById("theme-toggle");
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+            const current = document.documentElement.getAttribute("data-theme");
+            setTheme(current === "dark" ? "light" : "dark");
+        });
     }
-  });
+
+    // --- Upload Redirect ---
+    document.querySelectorAll(".upload-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            window.location.href = "upload.html";
+        });
+    });
+
+    // --- Notes Filter ---
+    const branchFilter = document.getElementById("branch-filter");
+    const semesterFilter = document.getElementById("semester-filter");
+    const subjectFilter = document.getElementById("subject-filter");
+    const notesContainer = document.getElementById("notes-container");
+
+    const subjectMap = {
+        "CSE": ["Maths", "DBMS", "OS", "DSA"],
+        "CSE AIML": ["AI", "ML", "Python"],
+        "CSE IOT": ["IoT Fundamentals", "Sensors", "Microcontrollers"],
+        "CSE DS": ["Data Science Basics", "Statistics", "Python for DS"]
+    };
+
+    let notesData = [];
+
+    fetch("data/notes.json")
+        .then(res => res.json())
+        .then(data => {
+            notesData = data;
+            populateSubjects("");
+            displayNotes(notesData);
+        });
+
+    function populateSubjects(branch) {
+        subjectFilter.innerHTML = '<option value="">All Subjects</option>';
+        const subjects = branch ? subjectMap[branch] : [].concat(...Object.values(subjectMap));
+        [...new Set(subjects)].forEach(sub => {
+            const opt = document.createElement("option");
+            opt.value = sub;
+            opt.textContent = sub;
+            subjectFilter.appendChild(opt);
+        });
+    }
+
+    function displayNotes(notes) {
+        notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+        notes.forEach(note => {
+            const card = document.createElement("div");
+            card.className = "note-card";
+            card.innerHTML = `
+                <h3>${note.title}</h3>
+                <p><strong>Branch:</strong> ${note.branch}</p>
+                <p><strong>Semester:</strong> ${note.semester}</p>
+                <p><strong>Subject:</strong> ${note.subject}</p>
+                <a href="${note.link}" target="_blank" download>Download</a>
+            `;
+            notesContainer.appendChild(card);
+        });
+    }
+
+    [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
+        filter.addEventListener("change", () => {
+            const branchVal = branchFilter.value;
+            if (filter === branchFilter) populateSubjects(branchVal);
+
+            const filtered = notesData.filter(note =>
+                (!branchVal || note.branch === branchVal) &&
+                (!semesterFilter.value || note.semester === semesterFilter.value) &&
+                (!subjectFilter.value || note.subject === subjectFilter.value)
+            );
+            displayNotes(filtered);
+        });
+    });
+
 });

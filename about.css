@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f9f4;
+  color: #1c1c1c;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* Header */
+.hero-section {
+  background-color: #163d3b;
+  color: white;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 2.6rem;
+  margin: 0;
+}
+
+/* Intro */
+.intro-box {
+  background-color: #dbe5dc;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/* Cards */
+.two-cards,
+.features {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.card,
+.feature-box {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card h3,
+.feature-box h3 {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card p,
+.feature-box p {
+  color: #444;
+}
+
+/* GitHub CTA */
+.cta {
+  text-align: center;
+  background: #dbe5dc;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.8rem;
+  background-color: #2f3e46;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta a:hover {
+  background-color: #1d2a2e;
+}
+
+/* Footer */
+.footer {
+  background: #2f3e46;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
