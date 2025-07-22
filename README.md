@@ -17,12 +17,6 @@
 - Tutorials organized by:
   - **Difficulty levels**, metadata, and subjects
 
-### 🔍 Advanced Search & Tag Filters
-- Powerful **search functionality** for quick resource access
-- Filters for **branch, semester, and subject**
-- **Tag-based filtering system** for precise content discovery
-- **Intelligent suggestions** during typing
-
 ### 🌙 Theme Switcher
 - Light/Dark **mode toggle**
 - **System preference** detection
@@ -34,10 +28,6 @@
 - **File type validation** to ensure proper format
 - **Simulated upload process** for smoother UX testing
 
-### 📄 Tutorials & Documentation Section
-- Dedicated area for **step-by-step tutorials**
-- Integration of **video content** for visual learners
-- **Difficulty indicators** to guide learners
 
 ### 🐞 Bug Fixes & Optimizations
 - Fixed **dropdown styling** and mobile navigation issues
