@@ -624,7 +624,15 @@ body {
   .main-left-links .try-box {
     border: solid 1px;
   }
-
+  
+  .main-left-links .pyqs-box {
+    background-color: #f7b86e;
+    color: #544c1e;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
   .main-right {
     display: flex;
     flex-direction: column;
