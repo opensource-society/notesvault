@@ -1,0 +1,16 @@
+.upload-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  border: 2px green solid;
+}
+
+form label, form input, form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+

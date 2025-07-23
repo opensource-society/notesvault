@@ -78,7 +78,15 @@ document.addEventListener("DOMContentLoaded", function () {
             const semesterData = branchData.semesters.find(sem => sem.semester == selectedSemester);
             if (semesterData && semesterData.subjects) {
                 // Extracts the name of the subject
-                subjectNames = semesterData.subjects.map(sub => Object.values(sub)[0]);
+                // subjectNames = semesterData.subjects.map(sub => Object.values(sub)[0]);
+
+subjectNames = semesterData.subjects
+  .map(sub => Object.values(sub)[0])
+  .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
+
+
+
             }
         }
         
@@ -207,20 +215,64 @@ fetch("data/notes.json")
   .then(res => res.json())
   .then(data => {
     notesData = data;
-    updateSubjects("");
+  updateFilterSubjects("");
     displayNotes(notesData);
     runQuerySearch();
   });
 
-function updateSubjects(branch) {
+function updateFilterSubjects(branch) {
   subjectFilter.innerHTML = '<option value="">All Subjects</option>';
   const subjects = subjectMap[branch] || [].concat(...Object.values(subjectMap));
-  [...new Set(subjects)].forEach(sub => {
+  // [...new Set(subjects)].forEach(sub => {
+  //   const opt = document.createElement("option");
+  //   opt.value = sub;
+  //   opt.textContent = sub;
+  //   subjectFilter.appendChild(opt);
+  // });
+  [...new Set(subjects)]
+  .sort((a, b) => a.localeCompare(b)) // Sort alphabetically
+  .forEach(sub => {
     const opt = document.createElement("option");
     opt.value = sub;
     opt.textContent = sub;
     subjectFilter.appendChild(opt);
-  });
+});
+
+}
+
+
+// function displayNotes(notes) {
+//   notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+//   notes.forEach(note => {
+//     const card = document.createElement("div");
+//     card.className = "note-card";
+//     card.innerHTML = `
+//       <h3>${note.title}</h3>
+//       <p><strong>Branch:</strong> ${note.branch}</p>
+//       <p><strong>Semester:</strong> ${note.semester}</p>
+//       <p><strong>Subject:</strong> ${note.subject}</p>
+//       <a href="${note.link}" target="_blank" download>Download</a>
+//     `;
+//     notesContainer.appendChild(card);
+//   });
+// }
+function displayNotes(notes) {
+  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+
+  notes
+    .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
+    .forEach(note => {
+      const card = document.createElement("div");
+      card.className = "note-card";
+      card.innerHTML = `
+        <h3>${note.title}</h3>
+        <p><strong>Branch:</strong> ${note.branch}</p>
+        <p><strong>Semester:</strong> ${note.semester}</p>
+        <p><strong>Subject:</strong> ${note.subject}</p>
+        <a href="${note.link}" target="_blank" download>Download</a>
+      `;
+      notesContainer.appendChild(card);
+    });
 }
 
   function displayNotes(notes) {
@@ -297,10 +349,12 @@ function updateSubjects(branch) {
   }
 
 
+
+
 [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
   filter.addEventListener("change", () => {
     const branchVal = branchFilter.value;
-    if (filter === branchFilter) updateSubjects(branchVal);
+    if (filter === branchFilter) updateFilterSubjects(branchVal);
     const filtered = notesData.filter(note =>
       (branchVal === "" || note.branch === branchVal) &&
       (semesterFilter.value === "" || note.semester === semesterFilter.value) &&
@@ -308,6 +362,16 @@ function updateSubjects(branch) {
     );
     displayNotes(filtered);
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var easyUploadCard = document.querySelector('.easy-upload-card');
+  if (easyUploadCard) {
+    easyUploadCard.style.cursor = 'pointer';
+    easyUploadCard.addEventListener('click', function() {
+      window.location.href = '/upload.html';
+    });
+  }
 });
 
 });

@@ -5,75 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NotesVault | JotPad</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f2f5ef;
-    }
 
-    .header {
-      background-color: #163d3b;
-      padding: 15px 20px;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #d7e7d3;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+  <link rel="stylesheet" href="styling/jotpad.css">
 
-    .editor-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    .editor-container {
-      width: 100%;
-      max-width: 800px;
-      background-color: #d7e7d3;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .note-box {
-      height: 54vh;
-      background-color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      padding: 20px;
-      outline: none;
-      overflow-y: auto;
-      font-size: 1rem;
-    }
-
-    .download-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #21453c;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      align-self: flex-end;
-    }
-
-    .download-btn:hover {
-      background-color: #19352d;
-    }
-
-  .note-box:empty::before {
-    content: attr(data-placeholder);
-    color: #888;
-    pointer-events: none;
-  }
-  </style>
 </head>
 <body>
 
@@ -81,9 +15,9 @@
 
   <div class="editor-wrapper">
     <div class="editor-container">
-      <div class="note-box" contenteditable="true" id="noteArea" data-placeholder="Start writing your notes here...">
-
+      <div class="note-box empty" contenteditable="true" id="noteArea" spellcheck="true">
       </div>
+     
       <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
     </div>
   </div>
@@ -100,11 +34,18 @@
       doc.text(content, 10, 20, { maxWidth: 180 });
       doc.save("MyNotes.pdf");
     }
-    const note = document.getElementById("noteArea");
-  note.innerHTML = localStorage.getItem("noteContent") || "";
-  note.addEventListener("input", () => {
-    localStorage.setItem("noteContent", note.innerHTML);
-  });
+    const noteArea=document.getElementById("noteArea");
+    function togglePlaceholder(){
+      if(noteArea.innerText.trim()===""){
+        noteArea.classList.add("empty");
+      }
+      else{
+        noteArea.classList.remove("empty");
+      }
+    }
+    noteArea.addEventListener("input",togglePlaceholder);
+    noteArea.addEventListener("blur",togglePlaceholder);
+    togglePlaceholder()
   </script>
 </body>
 </html>
