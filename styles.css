@@ -117,8 +117,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); */
   box-shadow: none !important;
   border-bottom: none !important;
   margin: 0;
@@ -146,28 +146,68 @@ body {
   font-style: normal;
   font-size: calc(12px+1vw);
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5vw;
+}
 
-/* Hamburger Menu Styles */
+/* Sidebar base */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden initially */
+  width: 220px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  transition: left 0.3s ease;
+  border-radius: 15px;
+  border: 2px green solid;
+  z-index: 1000;
+}
+
+/* Show sidebar */
+.sidebar.active {
+  left: 0;
+}
+
+/* Hamburger styling */
 .hamburger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
-  border: none;
+  font-size: 30px;
   cursor: pointer;
-  padding: 0;
-  z-index: 1001;
+  padding: 10px;
+  z-index: 1100;
 }
 
-.hamburger-line {
-  width: 100%;
-  height: 3px;
-  background-color: #163d3b;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+/* Sidebar menu items */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', sans-serif;
+  /* background-color: white; */
+  padding: 10px;
+  padding-left:20px ;
+}
+
+.sidebar ul li a:hover{
+  color: green;
+  text-decoration: underline;
+}
+
 
 .hamburger-menu.active .hamburger-line:nth-child(1) {
   transform: rotate(45deg) translate(6px, 6px);
@@ -185,6 +225,7 @@ body {
 #header #header-navigation {
   width: 40vw;
   justify-content: space-between;
+  
 }
 
 #header #header-navigation p {
@@ -196,16 +237,6 @@ body {
   cursor: pointer;
 }
 
-.nav-menu a {
-  text-decoration: none;
-  color: #000000;
-  font-style: normal;
-  font-family: "Poppins", sans-serif;
-}
-.nav-menu a:hover {
-  text-decoration: underline;
-  color: green;
-}
 #header #header-navigation p:hover {
   font-weight: 400;
   text-decoration: underline;
@@ -816,6 +847,16 @@ body {
 [data-theme="dark"] {
   color-scheme: dark;
 }
+[data-theme="dark"] .sidebar {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+[data-theme="dark"] .sidebar a {
+  color: white;
+}
+
+
 
 [data-theme="dark"] body {
   background-color: #0d0d0d;
