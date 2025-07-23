@@ -176,7 +176,7 @@ body {
     padding: 1rem; /* Smaller padding for very compact screens */
   }
 }
-=======
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-section h1 {
