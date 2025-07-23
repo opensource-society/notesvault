@@ -2085,6 +2085,7 @@ main{
   align-items: stretch;
   gap: 32px;
   margin: 32px 0;
+  flex-wrap: wrap;
 }
 
 /* Light mode styles (default) */
@@ -2137,18 +2138,7 @@ main{
     margin-bottom: 18px;
   }
 
-  .feature-card .About-right-heading {
-    margin-bottom: 8px;
-    font-size: 1.25rem;
-    font-weight: 500;
-    text-align: center;
-  }
 
-  .feature-card .About-right-text {
-    font-size: 1rem;
-    font-style: italic;
-    color: #222;
-    text-align: center;
   }
 
 
