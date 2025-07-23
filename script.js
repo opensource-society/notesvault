@@ -223,21 +223,79 @@ function updateSubjects(branch) {
   });
 }
 
-function displayNotes(notes) {
-  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-  notes.forEach(note => {
-    const card = document.createElement("div");
-    card.className = "note-card";
-    card.innerHTML = `
-      <h3>${note.title}</h3>
-      <p><strong>Branch:</strong> ${note.branch}</p>
-      <p><strong>Semester:</strong> ${note.semester}</p>
-      <p><strong>Subject:</strong> ${note.subject}</p>
-      <a href="${note.link}" target="_blank" download>Download</a>
-    `;
-    notesContainer.appendChild(card);
-  });
-}
+  function displayNotes(notes) {
+    notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+
+    const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
+
+    notes.forEach(note => {
+      const card = document.createElement("div");
+      card.className = "note-card";
+
+      const isBookmarked = bookmarked.includes(note.title); // assuming title is unique
+
+      card.innerHTML = `
+  <h3>${note.title}</h3>
+  <p><strong>Branch:</strong> ${note.branch}</p>
+  <p><strong>Semester:</strong> ${note.semester}</p>
+  <p><strong>Subject:</strong> ${note.subject}</p>
+  <a href="${note.link}" target="_blank" download>Download</a>
+  <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" data-id="${note.title}">
+    ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
+  </button>
+  <div class="rating" data-id="${note.title}">
+    ${[1, 2, 3, 4, 5].map(i => `<span class="star" data-value="${i}">&#9733;</span>`).join('')}
+  </div>
+`;
+
+
+      notesContainer.appendChild(card);
+    });
+
+    // Add event listeners to bookmark buttons
+    document.querySelectorAll(".bookmark-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-id");
+        let bookmarks = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
+
+        if (bookmarks.includes(id)) {
+          bookmarks = bookmarks.filter(b => b !== id);
+          btn.textContent = "☆ Bookmark";
+          btn.classList.remove("bookmarked");
+        } else {
+          bookmarks.push(id);
+          btn.textContent = "★ Bookmarked";
+          btn.classList.add("bookmarked");
+        }
+
+        localStorage.setItem("bookmarkedNotes", JSON.stringify(bookmarks));
+      });
+    });
+    // Add event listeners to star ratings
+    document.querySelectorAll(".rating").forEach(rating => {
+      const noteId = rating.dataset.id;
+      const saved = localStorage.getItem(`rating_${noteId}`);
+
+      if (saved) highlightStars(rating, saved);
+
+      rating.querySelectorAll(".star").forEach(star => {
+        star.addEventListener("click", () => {
+          const value = star.dataset.value;
+          localStorage.setItem(`rating_${noteId}`, value);
+          highlightStars(rating, value);
+        });
+      });
+    });
+
+    function highlightStars(container, rating) {
+      const stars = container.querySelectorAll(".star");
+      stars.forEach(star => {
+        star.classList.toggle("filled", star.dataset.value <= rating);
+      });
+    }
+
+  }
+
 
 [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
   filter.addEventListener("change", () => {
