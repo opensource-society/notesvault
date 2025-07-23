@@ -553,12 +553,9 @@ body {
   /* flex box solved */
   #main {
     display: flex;
-    /* flex-direction: column; */
     margin-top: 70px;
-    /* gap: 20px; */
     padding-block: 30px;
     justify-content: center;
-    align-items: center;
     align-items: center;
   }
 
@@ -1501,8 +1498,6 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-family: "Poppins", sans-serif;
-    /* background-color: #f7b86e; */
-    /* color: #544c1e; */
   }
 
   .footer-description {
