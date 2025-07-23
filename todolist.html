@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List | NotesVault</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="todo-container">
+    <button class="back-home-btn" onclick="window.location.href='index.html'">&larr; Back to Home</button>
+    <h1>To-Do List</h1>
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="Add a new task..." required />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="todo-list"></ul>
+  </div>
+  <script src="todolist.js"></script>
+</body>
+</html> 
