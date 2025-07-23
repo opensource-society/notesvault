@@ -306,3 +306,178 @@ body {
         font-size: $header-navigation-signup-fontsize;
     }
 }
+
+// Mobile Responsive Media Queries
+@media (max-width: 768px) {
+    // Header responsive design
+    #header {
+        flex-direction: column;
+        padding: 15px 0;
+        
+        #header-title-box {
+            justify-content: center;
+            margin-bottom: 15px;
+            
+            #header-title {
+                font-size: 24px;
+            }
+        }
+        
+        #header-navigation {
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            
+            p {
+                font-size: 14px;
+                margin: 5px 10px;
+            }
+        }
+        
+        #header-signup-box {
+            @extend .no-margin;
+            justify-content: center;
+            
+            p {
+                font-size: 14px;
+                padding: 10px 25px;
+            }
+        }
+    }
+    
+    // Main content responsive design
+    #main {
+        flex-direction: column;
+        margin: 20px;
+        gap: 30px;
+    }
+    
+    .main-left {
+        width: 100%;
+        text-align: center;
+        
+        .main-heading {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+        
+        .main-text {
+            font-size: 16px;
+        }
+    }
+    
+    .main-left-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        
+        .links-text {
+            margin: 0;
+            padding: 12px 25px;
+            font-size: 16px;
+            min-height: 45px;
+        }
+    }
+    
+    .main-right {
+        width: 100%;
+        
+        .main-right-box {
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .main-right-search {
+            .main-right-search-form-input {
+                width: calc(100% - 80px);
+                padding: 15px 50px 15px 50px;
+                font-size: 16px;
+            }
+            
+            .search-icon {
+                margin: 23px 20px;
+            }
+        }
+    }
+    
+    // Footer responsive design
+    .footer {
+        flex-direction: column;
+        margin: 20px;
+        gap: 30px;
+        
+        .footer-left-box {
+            max-width: 100%;
+            text-align: center;
+        }
+        
+        .footer-left-heading {
+            font-size: 20px;
+        }
+        
+        .footer-left-text {
+            font-size: 16px;
+        }
+        
+        .footer-left-link {
+            font-size: 16px;
+        }
+    }
+    
+    .footer-right {
+        flex-direction: column;
+        gap: 20px;
+        
+        .footer-right-box {
+            width: 100%;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            
+            .footer-right-heading {
+                font-size: 18px;
+            }
+            
+            .footer-right-text {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// Tablet responsive design
+@media (max-width: 1024px) and (min-width: 769px) {
+    #header {
+        #header-navigation {
+            width: 40vw;
+        }
+    }
+    
+    #main {
+        margin: 30px;
+        
+        .main-right {
+            .main-right-box {
+                width: 40vw;
+            }
+            
+            .main-right-search {
+                .main-right-search-form-input {
+                    width: calc(40vw - $tablet-search-input-padding);
+                }
+            }
+        }
+    }
+    
+    .footer {
+        margin: 30px;
+        
+        .footer-right {
+            .footer-right-box {
+                width: 20vw;
+            }
+        }
+    }
+}
