@@ -462,21 +462,43 @@
                 noteCard.setAttribute('data-note-id', note._id);
 
                 noteCard.innerHTML = `
-        <h3>${note.title}</h3>
-        <p><strong>Branch:</strong> ${note.branch}</p>
-        <p><strong>Semester:</strong> ${note.semester}</p>
-        <p><strong>Uploaded By:</strong> ${note.uploader}</p>
-        <div class="actions">
-            <button class="view-tab-button"><i class="fas fa-file-pdf"></i> View PDF</button>
-            <button class="download-button"><i class="fas fa-download"></i> Download</button>
-        </div>
-    `;
+                    <h3>${note.title}</h3>
+                    <p><strong>Branch:</strong> ${note.branch}</p>
+                    <p><strong>Semester:</strong> ${note.semester}</p>
+                    <p><strong>Uploaded By:</strong> ${note.uploader}</p>
+                    <div class="actions">
+                        <button class="view-tab-button"><i class="fas fa-file-pdf"></i> View PDF</button>
+                        <button class="download-button"><i class="fas fa-download"></i> Download</button>
+                    </div>
+                `;
 
                 const viewTabButton = noteCard.querySelector('.view-tab-button');
-                viewTabButton.addEventListener('click', () => window.open(note.filePath, '_blank'));
+                viewTabButton.addEventListener('click', () => {
+                    if (!note.filePath || typeof note.filePath !== 'string') {
+                        alert('Invalid or missing file path.');
+                        return;
+                    }
+
+                    const isPDF = note.filePath.toLowerCase().endsWith('.pdf');
+
+                    if (isPDF) {
+                        const newTab = window.open(note.filePath, '_blank');
+
+                        if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+                            alert('Your browser may have blocked the popup. Please allow popups for this website.');
+                        }
+                    } else {
+                        alert('This note is not a valid PDF file.');
+                    }
+                });
 
                 const downloadButton = noteCard.querySelector('.download-button');
                 downloadButton.addEventListener('click', () => {
+                    if (!note.filePath || typeof note.filePath !== 'string') {
+                        alert('Invalid or missing file path.');
+                        return;
+                    }
+
                     const link = document.createElement('a');
                     link.href = note.filePath;
                     link.download = `${note.title.replace(/\s/g, '_')}.pdf`;
@@ -487,6 +509,7 @@
 
                 return noteCard;
             }
+
 
 
             function openNoteDetailModal(note) {
