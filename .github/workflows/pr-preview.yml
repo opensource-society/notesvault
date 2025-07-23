@@ -1,0 +1,46 @@
+name: PR Preview to GitHub Pages
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Copy files to preview folder
+        run: |
+          mkdir -p preview/pr-${{ github.event.pull_request.number }}
+          cp -r * preview/pr-${{ github.event.pull_request.number }}/
+          rm -rf preview/pr-${{ github.event.pull_request.number }}/.git
+          rm -rf preview/pr-${{ github.event.pull_request.number }}/.github
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./preview
+          publish_branch: gh-pages
+          destination_dir: pr-preview
+          keep_files: true
+
+      - name: Comment PR with preview URL
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: preview-url
+          message: |
+            🚀 PR Preview: https://opensource-society.github.io/${{ github.repository }}/pr-preview/pr-${{ github.event.pull_request.number }}/index.html 
