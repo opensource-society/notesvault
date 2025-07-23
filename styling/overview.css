@@ -113,6 +113,7 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
+    color: orange;
 }
 
 .why-card p {
@@ -155,4 +156,49 @@ blockquote {
 
 .linktogithub{
     text-decoration: none;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] .box-feature {
+    background-color: #2a2a2a;
+    border-color: #dff8f8;
+    color: #dff8f8;
+}
+
+[data-theme="dark"] .feature-title {
+    color: #dff8f8;
+}
+
+[data-theme="dark"] .feature-desc {
+    color: #b0b0b0;
+}
+
+[data-theme="dark"] .why-card {
+    background-color: #2a2a2a;
+    border-color: #eda950;
+    color: #dff8f8;
+}
+
+[data-theme="dark"] .why-card h5 {
+    color: #dff8f8;
+}
+
+[data-theme="dark"] .why-card p {
+    color: #b0b0b0;
+}
+
+[data-theme="dark"] .heading1 {
+    color: #dff8f8;
+}
+
+[data-theme="dark"] .content {
+    color: #a0c4a0;
+}
+
+[data-theme="dark"] .features-heading {
+    color: #dff8f8;
+}
+
+[data-theme="dark"] .why-heading {
+    color: #eda950;
 }

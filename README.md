@@ -76,3 +76,7 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 > Let's build NotesVault together — an open-source resource that helps thousands of students revise and succeed. 🚀
+
+## Updates
+- Added favicon (favicon.ico) to the site.
+- Added app icon (Icon.jpg) to the header, left of the app name.
