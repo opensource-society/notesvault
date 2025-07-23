@@ -1639,8 +1639,8 @@ nav a:hover {
 }
 
 
-/* Feature Section */
-body {
+/* * Feature Section * */
+.foot {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #0f0f1a;
@@ -1658,6 +1658,7 @@ body {
   font-size: 2.5rem;
   margin-bottom: 40px;
   background: linear-gradient(to right, #00f2fe, #4facfe);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
