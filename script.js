@@ -184,4 +184,125 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+// Update the DOMContentLoaded event listener to include theme initialization
+
+
+
+const branchFilter = document.getElementById("branch-filter");
+const semesterFilter = document.getElementById("semester-filter");
+const subjectFilter = document.getElementById("subject-filter");
+const notesContainer = document.getElementById("notes-container");
+
+const subjectMap = {
+  "CSE": ["Maths", "DBMS", "OS", "DSA"],
+  "CSE AIML": ["AI", "ML", "Python"],
+  "CSE IOT": ["IoT Fundamentals", "Sensors", "Microcontrollers"],
+  "CSE DS": ["Data Science Basics", "Statistics", "Python for DS"]
+};
+
+let notesData = [];
+
+fetch("data/notes.json")
+  .then(res => res.json())
+  .then(data => {
+    notesData = data;
+    updateSubjects("");
+    displayNotes(notesData);
+    runQuerySearch();
+  });
+
+function updateSubjects(branch) {
+  subjectFilter.innerHTML = '<option value="">All Subjects</option>';
+  const subjects = subjectMap[branch] || [].concat(...Object.values(subjectMap));
+  [...new Set(subjects)].forEach(sub => {
+    const opt = document.createElement("option");
+    opt.value = sub;
+    opt.textContent = sub;
+    subjectFilter.appendChild(opt);
+  });
+}
+
+function displayNotes(notes) {
+  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+  notes.forEach(note => {
+    const card = document.createElement("div");
+    card.className = "note-card";
+    card.innerHTML = `
+      <h3>${note.title}</h3>
+      <p><strong>Branch:</strong> ${note.branch}</p>
+      <p><strong>Semester:</strong> ${note.semester}</p>
+      <p><strong>Subject:</strong> ${note.subject}</p>
+      <a href="${note.link}" target="_blank" download>Download</a>
+    `;
+    notesContainer.appendChild(card);
+  });
+}
+
+[branchFilter, semesterFilter, subjectFilter].forEach(filter => {
+  filter.addEventListener("change", () => {
+    const branchVal = branchFilter.value;
+    if (filter === branchFilter) updateSubjects(branchVal);
+    const filtered = notesData.filter(note =>
+      (branchVal === "" || note.branch === branchVal) &&
+      (semesterFilter.value === "" || note.semester === semesterFilter.value) &&
+      (subjectFilter.value === "" || note.subject === subjectFilter.value)
+    );
+    displayNotes(filtered);
+  });
 });
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get("query")?.trim().toLowerCase();
+
+  if (query) {
+    const notes = document.querySelectorAll(".note-card");
+    let matchFound = false;
+
+    notes.forEach((note) => {
+      const content = note.textContent.toLowerCase();
+      const show = content.includes(query);
+      note.style.display = show ? "block" : "none";
+      if (show) matchFound = true;
+    });
+
+    if (!matchFound) {
+      const msg = document.createElement("p");
+      msg.textContent = `No notes found for "${query}"`;
+      msg.style.color = "red";
+      msg.style.fontWeight = "bold";
+      msg.style.marginTop = "20px";
+      document.getElementById("notes-container").appendChild(msg);
+    }
+  }
+});
+
+function runQuerySearch() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get("query")?.trim().toLowerCase();
+
+  if (query) {
+    const notes = document.querySelectorAll(".note-card");
+    let matchFound = false;
+
+    notes.forEach((note) => {
+      const content = note.textContent.toLowerCase();
+      const show = content.includes(query);
+      note.style.display = show ? "block" : "none";
+      if (show) matchFound = true;
+    });
+
+    if (!matchFound) {
+      const msg = document.createElement("p");
+      msg.textContent = `No notes found for "${query}"`;
+      msg.style.color = "red";
+      msg.style.fontWeight = "bold";
+      msg.style.marginTop = "20px";
+      document.getElementById("notes-container").appendChild(msg);
+    }
+  }
+}
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NotesVault</title>
+    <link rel="stylesheet" href="../styling/login.css">
+</head>
+<body class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4">
+
+    <!-- Message Box for notifications -->
+    <div id="messageBox" class="message-box"></div>
+
+    <!-- Back to Home Button -->
+    <div class="home-button-container">
+        <a href="../index.html" class="home-button">
+            &larr; Back to Home
+        </a>
+    </div>
+
+    <div class="card-container">
+        <h2>Welcome Back!</h2>
+        <p>Sign in to your NotesVault account</p>
+
+        <form id="loginForm" class="form-space-y-6">
+            <div>
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required
+                       placeholder="you@example.com">
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required
+                       placeholder="••••••••">
+            </div>
+
+            <div class="flex-between">
+                <div class="flex-center">
+                    <input id="remember-me" name="remember-me" type="checkbox">
+                    <label for="remember-me" class="checkbox-label">Remember me</label>
+                </div>
+
+                <div class="forgot-password-link">
+                    <a href="#">Forgot your password?</a>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn-primary">
+                    Sign in
+                </button>
+            </div>
+        </form>
+
+        <div class="signup-link-section">
+            <p>
+                Don't have an account?
+                <a href="signup.html">Sign up here</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Function to show a message box
+        function showMessageBox(message, type = 'success') {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = message;
+            messageBox.className = 'message-box show'; // Reset and show
+            if (type === 'error') {
+                messageBox.style.backgroundColor = 'var(--red-error)'; // Red for error
+            } else {
+                messageBox.style.backgroundColor = 'var(--green-success)'; // Green for success
+            }
+
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 3000); // Hide after 3 seconds
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Basic validation (can be expanded)
+            if (email === '' || password === '') {
+                showMessageBox('Please fill in all fields.', 'error');
+                return;
+            }
+
+            // In a real application, you would send this data to a server for authentication.
+            // For this example, we'll just simulate a successful login.
+            console.log('Login attempt:', { email, password });
+            showMessageBox('Login successful! Redirecting...', 'success');
+
+            // Simulate redirection after a short delay
+            setTimeout(() => {
+                // window.location.href = 'dashboard.html'; // Redirect to a dashboard or home page
+                console.log('Simulated redirection to dashboard.');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

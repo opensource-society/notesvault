@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upload Notes | NotesVault</title>
-
-  <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com" ></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Notes</title>
+  <meta name="description" content="Upload your study notes to NotesVault.">
+  <link rel="stylesheet" href="styles.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <!-- Tailwind Config -->
   <script>
     tailwind.config = {
@@ -38,7 +37,7 @@
 <body class="font-jakarta bg-base text-ink">
 
   <!-- Header -->
-  <header class="bg-white shadow p-5 flex justify-between items-center">
+  <header class="bg-white shadow p-3 flex justify-between items-center">
     <h1 class="text-2xl font-bold text-ink">NotesVault</h1>
     <nav class="hidden md:flex space-x-6 text-sm">
       <a href="index.html" class="hover:underline">Overview</a>
@@ -168,9 +167,10 @@
 
     document.getElementById("uploadForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      document.getElementById("message").innerText = "✅ Notes uploaded successfully (demo only)";
+      document.getElementById("message").innerText = "✅ Notes uploaded successfully (for demo purposes only — not stored)"
       this.reset();
     });
   </script>
+
 </body>
 </html>

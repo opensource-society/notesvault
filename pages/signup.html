@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - NotesVault</title>
+    <link rel="stylesheet" href="../styling/signup.css">
+</head>
+<body class="bg-notes-bg-light">
+
+    <!-- Message Box for notifications -->
+    <div id="messageBox" class="message-box"></div>
+
+    <!-- Back to Home Button -->
+    <div class="home-button-container">
+        <a href="../index.html" class="home-button">
+            &larr; Back to Home
+        </a>
+    </div>
+
+    <div class="card-container">
+        <h2>Create Your Account</h2>
+        <p>Join NotesVault today!</p>
+
+        <form id="signupForm" class="form-space-y-6">
+            <div>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required
+                       placeholder="John Doe">
+            </div>
+
+            <div>
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required
+                       placeholder="you@example.com">
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required
+                       placeholder="••••••••">
+            </div>
+
+            <div>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required
+                       placeholder="••••••••">
+            </div>
+
+            <div>
+                <button type="submit" class="btn-primary">
+                    Sign up
+                </button>
+            </div>
+        </form>
+
+        <div class="signin-link-section">
+            <p>
+                Already have an account?
+                <a href="login.html">Sign in here</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Function to show a message box
+        function showMessageBox(message, type = 'success') {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = message;
+            messageBox.className = 'message-box show'; // Reset and show
+            if (type === 'error') {
+                messageBox.style.backgroundColor = 'var(--red-error)'; // Red for error
+            } else {
+                messageBox.style.backgroundColor = 'var(--green-success)'; // Green for success
+            }
+
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 3000); // Hide after 3 seconds
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Basic validation
+            if (name === '' || email === '' || password === '' || confirmPassword === '') {
+                showMessageBox('Please fill in all fields.', 'error');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showMessageBox('Passwords do not match.', 'error');
+                return;
+            }
+
+            // In a real application, you would send this data to a server for user registration.
+            // For this example, we'll just simulate a successful sign-up.
+            console.log('Sign up attempt:', { name, email, password });
+            showMessageBox('Sign up successful! You can now log in.', 'success');
+
+            // Simulate redirection after a short delay
+            setTimeout(() => {
+                window.location.href = 'login.html'; // Redirect to the login page
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
