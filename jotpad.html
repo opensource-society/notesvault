@@ -15,9 +15,9 @@
 
   <div class="editor-wrapper">
     <div class="editor-container">
-      <div class="note-box" contenteditable="true" id="noteArea" data-placeholder="Start writing your notes here...">
-
+      <div class="note-box empty" contenteditable="true" id="noteArea" spellcheck="true">
       </div>
+     
       <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
     </div>
   </div>
@@ -34,11 +34,18 @@
       doc.text(content, 10, 20, { maxWidth: 180 });
       doc.save("MyNotes.pdf");
     }
-    const note = document.getElementById("noteArea");
-  note.innerHTML = localStorage.getItem("noteContent") || "";
-  note.addEventListener("input", () => {
-    localStorage.setItem("noteContent", note.innerHTML);
-  });
+    const noteArea=document.getElementById("noteArea");
+    function togglePlaceholder(){
+      if(noteArea.innerText.trim()===""){
+        noteArea.classList.add("empty");
+      }
+      else{
+        noteArea.classList.remove("empty");
+      }
+    }
+    noteArea.addEventListener("input",togglePlaceholder);
+    noteArea.addEventListener("blur",togglePlaceholder);
+    togglePlaceholder()
   </script>
 </body>
 </html>

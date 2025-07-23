@@ -43,6 +43,16 @@
       outline: none;
       overflow-y: auto;
       font-size: 1rem;
+      position:relative;
+    }
+    .note-box.empty::before{
+      content: "Start writing your notes here...";
+      color: #888;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      pointer-events: none;
+      font-size: 1rem;
     }
 
     .download-btn {
