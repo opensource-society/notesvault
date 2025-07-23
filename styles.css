@@ -553,10 +553,12 @@ body {
   /* flex box solved */
   #main {
     display: flex;
-    /* flex-direction: row; */
-    margin: 5vw;
+    /* flex-direction: column; */
+    margin-top: 70px;
+    /* gap: 20px; */
     padding-block: 30px;
     justify-content: center;
+    align-items: center;
     align-items: center;
   }
 
@@ -629,7 +631,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 50vw;
-    align-items: center;
+    align-items:end;
   }
 
   .main-right-box {
@@ -754,14 +756,12 @@ body {
     color: #2E2E2E;
   }
 
-
   .About {
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-
     margin: 5vw;
     max-width: 1200px;
     margin-left: auto;
@@ -823,7 +823,7 @@ body {
   .About-right-text {
     font-weight: 300;
     font-style: italic;
-    /* CORRECTED: Kept the italic style and removed the conflicting one */
+   
     font-size: calc(9px + 0.4vw);
   }
 
@@ -910,7 +910,22 @@ body {
       max-width: calc(500px - 130px);
     }
 
-    .footer {
+
+
+/* --- Responsive Design for Tablets and Mobile --- */
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column; /* Stack the left and right columns vertically */
+    text-align: center; /* Center the text in the top part for a better mobile look */
+  }
+
+  .footer-left-box {
+    margin-bottom: 2rem; /* Add space between the two stacked sections */
+  }
+}
+  }
+
+    /* .footer {
       flex-direction: column;
       gap: 30px;
       margin: 4vw;
@@ -935,7 +950,7 @@ body {
       min-width: 250px;
       text-align: center;
     }
-  }
+  } */
 
   /* Mobile styles (600px and down) */
   @media screen and (max-width: 600px) {
@@ -2128,3 +2143,116 @@ main{
       width: 100%;
     }
   }
+
+
+
+
+  /* =================================
+   Footer Section Styling
+   ================================= */
+
+/* --- Main Footer Container --- */
+.footer {
+  display: flex; 
+  gap: 3rem; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 4rem 2rem; 
+  background-color: #ffffff;
+}
+
+/* --- Left Column: About Info --- */
+.footer-left-box {
+  flex: 1; 
+  min-width: 280px; 
+}
+
+.footer-left-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #212529;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.footer-left-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6c757d; 
+  margin-bottom: 1.5rem;
+}
+
+.footer-left-link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4f46e5;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-left-link:hover {
+  transform: translateX(4px);
+}
+
+/* --- Right Column: Feature Cards Grid --- */
+.footer-right {
+  flex: 2; 
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem; 
+}
+
+/* --- Individual Feature Cards ("under the boxes") --- */
+.footer-right-box {
+  background-color: #ffffff;
+  padding: 1.75rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: left; 
+  text-decoration: none;
+  color: #212529;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100vw;
+}
+
+/* Add a "lift" effect on hover for interactivity */
+.footer-right-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.footer-right-box svg {
+  stroke: #4f46e5; 
+  margin-bottom: 1rem;
+  width: 40px; 
+  height: 40px;
+}
+
+.footer-right-heading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer-right-text {
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Responsive Design for Tablets and Mobile --- */
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column; 
+    text-align: center; 
+  }
+
+  .footer-left-box {
+    margin-bottom: 2rem; 
+  }
+}
