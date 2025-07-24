@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Notes - NotesVault</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 115vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7f2;
+    }
+    main.container {
+      flex: 1;
+      padding: 20px 5vw;
+      /* No extra padding-top needed since navbar is not sticky */
+    }
+    /* Non-sticky navbar styles for Browse Notes */
+    .browse-navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 10;
+    }
+    .browse-navbar-inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 15px 5vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .browse-navbar-title {
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: #163d3b;
+      margin-right: 48px; /* Add space after logo */
+    }
+    .browse-nav-menu {
+      display: flex;
+      gap: 48px; /* More space between links */
+      margin-right: 48px; /* Add space before Sign Up */
+    }
+    .browse-nav-menu a {
+      text-decoration: none;
+      font-weight: 400;
+      color: #163d3b;
+      font-size: 1rem;
+      position: relative;
+    }
+    .browse-nav-menu a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #f7b86e;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+    .browse-nav-menu a:hover::after {
+      width: 100%;
+    }
+    .browse-navbar-signup {
+      margin-left: auto; /* Push Sign Up to the right */
+    }
+    .browse-navbar-signup button {
+      background-color: #163d3b;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 500;
+      margin: 0;
+      border: none;
+      cursor: pointer;
+    }
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+    }
+    .note-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .note-card h3 {
+      margin-top: 0;
+    }
+    .modern-footer {
+      background: linear-gradient(135deg, #163d3b 0%, #1a4441 100%);
+      color: #dff8f8;
+      padding: 30px 5vw;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Non-sticky Navbar for Browse Notes ===== -->
+  <nav class="browse-navbar">
+    <div class="browse-navbar-inner">
+      <div class="browse-navbar-title">NotesVault</div>
+      <div class="browse-nav-menu">
+        <a href="index.html">Home</a>
+        <a href="search.html">Browse</a>
+        <a href="upload.html">Upload</a>
+      </div>
+      <div class="browse-navbar-signup">
+        <p>Sign Up</p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Main Browse Section ===== -->
+  <main class="container">
+    <h1>Browse Notes</h1>
+    <div class="filters">
+      <select id="branch-filter">
+        <option value="">All Branches</option>
+        <option value="CSE">CSE</option>
+        <option value="CSE AIML">CSE AIML</option>
+        <option value="CSE IOT">CSE IOT</option>
+        <option value="CSE DS">CSE DS</option>
+      </select>
+
+      <select id="semester-filter">
+        <option value="">All Semesters</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+
+      <select id="subject-filter">
+        <option value="">All Subjects</option>
+      </select>
+    </div>
+
+    <div id="notes-container" class="notes-list"></div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="modern-footer">
+    <div class="footer-container">
+      <p>© 2025 NotesVault - GSSoC Contribution</p>
+    </div>
+  </footer>
+   
+  <script src="script.js" defer></script>
+</body>
+</html>
