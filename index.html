@@ -37,8 +37,11 @@
           </div>
         </div>
 
-        <div id="header-title-box">
-          <p id="header-title">NotesVault</p>
+        <div id="header-title-box" class="navbar-brand" style="margin-left: -0.8rem;">
+          <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;">
+            <img src="favicon.png" alt="NotesVault Logo" style="height: 2.2rem; width: 2.2rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; border: 1.5px solid #e5e7eb; padding: 0.15rem;" />
+            <span style="font-family: 'Segoe UI', 'Montserrat', 'Poppins', Arial, sans-serif; font-weight: 700; font-size: 1.45rem; color: #1d1d1d; letter-spacing: 0.5px;">Notes<span style="color: #4f8cff; font-weight: 800;">Vault</span></span>
+          </a>
         </div>
 
         <div id="header-navigation" class="nav-menu">
@@ -75,6 +78,7 @@
 </div>
 
 
+
     <main id="main">
       <div class="main-left">
         <p class="main-text welcome">Welcome Back</p>
@@ -90,8 +94,6 @@
           <p class="links-text try-box">Upload Notes</p>
         </div>
       </div>
-      
-
       <div class="main-right">
         <div class="main-right-box">
           <div class="main-right-upper-box">
@@ -100,109 +102,110 @@
               <p class="right-text" id="typeWriterText">Subject</p>
             </div>
           </div>
-
-          
         </div>
       </div>
-
-      <section class="About">
-        <p class="About-left-heading">About NotesVault</p>
-        <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
-        <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
-      </section>
     </main>
 
-    <section class="features-section">
-  <a href="pages/upload.html" class="feature-card">
-    <!-- Upload Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 3v12" />
-      <polyline points="5 9 12 2 19 9" />
-      <path d="M5 20h14" />
-    </svg>
-    <p class="feature-title">Easy Upload</p>
-    <p class="feature-desc">Add your notes quickly and effortlessly</p>
-  </a>
 
-  <div class="feature-card">
-    <!-- Folder Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 6h5l2 3h11v11H3z" />
-      <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
-    </svg>
-    <p class="feature-title">Sort The Chaos</p>
-    <p class="feature-desc">Neatly arrange all your notes in one place</p>
-  </div>
+    <!-- Features Card Grid Section -->
+    <section class="features-card-section">
+      <h2 class="carousel-title">Why NotesVault?</h2>
+      <div class="features-card-grid">
+        <div class="feature-card pro-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12" />
+            <polyline points="5 9 12 2 19 9" />
+            <path d="M5 20h14" />
+          </svg>
+          <p class="feature-title">Easy Upload</p>
+          <p class="feature-desc">Add your notes quickly and effortlessly</p>
+        </div>
+        <div class="feature-card pro-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h5l2 3h11v11H3z" />
+            <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
+          </svg>
+          <p class="feature-title">Sort The Chaos</p>
+          <p class="feature-desc">Neatly arrange all your notes in one place</p>
+        </div>
+        <div class="feature-card pro-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
+            <circle cx="16" cy="8" r="1.5" />
+          </svg>
+          <p class="feature-title">Search By Tags</p>
+          <p class="feature-desc">Find notes using subject tags</p>
+        </div>
+        <div class="feature-card pro-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="4" />
+            <path d="M16 8h.01" />
+            <path d="M8 8h.01" />
+            <path d="M12 12h.01" />
+          </svg>
+          <p class="feature-title">Modern UI</p>
+          <p class="feature-desc">Sleek, responsive, and easy to use</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="feature-card">
-    <!-- Tag Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
-      <circle cx="16" cy="8" r="1.5" />
-    </svg>
-    <p class="feature-title">Search By Tags</p>
-    <p class="feature-desc">Find notes using subject tags</p>
-  </div>
-</section>
+    <!-- About Section Polished -->
+    <section class="About pro-about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="About-left-heading">About NotesVault</h2>
+          <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise. Built for students, by students.</p>
+          <a class="About-left-link" href="https://github.com/opensource-society/notesvault" target="_blank" rel="noopener noreferrer">Learn More →</a>
+        </div>
+        <div class="about-image">
+          <img src="assets/index/images/oss.png" alt="NotesVault Illustration" />
+        </div>
+      </div>
+    </section>
 
-<footer class="custom-footer">
-  <div class="footer-container">
-    <!-- About NotesVault Section -->
-    <div class="footer-section about-section">
-      <h2><strong>NotesVault</strong></h2>
-      <p class="footer-description">
-        A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong> academic notes & PYQs semester-wise.
-        Contribute easily, organize efficiently, and search by tags.
-      </p>
-      <a
-        class="footer-learn-link"
-        href="https://github.com/opensource-society/notesvault"
-        target="_blank"
-        rel="noopener noreferrer"
-        >Learn More →</a>
-    </div>
+    <footer class="pro-footer">
+      <div class="footer-main">
+        <div class="footer-col brand-col">
+          <img src="favicon.png" alt="NotesVault Logo" class="footer-logo" />
+          <h3>NotesVault</h3>
+          <p class="footer-desc">A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong> academic notes & PYQs semester-wise. Contribute easily, organize efficiently, and search by tags.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="pages/upload.html">Easy Upload</a></li>
+            <li><a href="pages/search.html">Tag-based Search</a></li>
+            <li><a href="pages/BrowseNotes.html">Organized by Semester</a></li>
+            <li><a href="pages/studentAccount.html">Get Details</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+            <li><a href="https://github.com/opensource-society/notesvault.git" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <span>&copy; <span id="year"></span> NotesVault. All rights reserved.</span>
+      </div>
+    </footer>
 
-    <!-- Community -->
-<div class="footer-section">
-  <h3>Community</h3>
-  <ul>
-    <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-    <li><a href="https://github.com/opensource-society/notesvault.git" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-    <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
-  </ul>
-</div>
-
-<!-- Social Media Links -->
-<div class="footer-section">
-  <h3>Social Media</h3>
-  <ul>
-    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-    <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-  </ul>
-</div>
-
-<!-- Features Overview -->
-<div class="footer-section">
-  <h3>Features</h3>
-  <ul>
-    <li><a href="pages/upload.html"><i class="fas fa-upload"></i> Easy Upload</a></li>
-    <li><a href="pages/search.html"><i class="fas fa-tags"></i> Tag-based Search</a></li>
-    <li><a href="pages/BrowseNotes.html"><i class="fas fa-folder-open"></i> Organized by Semester</a></li>
-    <li><a href="pages/studentAccount.html"><i class="fas fa-users"></i> Get Details</a></li>
-  </ul>
-</div>
+    <button id="scrollToTopBtn" title="Go to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
 
-  <div class="footer-bottom">
-    &copy; <span id="year"></span> NotesVault. All rights reserved.
-  </div>
-</footer>
-
-<!-- 🔺 Place Scroll Button OUTSIDE the .footer-container -->
-<button id="scrollToTopBtn" title="Go to top">
-  <i class="fas fa-arrow-up"></i>
-</button>
 
 <link
   rel="stylesheet"
@@ -213,6 +216,7 @@
 </script>
 
 
+    <script src="features-carousel.js" defer></script>
     <script src="script.js" defer></script>
     <script>
       function toggleMobileMenu() {
