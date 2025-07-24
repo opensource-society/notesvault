@@ -284,10 +284,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  .modern-footer {
-    padding: 30px 15px; 
-  }
-  
+   .modern-footer {
+        background-color: #163d3b;
+    }
   .footer-container {
     flex-direction: column;
   }
