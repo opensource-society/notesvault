@@ -1,0 +1,25 @@
+name: Generate Leaderboard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [closed]
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Run leaderboard script
+      run: node .github/scripts/generate-leaderboard.js
