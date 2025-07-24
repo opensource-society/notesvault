@@ -28,6 +28,7 @@ jobs:
         # Copies all files except .git, .github, and preview directories
 
       - name: Deploy to GitHub Pages
+        if: github.repository == 'opensource-society/notesvault'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
