@@ -1,3 +1,38 @@
+/* Browse Notes link style moved from inline */
+.nav-link-black {
+  color: black !important;
+  text-decoration: none !important;
+}
+/* Navbar Logo Styles */
+.navbar-brand-shift {
+  margin-left: -0.8rem;
+}
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+.navbar-logo-img {
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  padding: 0.15rem;
+}
+.navbar-logo-text {
+  font-family: 'Segoe UI', 'Montserrat', 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: #1d1d1d;
+  letter-spacing: 0.5px;
+}
+.navbar-logo-highlight {
+  color: #4f8cff;
+  font-weight: 800;
+}
 /* --- Features Card Grid Section --- */
 .features-card-section {
   background: #fff;
@@ -37,129 +72,7 @@
 .features-card-grid::-webkit-scrollbar-track {
   background: #fff;
 }
-.feature-card.pro-card {
-  background: #fff;
-  border-radius: 1.3rem;
-  box-shadow: 0 6px 32px 0 rgba(60,60,60,0.13), 0 2px 8px 0 rgba(60,60,60,0.08);
-  padding: 2.2rem 1.7rem;
-  min-width: 270px;
-  max-width: 320px;
-  flex: 0 0 290px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.25s, transform 0.25s, border 0.2s;
-  cursor: pointer;
-  animation: fadeInUp 0.7s cubic-bezier(.77,0,.18,1);
-  margin-bottom: 0.5rem;
-  border: 1.5px solid #f2f2f2;
-}
-.feature-card.pro-card:hover {
-  box-shadow: 0 16px 40px rgba(0,121,107,0.15), 0 4px 16px rgba(60,60,60,0.13);
-  transform: translateY(-8px) scale(1.045);
-  border: 1.5px solid #e0e0e0;
-}
-.feature-title {
-  font-size: 1.18rem;
-  font-weight: 700;
-  color: #134e4a;
-  margin: 1.1rem 0 0.3rem 0;
-  text-align: center;
-  letter-spacing: 0.1px;
-}
-.feature-desc {
-  font-size: 1.01rem;
-  color: #444;
-  text-align: center;
-  margin-bottom: 0;
-}
-@media (max-width: 900px) {
-  .features-card-grid { gap: 1.1rem; }
-  .feature-card.pro-card { min-width: 220px; max-width: 90vw; padding: 1.2rem 0.7rem; }
-}
-@media (max-width: 600px) {
-  .features-card-section .carousel-title { font-size: 1.3rem; }
-  .features-card-grid { gap: 0.7rem; }
-  .feature-card.pro-card { min-width: 85vw; max-width: 95vw; }
-}
-/* --- Features Carousel Section --- */
-.features-carousel-section {
-  background: #f7f9fb;
-  padding: 3rem 0 2rem 0;
-  margin-top: 2rem;
-  animation: fadeInUp 0.8s cubic-bezier(.77,0,.18,1);
-}
-.carousel-title {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #134e4a;
-  margin-bottom: 2rem;
-  letter-spacing: 0.5px;
-}
-/* Carousel container stretches full width, arrows outside cards */
-.carousel-container {
-  position: relative;
-  width: 100vw;
-  max-width: 100vw;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0 3vw;
-  box-sizing: border-box;
-}
-.carousel-track {
-  display: flex;
-  gap: 2rem;
-  transition: transform 0.5s cubic-bezier(.77,0,.18,1);
-  width: max-content;
-  min-width: 100vw;
-}
-.feature-card.pro-card {
-  background: #fff;
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  padding: 2.2rem 1.7rem;
-  min-width: 260px;
-  max-width: 320px;
-  flex: 0 0 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.25s, transform 0.25s;
-  cursor: pointer;
-  animation: fadeInUp 0.7s cubic-bezier(.77,0,.18,1);
-}
-.feature-card.pro-card:hover {
-  box-shadow: 0 8px 32px rgba(0,121,107,0.13);
-  transform: translateY(-6px) scale(1.04);
-}
-/* Carousel arrows outside the card area */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #134e4a;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.7rem;
-  cursor: pointer;
-  z-index: 2;
-  transition: background 0.2s;
-  opacity: 0.92;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-}
-.carousel-btn:hover {
-  background: #00796b;
-}
-.carousel-btn.prev {
-  left: -2.2rem;
-}
-.carousel-btn.next {
-  right: -2.2rem;
-}
+
 @media (max-width: 900px) {
   .carousel-track { gap: 1rem; }
   .feature-card.pro-card { min-width: 220px; max-width: 90vw; padding: 1.2rem 0.7rem; }

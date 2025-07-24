@@ -37,10 +37,10 @@
           </div>
         </div>
 
-        <div id="header-title-box" class="navbar-brand" style="margin-left: -0.8rem;">
-          <a href="/" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;">
-            <img src="favicon.png" alt="NotesVault Logo" style="height: 2.2rem; width: 2.2rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; border: 1.5px solid #e5e7eb; padding: 0.15rem;" />
-            <span style="font-family: 'Segoe UI', 'Montserrat', 'Poppins', Arial, sans-serif; font-weight: 700; font-size: 1.45rem; color: #1d1d1d; letter-spacing: 0.5px;">Notes<span style="color: #4f8cff; font-weight: 800;">Vault</span></span>
+        <div id="header-title-box" class="navbar-brand navbar-brand-shift">
+          <a href="/" class="navbar-logo-link">
+            <img src="favicon.png" alt="NotesVault Logo" class="navbar-logo-img" />
+            <span class="navbar-logo-text">Notes<span class="navbar-logo-highlight">Vault</span></span>
           </a>
         </div>
 
@@ -90,7 +90,7 @@
           always just a click away with NotesVault.
         </p>
         <div class="main-left-links">
-          <a style="color: black ; text-decoration: none; " class="links-text try-box"  href="./search.html">Browse Notes</a>
+          <a class="links-text try-box nav-link-black" href="./search.html">Browse Notes</a>
           <p class="links-text try-box">Upload Notes</p>
         </div>
       </div>
@@ -109,7 +109,7 @@
 
     <!-- Features Card Grid Section -->
     <section class="features-card-section">
-      <h2 class="carousel-title">Why NotesVault?</h2>
+      <h2 class="features-title">Why NotesVault?</h2>
       <div class="features-card-grid">
         <div class="feature-card pro-card">
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -212,31 +212,14 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 </script>
 
 
-    <script src="features-carousel.js" defer></script>
+
     <script src="script.js" defer></script>
-    <script>
-      function toggleMobileMenu() {
-        const sidebar = document.getElementById("mobileSidebar");
-        sidebar?.classList.toggle("active");
-      }
-
-      document.querySelectorAll(".sidebar a").forEach((link) => {
-        link.addEventListener("click", () => {
-          document.getElementById("mobileSidebar")?.classList.remove("active");
-        });
-      });
-
-      document.addEventListener("click", (e) => {
-        const sidebar = document.getElementById("mobileSidebar");
-        const toggle = document.getElementById("hamburgerMenu");
-        if (sidebar && toggle && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
-          sidebar.classList.remove("active");
-        }
-      });
-    </script>
   </body>
 </html>
