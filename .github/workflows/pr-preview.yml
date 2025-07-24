@@ -8,6 +8,7 @@ on:
 
 jobs:
   deploy-preview:
+    if: github.repository == 'opensource-society/notesvault'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -28,7 +29,6 @@ jobs:
         # Copies all files except .git, .github, and preview directories
 
       - name: Deploy to GitHub Pages
-        if: github.repository == 'opensource-society/notesvault'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
