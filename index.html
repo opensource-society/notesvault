@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
 
@@ -17,6 +18,7 @@
     </script>
   </head>
   <body>
+    <div data-scroll-container>
     <header>
       <div id="header">
         <div class="hamburger-wrapper">
@@ -149,7 +151,8 @@
         </div>
       </div>
     </footer>
-
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <script src="script.js" defer></script>
     <script>
       function toggleMobileMenu() {
