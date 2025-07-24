@@ -284,7 +284,7 @@ body {
 }
 
 @media (max-width: 768px) {
-   .footer {
+   .modern-footer {
         background-color: #163d3b;
     }
   .footer-container {
