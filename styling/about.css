@@ -29,12 +29,11 @@ body {
   background-color: #dbe5dc;
   border-radius: 10px;
   margin-top: 1.5rem;
-  padding: 1.5rem;
+  padding: 2rem;
   font-size: 1.1rem;
   font-weight: 400;
   text-align: justify;
   /* FIX: Added missing padding as per the issue description */
-  padding: 2rem;
 }
 
 /* Cards (Mission & How We Help, Features) */
@@ -177,67 +176,5 @@ body {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-  
-  .container {
-    padding: 1rem 0.5rem;
-  }
-  
-  .intro-box {
-    padding: 1rem;
-    margin-top: 1rem;
-    font-size: 1rem;
-  }
-  
-  .two-cards,
-  .features {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .card,
-  .feature-box {
-    padding: 1rem;
-  }
-  
-  .cta {
-    padding: 1.5rem 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .cta a {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 2rem 1rem;
-  }
-  
-  .hero-section h1 {
-    font-size: 1.8rem;
-  }
-  
-  .intro-box {
-    padding: 0.8rem;
-    font-size: 0.95rem;
-  }
-  
-  .card h3,
-  .feature-box h3 {
-    font-size: 1.1rem;
-  }
-  
-  .card p,
-  .feature-box p {
-    font-size: 0.9rem;
-  }
-}
 
 

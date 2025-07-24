@@ -1,11 +1,6 @@
   @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 
 
-body {
-  background-color: #f4f7f2;
-  margin: 0;
-  padding:0;
-}
 
   .theme-toggle {
     display: flex;
@@ -75,29 +70,14 @@ body {
     visibility: visible;
   }
 
-  /* Integrated code from paste-2.txt (lines 90 to 154) */
 
-  /* Example integrated styles (replace with actual content from paste-2.txt) */
-  .example-class {
-    color: #333;
-    font-size: 16px;
-    margin: 10px;
-  }
-
-  .another-example {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-
-  /* Navigation Menu Styles with updated order for theme toggle */
-  /* General reset if needed */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* Navigation Menu Styles with updated order for theme toggle */
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
   /* Ensure parent scroll works */
   html,
@@ -863,23 +843,10 @@ body {
       }
     }
 
-  .About-right-box {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-  }
-
-  /* Optional: stagger the boxes */
-  .About-right-box:nth-child(1) {
-    animation-delay: 0.8s;
-  }
-
-  .About-right-box:nth-child(2) {
-    animation-delay: 0.8s;
-  }
-
-  .About-right-box:nth-child(3) {
-    animation-delay: 0.8s;
-  }
+.About-right-box {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.8s;
 }
 
   /* RESPONSIVE BREAKPOINTS */
@@ -1218,14 +1185,14 @@ body {
     background-color: #121212;
   }
 
-  [data-theme="dark"] .nav-menu a {
-    color: white;
-  }
+[data-theme="dark"] .nav-menu a {
+  color: #dff8f8;
+}
 
-  [data-theme="dark"] .nav-menu a:hover {
-    text-decoration: underline;
-    color: green;
-  }
+[data-theme="dark"] .nav-menu a:hover {
+  text-decoration: underline;
+  color: #4CAF50;
+}
 
   [data-theme="dark"] #header #header-navigation p {
     color: #e0e0e0;
@@ -1240,21 +1207,10 @@ body {
     color: #b8e6e1;
   }
 
-  [data-theme="dark"] .nav-menu a {
-    text-decoration: none;
-    color: #dff8f8;
-    font-style: normal;
-    font-family: "Poppins", sans-serif;
-  }
 
-  [data-theme="dark"] .nav-menu a:hover {
-    text-decoration: underline;
-    color: #4CAF50;
-  }
-
-  [data-theme="dark"] .main-text {
-    color: #e0e0e0;
-  }
+[data-theme="dark"] .main-text {
+  color: #e0e0e0;
+}
 
   [data-theme="dark"] .main-heading {
     color: #ffffff;

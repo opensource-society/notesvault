@@ -54,7 +54,11 @@
       pointer-events: none;
       font-size: 1rem;
     }
-
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
     .download-btn {
       margin-top: 10px;
       padding: 10px 20px;
@@ -70,3 +74,28 @@
     .download-btn:hover {
       background-color: #19352d;
     }
+    .note-box:empty::before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  font-style: italic;
+  pointer-events: none;
+  display: block;
+}
+
+
+.delete-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #c50707ca;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+
+    .delete-btn:hover {
+      background-color: #ec2a08;
+    }
+    

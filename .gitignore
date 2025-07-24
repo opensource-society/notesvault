@@ -21,3 +21,7 @@ Thumbs.db
 
 # Map files (optional)
 *.map
+.hintrc
+AGENT.md
+
+# Ignore coverage reports

@@ -1,59 +1,169 @@
-<!-- pages/upload.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upload Notes - NotesVault</title>
-  <link rel="stylesheet" href="../styling/upload.css" />
-  <link rel="stylesheet" href="../styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesVault Home</title>
+
+    <link rel="stylesheet" href="../styles.css"/>
+    <link rel="stylesheet" href="../styling/overview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-...hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   <header>
+    <header>
         <div id="header">
+            <div class="hamburger-wrapper">
+                <button class="hamburger-menu" onclick="document.querySelector('.hover-sidebar').classList.toggle('visible')">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="hover-sidebar">
+                    <ul>
+                        <li><a href="../index.html">Dashboard</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="overview.html">Overview</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+
             <div id="header-title-box">
                 <p id="header-title">NotesVault</p>
             </div>
-            
-            <!-- Hamburger Menu Button -->
-            <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            
-            <!-- Navigation Menu -->
-            <div id="header-navigation" class="nav-menu">
+
+            <nav class="nav-menu">
                 <a href="overview.html">Overview</a>
-                <a href="/">Student Account</a>
+                <a href="../index.html">Student Account</a>
                 <a href="about.html">About</a>
                 <a href="/">Features</a>
-            </div>
-            
+            </nav>
+
             <div id="header-signup-box">
                 <p>Sign Up</p>
             </div>
         </div>
     </header>
 
+    <main class="main">
+        <h1 class="heading1">NotesVault</h1>
+        <p class="content">One Place for All Your Study Notes and PYQs.</p>
+    </main>
 
-  <main class="upload-container">
-    <form id="uploadform">
-      <label for="title">Note Title:</label>
-      <input type="text" id="title" name="title" required />
+    <section class="features">
+        <h3 class="features-heading">Key Features</h3>
+        <div class="features-grid">
+            <div class="box-feature">
+                <i class="fas fa-search"></i>
+                <h5 class="feature-title">Browse & Search Notes</h5>
+                <p class="feature-desc">Find notes instantly using filters and keywords.</p>
+            </div>
+            <div class="box-feature">
+                <i class="fas fa-upload"></i>
+                <h5 class="feature-title">Upload Your Content</h5>
+                <p class="feature-desc">Easily share your notes and help others learn.</p>
+            </div>
+            <div class="box-feature">
+                <i class="fas fa-tags"></i>
+                <h5 class="feature-title">Subject-wise Tagging</h5>
+                <p class="feature-desc">Organize notes by subject for quick discovery.</p>
+            </div>
+            <div class="box-feature">
+                <i class="fas fa-layer-group"></i>
+                <h5 class="feature-title">Semester Sorting</h5>
+                <p class="feature-desc">View notes semester-wise with structured layout.</p>
+            </div>
+            <div class="box-feature">
+                <i class="fas fa-magnifying-glass"></i>
+                <h5 class="feature-title">Quick Search Bar</h5>
+                <p class="feature-desc">Use the search bar to access any topic in seconds.</p>
+            </div>
+        </div>
+    </section>
 
-      <label for="subject">Subject:</label>
-      <input type="text" id="subject" name="subject" required />
+    <section class="why">
+        <h2 class="why-heading">Why Should You Use It?</h2>
+        <div class="why-cards">
+            <div class="why-card">
+                <i class="fas fa-book-open"></i>
+                <h5>Reduces Chaos During Exams</h5>
+                <p>No more hunting for notes across different platforms — find everything in one place.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-users"></i>
+                <h5>Makes Collaboration Easier</h5>
+                <p>Upload and share notes with classmates seamlessly, encouraging group learning.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-child"></i>
+                <h5>Beginner Friendly</h5>
+                <p>Simple and intuitive interface that's easy to use even for first-time users.</p>
+            </div>
+        </div>
+    </section>
 
-      <label for="file">Select File (PDF, DOCX):</label>
-      <input type="file" id="file" name="file" accept=".pdf,.doc,.docx" required />
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">NotesVault</div>
+                    <p class="footer-description">
+                        Your go-to companion for organized learning. Keep your study notes and PYQs organized, easy to find, and always just a click away.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/opensource-society/notesvault" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#discord" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="./BrowseNotes.html">Browse Notes</a></li>
+                        <li><a href="#upload">Upload Notes</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-community">
+                    <h4>Community</h4>
+                    <div class="community-badges">
+                        <a href="https://gssoc.girlscript.tech/" target="_blank" rel="noopener noreferrer">
+                            <img src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0a1ea17-12ac-433f-9266-afb96c11f06a_200x200.jpeg" alt="GSSOC Badge" />
+                        </a>
+                        <a href="https://github.com/opensource-society" class="oss-link" target="_blank" rel="noopener noreferrer">
+                            <div class="oss-badge">
+                                <i class="fas fa-code-branch"></i>
+                                <span>Open Source Society</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="community-text">Join our vibrant community of learners and contributors</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © 2028 NotesVault. Built with ❤️ by the Open Source Community
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                        <a href="https://github.com/opensource-society/notesvault/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-      <button type="submit">Upload</button>
-    </form>
-
-    <div id="uploadStatus"></div>
-  </main>
-
-  <script src="../scripts/upload.js"></script>
+    <script src="script1.js" defer></script>
 </body>
 </html>
