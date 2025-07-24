@@ -2312,3 +2312,124 @@ main{
 
 
 
+
+/* ========== Features Section ========== */
+.features-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  padding: 2rem;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  background: #b3cbbd;
+  border-radius: 20px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.514);
+  padding: 2rem;
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.feature-desc {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 0.5rem;
+}
+
+/* ========== Custom Footer ========== */
+.custom-footer {
+  background: #163d3b;
+  color: #ffffff;
+  padding: 4rem 2rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h2,
+.footer-section h3 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer-description {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+.footer-section a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin: 0.5rem 0;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.footer-section ul li i {
+  margin-right: 0.5rem;
+  color: #eee;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* ========== Scroll to Top Button ========== */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #163d3b;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background: #14524c;
+}
+
+
