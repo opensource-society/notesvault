@@ -1605,3 +1605,8 @@ button:hover, a:hover, img:hover, .card:hover, .hover-effect:hover {
   z-index: 2;
 }
 
+/* Toggle Btn */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
