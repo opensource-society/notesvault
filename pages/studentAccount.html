@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Account - NotesVault</title>
+  <link rel="stylesheet" href="../styling/studentAccount.css" />
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div id="header">
+      <div class="hamburger-wrapper">
+        <button class="hamburger-menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <div class="hover-sidebar">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/overview.html">Overview</a></li>
+            <li><a href="../pages/features.html">Features</a></li>
+            <li><a href="#">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="header-title-box">
+        <p id="header-title">NotesVault</p>
+      </div>
+
+      <div id="header-navigation" class="nav-menu">
+        <a href="../pages/overview.html">Overview</a>
+        <a href="../pages/studentAccount.html">Student Account</a>
+        <a href="../pages/about.html">About</a>
+        <a href="../pages/features.html">Features</a>
+      </div>
+
+      <div id="header-signup-box">
+        <a href="../pages/signup.html"><p>Sign Up</p></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>📚 Student Dashboard - NotesVault</h1>
+
+    <section class="profile">
+      <h2>👤 Student Details</h2>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Email:</strong> johndoe@example.com</p>
+      <p><strong>College:</strong> ABC Institute of Technology</p>
+      <p><strong>Branch:</strong> Computer Science</p>
+      <p><strong>Year:</strong> 3rd Year</p>
+    </section>
+
+    <section class="notes-section">
+      <h2>💾 Saved Notes</h2>
+
+      <div class="note-card">
+        <h3>Lecture Notes</h3>
+        <ul>
+          <li>DBMS - Normalization.pdf</li>
+          <li>Operating Systems - Deadlock.ppt</li>
+        </ul>
+        <button>➕ Add More</button>
+      </div>
+
+      <div class="note-card">
+        <h3>Previous Year Questions (PYQs)</h3>
+        <ul>
+          <li>CS201 - Midterm 2022.pdf</li>
+          <li>CS303 - Final 2021.docx</li>
+        </ul>
+        <button>➕ Add More</button>
+      </div>
+    </section>
+
+    <div class="back-btn">
+      <button onclick="location.href='../index.html'">⬅ Back to Home</button>
+    </div>
+  </div>
+
+</body>
+</html>
