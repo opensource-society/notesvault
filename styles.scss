@@ -236,73 +236,82 @@ body {
 }
 
 .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 100%;
-    margin: $header-title-signup-margin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 5vw;
+  padding: 2vw;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ccc;
+  gap: 2vw;
 
-    .footer-left-box {
-        max-width: 20vw;
-    }
+  .footer-left-box {
+    max-width: 30vw;
+    min-width: 250px;
+    margin-bottom: 2vw;
 
     .footer-left-heading {
-        font-family: $header-font;
-        font-weight: 500;
-        font-style: normal;
-        font-size: calc(12px + 0.4vw);
-        letter-spacing: +0.1px;
+      font-family: $header-font;
+      font-weight: 600;
+      font-size: calc(14px + 0.4vw);
+      margin-bottom: 10px;
     }
 
     .footer-left-text {
-        font-family: $header-font;
-        font-weight: 200;
-        font-style: italic;
-        font-style: normal;
-        font-size: $header-navigation-signup-fontsize;
+      font-family: $header-font;
+      font-weight: 300;
+      font-size: $header-navigation-signup-fontsize;
+      margin-bottom: 10px;
     }
 
     .footer-left-link {
-        font-family: $header-font;
-        font-weight: 500;
-        font-style: bold;
-        font-size: $header-navigation-signup-fontsize;
-        color: #6b6eb9;
-        cursor: pointer;
+      font-family: $header-font;
+      font-weight: 500;
+      font-size: $header-navigation-signup-fontsize;
+      color: #6b6eb9;
+      cursor: pointer;
     }
+
+    .footer-left-link:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .footer-right {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: flex-start;
 
-    .footer-right-box {
-        width: 16vw;
-        margin: 0px 2vw;
-        cursor: pointer;
-        border-radius: 20px;
-        padding: 1vw;
-    }
+  .footer-right-box {
+    width: 220px;
+    min-width: 200px;
+    padding: 1vw;
+    border-radius: 20px;
+    background: #ffffff;
+    transition: background 0.3s;
+    cursor: pointer;
 
-    .footer-right-box:hover {
-        background-color: #e6ebe5;
+    svg {
+      margin-bottom: 10px;
     }
 
     .footer-right-heading {
-        font-family: $header-font;
-        font-weight: 500;
-        font-style: normal;
-        font-size: calc(14px + 0.4vw);
-        letter-spacing: +0.1px;
+      font-family: $header-font;
+      font-weight: 500;
+      font-size: calc(14px + 0.3vw);
     }
 
     .footer-right-text {
-        font-family: $header-font;
-        font-weight: 300;
-        font-style: italic;
-        font-style: normal;
-        font-size: $header-navigation-signup-fontsize;
+      font-family: $header-font;
+      font-weight: 300;
+      font-size: $header-navigation-signup-fontsize;
     }
+
+    &:hover {
+      background-color: #e6ebe5;
+    }
+  }
 }
