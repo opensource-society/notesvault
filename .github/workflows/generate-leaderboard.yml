@@ -1,0 +1,39 @@
+name: Generate Leaderboard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [closed]
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install @octokit/core
+
+    - name: Run leaderboard generator
+      run: node .github/scripts/generate-leaderboard.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add LEADERBOARD.md
+        git commit -m "🔄 Update leaderboard"
+        git push
+      continue-on-error: true

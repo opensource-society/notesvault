@@ -1,0 +1,24 @@
+{
+  "name": "notesvault",
+  "version": "1.0.0",
+  "description": "**NotesVault** is a beginner-friendly, open-source web app designed to help students **store, browse, and manage academic notes and previous year questions (PYQs)** in one place. This project is perfect for contributors who want to build and grow a useful educational tool from scratch.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Radhika984/notesvault.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Radhika984/notesvault/issues"
+  },
+  "homepage": "https://github.com/Radhika984/notesvault#readme",
+  "dependencies": {
+    "@octokit/core": "^7.0.3"
+  }
+}
