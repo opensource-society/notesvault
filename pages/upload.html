@@ -1,170 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NotesVault Home</title>
-
-    <link rel="stylesheet" href="../styles.css"/>
-    <link rel="stylesheet" href="../styling/overview.css">
-    <link rel="icon" href="favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-...hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Notes</title>
+  <meta name="description" content="Upload your study notes to NotesVault.">
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../styling/styles.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="../scripts/upload.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            base: "#f9faf4",
+            ink: "#161A30",
+            primary: "#113946",
+            accent: "#B4CFB0"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <div id="header">
-            <div class="hamburger-wrapper">
-                <button class="hamburger-menu" onclick="document.querySelector('.hover-sidebar').classList.toggle('visible')">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-                <div class="hover-sidebar">
-                    <ul>
-                        <li><a href="../index.html">Dashboard</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="overview.html">Overview</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Resources</a></li>
-                    </ul>
-                </div>
-            </div>
 
-            <div id="header-title-box">
-                <p id="header-title">NotesVault</p>
-            </div>
+<body class="font-jakarta bg-black text-ink">
 
-            <nav class="nav-menu">
-                <a href="overview.html">Overview</a>
-                <a href="../index.html">Student Account</a>
-                <a href="about.html">About</a>
-                <a href="/">Features</a>
-            </nav>
+  <!-- Header -->
+  <header class="bg-black shadow p-3 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-ink text-white">NotesVault</h1>
+    <nav class="hidden md:flex space-x-6 text-sm text-gray-600">
+      <a href="overview.html" class="text-gray-300 hover:underline">Overview</a>
+      <a href="../index.html" class="text-gray-300 hover:underline">Student Account</a>
+      <a href="about.html" class="text-gray-300  hover:underline">About</a>
+      <a href="#" class="text-gray-300  hover:underline">Features</a>
+    </nav>
+    <button class="bg-[#163d3b] mx-4 px-4 py-1 bg-[#163d3b] text-white rounded-full text-sm hover:bg-[#0d2f34]"><a
+            href="signup.html" style="text-decoration: none;color:white;">Sign Up</a></button>
+  </header>
 
-            <div id="header-signup-box">
-                <p>Sign Up</p>
-            </div>
+  <!-- Main Upload Form -->
+  <main class="max-w-screen-md mx-auto p-6 mt-12 bg-white rounded-xl shadow">
+    <h2 class="text-2xl font-bold mb-6">Upload Notes</h2>
+    <form id="uploadForm" class="space-y-5">
+
+      <div>
+        <label for="branch" class="block text-sm font-medium">Branch <span class="text-red-500">*</span></label>
+        <select id="branch" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <option value="">Select Branch</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="semester" class="block text-sm font-medium">Semester <span class="text-red-500">*</span></label>
+        <select id="semester" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <option value="">Select Semester</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="subject" class="block text-sm font-medium">Subject <span class="text-red-500">*</span></label>
+        <select id="subject" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <option value="">Select Subject</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="tags" class="block text-sm font-medium">Tags (optional)</label>
+        <input type="text" id="tags" placeholder="e.g. algo, PYQ"
+          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg" />
+      </div>
+
+      <div class="w-full p-2">
+        <label for="file" class="block text-sm font-medium text-gray-700 mb-1">
+          Upload File <span class="text-red-500">*</span>
+        </label>
+
+        <!-- Drop Zone -->
+        <div id="drop-zone"
+          class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md h-40 bg-white text-gray-500 text-sm transition-all duration-300 ease-in-out cursor-pointer hover:bg-gray-50">
+          <p>Click or drag file here</p>
         </div>
-    </header>
 
-    <main class="main">
-        <h1 class="heading1">NotesVault</h1>
-        <p class="content">One Place for All Your Study Notes and PYQs.</p>
-    </main>
+       
+        <input type="file" id="file" name="file" hidden required accept=".pdf,.docx,.txt,image/*" />
 
-    <section class="features">
-        <h3 class="features-heading">Key Features</h3>
-        <div class="features-grid">
-            <div class="box-feature">
-                <i class="fas fa-search"></i>
-                <h5 class="feature-title">Browse & Search Notes</h5>
-                <p class="feature-desc">Find notes instantly using filters and keywords.</p>
-            </div>
-            <div class="box-feature">
-                <i class="fas fa-upload"></i>
-                <h5 class="feature-title">Upload Your Content</h5>
-                <p class="feature-desc">Easily share your notes and help others learn.</p>
-            </div>
-            <div class="box-feature">
-                <i class="fas fa-tags"></i>
-                <h5 class="feature-title">Subject-wise Tagging</h5>
-                <p class="feature-desc">Organize notes by subject for quick discovery.</p>
-            </div>
-            <div class="box-feature">
-                <i class="fas fa-layer-group"></i>
-                <h5 class="feature-title">Semester Sorting</h5>
-                <p class="feature-desc">View notes semester-wise with structured layout.</p>
-            </div>
-            <div class="box-feature">
-                <i class="fas fa-magnifying-glass"></i>
-                <h5 class="feature-title">Quick Search Bar</h5>
-                <p class="feature-desc">Use the search bar to access any topic in seconds.</p>
-            </div>
-        </div>
-    </section>
+        <!-- Preview -->
+        <div id="preview" class="mt-4 text-center text-sm text-gray-700"></div>
+      </div>
 
-    <section class="why">
-        <h2 class="why-heading">Why Should You Use It?</h2>
-        <div class="why-cards">
-            <div class="why-card">
-                <i class="fas fa-book-open"></i>
-                <h5>Reduces Chaos During Exams</h5>
-                <p>No more hunting for notes across different platforms — find everything in one place.</p>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-users"></i>
-                <h5>Makes Collaboration Easier</h5>
-                <p>Upload and share notes with classmates seamlessly, encouraging group learning.</p>
-            </div>
-            <div class="why-card">
-                <i class="fas fa-child"></i>
-                <h5>Beginner Friendly</h5>
-                <p>Simple and intuitive interface that's easy to use even for first-time users.</p>
-            </div>
-        </div>
-    </section>
 
-    <footer class="modern-footer">
-        <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <div class="footer-logo">NotesVault</div>
-                    <p class="footer-description">
-                        Your go-to companion for organized learning. Keep your study notes and PYQs organized, easy to find, and always just a click away.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://github.com/opensource-society/notesvault" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#discord" class="social-link">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#overview">Overview</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="./BrowseNotes.html">Browse Notes</a></li>
-                        <li><a href="#upload">Upload Notes</a></li>
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-                <div class="footer-community">
-                    <h4>Community</h4>
-                    <div class="community-badges">
-                        <a href="https://gssoc.girlscript.tech/" target="_blank" rel="noopener noreferrer">
-                            <img src="https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0a1ea17-12ac-433f-9266-afb96c11f06a_200x200.jpeg" alt="GSSOC Badge" />
-                        </a>
-                        <a href="https://github.com/opensource-society" class="oss-link" target="_blank" rel="noopener noreferrer">
-                            <div class="oss-badge">
-                                <i class="fas fa-code-branch"></i>
-                                <span>Open Source Society</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="community-text">Join our vibrant community of learners and contributors</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-divider"></div>
-                <div class="footer-bottom-content">
-                    <p class="copyright">
-                        © 2028 NotesVault. Built with ❤️ by the Open Source Community
-                    </p>
-                    <div class="footer-bottom-links">
-                        <a href="#privacy">Privacy Policy</a>
-                        <a href="#terms">Terms of Service</a>
-                        <a href="https://github.com/opensource-society/notesvault/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script src="script1.js" defer></script>
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full hover:bg-[#0d2f34] transition-all">
+        Upload
+      </button>
+    </form>
+
+    <div id="message" class="mt-4 text-green-600 font-medium"></div>
+  </main>
+
+  <footer class="text-center text-sm mt-10 text-gray-500">&copy; 2025 NotesVault</footer>
+
+  <!-- Script to Load Dropdowns from JSON -->
+  <script>
+    let data;
+    fetch('./data/search_parameters/parameters.json')
+      .then(res => res.json())
+      .then(json => {
+        data = json;
+        const branchSelect = document.getElementById('branch');
+        json.branches.forEach(b => {
+          if (typeof b === 'object') {
+            const option = document.createElement('option');
+            option.value = b.name;
+            option.textContent = b.name;
+            branchSelect.appendChild(option);
+          } else {
+            const option = document.createElement('option');
+            option.value = b;
+            option.textContent = b;
+            branchSelect.appendChild(option);
+          }
+        });
+      });
+
+    document.getElementById('branch').addEventListener('change', e => {
+      const semesterSelect = document.getElementById('semester');
+      semesterSelect.innerHTML = '<option value="">Select Semester</option>';
+      const subjectSelect = document.getElementById('subject');
+      subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+      const selectedBranch = e.target.value;
+      const branchData = data.branches.find(b => b.name === selectedBranch);
+      if (!branchData) return;
+      branchData.semesters.forEach(sem => {
+        const option = document.createElement('option');
+        option.value = sem.semester;
+        option.textContent = `Semester ${sem.semester}`;
+        semesterSelect.appendChild(option);
+      });
+    });
+
+    document.getElementById('semester').addEventListener('change', e => {
+      const subjectSelect = document.getElementById('subject');
+      subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+      const branch = document.getElementById('branch').value;
+      const semester = parseInt(e.target.value);
+      const branchData = data.branches.find(b => b.name === branch);
+      if (!branchData) return;
+      const semesterData = branchData.semesters.find(s => s.semester === semester);
+      if (!semesterData) return;
+      semesterData.subjects.forEach(sub => {
+        const code = Object.keys(sub)[0];
+        const name = sub[code];
+        const option = document.createElement('option');
+        option.value = code;
+        option.textContent = `${code} - ${name}`;
+        subjectSelect.appendChild(option);
+      });
+    });
+
+    document.getElementById("uploadForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("message").innerText = "✅ Notes uploaded successfully (for demo purposes only — not stored)"
+      this.reset();
+    });
+  </script>
+
 </body>
+
 </html>
