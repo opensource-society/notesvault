@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesVault Footer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styling/Footer.css">
+</head>
+<body>
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2 class="footer-logo">NotesVault</h2>
+                <p class="footer-description">
+                    A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong>
+                    academic notes & PYQs semester-wise. Contribute easily, organize efficiently, and search by tags.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                    </li>
+                    <li><a href="https://github.com/opensource-society/notesvault" target="_blank"><i
+                                class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Social Media</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i>
+                            Instagram</a></li>
+                    <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/features.html">Features</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/upload.html">Upload Notes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom-content">
+            <p class="copyright">&copy; <span id="year"></span> NotesVault. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Quick Links</a>
+                <a href="#">Resources</a>
+                <a href="#">Community</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,5 +1,4 @@
-  document.addEventListener("DOMContentLoaded", function () {
-
+document.addEventListener("DOMContentLoaded", function () {
   // --- Data Storage ---
   // This will hold the entire data structure from parameters.json
   let allData = {};
@@ -88,16 +87,16 @@
 
   // --- Main Logic: Fetch data and initialize the first dropdown ---
   fetch("data/search_parameters/parameters.json")
-    .then(res => res.json())
-    .then(data => {
-      allData = data; // Store all data globally within this script's scope
-      const branchNames = allData.branches.map(b => b.name);
-      const branchSelect = createDropdown(searchBranchContainer, "selectBranch", "Select Branch", branchNames);
+      .then(res => res.json())
+      .then(data => {
+        allData = data; // Store all data globally within this script's scope
+        const branchNames = allData.branches.map(b => b.name);
+        const branchSelect = createDropdown(searchBranchContainer, "selectBranch", "Select Branch", branchNames);
 
-      // Add the event listener to the main branch dropdown
-      branchSelect.addEventListener("change", updateSemesters);
-    })
-    .catch(error => console.error("Error fetching parameters:", error));
+        // Add the event listener to the main branch dropdown
+        branchSelect.addEventListener("change", updateSemesters);
+      })
+      .catch(error => console.error("Error fetching parameters:", error));
 
 
   // --- Typewriter Effect ---
@@ -131,37 +130,6 @@
       isDeleting = false;
       currentWordIndex = (currentWordIndex + 1) % words.length;
       typeSpeed = 500; // Pause before starting a new word
-
-    // Function to update the Subject dropdown based on the selected Semester
-    function updateSubjects() {
-        const selectedBranch = document.getElementById("selectBranch").value;
-        const selectedSemester = document.getElementById("selectSemester").value;
-        let subjectNames = [];
-        
-        // Clear the subject dropdown
-        searchSubjectContainer.innerHTML = '';
-
-        // Find the selected branch and semester to get the subjects
-        const branchData = allData.branches.find(b => b.name === selectedBranch);
-        if (branchData && branchData.semesters) {
-            const semesterData = branchData.semesters.find(sem => sem.semester == selectedSemester);
-            if (semesterData && semesterData.subjects) {
-                // Extracts the name of the subject
-                // subjectNames = semesterData.subjects.map(sub => Object.values(sub)[0]);
-
-subjectNames = semesterData.subjects
-  .map(sub => Object.values(sub)[0])
-  .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-
-
-
-
-            }
-        }
-        
-        // Create the new subject dropdown
-        createDropdown(searchSubjectContainer, "selectSubject", "Select Subject", subjectNames);
-
     }
 
     setTimeout(typeWriterEffect, typeSpeed);
@@ -169,7 +137,6 @@ subjectNames = semesterData.subjects
 
   // Start the typewriter
   typeWriterEffect();
-
 
   // --- Mobile Menu Toggle Functionality ---
   const nav = document.getElementById('header-navigation');
@@ -215,6 +182,7 @@ subjectNames = semesterData.subjects
       window.location.href = "upload.html";
     });
   });
+
 
 
   // Update the DOMContentLoaded event listener to include theme initialization

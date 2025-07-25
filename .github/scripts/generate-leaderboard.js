@@ -29,6 +29,24 @@ function apiRequest(path, page = 1) {
       let data = '';
       res.on('data', (chunk) => data += chunk);
       res.on('end', () => {
+        if (res.statusCode === 403) {
+          console.warn(`API rate limit exceeded on ${path}`);
+          resolve({
+            data: [],
+            hasNextPage: false
+          });
+          return;
+        }
+        
+        if (res.statusCode >= 400) {
+          console.warn(`API error ${res.statusCode} on ${path}: ${data.substring(0, 200)}`);
+          resolve({
+            data: [],
+            hasNextPage: false
+          });
+          return;
+        }
+        
         try {
           const jsonData = JSON.parse(data);
           resolve({
@@ -36,12 +54,22 @@ function apiRequest(path, page = 1) {
             hasNextPage: res.headers.link && res.headers.link.includes('rel="next"')
           });
         } catch (error) {
-          reject(error);
+          console.warn(`JSON parse error on ${path}:`, error.message);
+          resolve({
+            data: [],
+            hasNextPage: false
+          });
         }
       });
     });
 
-    req.on('error', reject);
+    req.on('error', (error) => {
+      console.warn(`Network error on ${path}:`, error.message);
+      resolve({
+        data: [],
+        hasNextPage: false
+      });
+    });
     req.end();
   });
 }
@@ -58,6 +86,11 @@ async function fetchAllPages(path) {
       allData = allData.concat(response.data);
       hasNextPage = response.hasNextPage;
       page++;
+      
+      // Add a small delay to respect rate limits
+      if (hasNextPage) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
     } catch (error) {
       console.error(`Error fetching page ${page}:`, error.message);
       break;
@@ -79,10 +112,20 @@ async function generateLeaderboard() {
     // Filter issues by level labels and extract assignee data
     const levelIssues = issues.filter(issue => {
       const labels = issue.labels.map(label => label.name.toLowerCase());
-      return labels.some(label => ['level1', 'level2', 'level3'].includes(label));
+      return labels.some(label => ['level1', 'level2', 'level3', 'level 1', 'level 2', 'level 3'].includes(label));
     });
 
     console.log(`Found ${levelIssues.length} closed issues with level labels`);
+    
+    // Debug: Print some sample issues for troubleshooting
+    if (levelIssues.length > 0) {
+      console.log('Sample level issues found:');
+      levelIssues.slice(0, 3).forEach(issue => {
+        const labels = issue.labels.map(label => label.name);
+        const assignees = issue.assignees?.map(a => a.login) || [];
+        console.log(`- Issue #${issue.number}: "${issue.title}" | Labels: [${labels.join(', ')}] | Assignees: [${assignees.join(', ')}]`);
+      });
+    }
 
     // Build contributor stats
     const contributorStats = {};
@@ -104,9 +147,9 @@ async function generateLeaderboard() {
         }
 
         // Count level completions
-        if (labels.includes('level1')) contributorStats[username].level1++;
-        if (labels.includes('level2')) contributorStats[username].level2++;
-        if (labels.includes('level3')) contributorStats[username].level3++;
+        if (labels.includes('level1') || labels.includes('level 1')) contributorStats[username].level1++;
+        if (labels.includes('level2') || labels.includes('level 2')) contributorStats[username].level2++;
+        if (labels.includes('level3') || labels.includes('level 3')) contributorStats[username].level3++;
       });
     });
 
