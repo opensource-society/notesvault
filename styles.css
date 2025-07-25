@@ -430,9 +430,6 @@
 }
 
 
-
-
-
   .hamburger-menu.active .hamburger-line:nth-child(2) {
     opacity: 0;
   }
@@ -709,8 +706,6 @@
     justify-content: center;
   }
 
- 
-
 
   .search-form-input-container {
     display: flex;
@@ -906,6 +901,7 @@
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
   animation-delay: 0.8s;
+}
 }
 
   /* RESPONSIVE BREAKPOINTS */
