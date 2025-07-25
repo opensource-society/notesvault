@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 
-
-
   .theme-toggle {
     display: flex;
     align-items: center;
@@ -2430,6 +2428,122 @@ main{
 
 #scrollToTopBtn:hover {
   background: #14524c;
+}}
+/*for features section */
+.card-container {
+  display: flex;
+  gap: 20px; /* space between cards */
+  justify-content: center; /* center horizontally */
+  padding: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  align-items: center;
 }
 
+
+
+
+.card {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #e4f0e1;   /* pastel green */
+  border: 3px solid #d0e6ce;   /* softer inner border */
+  color: #2b4a2c;   
+  font-family: "Poppins", sans-serif;
+  
+}
+.card-body .feature-title{
+  font-weight:bold;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+/*footer css*/
+  .custom-footer {
+    background-color: #e6f4ea;
+    color: #2e7d32;
+    padding: 40px 20px 10px;
+    font-family: 'Segoe UI', sans-serif;
+    border-top: 2px solid #b2d8c5;
+    margin-top: 80px;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .footer-section {
+    flex: 1 1 200px;
+  }
+
+  .footer-section h3, .footer-section h2 {
+    margin-bottom: 15px;
+    color: #2e7d32;
+  }
+
+  .footer-description {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 12px;
+  }
+
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #2e7d32;
+    transition: color 0.2s;
+    font-size: 15px;
+  }
+
+  .footer-section ul li a:hover {
+    color: #1b5e20;
+  }
+
+  .footer-learn-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1b5e20;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+  }
+
+  .footer-learn-link:hover {
+    border-bottom: 2px solid #1b5e20;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #555;
+    border-top: 1px solid #cde9d9;
+  }
+
+  @media screen and (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 

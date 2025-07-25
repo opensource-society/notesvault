@@ -13,6 +13,7 @@ jobs:
       contents: read
       pull-requests: write
       pages: write
+      id-token: write
 
     steps:
       - name: Checkout PR branch
@@ -24,8 +25,8 @@ jobs:
       - name: Copy files to preview folder
         run: |
           mkdir -p preview/pr-${{ github.event.pull_request.number }}
-          cp -r $(ls -A | grep -Ev '^\.git$|^\.github$|^preview$') preview/pr-${{ github.event.pull_request.number }}/
-        # Copies all files except .git, .github, and preview directories
+          # Copy all files except .git, .github, and preview directories
+          rsync -av --exclude='.git*' --exclude='preview' . preview/pr-${{ github.event.pull_request.number }}/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -34,7 +35,7 @@ jobs:
           publish_dir: ./preview/pr-${{ github.event.pull_request.number }}
           publish_branch: gh-pages
           destination_dir: pr-preview/pr-${{ github.event.pull_request.number }}
-          keep_files: false
+          keep_files: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
@@ -42,8 +43,12 @@ jobs:
         id: pages
         uses: actions/github-script@v7
         with:
+          result-encoding: string
           script: |
-            const response = await github.rest.repos.getPages({ owner: context.repo.owner, repo: context.repo.repo });
+            const response = await github.rest.repos.getPages({ 
+              owner: context.repo.owner, 
+              repo: context.repo.repo 
+            });
             return response.data.html_url;
 
       - name: Comment PR with preview URL
@@ -52,4 +57,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           header: preview-url
           message: |
-            🚀 PR Preview: ${{ steps.pages.outputs.result }}/pr-preview/pr-${{ github.event.pull_request.number }}/
+            🚀 **PR Preview Deployed!**
+            
+            Your preview is available at: 
+            **${{ steps.pages.outputs.result }}pr-preview/pr-${{ github.event.pull_request.number }}/**
+            
+            Changes will be reflected automatically when you push new commits to this PR.

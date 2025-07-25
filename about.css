@@ -17,6 +17,7 @@ body {
   color: white;
   padding: 2.5rem 1rem;
   text-align: center;
+  margin-top: 50px;
 }
 
 .hero-section h1 {
@@ -29,12 +30,10 @@ body {
   background-color: #dbe5dc;
   border-radius: 10px;
   margin-top: 1.5rem;
-  padding: 1.5rem;
+  padding: 2rem;
   font-size: 1.1rem;
   font-weight: 400;
-  text-align: justify;
-  /* FIX: Added missing padding as per the issue description */
-  padding: 2rem;
+  text-align: center;
 }
 
 /* Cards (Mission & How We Help, Features) */
@@ -191,7 +190,9 @@ body {
     padding: 1rem;
     margin-top: 1rem;
     font-size: 1rem;
+    text-align: center;
   }
+
   
   .two-cards,
   .features {
