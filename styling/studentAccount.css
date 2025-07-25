@@ -31,7 +31,6 @@ h1 {
   padding: 20px;
   border-left: 6px solid #4a90e2;
   background-image: linear-gradient(to left, #670de6, #00048fc2);
-
   border-radius: 8px;
   color: #fff;
 }
@@ -103,6 +102,7 @@ h1 {
 .back-btn button:hover {
   background-color: #4213ff;
 }
+
 header {
   background-color: black;
   position: fixed;
@@ -113,19 +113,19 @@ header {
   justify-content: space-evenly;
   border-bottom: 1px solid rgb(22, 22, 22);
 }
+
 #header {
   width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: space-evenly;
 }
-.hamburger-wrapper {
-  display: inline-flex;
-}
+
 .hamburger-wrapper {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
 }
+
 .hamburger-menu {
   display: flex;
   flex-direction: column;
@@ -137,12 +137,14 @@ header {
   cursor: pointer;
   padding: 10px;
 }
+
 .hamburger-line {
   width: 100%;
   height: 4px;
-  background-color: #000;
+  background-color: #fff;
   border-radius: 2px;
 }
+
 .hover-sidebar {
   display: none;
   position: absolute;
@@ -157,6 +159,7 @@ header {
   height: 100vh;
   transition: all ease-in-out;
 }
+
 .hover-sidebar ul {
   list-style: none;
   padding: 0;
@@ -167,58 +170,63 @@ header {
   align-items: center;
   gap: 20px;
 }
+
 .hover-sidebar ul li {
   margin: 10px 0;
 }
+
 .hover-sidebar ul li a {
   color: white;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
 }
+
 .hover-sidebar ul li a:hover {
   color: #0149ff;
 }
+
 .hamburger-wrapper:hover .hover-sidebar {
   display: block;
 }
-.hamburger-menu span {
-  width: 100%;
-  height: 100%;
-  background-color: #0f5ec9;
-  border: 1px solid rgb(255, 255, 255);
-}
+
 #header-navigation {
   display: inline-flex;
   justify-content: space-evenly;
   width: 60%;
 }
+
 #header-navigation a {
   text-decoration: none;
   font-weight: bold;
   color: #fff;
 }
+
 #header-signup-box a {
   text-decoration: none;
 }
+
 #header-signup-box a p {
   color: #fff;
   background-color: #0053e4;
-  padding: 8px 30px 8px 30px;
+  padding: 8px 30px;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 1px 11px #003fdb;
 }
+
 #header-signup-box a p:hover {
   box-shadow: 0px 1px 13px #0149ff;
 }
+
 #header-title-box {
   font-size: large;
   font-weight: bold;
   color: #0149ff;
 }
+
 .nav-menu a {
   position: relative;
   color: white;
@@ -229,6 +237,7 @@ header {
   display: inline-block;
   transition: color 0.3s ease;
 }
+
 .nav-menu a::after {
   content: "";
   position: absolute;
@@ -239,9 +248,11 @@ header {
   background-color: #0149ff;
   transition: width 0.3s ease-in-out;
 }
+
 .nav-menu a:hover::after {
   width: 100%;
 }
+
 .nav-menu a:hover {
   color: #0149ff;
 }
