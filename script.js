@@ -212,7 +212,6 @@ subjectNames = semesterData.subjects
   document.querySelectorAll(".upload-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       window.location.href = "upload.html";
-    });
   });
 
 
@@ -284,39 +283,7 @@ function updateFilterSubjects(branch) {
 }
 
 
-// function displayNotes(notes) {
-//   notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-//   notes.forEach(note => {
-//     const card = document.createElement("div");
-//     card.className = "note-card";
-//     card.innerHTML = `
-//       <h3>${note.title}</h3>
-//       <p><strong>Branch:</strong> ${note.branch}</p>
-//       <p><strong>Semester:</strong> ${note.semester}</p>
-//       <p><strong>Subject:</strong> ${note.subject}</p>
-//       <a href="${note.link}" target="_blank" download>Download</a>
-//     `;
-//     notesContainer.appendChild(card);
-//   });
-// }
-function displayNotes(notes) {
-  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-
-  notes
-    .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
-    .forEach(note => {
-      const card = document.createElement("div");
-      card.className = "note-card";
-      card.innerHTML = `
-        <h3>${note.title}</h3>
-        <p><strong>Branch:</strong> ${note.branch}</p>
-        <p><strong>Semester:</strong> ${note.semester}</p>
-        <p><strong>Subject:</strong> ${note.subject}</p>
-        <a href="${note.link}" target="_blank" download>Download</a>
-      `;
-      notesContainer.appendChild(card);
-    });
-}
+// ...existing code...
 
 
   function displayNotes(notes) {
@@ -398,19 +365,17 @@ function displayNotes(notes) {
 
 
 
-  [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
-    filter.addEventListener("change", () => {
-      const branchVal = branchFilter.value;
-      if (filter === branchFilter) updateSubjects(branchVal);
-      const filtered = notesData.filter(note =>
-        (branchVal === "" || note.branch === branchVal) &&
-        (semesterFilter.value === "" || note.semester === semesterFilter.value) &&
-        (subjectFilter.value === "" || note.subject === subjectFilter.value)
-      );
-      displayNotes(filtered);
-    });
-
-
+[branchFilter, semesterFilter, subjectFilter].forEach(filter => {
+  filter.addEventListener("change", () => {
+    const branchVal = branchFilter.value;
+    if (filter === branchFilter) updateFilterSubjects(branchVal);
+    const filtered = notesData.filter(note =>
+      (branchVal === "" || note.branch === branchVal) &&
+      (semesterFilter.value === "" || note.semester === semesterFilter.value) &&
+      (subjectFilter.value === "" || note.subject === subjectFilter.value)
+    );
+    displayNotes(filtered);
+  });
 
 [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
   filter.addEventListener("change", () => {
@@ -488,4 +453,21 @@ function runQuerySearch() {
     }
   }
 }
+// Toggle Help Tooltip
+document.addEventListener("DOMContentLoaded", () => {
+  const helpBtn = document.getElementById("helpBtn");
+  const helpTooltip = document.getElementById("helpTooltip");
 
+  helpBtn.addEventListener("click", () => {
+    helpTooltip.style.display = helpTooltip.style.display === "block" ? "none" : "block";
+  });
+
+  // Optional: Hide tooltip if clicked outside
+  document.addEventListener("click", function(event) {
+    if (!helpBtn.contains(event.target) && !helpTooltip.contains(event.target)) {
+      helpTooltip.style.display = "none";
+    }
+  });
+}); // <-- closes the help tooltip DOMContentLoaded arrow function
+
+}); // <-- closes the main DOMContentLoaded function
