@@ -430,6 +430,9 @@
 }
 
 
+
+
+
   .hamburger-menu.active .hamburger-line:nth-child(2) {
     opacity: 0;
   }
@@ -705,6 +708,8 @@
     z-index: 0;
     justify-content: center;
   }
+
+ 
 
 
   .search-form-input-container {
