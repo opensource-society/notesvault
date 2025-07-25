@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NotesVault | JotPad</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styling/jotpad.css">
-
 </head>
 <body>
 
@@ -39,26 +38,22 @@
       doc.text(content, 10, 20, { maxWidth: 180 });
       doc.save("MyNotes.pdf");
     }
-    
-const noteArea = document.getElementById("noteArea");
-noteArea.innerHTML = localStorage.getItem("noteContent") || "";
 
-function togglePlaceholder() {
-  if (noteArea.innerText.trim() === "") {
-    noteArea.classList.add("empty");
-  } else {
-    noteArea.classList.remove("empty");
-  }
-}
+    const noteArea=document.getElementById("noteArea");
+    noteArea.innerHTML = localStorage.getItem("noteContent") || "";
+    function togglePlaceholder(){
+      if(noteArea.innerText.trim()===""){
+        noteArea.classList.add("empty");
+      }
+      else{
+        noteArea.classList.remove("empty");
+      }
+    }
+    noteArea.addEventListener("input",togglePlaceholder);
+    noteArea.addEventListener("blur",togglePlaceholder);
+    noteArea.addEventListener("focus", togglePlaceholder);
+    togglePlaceholder()
 
-noteArea.addEventListener("input", () => {
-  localStorage.setItem("noteContent", noteArea.innerHTML);
-  togglePlaceholder();
-});
-
-noteArea.addEventListener("blur", togglePlaceholder);
-
-togglePlaceholder();
 
 function deleteAll() {
   if (confirm("Are you sure you want to delete all notes?")) {
@@ -67,6 +62,7 @@ function deleteAll() {
     togglePlaceholder();
   }
 }
+
 
   </script>
 

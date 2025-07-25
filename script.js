@@ -1,5 +1,4 @@
-  document.addEventListener("DOMContentLoaded", function () {
-
+document.addEventListener("DOMContentLoaded", function () {
   // --- Data Storage ---
   // This will hold the entire data structure from parameters.json
   let allData = {};

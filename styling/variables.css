@@ -1,0 +1,28 @@
+/* CSS Variables for NotesVault Theme */
+:root {
+  /* Primary Colors */
+  --notes-orange: #F7B562;
+  --notes-orange-dark: #E0A050;
+  --notes-green-light: #D4EDDA;
+  --notes-bg-light: #F8F8F8;
+  
+  /* Gray Scale */
+  --gray-100: #f3f4f6;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  
+  /* Common Colors */
+  --white: #ffffff;
+  --black: #000000;
+  
+  /* Status Colors */
+  --red-error: #f44336;
+  --green-success: #4CAF50;
+  
+  /* Additional Theme Colors */
+  --primary-green: #163d3b;
+  --background-light: #f4f9f4;
+  --text-dark: #1c1c1c;
+}
