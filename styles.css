@@ -2527,6 +2527,60 @@ main{
     color: #555;
     border-top: 1px solid #cde9d9;
   }
+  /* Help Tooltip Styles */
+#helpTooltipContainer {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  z-index: 100;
+}
+
+#helpBtn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Help Tooltip Styles */
+#helpTooltipContainer {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  z-index: 100;
+}
+
+#helpBtn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#helpTooltip {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  width: 220px;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
 
   @media screen and (max-width: 768px) {
     .footer-container {
@@ -2534,3 +2588,5 @@ main{
       align-items: flex-start;
     }
   }
+  
+
