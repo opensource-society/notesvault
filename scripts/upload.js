@@ -8,7 +8,7 @@ fileInput.addEventListener("change", () => {
   if (fileInput.files.length) {
     handleFile(fileInput.files[0]);
   }
-});;
+});
 
     ["dragenter", "dragover", "dragleave", "drop"].forEach(event => {
       dropZone.addEventListener(event, e => {
