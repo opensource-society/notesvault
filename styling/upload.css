@@ -3,7 +3,7 @@
 /* CSS Variables for Upload Page Theme */
 :root {
   --color-base: #f9faf4;
-  --color-ink: #161A30;
+  --color-ink: #031994;
   --color-primary: #113946;
   --color-primary-hover: #0d2f34;
   --color-accent: #B4CFB0;
@@ -97,6 +97,7 @@ main h2 {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
 .upload-container {
   max-width: 600px;
   margin: 0 auto;
