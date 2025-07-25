@@ -6,8 +6,9 @@
     <title>Browse Notes - NotesVault</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../styles.css"/>
+    <link rel="stylesheet" href="../styling/overview.css">   
     <link rel="icon" href="favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../styling/overview.css">
+    <link rel="stylesheet" href="../styling/BrowseNotes.css">
 </head>
 <style>
     /* General Body and Font Styling */
@@ -253,6 +254,81 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 
+/* General container spacing */
+.search-bar, .filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Search input */
+.search-bar input[type="text"] {
+  padding: 10px 15px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Buttons */
+.search-bar button,
+.filters button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover,
+.filters button:hover {
+  background-color: #0056b3;
+}
+
+/* Filter dropdowns */
+.filters select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  min-width: 150px;
+  transition: border-color 0.3s ease;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 600px) {
+  .search-bar, .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input[type="text"],
+  .filters select,
+  .search-bar button,
+  .filters button {
+    width: 100%;
+  }
+}
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header {
@@ -321,32 +397,53 @@ nav ul li a:hover {
     </header>
 
     <main class="browse-notes-container">
-        <h1>Browse All Notes</h1>
+        <h1>Browse & Search Notes</h1>
 
-        <div class="notes-grid" id="notesGrid">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by title or subject...">
+            <button onclick="searchNotes()">Search</button>
+        </div>
+
+        <div class="filters">
+            <select id="branchFilter">
+                <option value="">All Branches</option>
+            </select>
+            <select id="semesterFilter">
+                <option value="">All Semesters</option>
+            </select>
+            <select id="subjectFilter">
+                <option value="">All Subjects</option>
+            </select>
+            <button onclick="filterNotes()">Apply Filters</button>
+        </div>
+
+        <div class="notes-grid" id="results" >
             <div class="loading-message" id="loadingMessage">Loading notes...</div>
             <div class="no-notes-message" id="noNotesMessage" style="display: none;">No notes found.</div>
         </div>
-    </main>
+        <div id="results"></div>
 
-    <div id="noteDetailModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modalNoteTitle"></h2>
-            <p><strong>Branch:</strong> <span id="modalNoteBranch"></span></p>
-            <p><strong>Semester:</strong> <span id="modalNoteSemester"></span></p>
-            <p><strong>Description:</strong> <span id="modalNoteDescription"></span></p>
-            <p><strong>Uploaded By:</strong> <span id="modalNoteUploader"></span></p>
-            <p><strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span></p>
-            <a id="modalDownloadButton" class="download-button" href="#" download>
-                <i class="fas fa-download"></i> Download Note
-            </a>
-        </div>
+  <!-- This modal will be reused for every note -->
+  <div id="noteDetailModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modalNoteTitle"></h2>
+      <p><strong>Branch:</strong> <span id="modalNoteBranch"></span></p>
+      <p><strong>Semester:</strong> <span id="modalNoteSemester"></span></p>
+      <p><strong>Description:</strong> <span id="modalNoteDescription"></span></p>
+      <p><strong>Uploaded By:</strong> <span id="modalNoteUploader"></span></p>
+      <p><strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span></p>
+      <a id="modalDownloadButton" class="download-button" href="#" download>
+        <i class="fas fa-download"></i> Download Note
+      </a>
     </div>
+  </div>
 
-    <script >
+    
+    </main>
+    <script src="../scripts/search.js">
         // your code goes here
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const notesGrid = document.getElementById('notesGrid');
     const loadingMessage = document.getElementById('loadingMessage');
     const noNotesMessage = document.getElementById('noNotesMessage');

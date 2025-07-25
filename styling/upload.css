@@ -1,112 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
-
-/* CSS Variables for Upload Page Theme */
 :root {
-  --color-base: #f9faf4;
-  --color-ink: #161A30;
-  --color-primary: #113946;
-  --color-primary-hover: #0d2f34;
-  --color-accent: #B4CFB0;
-  --color-white: #ffffff;
-  --color-gray-300: #d1d5db;
-  --color-gray-500: #6b7280;
-  --color-gray-700: #374151;
-  --color-red-500: #ef4444;
-  --color-green-600: #16a34a;
-  --color-indigo-500: #6366f1;
-}
-
-/* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --primary: #113946;
+  --primary-dark: #0d2f34;
+  --bg: #f9fafb;
+  --text: #161a30;
+  --gray: #6b7280;
+  --success: #16a34a;
+  --error: #dc2626;
 }
 
 body {
+  margin: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--color-base);
-  color: var(--color-ink);
-  line-height: 1.5;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
-/* Header Styles */
-header {
-  background-color: var(--color-white);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  padding: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.upload-container {
+  max-width: 600px;
+  margin: 80px auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
 }
 
-header h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-ink);
+.upload-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  color: var(--primary);
 }
 
-nav {
-  display: none;
-  gap: 1.5rem;
-  font-size: 0.875rem;
-}
-
-nav a {
-  color: var(--color-ink);
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.signup-btn {
-  padding: 0.25rem 1rem;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.signup-btn:hover {
-  background-color: var(--color-primary-hover);
-}
-
-/* Main Content Styles */
-main {
-  max-width: 768px;
-  margin: 3rem auto 0;
-  padding: 1.5rem;
-  background-color: var(--color-white);
-  border-radius: 0.75rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-main h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-/* Form Styles */
 .form-container {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-.upload-container {
-  max-width: 600px;
-  margin: 0 auto;
-  margin-top: 190px;
-  padding: 2rem;
-  
-  background: white;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  border: 2px green solid;
+  gap: 1rem;
 }
 
 .form-group {
@@ -114,120 +42,56 @@ main h2 {
   flex-direction: column;
 }
 
-.form-label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
 }
 
 .required {
-  color: var(--color-red-500);
+  color: var(--error);
 }
 
-.form-input,
-.form-select {
-  margin-top: 0.25rem;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-gray-300);
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+input[type="text"],
+select,
+textarea,
+input[type="file"] {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
 
-.form-input:focus,
-.form-select:focus {
-  outline: none;
-  border-color: var(--color-indigo-500);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+textarea {
+  resize: vertical;
 }
 
-.form-input::placeholder {
-  color: var(--color-gray-500);
-}
-
-.file-input {
-  display: block;
-  width: 100%;
-  border: 1px solid var(--color-gray-300);
-  border-radius: 0.375rem;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  font-size: 0.875rem;
-  padding: 0.5rem;
-}
-
-.file-input:focus {
-  outline: none;
-  border-color: var(--color-indigo-500);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-/* Submit Button */
-.submit-btn {
-  width: 100%;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: 0.5rem;
-  border-radius: 9999px;
+.upload-btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
-  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-  background-color: var(--color-primary-hover);
+.upload-btn:hover {
+  background-color: var(--primary-dark);
 }
 
-/* Message Styles */
-.message {
-  margin-top: 1rem;
-  color: var(--color-green-600);
-  font-weight: 500;
-}
-
-/* Footer */
-footer {
+.upload-status {
   text-align: center;
-  font-size: 0.875rem;
-  margin-top: 2.5rem;
-  color: var(--color-gray-500);
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--success);
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
-  nav {
-    display: flex;
-  }
-  
-  main {
-    padding: 2rem;
-  }
-}
-
+/* Responsive */
 @media (max-width: 640px) {
-  header {
-    padding: 1rem;
-  }
-  
-  header h1 {
-    font-size: 1.25rem;
-  }
-  
-  .signup-btn {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-  }
-  
-  main {
-    margin: 1.5rem auto 0;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-  }
-  
-  main h2 {
-    font-size: 1.25rem;
+  .upload-container {
+    margin: 30px 15px;
+    padding: 1.5rem;
   }
 }

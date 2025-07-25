@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browse & Search Notes</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .note { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+    .filters, .search { margin-bottom: 20px; }
+    input, select { margin-right: 10px; padding: 5px; }
+  </style>
+  <link rel="stylesheet" href="../styling/browseandsearch.css" />
+</head>
+<body>
+
+  <h1>Browse & Search Notes</h1>
+
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="Search by title or subject...">
+    <button onclick="searchNotes()">Search</button>
+  </div>
+
+  <div class="filters">
+    <select id="branchFilter">
+      <option value="">All Branches</option>
+    </select>
+
+    <select id="semesterFilter">
+      <option value="">All Semesters</option>
+    </select>
+
+    <select id="subjectFilter">
+      <option value="">All Subjects</option>
+    </select>
+
+    <button onclick="filterNotes()">Apply Filters</button>
+  </div>
+
+  <div id="results"></div>
+
+  <!-- 👇 Adjust path based on folder location -->
+  <script src="../scripts/search.js"></script>
+</body>
+</html>
