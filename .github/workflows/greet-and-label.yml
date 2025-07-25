@@ -1,0 +1,79 @@
+---
+name: Greet and Label Issues/PRs
+
+"on":
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: read
+
+jobs:
+  greet-and-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet and Label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { context, github } = require('@actions/github');
+
+            // Determine if this is an issue or pull request
+            const isIssue = context.eventName === 'issues';
+            const isPR = context.eventName === 'pull_request';
+
+            // Get the issue or PR data
+            const item = isIssue ? context.payload.issue :
+              context.payload.pull_request;
+            const itemType = isIssue ? 'issue' : 'PR';
+            const itemNumber = item.number;
+
+            // Post greeting comment
+            const greetingMessage =
+              `Thank you for raising this ${itemType}! ` +
+              'The Copilot assistant welcomes your contribution.';
+
+            if (isIssue) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: itemNumber,
+                body: greetingMessage
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: itemNumber,
+                body: greetingMessage
+              });
+            }
+
+            // Check if the issue/PR is 'generous' and add label
+            if (isIssue) {
+              const title = item.title.toLowerCase();
+              const body = (item.body || '').toLowerCase();
+              const content = title + ' ' + body;
+
+              // Check for generous keywords
+              const generousKeywords = ['contribution', 'feature', 'help'];
+              const isGenerous = generousKeywords.some(keyword =>
+                content.includes(keyword));
+
+              if (isGenerous) {
+                console.log('Issue appears to be generous, ' +
+                  'adding gssoc2025 label');
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: itemNumber,
+                  labels: ['gssoc2025']
+                });
+              }
+            }
+
+            console.log(`Successfully processed ${itemType} #${itemNumber}`);

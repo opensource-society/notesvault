@@ -1,14 +1,14 @@
- const dropZone = document.getElementById("drop-zone");
-    const fileInput = document.getElementById("file");
-    const preview = document.getElementById("preview");
+const dropZone = document.getElementById("drop-zone");
+const fileInput = document.getElementById("file");
+const preview = document.getElementById("preview");
 
-    dropZone.addEventListener("click", () => fileInput.click());
+dropZone.addEventListener("click", () => fileInput.click());
 
-    fileInput.addEventListener("change", () => {
-      if (fileInput.files.length) {
-        handleFile(fileInput.files[0]);
-      }
-    });
+fileInput.addEventListener("change", () => {
+  if (fileInput.files.length) {
+    handleFile(fileInput.files[0]);
+  }
+});;
 
     ["dragenter", "dragover", "dragleave", "drop"].forEach(event => {
       dropZone.addEventListener(event, e => {

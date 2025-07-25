@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("mouseenter", () => {
       card.classList.add("active-feature");
     });
+    
     card.addEventListener("mouseleave", () => {
       card.classList.remove("active-feature");
     });

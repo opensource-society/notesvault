@@ -30,13 +30,10 @@ body {
   background-color: #dbe5dc;
   border-radius: 10px;
   margin-top: 1.5rem;
-  padding: 1.5rem;
+  padding: 2rem;
   font-size: 1.1rem;
   font-weight: 400;
   text-align: center;
-
-  /* FIX: Added missing padding as per the issue description */
-  padding: 2rem;
 }
 
 /* Cards (Mission & How We Help, Features) */
