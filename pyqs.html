@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add PYQs - NotesVault</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --text-color: #333;
+            --card-bg: white;
+            --header-bg: #961396;
+            --accent-color: #ce4cef;
+            --button-bg: #d563f1;
+            --button-text: white;
+        }
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+            --card-bg: #1e1e1e;
+            --header-bg: #333;
+            --accent-color: #bb86fc;
+            --button-bg: #bb86fc;
+            --button-text: #000;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-image:url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-watercolor-background_23-2149018547.jpg?t=st=1753274182~exp=1753277782~hmac=59fd05136922aa51b5190e7478bf7c209bf2959fca5e76e2e97a5681a04465b3&w=826");
+        }
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .home-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        .home-link img {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+            border-radius: 50%;
+            border: none;
+        }
+        .home-link:hover {
+            opacity: 0.8;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .toggle-dark {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .toggle-dark:hover {
+            background-color: white;
+            color: var(--header-bg);
+        }
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        input[type="file"] {
+            padding: 0.8rem;
+            margin-top: 0.3rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        button {
+            margin-top: 1.5rem;
+            padding: 0.8rem;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .preview {
+            margin-top: 2rem;
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .preview h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+        body.dark-mode .preview {
+            background: #2c2c2c;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.4rem;
+            }
+            .home-link img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="home-link">
+            <img src="https://www.iconsdb.com/icons/preview/black/house-xxl.png" alt="NotesVault Logo">
+            Home
+        </a> 
+        <h1>Add Past Year Questions</h1>
+        <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <div class="container">
+        <form id="pyqForm">
+            <label for="subject">📖 Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Enter subject name" required>
+
+            <label for="year">📅 Semester</label>
+            <input type="number" id="semester" name="semester" placeholder="Enter semester (e.g., 2)" required>
+
+            <label for="question">📝 Question Text</label>
+            <textarea id="question" name="question" placeholder="Enter question text here"></textarea>
+
+            <label for="file">📁 Upload Past Paper (PDF)</label>
+            <input type="file" id="file" name="file" accept=".pdf">
+
+            <button type="submit">Save PYQ</button>
+        </form>
+
+        <div class="preview" id="preview" style="display:none;">
+            <h3>📌 Preview</h3>
+            <p><strong>Subject:</strong> <span id="p-subject"></span></p>
+            <p><strong>Year:</strong> <span id="p-year"></span></p>
+            <p><strong>Question:</strong> <span id="p-question"></span></p>
+            <p><strong>File:</strong> <span id="p-file"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            // Save preference
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+        // Load saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Form handling
+        const form = document.getElementById('pyqForm');
+        const preview = document.getElementById('preview');
+        const pSubject = document.getElementById('p-subject');
+        const pYear = document.getElementById('p-year');
+        const pQuestion = document.getElementById('p-question');
+        const pFile = document.getElementById('p-file');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const subject = document.getElementById('subject').value;
+            const year = document.getElementById('year').value;
+            const question = document.getElementById('question').value;
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0] ? fileInput.files[0].name : "No file uploaded";
+
+            // Save to localStorage
+            let pyqs = JSON.parse(localStorage.getItem('pyqs')) || [];
+            pyqs.push({ subject, year, question, file });
+            localStorage.setItem('pyqs', JSON.stringify(pyqs));
+
+            // Show preview
+            pSubject.textContent = subject;
+            pYear.textContent = year;
+            pQuestion.textContent = question ? question : "No text provided";
+            pFile.textContent = file;
+            preview.style.display = "block";
+
+            // Reset form
+            form.reset();
+        });
+    </script>
+</body>
+</html>

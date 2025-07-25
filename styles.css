@@ -655,7 +655,15 @@
   .main-left-links .try-box {
     border: solid 1px;
   }
-
+  
+  .main-left-links .pyqs-box {
+    background-color: #f7b86e;
+    color: #544c1e;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
   .main-right {
     display: flex;
     flex-direction: column;
@@ -2302,6 +2310,7 @@ main{
 
 
 
+
 /* ========== Features Section ========== */
 .features-section {
   display: flex;
@@ -2431,6 +2440,9 @@ main{
   align-items: center;
 }
 
+
+
+
 .card {
   width: 200px;
   height: 150px;
@@ -2534,3 +2546,4 @@ main{
       align-items: flex-start;
     }
   }
+
