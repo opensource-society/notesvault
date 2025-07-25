@@ -1,180 +1,198 @@
-body {
-  margin: 0;
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+#header{
+    background-color: black;
+    color: white;
+}
+#header a{
+    color: white;
+}
+.heading1{
+    color: #d1fae5;
+    margin-bottom: 2px;
+}
+.content{
+    color: #eda950;
+}
+.main_content{
+    padding-top: 20px;
+    background-color: black;
+    color: white;
+}
+.notesvault-section{
+    background-color: black;
+}
+.sectionmission-vision{
+    background-color: black;
+    color: #dff8f8;
+    margin: 20px;
+    border: 2px #eda950 solid;
+    border-radius: 20px;
+    padding: 20px;
+}
+.sectionmission-vision h2{
+    color: #eda950;
+}
+.sectionhow-it-helps{
+    background-color: black;
+    color: #dff8f8;
+    margin: 20px;
+    border: 2px #dff8f8 solid;
+    border-radius: 20px;
+    padding: 30px;
+}
+.green_tag{
+    background-color: #064e3b;
+    color:#d1fae5 ;
+    border-left: 4px solid #047857;
+    padding: 1rem;
+}
+.tech-stack{
+    background-color: black;
+    color: white;
+    margin: 20px;
+    border: 2px #eda950 solid;
+    border-radius: 20px;
+    padding: 30px;
+}
+.tech-stack h2{
+    color: #eda950;
+}
+.section-github{
+    padding: 40px;
+}
+.modern-footer {
+  background-color: #0b3610;
+  color: #ffffff;
+  padding: 3rem 1.5rem 2rem;
   font-family: 'Segoe UI', sans-serif;
-  background: #f4f9f4;
-  color: #1c1c1c;
 }
 
-.container {
-  max-width: 1100px;
+.footer-container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
 }
 
-/* Header (Hero Section) */
-.hero-section {
-  background-color: #163d3b;
-  color: white;
-  padding: 2.5rem 1rem;
-  text-align: center;
-}
-
-.hero-section h1 {
-  font-size: 2.6rem;
-  margin: 0;
-}
-
-/* Intro Section */
-.intro-box {
-  background-color: #dbe5dc;
-  border-radius: 10px;
-  margin-top: 1.5rem;
-  padding: 2rem;
-  font-size: 1.1rem;
-  font-weight: 400;
-  text-align: justify;
-  /* FIX: Added missing padding as per the issue description */
-}
-
-/* Cards (Mission & How We Help, Features) */
-.two-cards,
-.features {
+.footer-top {
   display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.75rem;
   margin-top: 1rem;
-  justify-content: space-between; /* Distributes space between items */
 }
 
-.card,
-.feature-box {
-  flex: 1; /* Allows cards to grow and shrink */
-  background: white;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  line-height: 1.6;
-  margin: 0; /* Ensures no default browser margin interferes with flex gap */
-  min-width: 280px; /* Prevents cards from becoming too narrow before wrapping */
+.social-link svg {
+  fill: #ffffff;
+  transition: transform 0.2s, fill 0.3s;
+}
+.social-link:hover svg {
+  transform: scale(1.1);
+  fill: #b2dfdb;
 }
 
-.card h3,
-.feature-box h3 {
+.footer-links,
+.footer-community {
+  flex: 1 1 180px;
+}
+
+.footer-links h4,
+.footer-community h4 {
   margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #e8f5e9;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.community-badges {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.gssoc-badge img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.oss-badge {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Space between icon and text */
-  font-size: 1.35rem;
+  gap: 0.4rem;
+  background: #1b5e20;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.85rem;
 }
 
-.card p,
-.feature-box p {
-  color: #444;
+.footer-bottom {
+  border-top: 1px solid #047857;
+  padding-top: 1.2rem;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* GitHub CTA Section */
-.cta {
-  text-align: center;
-  background: #dbe5dc;
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+.footer-bottom-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
 }
 
-.cta h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-}
-
-.cta p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.cta a {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.8rem;
-  background-color: #2f3e46;
-  color: white;
+.footer-bottom-links a {
+  margin: 0 0.6rem;
+  color: #c8e6c9;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background 0.3s ease;
 }
 
-.cta a:hover {
-  background-color: #1d2a2e;
+.footer-bottom-links a:hover {
+  text-decoration: underline;
 }
-
-/* Footer */
-.footer {
-  background: #2f3e46;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-}
-
-/* --- Responsive Design Media Queries --- */
-
-/* Tablets and larger phones */
-@media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2.2rem;
-  }
-
-  .intro-box {
-    padding: 1.5rem; /* Adjust padding for smaller screens */
-    font-size: 1rem;
-  }
-
-  .two-cards,
-  .features {
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center; /* Center the stacked cards */
-  }
-
-  .card,
-  .feature-box {
-    width: 90%; /* Take up more width when stacked */
-    max-width: 450px; /* Limit width for consistency */
-  }
-
-  .cta {
-    padding: 1.5rem 1rem;
-  }
-
-  .cta h3 {
-      font-size: 1.5rem;
-  }
-
-  .cta a {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Smaller phones */
-@media (max-width: 480px) {
-  .container {
-    padding: 1rem 0.8rem; /* Reduce container padding further */
-  }
-
-  .hero-section {
-    padding: 2rem 0.8rem;
-  }
-
-  .hero-section h1 {
-    font-size: 1.8rem;
-  }
-
-  .intro-box {
-    padding: 1rem; /* Smaller padding for very compact screens */
-  }
-}
-
-
-

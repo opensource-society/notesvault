@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Upload Notes</title>
   <meta name="description" content="Upload your study notes to NotesVault.">
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css">
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
   <!-- Tailwind CSS -->
+  <script src="upload.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Tailwind Config -->
   <script>
@@ -34,6 +38,7 @@
     }
   </style>
 </head>
+
 <body class="font-jakarta bg-black text-ink">
 
   <!-- Header -->
@@ -45,7 +50,8 @@
       <a href="pages/about.html" class="text-gray-300  hover:underline">About</a>
       <a href="#" class="text-gray-300  hover:underline">Features</a>
     </nav>
-    <button class="bg-[#163d3b] mx-4 px-4 py-1 bg-[#163d3b] text-white rounded-full text-sm hover:bg-[#0d2f34]" ><a href="pages/signup.html" style="text-decoration: none;color:white;">Sign Up</a></button>
+    <button class="bg-[#163d3b] mx-4 px-4 py-1 bg-[#163d3b] text-white rounded-full text-sm hover:bg-[#0d2f34]"><a
+        href="pages/signup.html" style="text-decoration: none;color:white;">Sign Up</a></button>
   </header>
 
   <!-- Main Upload Form -->
@@ -55,24 +61,21 @@
 
       <div>
         <label for="branch" class="block text-sm font-medium">Branch <span class="text-red-500">*</span></label>
-        <select id="branch" required
-          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
+        <select id="branch" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
           <option value="">Select Branch</option>
         </select>
       </div>
 
       <div>
         <label for="semester" class="block text-sm font-medium">Semester <span class="text-red-500">*</span></label>
-        <select id="semester" required
-          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
+        <select id="semester" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
           <option value="">Select Semester</option>
         </select>
       </div>
 
       <div>
         <label for="subject" class="block text-sm font-medium">Subject <span class="text-red-500">*</span></label>
-        <select id="subject" required
-          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
+        <select id="subject" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg">
           <option value="">Select Subject</option>
         </select>
       </div>
@@ -83,21 +86,27 @@
           class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg" />
       </div>
 
-    <div class="mb-4">
-  <label for="file" class="block text-sm font-medium text-gray-700">Upload File <span class="text-red-500">*</span></label>
-  <input
-    type="file"
-    id="file"
-    name="file"
-    required
-    accept=".pdf,.docx,.txt"
-    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-  />
-</div>
+      <div class="w-full p-2">
+        <label for="file" class="block text-sm font-medium text-gray-700 mb-1">
+          Upload File <span class="text-red-500">*</span>
+        </label>
+
+        <!-- Drop Zone -->
+        <div id="drop-zone"
+          class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md h-40 bg-white text-gray-500 text-sm transition-all duration-300 ease-in-out cursor-pointer hover:bg-gray-50">
+          <p>Click or drag file here</p>
+        </div>
+
+       
+        <input type="file" id="file" name="file" hidden required accept=".pdf,.docx,.txt,image/*" />
+
+        <!-- Preview -->
+        <div id="preview" class="mt-4 text-center text-sm text-gray-700"></div>
+      </div>
 
 
-      <button type="submit"
-        class="w-full bg-green-600 text-white py-2 rounded-full hover:bg-[#0d2f34] transition-all">
+
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full hover:bg-[#0d2f34] transition-all">
         Upload
       </button>
     </form>
@@ -173,4 +182,5 @@
   </script>
 
 </body>
+
 </html>
