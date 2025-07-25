@@ -1,0 +1,97 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9fbff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+  color: #2d2d2d;
+  margin-bottom: 30px;
+}
+
+.profile, .notes-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 6px solid #4a90e2;
+  background-color: #f0f7ff;
+  border-radius: 8px;
+}
+
+.profile p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.notes-section h2 {
+  margin-bottom: 15px;
+}
+
+.note-card {
+  background-color: #fff;
+  border: 1px solid #dde6f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.note-card h3 {
+  color: #1a73e8;
+  margin-bottom: 10px;
+}
+
+.note-card ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.note-card li {
+  margin-bottom: 8px;
+}
+
+.note-card button {
+  padding: 8px 16px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.note-card button:hover {
+  background-color: #0f5ec9;
+}
+
+.back-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-btn button {
+  background-color: #4a4a4a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.back-btn button:hover {
+  background-color: #2e2e2e;
+}

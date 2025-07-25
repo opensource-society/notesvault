@@ -1,66 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+    <title>NotesVault Home</title>
+    <script
+     
+      src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>NotesVault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <main>
+    </script>
+  </head>
+  <body>
     <header>
-      <div class="navbar-left">
-        <!-- Logo image -->
-        <img src="notepad.png" alt="NotesVault Logo" class="logo">
+      <div id="header">
+        <div class="hamburger-wrapper">
+          <button class="hamburger-menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
 
-        <!-- Site title and tagline -->
-        <div class="branding">
-          <h1>NotesVault</h1>
-          <p class="tagline">One place for all notes & PYQs</p>
+          <div class="hover-sidebar">
+            <ul>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="/pages/about.html">About</a></li>
+              <li><a href="/pages/overview.html">Overview</a></li>
+              <li><a href="/pages/features.html">Features</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="header-title-box">
+          <p id="header-title">NotesVault</p>
+        </div>
+
+        <div id="header-navigation" class="nav-menu">
+          <a href="./pages/overview.html">Overview</a>
+          <a href="./pages/studentAccount.html">Student Account</a>
+          <a href="./pages/about.html">About</a>
+          <a href="/">Features</a>
+        </div>
+
+        <div id="header-signup-box">
+          <a href="pages/signup.html"><p>Sign Up</p></a>
+        </div>
+      </div>
+    </header>
+   <div class="Search-box  bg-black h-[100px]">
+  <div class="main-right-search " >
+    <form id="search-form" class="main-right-search-form" method="get" action="search.html">
+      <div class="flex justify-evenly w-full items-center gap-20 ">
+       
+      <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search" />
+        <svg class=" search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+
+      </div>
+     
+      <div id="search-parameters-branch" class="search-parameters-div"></div>
+      <div id="search-parameters-semester" class="search-parameters-div"></div>
+      <div id="search-parameters-subject" class="search-parameters-div"></div>
+      <input type="submit" style="display: none" />
+    </form>
+  </div>
+</div>
+
+
+    <main id="main">
+      <div class="main-left">
+        <p class="main-text welcome">Welcome Back</p>
+        <h1 class="main-heading">
+          Your Go-To Companion for<br />Organized Learning.
+        </h1>
+        <p class="main-text">
+          Keep your study notes and PYQs organized, easy to find,<br />and
+          always just a click away with NotesVault.
+        </p>
+        <div class="main-left-links">
+          <a style="color: black ; text-decoration: none; " class="links-text try-box"  href="./search.html">Browse Notes</a>
+          <p class="links-text try-box">Upload Notes</p>
+        </div>
+      </div>
+      
+
+      <div class="main-right">
+        <div class="main-right-box">
+          <div class="main-right-upper-box">
+            <div class="right-text-div">
+              <p class="right-text">Notes Organised by</p>
+              <p class="right-text" id="typeWriterText">Subject</p>
+            </div>
+          </div>
+
+          
         </div>
       </div>
 
-      <nav class="navbar-center" aria-label="Main navigation">
-        <!-- Navigation links -->
-        <a href="#" class="active" aria-current="page">Overview</a>
-        <a href="#">Student Account</a>
-        <a href="#">About</a>
-        <a href="#">Features</a>
-      </nav>
+      <section class="About">
+        <p class="About-left-heading">About NotesVault</p>
+        <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
+        <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
+      </section>
+    </main>
 
-      <div class="navbar-right">
-        <!-- Signup button -->
-        <a href="#" class="signup-btn">Sign Up ↗</a>
-      </div>
+    <section class="features-section">
+      <!--upload section-->
+      <div class="card-container">
+<a href="pages/upload.html">
+<div class="card feature-card" style="width: 18rem;">
 
-    </header>
-    <section aria-labelledby="project-description">
-      <p id="project-description" class="info-text">
-        NotesVault is a beginner-friendly open-source project hosted under the Open Source Society. Its purpose is to
-        provide a collaborative platform for sharing academic notes, resources, and previous year questions (PYQs),
-        making quality study material accessible to everyone.
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v12" />
+      <polyline points="5 9 12 2 19 9" />
+      <path d="M5 20h14" />
+    </svg>
+  <div class="card-body">
+    <h5 class="feature-title">Easy Upload</h5>
+    <p class="feature-desc">Add your notes quickly and effortlessly</p>
+  </div>
+</div>
+ </a>
+  <div class="card feature-card" style="width: 18rem;">
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 6h5l2 3h11v11H3z" />
+      <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
+    </svg>
+  <div class="card-body">
+    <p><h5 class="feature-title">Sort The Chaos</h5></p>
+    <p class="card-text">Neatly arrange all your notes in one place</p>
+  </div>
+</div>
+<div class="card feature-card" style="width: 18rem;" class="feature-card">
+  <!--Tag Icon-->
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
+      <circle cx="16" cy="8" r="1.5" />
+    </svg>
+  <div class="card-body">
+    <p><h5 class="feature-title">Search By Tags</h5></p>
+    <p class="feature-desc">Find notes using subject tags</p>
+</div>
+</div>
+</div>
+</section>
+<br>
+<!-- Footer -->
+<footer class="custom-footer">
+  <div class="footer-container">
+    <!-- About NotesVault Section -->
+    <div class="footer-section about-section">
+      <h2><strong>NotesVault</strong></h2>
+      <p class="footer-description">
+        A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong> academic notes & PYQs semester-wise.
+        Contribute easily, organize efficiently, and search by tags.
       </p>
-      <ul id="project-details" class="details-list">
-        <li class="detail-item"><strong>Project Type:</strong> Open Source</li>
-        <li class="detail-item"><strong>Focus:</strong> Academic notes, resources, and PYQs</li>
-        <li class="detail-item"><strong>Purpose:</strong> Promote open-source academic sharing and collaboration</li>
-        <li class="detail-item"><strong>GitHub:</strong> <a href="https://github.com/opensource-society/notesvault"
-            target="_blank" rel="noopener noreferrer" class="github-link">github.com/opensource-society/notesvault</a>
-        </li>
-      </ul>
-      <nav aria-label="Project tags" id="project-tags" class="tags"></nav>
-      <span class="tag">#OpenSource</span>
-      <span class="tag">#BeginnerFriendly</span>
-      <span class="tag">#Academic</span>
-      <span class="tag">#Notes</span>
-      <span class="tag">#PYQs</span>
-      <span class="tag">#Resources</span>
-      </nav>
-    </section>
-  </main>
-</body>
+      <a
+        class="footer-learn-link"
+        href="https://github.com/opensource-society/notesvault"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Learn More →</a>
+    </div>
 
+    <!-- Community -->
+    <div class="footer-section">
+      <h3>Community</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+        <li><a href="https://github.com/opensource-society/notesvault.git" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Social Media</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <!-- Features -->
+    <div class="footer-section">
+      <h3>Features</h3>
+      <ul>
+        <li><a href="pages/upload.html"><i class="fas fa-upload"></i> Easy Upload</a></li>
+        <li><a href="pages/search.html"><i class="fas fa-tags"></i> Tag-based Search</a></li>
+        <li><a href="pages/BrowseNotes.html"><i class="fas fa-folder-open"></i> Organized by Semester</a></li>
+        <li><a href="pages/studentAccount.html"><i class="fas fa-users"></i> Get Details</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> NotesVault. All rights reserved.
+  </div>
+</footer>
+
+
+<!-- Footer -->
+
+<!-- 🔺 Place Scroll Button OUTSIDE the .footer-container -->
+<button id="scrollToTopBtn" title="Go to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+    <script src="script.js" defer></script>
+    <script>
+      function toggleMobileMenu() {
+        const sidebar = document.getElementById("mobileSidebar");
+        sidebar?.classList.toggle("active");
+      }
+
+      document.querySelectorAll(".sidebar a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("mobileSidebar")?.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        const sidebar = document.getElementById("mobileSidebar");
+        const toggle = document.getElementById("hamburgerMenu");
+        if (sidebar && toggle && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+          sidebar.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
 </html>
