@@ -96,7 +96,7 @@ main h2 {
 .form-container {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.25rem;}
 .upload-container {
   max-width: 600px;
   margin: 0 auto;
