@@ -1,0 +1,23 @@
+# NotesVault Backend Dependencies
+# Core Flask Framework
+Flask==2.3.3
+Flask-SQLAlchemy==3.1.1
+Flask-CORS==4.0.0
+
+# Database
+SQLAlchemy==2.0.36
+
+# Authentication & Security
+PyJWT==2.8.0
+bcrypt==4.1.2
+python-dotenv==1.0.0
+
+# Input Validation
+marshmallow==3.20.2
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Development Dependencies
+python-dateutil==2.8.2

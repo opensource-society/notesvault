@@ -155,7 +155,7 @@ def validate_query_params(schema_class):
 
                 # Convert numeric strings to integers
                 for key, value in query_data.items():
-                    if key in ['limit', 'offset'] and value.isdigit():
+                    if key in ['limit', 'offset'] and value.lstrip('-').isdigit():
                         query_data[key] = int(value)
                     elif key == 'is_public' and value.lower() in ['true', 'false']:
                         query_data[key] = value.lower() == 'true'
@@ -184,10 +184,9 @@ def sanitize_html(text):
     """Basic HTML sanitization for text content"""
     if not text:
         return text
-
+    
     # Remove basic HTML tags (this is a simple implementation)
     # In production, consider using a library like bleach
-    import re
     clean_text = re.sub(r'<[^>]+>', '', text)
     return clean_text.strip()
 

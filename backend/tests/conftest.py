@@ -19,7 +19,6 @@ def app():
     app = create_app('testing')
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
     app.config['TESTING'] = True
-    app.config['WTF_CSRF_ENABLED'] = False
 
     with app.app_context():
         db.create_all()

@@ -79,7 +79,8 @@ class User(db.Model):
     @classmethod
     def find_by_id(cls, user_id):
         """Find user by ID"""
-        return cls.query.get(user_id)
+        from app import db
+        return db.session.get(cls, user_id)
 
     def save(self):
         """Save user to database"""

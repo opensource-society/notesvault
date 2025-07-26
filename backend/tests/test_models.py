@@ -94,7 +94,7 @@ class TestNoteModel:
         assert note.content == 'This is a test note content'
         assert note.subject == 'Computer Science'
         assert note.user_id == sample_user.id
-        assert note.is_public == True
+        assert note.is_public
         assert note.views_count == 0
         assert note.likes_count == 0
 

@@ -76,23 +76,24 @@ class Note(db.Model):
         else:
             self.tags = None
 
-    def increment_views(self):
+    def increment_views(self, commit=True):
         """Increment view count"""
         self.views_count += 1
-        db.session.commit()
-
-    def increment_likes(self):
+        if commit:
+            db.session.commit()
+    
+    def increment_likes(self, commit=True):
         """Increment like count"""
         self.likes_count += 1
-        db.session.commit()
-
-    def decrement_likes(self):
+        if commit:
+            db.session.commit()
+    
+    def decrement_likes(self, commit=True):
         """Decrement like count (minimum 0)"""
         if self.likes_count > 0:
             self.likes_count -= 1
-            db.session.commit()
-
-    @classmethod
+            if commit:
+                db.session.commit()    @classmethod
     def get_public_notes(cls, limit=None, subject=None, search_term=None):
         """Get public notes with optional filtering"""
         query = cls.query.filter_by(is_public=True)
@@ -134,7 +135,8 @@ class Note(db.Model):
     @classmethod
     def find_by_id(cls, note_id):
         """Find note by ID"""
-        return cls.query.get(note_id)
+        from app import db
+        return db.session.get(cls, note_id)
 
     @classmethod
     def get_subjects(cls):

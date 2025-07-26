@@ -351,7 +351,10 @@ def update_note(note_id, current_user, validated_data):
 
         # Update tags if provided
         if 'tags' in validated_data:
-            note.set_tags_from_list(validated_data.pop('tags'))
+            tags_data = validated_data['tags']
+            note.set_tags_from_list(tags_data)
+            # Remove tags from validated_data to avoid duplicate processing
+            validated_data = {k: v for k, v in validated_data.items() if k != 'tags'}
 
         # Update other fields
         note.update(**validated_data)

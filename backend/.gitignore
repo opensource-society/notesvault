@@ -57,8 +57,9 @@ logs/
 uploads/
 static/uploads/
 
-# Requirements backup
-requirements.*.txt
+# Requirements backup (but allow requirements-dev.txt)
+requirements.backup.txt
+requirements.old.txt
 
 # Migration files (if using Flask-Migrate)
 migrations/versions/*.pyc
