@@ -8,33 +8,33 @@ fileInput.addEventListener("change", () => {
   if (fileInput.files.length) {
     handleFile(fileInput.files[0]);
   }
-});;
+});
 
     ["dragenter", "dragover", "dragleave", "drop"].forEach(event => {
-      dropZone.addEventListener(event, e => {
-        e.preventDefault();
-        e.stopPropagation();
-      });
-    });
+  dropZone.addEventListener(event, e => {
+    e.preventDefault();
+    e.stopPropagation();
+  });
+});
 
-    ["dragenter", "dragover"].forEach(event => {
-      dropZone.addEventListener(event, () => {
-        dropZone.classList.add("bg-blue-50", "border-blue-400", "text-blue-500");
-      });
-    });
+["dragenter", "dragover"].forEach(event => {
+  dropZone.addEventListener(event, () => {
+    dropZone.classList.add("bg-blue-50", "border-blue-400", "text-blue-500");
+  });
+});
 
-    ["dragleave", "drop"].forEach(event => {
-      dropZone.addEventListener(event, () => {
-        dropZone.classList.remove("bg-blue-50", "border-blue-400", "text-blue-500");
-      });
-    });
+["dragleave", "drop"].forEach(event => {
+  dropZone.addEventListener(event, () => {
+    dropZone.classList.remove("bg-blue-50", "border-blue-400", "text-blue-500");
+  });
+});
 
-    dropZone.addEventListener("drop", e => {
-      const files = e.dataTransfer.files;
-      if (files.length) {
-        handleFile(files[0]);
-      }
-    });
+dropZone.addEventListener("drop", e => {
+  const files = e.dataTransfer.files;
+  if (files.length) {
+    handleFile(files[0]);
+  }
+});
 
     function handleFile(file) {
       preview.innerHTML = `<p class="font-medium">Selected: ${file.name}</p>`;

@@ -20,12 +20,16 @@
 
 ```
 notesvault/
-├── index.html         # Homepage UI
-├── style.css          # Global styles and theming
-├── script.js          # Application logic (load/display/filter)
-├── data/              # JSON files for notes/PYQs
-│   └── notes.json
 ├── assets/            # Icons, PDFs, static files
+    └── <asset_folders>
+├── data/              # All JSON files for notes/PYQs
+│   └── notes.json
+├── pages/             # All pages used in the project
+│   └── <all .html files>
+├── scripts            # Application logic (load/display/filter)
+    └── <scripts>
+├── styling            # Global styles and theming
+    └── <style files>
 └── README.md
 ```
 

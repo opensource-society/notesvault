@@ -132,36 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
       typeSpeed = 500; // Pause before starting a new word
     }
 
-    // Function to update the Subject dropdown based on the selected Semester
-    function updateSubjects() {
-      const selectedBranch = document.getElementById("selectBranch").value;
-      const selectedSemester = document.getElementById("selectSemester").value;
-      let subjectNames = [];
-
-      // Clear the subject dropdown
-      searchSubjectContainer.innerHTML = '';
-
-      // Find the selected branch and semester to get the subjects
-      const branchData = allData.branches.find(b => b.name === selectedBranch);
-      if (branchData && branchData.semesters) {
-        const semesterData = branchData.semesters.find(sem => sem.semester == selectedSemester);
-        if (semesterData && semesterData.subjects) {
-          // Extracts the name of the subject
-          // subjectNames = semesterData.subjects.map(sub => Object.values(sub)[0]);
-
-          subjectNames = semesterData.subjects
-              .map(sub => Object.values(sub)[0])
-              .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-
-
-        }
-      }
-
-      // Create the new subject dropdown
-      createDropdown(searchSubjectContainer, "selectSubject", "Select Subject", subjectNames);
-
-    }
-
     setTimeout(typeWriterEffect, typeSpeed);
   }
 
