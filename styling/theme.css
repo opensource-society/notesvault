@@ -1,0 +1,498 @@
+/* ===== COMPREHENSIVE THEME SYSTEM ===== */
+
+/* CSS Custom Properties for Theme Colors */
+:root {
+  /* Light Mode Colors */
+  --primary-bg: #ffffff;
+  --secondary-bg: #f9f9f9;
+  --tertiary-bg: #f5f5f5;
+  --primary-text: #1a1a1a;
+  --secondary-text: #555555;
+  --accent-text: #666666;
+  --primary-accent: #163d3b;
+  --secondary-accent: #4caf50;
+  --tertiary-accent: #f7b86e;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  --input-bg: #dfe9d7;
+  --input-border: #d0e6ce;
+  --button-primary: #163d3b;
+  --button-primary-hover: #1f5c59;
+  --button-secondary: #f7b86e;
+  --button-secondary-hover: #f3a847;
+  --link-color: #017c01;
+  --link-hover: #015a01;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
+  --info-color: #2196f3;
+  
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-timing: ease;
+}
+
+/* Dark Mode Colors */
+[data-theme="dark"] {
+  --primary-bg: #0d0d0d;
+  --secondary-bg: #121212;
+  --tertiary-bg: #1a1a1a;
+  --primary-text: #ffffff;
+  --secondary-text: #e0e0e0;
+  --accent-text: #cccccc;
+  --primary-accent: #dff8f8;
+  --secondary-accent: #4caf50;
+  --tertiary-accent: #f7b86e;
+  --border-color: #2c2c2c;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --card-bg: #1a1a1a;
+  --input-bg: #1e1e1e;
+  --input-border: #444444;
+  --button-primary: #2c5a57;
+  --button-primary-hover: #3a7a77;
+  --button-secondary: #4a3420;
+  --button-secondary-hover: #5a4430;
+  --link-color: #4CAF50;
+  --link-hover: #66bb6a;
+  --success-color: #66bb6a;
+  --warning-color: #ffb74d;
+  --error-color: #ef5350;
+  --info-color: #42a5f5;
+}
+
+/* Global Theme Transitions */
+* {
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing),
+              box-shadow var(--transition-speed) var(--transition-timing);
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(22, 61, 59, 0.1);
+  border: 1px solid rgba(22, 61, 59, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-speed) var(--transition-timing);
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle.theme-transitioning {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.theme-toggle:hover {
+  background: rgba(var(--primary-accent), 0.2);
+  border-color: rgba(var(--primary-accent), 0.3);
+  transform: scale(1.05);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all var(--transition-speed) var(--transition-timing);
+  color: var(--primary-accent);
+  font-size: 16px;
+}
+
+.theme-toggle .sun-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+.theme-toggle .moon-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Dark mode theme toggle button styles */
+[data-theme="dark"] .theme-toggle {
+  background: rgba(223, 248, 248, 0.1);
+  border-color: rgba(223, 248, 248, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(223, 248, 248, 0.2);
+  border-color: rgba(223, 248, 248, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon,
+[data-theme="dark"] .theme-toggle .moon-icon {
+  color: #dff8f8;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== BODY AND HTML ===== */
+html {
+  color-scheme: light;
+}
+
+[data-theme="dark"] html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              color var(--transition-speed) var(--transition-timing);
+}
+
+/* ===== HEADER STYLES ===== */
+#header {
+  background-color: var(--primary-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+#header-title {
+  color: var(--primary-text);
+}
+
+.hamburger-line {
+  background-color: var(--primary-text);
+}
+
+/* ===== NAVIGATION ===== */
+.nav-menu a {
+  color: var(--primary-text);
+}
+
+.nav-menu a:hover {
+  color: var(--link-color);
+}
+
+#header-signup-box p {
+  background-color: var(--button-primary);
+  color: var(--primary-accent);
+}
+
+#header-signup-box p:hover {
+  background-color: var(--button-primary-hover);
+  color: #ffffff;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-text {
+  color: var(--secondary-text);
+}
+
+.main-heading {
+  color: var(--primary-text);
+}
+
+.welcome {
+  background-color: #f8e1ca;
+  color: #eda950;
+}
+
+[data-theme="dark"] .welcome {
+  background-color: #3d2f1a;
+  color: #d4a853;
+}
+
+.links-text {
+  background-color: var(--tertiary-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--border-color);
+}
+
+.links-text:hover {
+  background-color: var(--border-color);
+  color: var(--primary-text);
+}
+
+.features-box {
+  background-color: var(--button-secondary);
+  color: #544c1e;
+}
+
+[data-theme="dark"] .features-box {
+  background-color: #4a3420;
+  color: #d4a853;
+}
+
+.try-box {
+  border-color: var(--border-color);
+}
+
+/* ===== SEARCH SECTION ===== */
+.main-right-box {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.main-right-upper-box {
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+}
+
+.right-text {
+  color: var(--primary-text);
+}
+
+.main-right-search-form-input {
+  background-color: var(--input-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--input-border);
+}
+
+.main-right-search-form-input::placeholder {
+  color: var(--accent-text);
+}
+
+.search-icon {
+  color: var(--accent-text);
+}
+
+.search-parameters-select {
+  background-color: var(--input-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--input-border);
+}
+
+.search-parameters-select:focus {
+  background-color: var(--secondary-bg);
+  border-color: var(--secondary-accent);
+}
+
+.search-parameters-select option {
+  background-color: var(--input-bg);
+  color: var(--primary-text);
+}
+
+/* ===== FEATURE CARDS ===== */
+.feature-card {
+  background-color: var(--card-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 12px var(--shadow-color);
+}
+
+.feature-card:hover {
+  box-shadow: 0 6px 24px var(--shadow-color);
+  background-color: var(--secondary-bg);
+}
+
+.feature-card svg {
+  stroke: var(--primary-text);
+}
+
+[data-theme="dark"] .feature-card svg {
+  stroke: var(--tertiary-accent);
+}
+
+.feature-title {
+  color: var(--primary-text);
+}
+
+.feature-desc {
+  color: var(--secondary-text);
+}
+
+/* ===== FOOTER ===== */
+.custom-footer {
+  background-color: var(--primary-accent);
+  color: var(--primary-accent);
+}
+
+[data-theme="dark"] .custom-footer {
+  background: linear-gradient(135deg, #0a1f1d 0%, #0d2420 100%);
+  color: #dff8f8;
+}
+
+.footer-section h2,
+.footer-section h3 {
+  color: var(--primary-accent);
+}
+
+[data-theme="dark"] .footer-section h2,
+[data-theme="dark"] .footer-section h3 {
+  color: #ffffff;
+}
+
+.footer-description {
+  color: var(--secondary-text);
+}
+
+[data-theme="dark"] .footer-description {
+  color: #a0c4c1;
+}
+
+.footer-section ul li a {
+  color: var(--secondary-text);
+}
+
+.footer-section ul li a:hover {
+  color: var(--primary-text);
+}
+
+[data-theme="dark"] .footer-section ul li a {
+  color: #a0c4c1;
+}
+
+[data-theme="dark"] .footer-section ul li a:hover {
+  color: #dff8f8;
+}
+
+.footer-bottom {
+  color: var(--secondary-text);
+  border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .footer-bottom {
+  color: #a0c4c1;
+  border-top: 1px solid #2c2c2c;
+}
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+#scrollToTopBtn {
+  background-color: var(--primary-accent);
+  color: var(--primary-accent);
+}
+
+#scrollToTopBtn:hover {
+  background-color: var(--button-primary-hover);
+}
+
+/* ===== NOTE CARDS ===== */
+.note-card {
+  background-color: var(--card-bg);
+  color: var(--primary-text);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px var(--shadow-color);
+}
+
+.note-card:hover {
+  box-shadow: 0 10px 24px var(--shadow-color);
+}
+
+.note-card h3 {
+  color: var(--primary-text);
+}
+
+.note-card p {
+  color: var(--secondary-text);
+}
+
+.note-card a {
+  background-color: var(--success-color);
+  color: #ffffff;
+}
+
+.note-card a:hover {
+  background-color: var(--link-hover);
+}
+
+/* ===== BUTTONS ===== */
+.bookmark-btn {
+  background-color: var(--button-secondary);
+  color: #ffffff;
+  border-color: var(--button-secondary);
+}
+
+.bookmark-btn:hover {
+  background-color: var(--button-secondary-hover);
+  border-color: var(--button-secondary-hover);
+}
+
+.bookmark-btn.bookmarked {
+  background-color: var(--button-secondary-hover);
+  border-color: var(--button-secondary-hover);
+}
+
+/* ===== RATING STARS ===== */
+.rating .star {
+  color: #ccc;
+}
+
+.rating .star.filled {
+  color: var(--tertiary-accent);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 600px) {
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
+
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .theme-toggle {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+  }
+
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    font-size: 11px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* ===== FOCUS INDICATORS ===== */
+.theme-toggle:focus {
+  outline: 2px solid var(--secondary-accent);
+  outline-offset: 2px;
+}
+
+/* ===== HIGH CONTRAST MODE SUPPORT ===== */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  [data-theme="dark"] {
+    --border-color: #ffffff;
+    --shadow-color: rgba(255, 255, 255, 0.3);
+  }
+} 

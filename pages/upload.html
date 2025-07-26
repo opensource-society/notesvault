@@ -8,9 +8,11 @@
   <meta name="description" content="Upload your study notes to NotesVault.">
   <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="../styling/styles.css">
+  <link rel="stylesheet" href="../styling/theme.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
     rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
   <!-- Tailwind CSS -->
   <script src="../scripts/upload.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -50,6 +52,13 @@
       <a href="about.html" class="text-gray-300  hover:underline">About</a>
       <a href="#" class="text-gray-300  hover:underline">Features</a>
     </nav>
+    
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">
+      <i class="fas fa-sun sun-icon"></i>
+      <i class="fas fa-moon moon-icon"></i>
+    </button>
+    
     <button class="bg-[#163d3b] mx-4 px-4 py-1 bg-[#163d3b] text-white rounded-full text-sm hover:bg-[#0d2f34]"><a
             href="signup.html" style="text-decoration: none;color:white;">Sign Up</a></button>
   </header>
@@ -180,7 +189,8 @@
       this.reset();
     });
   </script>
-
+  
+  <script src="../scripts/theme.js"></script>
 </body>
 
 </html>

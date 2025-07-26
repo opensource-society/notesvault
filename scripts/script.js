@@ -156,26 +156,90 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // --- Theme Toggle ---
-  function toggleTheme() {
-    const html = document.documentElement;
-    const currentTheme = html.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+  // --- Enhanced Theme Toggle System ---
+  class ThemeManager {
+    constructor() {
+      this.themeToggleButton = document.getElementById('themeToggle');
+      this.html = document.documentElement;
+      this.currentTheme = this.getCurrentTheme();
+      
+      this.init();
+    }
+
+    getCurrentTheme() {
+      return localStorage.getItem('theme') || this.getSystemPreference();
+    }
+
+    getSystemPreference() {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    setTheme(theme) {
+      this.html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      this.currentTheme = theme;
+      
+      // Update meta theme-color for mobile browsers
+      this.updateMetaThemeColor(theme);
+      
+      // Dispatch custom event for other components
+      window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+    }
+
+    updateMetaThemeColor(theme) {
+      let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (!metaThemeColor) {
+        metaThemeColor = document.createElement('meta');
+        metaThemeColor.name = 'theme-color';
+        document.head.appendChild(metaThemeColor);
+      }
+      
+      metaThemeColor.content = theme === 'dark' ? '#0d0d0d' : '#ffffff';
+    }
+
+    toggleTheme() {
+      const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+      this.setTheme(newTheme);
+      
+      // Add animation class for smooth transition
+      this.themeToggleButton.classList.add('theme-transitioning');
+      setTimeout(() => {
+        this.themeToggleButton.classList.remove('theme-transitioning');
+      }, 300);
+    }
+
+    init() {
+      // Set initial theme
+      this.setTheme(this.currentTheme);
+      
+      // Add event listener to toggle button
+      if (this.themeToggleButton) {
+        this.themeToggleButton.addEventListener('click', () => this.toggleTheme());
+        
+        // Add keyboard support
+        this.themeToggleButton.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.toggleTheme();
+          }
+        });
+      }
+      
+      // Listen for system theme changes
+      if (window.matchMedia) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', (e) => {
+          // Only auto-switch if user hasn't manually set a preference
+          if (!localStorage.getItem('theme')) {
+            this.setTheme(e.matches ? 'dark' : 'light');
+          }
+        });
+      }
+    }
   }
 
-  const themeToggleButton = document.getElementById('themeToggle');
-  if (themeToggleButton) {
-    themeToggleButton.addEventListener('click', toggleTheme);
-  }
-
-  // Initialize theme on page load
-  (function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
-  })();
+  // Initialize theme manager
+  const themeManager = new ThemeManager();
 
   document.querySelectorAll(".upload-btn").forEach(btn => {
     btn.addEventListener("click", () => {
