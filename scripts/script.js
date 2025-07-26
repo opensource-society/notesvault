@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const selectedBranch = document.getElementById("selectBranch").value;
       const selectedSemester = document.getElementById("selectSemester").value;
       let subjectNames = [];
-      console.log("hii")
+    
       // Clear the subject dropdown
       searchSubjectContainer.innerHTML = '';
 
