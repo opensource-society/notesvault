@@ -380,6 +380,40 @@
   justify-content: center;
   margin: 4px 0px;
 }
+
+  .search-parameters-div .search-parameters-select {
+    display: flex;
+    border: none;
+    background-color: rgba(165, 201, 160, 0.5607843137);
+    color: #000000;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .search-parameters-div .search-parameters-select:focus {
+    outline: none;
+    background-color: rgba(165, 201, 160, 0.8156862745);
+  }
+
+.search-parameters-div .search-parameters-option {
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: rgba(165, 201, 160, 0.8156862745);
+  color: #2E2E2E;
+}
+
+.search-parameters-div .search-parameters-select option {
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: #a5c9a0d0;
+  color: #2E2E2E;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -401,26 +435,38 @@
 
 .main-right-search-form {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  border: 1px solid #ccc;
   border-radius: 25px;
   padding: 10px 20px;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: calc(30vw - 130px);
   max-width: 600px;
 }
 
 .main-right-search-form-input {
+  display: inline-flex;
+  flex: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #dfe9d7;
   border: none;
-  outline: none;
-  font-size: 16px;
-  flex: 1;
-  padding-left: 10px;
+  border-radius: 10px;
+  padding: 10px 30px;
+  max-width: calc(30vw - 130px);
+}
+
+.search-input-field {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  padding: 10px 15px;
 }
 
 .search-icon {
+  position: absolute;
   stroke: #666;
+  margin: 14px 10px;
 }
 
 .sidebar.active {
@@ -505,9 +551,6 @@
   }
 
   /* Dark Mode */
-  [data-theme="dark"] .nav-menu a {
-    color: #ffffff;
-  }
 
 
   .nav-menu a span {
@@ -585,7 +628,7 @@
   #main {
     display: flex;
     /* flex-direction: row; */
-    margin: 5vw;
+    margin: 150px 5vw 0px 5vw;
     padding-block: 30px;
     justify-content: center;
     align-items: center;
