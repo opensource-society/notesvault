@@ -1,36 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
-
-  <title>NotesVault Home</title>
-  <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
-
-  </script>
-</head>
-
-<body>
-  <header>
-    <div id="header">
-      <div class="hamburger-wrapper">
-        <button class="hamburger-menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-
-        <div class="hover-sidebar">
-          <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="/pages/about.html">About</a></li>
-            <li><a href="/pages/overview.html">Overview</a></li>
-            <li><a href="/pages/features.html">Features</a></li>
-            <li><a href="#">Resources</a></li>
-          </ul>
         </div>
       </div>
 
@@ -162,12 +131,6 @@
   </script>
 
 
-  <script src="script.js" defer></script>
-  <script>
-    function toggleMobileMenu() {
-      const sidebar = document.getElementById("mobileSidebar");
-      sidebar?.classList.toggle("active");
-    }
 
     document.querySelectorAll(".sidebar a").forEach((link) => {
       link.addEventListener("click", () => {
