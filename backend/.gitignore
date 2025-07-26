@@ -17,7 +17,7 @@ __pycache__/
 
 # Configuration files with sensitive data
 .env
-config.py
+# Note: config.py contains actual secrets, config.example.py is tracked
 
 # Database files
 *.db

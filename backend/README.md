@@ -139,4 +139,4 @@ This project is licensed under the MIT License - see the main project's [LICENSE
 
 ---
 
-_Part of the [NotesVault](https://github.com/Asit-14/notesvault) project - An open-source platform for students to share and access study notes._
+_Part of the [NotesVault](https://github.com/opensource-society/notesvault) project - An open-source platform for students to share and access study notes._
