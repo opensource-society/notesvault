@@ -161,41 +161,146 @@ body {
 
 /* Sidebar - hidden by default */
 .hover-sidebar {
+
   position: absolute;
   top: 0;
-  left: -250px; /* Hidden left */
-  width: 180px;
+  left: -200px; /* Initially hidden */
+  width: 200px;
   height: 100vh;
+
   background: white;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transition: left 0.3s ease;
+
+  background-color: white;
+  box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.15); /* Stronger, deeper shadow */
+  transition: left 0.4s ease-in-out;
   border-radius: 20px;
-  /* border: 2px black; */
+  padding: 30px 20px;
+  z-index: 999;
+
+      position: absolute;
+    top: 35px;
+    left: -350px;
+    width: 300px;
+    display: flex;
+    opacity: 0.9;
+
+    /* height: 100vh; */
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    border-radius: 20px;
+    /* border: 2px black; */
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+
 }
 
 .hover-sidebar a {
+  display: block;
   text-decoration: none;
   color: black;
+
+  font-size: 16px;
+  margin: 20px 0;
+  transition: color 0.2s ease;
+
   margin: 20px;
   display: flex;
   flex-direction: column;
+  align-items: anchor-center;
   gap: 50px;
+
 }
+
+
+}
+
 .hover-sidebar a:hover {
   color: green;
   text-decoration: underline;
 }
 
-/* On hover, slide the sidebar in */
+/* On hover of hamburger, slide sidebar in */
 .hamburger-wrapper:hover .hover-sidebar {
-  left: 50px; /* Adjust to position beside hamburger */
+  left: 0;
 }
+
+/* Optional: Hamburger styling */
+.hamburger-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Navigation Menu Styles */
+#header #header-navigation {
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 /* Navigation Menu Styles */
 #header #header-navigation {
   width: 40vw;
   justify-content: space-between;
 }
+
+
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(22, 61, 59, 0.1);
+    border: 1px solid rgba(22, 61, 59, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .theme-toggle:hover {
+    background: rgba(22, 61, 59, 0.2);
+    border-color: rgba(22, 61, 59, 0.3);
+    transform: scale(1.05);
+  }
+
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    color: #163d3b;
+  }
+
+  .theme-toggle .sun-icon {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .theme-toggle .moon-icon {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Dark mode theme toggle button styles */
+  [data-theme="dark"] .theme-toggle {
+    background: rgba(223, 248, 248, 0.1);
+    border-color: rgba(223, 248, 248, 0.2);
+  }
+
 
 .theme-toggle {
   display: flex;
@@ -435,7 +540,6 @@ body {
   align-items: center;
   border-radius: 25px;
   padding: 10px 20px;
-  width: calc(30vw - 130px);
   max-width: 600px;
 }
 
@@ -449,7 +553,7 @@ body {
   border: none;
   border-radius: 10px;
   padding: 10px 30px;
-  max-width: calc(30vw - 130px);
+  
 }
 
 .search-input-field {
@@ -2315,8 +2419,8 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  padding: 4rem 2rem;
-  background-color: #f9f9f9;
+  padding: 2rem 2rem;
+  background-color: #0d0d0d;
 }
 
 .feature-card {
