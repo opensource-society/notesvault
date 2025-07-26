@@ -1,0 +1,398 @@
+/* Base Styles */
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+#header {
+    background-color: black;
+    color: white;
+}
+
+#header a {
+    color: white;
+}
+
+
+.features-heading {
+  text-align: center;
+  font-size: calc(22px + 1vw);
+  color: #eda950;
+  margin-top: 100px;
+  font-weight: 600;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.box-feature, .feature {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.1), rgba(4, 120, 87, 0.08));
+  border: 2px solid #eda950;
+  border-radius: 15px;
+  padding: 1.8rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.box-feature:hover, .feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(22, 61, 59, 0.15);
+}
+
+.box-feature h3, .feature h2 {
+  color: #d1fae5;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.box-feature p, .feature p {
+  font-size: 14px;
+  color: rgba(67, 231, 176, 0.551);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* Footer Styles */
+.modern-footer {
+    background: linear-gradient(135deg, #0b3610 0%, #064e3b 100%);
+    color: #ffffff;
+    padding: 3rem 1.5rem 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand {
+    flex: 1 1 250px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #d1fae5;
+}
+
+.footer-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #c8e6c9;
+}
+
+
+
+
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.social-link svg {
+    fill: #ffffff;
+    transition: transform 0.2s, fill 0.3s;
+}
+
+.social-link:hover svg {
+    transform: scale(1.1);
+    fill: #b2dfdb;
+}
+
+.footer-links,
+.footer-community {
+    flex: 1 1 180px;
+}
+
+.footer-links h4,
+.footer-community h4 {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #d1fae5;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #e8f5e9;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #d1fae5;
+    text-decoration: underline;
+}
+
+.community-badges {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.8rem;
+}
+
+.gssoc-badge img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.gssoc-badge:hover img {
+    transform: scale(1.1);
+}
+
+.oss-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #1b5e20;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.85rem;
+    transition: background 0.3s ease;
+}
+
+.oss-badge:hover {
+    background: #2e7d32;
+}
+
+.community-text {
+    color: #c8e6c9;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #047857;
+    padding-top: 1.2rem;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.copyright {
+    color: #c8e6c9;
+    margin: 0;
+}
+
+.footer-bottom-links a {
+    margin: 0 0.6rem;
+    color: #c8e6c9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #d1fae5;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-stats {
+        gap: 1.5rem;
+    }
+    
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .solution-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .github-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .community-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .notesvault-section {
+        padding: 0 1rem;
+    }
+    
+    .tech-category-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .github-cta {
+        flex-direction: column;
+    }
+    
+    .github-button {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .problem-quote {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .community-stat {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animation for smooth scrolling and entrance effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #047857 0%, #064e3b 100%);
+}
+/*  Make the page a flex-column that fills the viewport  */
+html, body{
+    height: 100%;          /*  full viewport  */
+    margin: 0;             /*  kill default gaps  */
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;     /*  stretch vertically  */
+}
+
+/*  Tell the content area to occupy all free space  */
+.main_content{
+    flex: 1 0 auto;        /*  grow, don’t shrink  */
+}
+
+/*  Keep the footer at its natural height and let it
+    auto-push to the bottom of the column             */
+footer.modern-footer{
+    flex-shrink: 0;
+    margin-top: auto;      /*  pushes it down when page is short  */
+}
