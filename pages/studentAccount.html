@@ -8,6 +8,47 @@
   <link rel="icon" href="favicon.png" type="image/x-icon" />
 </head>
 <body>
+<script>
+  // Theme toggle functionality
+  function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.removeAttribute('data-theme');
+      themeIcon.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  // Load saved theme preference
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (savedTheme === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+    }
+  });
+
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+  <span id="theme-icon">🌙</span>
+</button>
 
   <!-- Header Navigation -->
   <header>
