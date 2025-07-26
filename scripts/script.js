@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedBranch = document.getElementById("selectBranch").value;
     const selectedSemester = document.getElementById("selectSemester").value;
     let subjectNames = [];
-
+    console.log("hii")
     // Clear the subject dropdown
     searchSubjectContainer.innerHTML = '';
 
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(res => res.json())
       .then(data => {
         allData = data; // Store all data globally within this script's scope
-        const branchNames = allData.branches.map(b => b.name);
+        const branchNames = allData.branches.filter(b => b.name && b.name.trim() !== "").map(b => b.name);
         const branchSelect = createDropdown(searchBranchContainer, "selectBranch", "Select Branch", branchNames);
 
         // Add the event listener to the main branch dropdown
@@ -183,227 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-
-
-  // Update the DOMContentLoaded event listener to include theme initialization
-
-
-
-  const branchFilter = document.getElementById("branch-filter");
-  const semesterFilter = document.getElementById("semester-filter");
-  const subjectFilter = document.getElementById("subject-filter");
-  const notesContainer = document.getElementById("notes-container");
-
-  const subjectMap = {
-    "CSE": ["Maths", "DBMS", "OS", "DSA"],
-    "CSE AIML": ["AI", "ML", "Python"],
-    "CSE IOT": ["IoT Fundamentals", "Sensors", "Microcontrollers"],
-    "CSE DS": ["Data Science Basics", "Statistics", "Python for DS"]
-  };
-
-  let notesData = [];
-
-  fetch("data/notes.json")
-    .then(res => res.json())
-    .then(data => {
-      notesData = data;
-      updateSubjects("");
-      displayNotes(notesData);
-      runQuerySearch();
-    });
-
-  function updateSubjects(branch) {
-    subjectFilter.innerHTML = '<option value="">All Subjects</option>';
-    const subjects = subjectMap[branch] || [].concat(...Object.values(subjectMap));
-    [...new Set(subjects)].forEach(sub => {
-      const opt = document.createElement("option");
-      opt.value = sub;
-      opt.textContent = sub;
-      subjectFilter.appendChild(opt);
-    });
-  }
-
-fetch("data/notes.json")
-  .then(res => res.json())
-  .then(data => {
-    notesData = data;
-  updateFilterSubjects("");
-    displayNotes(notesData);
-    runQuerySearch();
-  });
-
-function updateFilterSubjects(branch) {
-  subjectFilter.innerHTML = '<option value="">All Subjects</option>';
-  const subjects = subjectMap[branch] || [].concat(...Object.values(subjectMap));
-  // [...new Set(subjects)].forEach(sub => {
-  //   const opt = document.createElement("option");
-  //   opt.value = sub;
-  //   opt.textContent = sub;
-  //   subjectFilter.appendChild(opt);
-  // });
-  [...new Set(subjects)]
-  .sort((a, b) => a.localeCompare(b)) // Sort alphabetically
-  .forEach(sub => {
-    const opt = document.createElement("option");
-    opt.value = sub;
-    opt.textContent = sub;
-    subjectFilter.appendChild(opt);
-});
-
-}
-
-
-// function displayNotes(notes) {
-//   notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-//   notes.forEach(note => {
-//     const card = document.createElement("div");
-//     card.className = "note-card";
-//     card.innerHTML = `
-//       <h3>${note.title}</h3>
-//       <p><strong>Branch:</strong> ${note.branch}</p>
-//       <p><strong>Semester:</strong> ${note.semester}</p>
-//       <p><strong>Subject:</strong> ${note.subject}</p>
-//       <a href="${note.link}" target="_blank" download>Download</a>
-//     `;
-//     notesContainer.appendChild(card);
-//   });
-// }
-function displayNotes(notes) {
-  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-
-  notes
-    .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
-    .forEach(note => {
-      const card = document.createElement("div");
-      card.className = "note-card";
-      card.innerHTML = `
-        <h3>${note.title}</h3>
-        <p><strong>Branch:</strong> ${note.branch}</p>
-        <p><strong>Semester:</strong> ${note.semester}</p>
-        <p><strong>Subject:</strong> ${note.subject}</p>
-        <a href="${note.link}" target="_blank" download>Download</a>
-      `;
-      notesContainer.appendChild(card);
-    });
-}
-
-
-  function displayNotes(notes) {
-    notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-
-    const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
-
-    notes.forEach(note => {
-      const card = document.createElement("div");
-      card.className = "note-card";
-
-      const isBookmarked = bookmarked.includes(note.title); // assuming title is unique
-
-      card.innerHTML = `
-      <div>
-  <h3>${note.title}</h3>
-  <p><strong>Branch:</strong> ${note.branch}</p>
-  <p><strong>Semester:</strong> ${note.semester}</p>
-  <p><strong>Subject:</strong> ${note.subject}</p>
-    <div class="rating" data-id="${note.title}">
-      ${[1, 2, 3, 4, 5].map(i => `<span class="star" data-value="${i}">&#9733;</span>`).join('')}
-    </div>
-  </div>
-  <div class="mark">
-  <a href="${note.link}" target="_blank" download>Download</a>
-  <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" data-id="${note.title}">
-  ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
-  </button>
-  </div>
-`;
-
-
-      notesContainer.appendChild(card);
-    });
-
-    // Add event listeners to bookmark buttons
-    document.querySelectorAll(".bookmark-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const id = btn.getAttribute("data-id");
-        let bookmarks = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
-
-        if (bookmarks.includes(id)) {
-          bookmarks = bookmarks.filter(b => b !== id);
-          btn.textContent = "☆ Bookmark";
-          btn.classList.remove("bookmarked");
-        } else {
-          bookmarks.push(id);
-          btn.textContent = "★ Bookmarked";
-          btn.classList.add("bookmarked");
-        }
-
-        localStorage.setItem("bookmarkedNotes", JSON.stringify(bookmarks));
-      });
-    });
-    // Add event listeners to star ratings
-    document.querySelectorAll(".rating").forEach(rating => {
-      const noteId = rating.dataset.id;
-      const saved = localStorage.getItem(`rating_${noteId}`);
-
-      if (saved) highlightStars(rating, saved);
-
-      rating.querySelectorAll(".star").forEach(star => {
-        star.addEventListener("click", () => {
-          const value = star.dataset.value;
-          localStorage.setItem(`rating_${noteId}`, value);
-          highlightStars(rating, value);
-        });
-      });
-    });
-
-    function highlightStars(container, rating) {
-      const stars = container.querySelectorAll(".star");
-      stars.forEach(star => {
-        star.classList.toggle("filled", star.dataset.value <= rating);
-      });
-    }
-
-  }
-
-
-
-  [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
-    filter.addEventListener("change", () => {
-      const branchVal = branchFilter.value;
-      if (filter === branchFilter) updateSubjects(branchVal);
-      const filtered = notesData.filter(note =>
-        (branchVal === "" || note.branch === branchVal) &&
-        (semesterFilter.value === "" || note.semester === semesterFilter.value) &&
-        (subjectFilter.value === "" || note.subject === subjectFilter.value)
-      );
-      displayNotes(filtered);
-    });
-
-
-
-[branchFilter, semesterFilter, subjectFilter].forEach(filter => {
-  filter.addEventListener("change", () => {
-    const branchVal = branchFilter.value;
-    if (filter === branchFilter) updateFilterSubjects(branchVal);
-    const filtered = notesData.filter(note =>
-      (branchVal === "" || note.branch === branchVal) &&
-      (semesterFilter.value === "" || note.semester === semesterFilter.value) &&
-      (subjectFilter.value === "" || note.subject === subjectFilter.value)
-    );
-    displayNotes(filtered);
-
-  });
-
-document.addEventListener('DOMContentLoaded', function() {
-  var easyUploadCard = document.querySelector('.easy-upload-card');
-  if (easyUploadCard) {
-    easyUploadCard.style.cursor = 'pointer';
-    easyUploadCard.addEventListener('click', function() {
-      window.location.href = '/upload.html';
-    });
-  }
-});
-
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -457,4 +236,3 @@ function runQuerySearch() {
     }
   }
 }
-
