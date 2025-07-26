@@ -632,19 +632,20 @@
     text-decoration: underline;
   }
 
-  #header #header-auth-box {
+  /* Header auth container for Sign In and Sign Up buttons */
+  #header-auth-box {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    margin-right: 5vw;
   }
 
   #header #header-signup-box {
-  margin-right: 5vw;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 
 #header #header-signup-box p {
   display: flex;
@@ -667,24 +668,29 @@
   transform: translateY(-1px);     
 }
 
+  #header #header-signin-box {
+    cursor: pointer;
+  }
+
   #header #header-signin-box p {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    color: #1f5c59;
-    padding: 8px 30px;
-    border: 2px solid #1f5c59;
+    color: #163d3b;
+    padding: 8px 20px;
+    border: 2px solid #163d3b;
     border-radius: 30px;
     cursor: pointer;
     font-weight: 500;
     font-size: calc(9px + 0.4vw);
     max-height: 50px;
     transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
   }
 
   #header #header-signin-box p:hover {
-    background-color: #1f5c59;
+    background-color: #163d3b;
     color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-1px);
@@ -1107,6 +1113,15 @@
       font-size: calc(10px + 0.5vw);
     }
 
+    #header #header-signin-box {
+      margin-right: 3vw;
+    }
+
+    #header #header-signin-box p {
+      padding: 8px 15px;
+      font-size: calc(10px + 0.5vw);
+    }
+
     #main {
       flex-direction: column;
       margin: 4vw;
@@ -1222,8 +1237,18 @@
       font-size: calc(12px + 0.5vw);
     }
 
+    #header-auth-box {
+      margin-right: 3vw;
+      gap: 6px;
+    }
+
     #header #header-signup-box p {
       padding: 8px 15px;
+      font-size: 12px;
+    }
+
+    #header #header-signin-box p {
+      padding: 6px 12px;
       font-size: 12px;
     }
 
