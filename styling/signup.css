@@ -174,7 +174,7 @@ input[type="text"]:focus {
   /* Equivalent to focus:ring-notes-green-light */
 }
 
-/* adding css on the  */
+/* Password visibility toggle styles */
 #password-input {
   display: flex;
 }
