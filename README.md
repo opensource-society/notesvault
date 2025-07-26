@@ -6,13 +6,13 @@
 
 ## ✨ Features (Planned)
 
-* Browse notes and PYQs by subject/semester
-* Search and filter by keywords
-* Add new notes manually (or from JSON for demo)
-* Responsive design for all devices
-* Dark/light mode toggle
-* Upload UI and metadata editing
-* Tag-based filtering
+- Browse notes and PYQs by subject/semester
+- Search and filter by keywords
+- Add new notes manually (or from JSON for demo)
+- Responsive design for all devices
+- Dark/light mode toggle
+- Upload UI and metadata editing
+- Tag-based filtering
 
 ---
 
@@ -39,10 +39,10 @@ notesvault/
 
 1. **Clone the repository**
 
-    ```bash
-    git clone https://github.com/opensource-society/NotesVault.git
-    cd NotesVault
-    ```
+   ```bash
+   git clone https://github.com/opensource-society/NotesVault.git
+   cd NotesVault
+   ```
 
 2. **Open the app**
 
@@ -50,9 +50,9 @@ Simply open `index.html` in your browser. All data is stored locally via JSON or
 
 3. **Develop and test**
 
-* Edit `notes.json` to simulate new data
-* Modify layout or logic in `style.css` and `script.js`
-* Use browser DevTools to inspect results
+- Edit `notes.json` to simulate new data
+- Modify layout or logic in `style.css` and `script.js`
+- Use browser DevTools to inspect results
 
 ---
 
@@ -62,12 +62,12 @@ We welcome all kinds of contributions, especially from beginners! Since the proj
 
 **Good first issues:**
 
-* Setup basic UI structure or card layout
-* Add new subjects or notes to JSON
-* Implement search and filtering logic
-* Improve design responsiveness
-* Add support for dark mode
-* Add upload simulation with preview
+- Setup basic UI structure or card layout
+- Add new subjects or notes to JSON
+- Implement search and filtering logic
+- Improve design responsiveness
+- Add support for dark mode
+- Add upload simulation with preview
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
 
@@ -86,12 +86,15 @@ This project is licensed under the [MIT License](LICENSE).
 Special thanks to all the contributors who have helped build NotesVault:
 
 ### Backend Development
+
 - **[Asit Kumar](https://github.com/Asit-14)** - Complete Flask backend setup, API development, database models, authentication system, and testing infrastructure
 
 ### Frontend Development
+
 - Various contributors from the open-source community
 
 ## Updates
+
 - Added favicon (favicon.ico) to the site.
 - Added app icon (Icon.jpg) to the header, left of the app name.
 - Complete Flask backend implementation with REST API, authentication, and database models

@@ -1,0 +1,64 @@
+# =============================================================================
+# BACKEND SPECIFIC .GITIGNORE
+# =============================================================================
+
+# Python Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Configuration files with sensitive data
+.env
+config.py
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+notesvault.db
+instance/
+
+# Flask session files
+flask_session/
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Logs specific to backend
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.backup
+
+# Large uploads (if any)
+uploads/
+static/uploads/
+
+# Requirements backup
+requirements.*.txt
+
+# Migration files (if using Flask-Migrate)
+migrations/versions/*.pyc
