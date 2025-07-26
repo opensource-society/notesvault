@@ -4,47 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Account - NotesVault</title>
-  <link rel="stylesheet" href="../styling/studentAccount.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="/styling/studentAccount.css">
   <link rel="icon" href="favicon.png" type="image/x-icon" />
+   <script src="/scripts/main.js"></script>
 </head>
 <body>
 
   <!-- Header Navigation -->
-  <header>
-    <div id="header">
-      <div class="hamburger-wrapper">
-        <button class="hamburger-menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-        <div class="hover-sidebar">
-          <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/overview.html">Overview</a></li>
-            <li><a href="../pages/features.html">Features</a></li>
-            <li><a href="#">Resources</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="header-title-box">
-        <p id="header-title">NotesVault</p>
-      </div>
-
-      <div id="header-navigation" class="nav-menu">
-        <a href="../pages/overview.html">Overview</a>
-        <a href="../pages/studentAccount.html">Student Account</a>
-        <a href="../pages/about.html">About</a>
-        <a href="../pages/features.html">Features</a>
-      </div>
-
-      <div id="header-signup-box">
-        <a href="../pages/signup.html"><p>Sign Up</p></a>
-      </div>
+  <!-- Standard Header -->
+<header id="header">
+    <div id="header-title-box">
+        <a href="../index.html" id="header-title-link"><p id="header-title">NotesVault</p></a>
     </div>
-  </header>
+    <nav id="header-navigation" class="nav-menu">
+     <a href="index.html">Home</a>
+        <a href="/pages/BrowseNotes.html">Browse Notes</a>
+        <a href="/pages/features.html">Features</a>
+        <a href="/pages/overview.html">Overview</a>
+        <a href="/pages/jotpad.html">JotPad</a>
+        <a href="/pages/studentAccount.html">Student Account</a>
+        <a href="/pages/about.html">About</a>
+        <!-- ... other links ... -->
+    </nav>
+    <div class="header-right-controls">
+        <!-- This is the button that was missing -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+        <div id="header-signup-box"><a href="signup.html">Sign Up</a></div>
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+</header>
+
 
   <!-- Main Content -->
   <div class="container">

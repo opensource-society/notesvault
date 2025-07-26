@@ -3,58 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css"/>
-    <link rel="stylesheet" href="../styling/overview.css">
+    <link rel="stylesheet" href="/styles.css"/>
+    <link rel="stylesheet" href="/styling/overview.css">
     <title>NotesVault Home</title>
     <link rel="icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-...hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+     <script src="/scripts/main.js"></script>
     <script
   src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
   crossorigin="anonymous"
 ></script>
 </head>
 <body>
-    <header>
-      <div id="header">
-        <div class="hamburger-wrapper">
-          <!-- Hamburger icon -->
-          <button class="hamburger-menu">
+<!-- Standard Header -->
+<header id="header">
+    <div id="header-title-box">
+        <a href="../index.html" id="header-title-link"><p id="header-title">NotesVault</p></a>
+    </div>
+    <nav id="header-navigation" class="nav-menu">
+     <a href="index.html">Home</a>
+        <a href="/pages/BrowseNotes.html">Browse Notes</a>
+        <a href="/pages/features.html">Features</a>
+        <a href="/pages/overview.html">Overview</a>
+        <a href="/pages/jotpad.html">JotPad</a>
+        <a href="/pages/studentAccount.html">Student Account</a>
+        <a href="/pages/about.html">About</a>
+        <!-- ... other links ... -->
+    </nav>
+    <div class="header-right-controls">
+        <!-- This is the button that was missing -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+        <div id="header-signup-box"><a href="signup.html">Sign Up</a></div>
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
-          </button>
+        </button>
+    </div>
+</header>
 
-          <!-- Sidebar menu (hidden by default, visible on hover) -->
-          <div class="hover-sidebar">
-            <ul>
-              <li><a href="../index.html">Dashboard</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="overview.html">Overview</a></li>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Resources</a></li>
-            </ul>
-          </div>
-        </div>
-        <div id="header-title-box">
-          <p id="header-title">NotesVault</p>
-        </div>
-
-        
-
-        <!-- Navigation Menu -->
-        <div id="header-navigation" class="nav-menu">
-          <a href="overview.html">Overview</a>
-          <a href="../index.html">Student Account</a>
-          <a href="about.html">About</a>
-          <a href="/">Features</a>
-        </div>
-
-        <div id="header-signup-box">
-          <p>Sign Up</p>
-        </div>
-      </div>
-    </header>
 
 
     <div class="main">
