@@ -236,3 +236,40 @@ function runQuerySearch() {
     }
   }
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Dark Mode Logic
+  const toggle = document.getElementById("darkModeToggle");
+
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+
+  toggle?.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const mode = document.body.classList.contains("dark-mode") ? "dark" : "light";
+    localStorage.setItem("theme", mode);
+  });
+
+  //  Upload Preview Logic
+  const uploadInput = document.getElementById("uploadInput");
+  const preview = document.getElementById("preview");
+
+  uploadInput?.addEventListener("change", () => {
+    const file = uploadInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (file.type.startsWith("image/")) {
+        preview.innerHTML = `<img src="${e.target.result}" width="200"/>`;
+      } else if (file.type === "application/pdf") {
+        preview.innerHTML = `<embed src="${e.target.result}" width="100%" height="500px" type="application/pdf">`;
+      } else {
+        preview.innerHTML = `<p>Preview not supported for this file type.</p>`;
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+});

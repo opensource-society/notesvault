@@ -571,7 +571,6 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-
   .nav-menu a:hover span {
     transform: translate3d(-200%, 0, 0);
   }
@@ -588,6 +587,42 @@
 
 
   /* ------------------------------------------------ */
+ #darkModeToggle,
+.dark-toggle-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 6px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: #e0e0e0;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
+
+body.dark-mode .dark-toggle-btn {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+#upload-note-section {
+  background-color: #f5f5f5;
+  margin: 2rem auto;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+  
+
+
   #header #header-navigation p:hover {
     font-weight: 400;
     text-decoration: underline;
