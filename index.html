@@ -17,7 +17,6 @@
     </script>
   </head>
   <body>
-    <header>
       <div id="header">
         <div class="hamburger-wrapper">
           <button class="hamburger-menu">
@@ -52,28 +51,6 @@
           <a href="pages/signup.html"><p>Sign Up</p></a>
         </div>
       </div>
-    </header>
-   <div class="Search-box  bg-black h-[100px]">
-  <div class="main-right-search " >
-    <form id="search-form" class="main-right-search-form" method="get" action="search.html">
-      <div class="flex justify-evenly w-full items-center gap-20 ">
-       
-      <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search" />
-        <svg class=" search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <path d="m21 21-4.35-4.35"></path>
-      </svg>
-
-      </div>
-     
-      <div id="search-parameters-branch" class="search-parameters-div"></div>
-      <div id="search-parameters-semester" class="search-parameters-div"></div>
-      <div id="search-parameters-subject" class="search-parameters-div"></div>
-      <input type="submit" style="display: none" />
-    </form>
-  </div>
-</div>
-
 
     <main id="main">
       <div class="main-left">
@@ -86,7 +63,7 @@
           always just a click away with NotesVault.
         </p>
         <div class="main-left-links">
-          <a style="color: black ; text-decoration: none; " class="links-text try-box"  href="./search.html">Browse Notes</a>
+          <a style="color: black ; text-decoration: none; " class="links-text features-box"  href="./search.html">Browse Notes</a>
           <p class="links-text try-box">Upload Notes</p>
         </div>
       </div>
@@ -98,21 +75,31 @@
             <div class="right-text-div">
               <p class="right-text">Notes Organised by</p>
               <p class="right-text" id="typeWriterText">Subject</p>
+                  <form id="search-form" class="main-right-search-form" method="get" action="search.html">
+                    <div>
+                      <div class="search-input-field">
+                          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                          </svg>
+                          <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search">
+                      </div>
+                    </div>
+                    <div id="search-parameters-branch" class="search-parameters-div"></div>
+                    <div id="search-parameters-semester" class="search-parameters-div"></div>
+                    <div id="search-parameters-subject" class="search-parameters-div"></div>
+                    <input type="submit" style="display: none" />
+              </form>
             </div>
           </div>
 
           
         </div>
       </div>
-
-      <section class="About">
-        <p class="About-left-heading">About NotesVault</p>
-        <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
-        <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
-      </section>
     </main>
 
     <section class="features-section">
+
       <!--upload section-->
       <div class="card-container">
 <a href="pages/upload.html">
@@ -215,13 +202,6 @@
 <button id="scrollToTopBtn" title="Go to top">
   <i class="fas fa-arrow-up"></i>
 </button>
-
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-
     <script src="scripts/script.js" defer></script>
     <script>
       function toggleMobileMenu() {
@@ -242,6 +222,9 @@
           sidebar.classList.remove("active");
         }
       });
+      
+      // Add cuurent year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
