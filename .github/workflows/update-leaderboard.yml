@@ -1,15 +1,15 @@
 name: Update Leaderboard
 
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    types: [closed]
-    branches: ["main"]
-  schedule:
+#on:
+#  push:
+#    branches: ["main"]
+#  pull_request:
+#    types: [closed]
+#    branches: ["main"]
+#  schedule:
     # Run every 10 minutes
-    - cron: '*/10 * * * *'
-  workflow_dispatch:
+#    - cron: '*/10 * * * *'
+#  workflow_dispatch:
 
 permissions:
   contents: write
