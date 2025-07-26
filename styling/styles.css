@@ -598,29 +598,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
-#darkModeToggle:hover {
-  background-color: #e0e0e0;
-}
-
-body.dark-mode {
+[data-theme="dark"] {
   background-color: #121212;
-  color: #fff;
+  color: #ffffff;
 }
-
-body.dark-mode .dark-toggle-btn {
-  background-color: #2a2a2a;
-  color: #fff;
-}
-#upload-note-section {
-  background-color: #f5f5f5;
-  margin: 2rem auto;
-  border-radius: 12px;
-  max-width: 600px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-}
-
-  
 
 
   #header #header-navigation p:hover {
