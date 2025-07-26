@@ -81,6 +81,17 @@ This project is licensed under the [MIT License](LICENSE).
 
 > Let's build NotesVault together — an open-source resource that helps thousands of students revise and succeed. 🚀
 
+## 👥 Contributors
+
+Special thanks to all the contributors who have helped build NotesVault:
+
+### Backend Development
+- **[Asit Kumar](https://github.com/Asit-14)** - Complete Flask backend setup, API development, database models, authentication system, and testing infrastructure
+
+### Frontend Development
+- Various contributors from the open-source community
+
 ## Updates
 - Added favicon (favicon.ico) to the site.
 - Added app icon (Icon.jpg) to the header, left of the app name.
+- Complete Flask backend implementation with REST API, authentication, and database models
