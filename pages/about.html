@@ -1,43 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - NotesVault</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - NotesVault</title>
     <link rel="icon" href="../assets/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/styling/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="../styles/main.css" />
 </head>
 <body>
-    <div id="messageBox" class="message-box"></div>
-    <div class="home-button-container">
-        <a href="../index.html" class="home-button">&larr; Back to Home</a>
+  
+         <!-- Standard Header -->
+<header id="header">
+    <div id="header-title-box">
+        <a href="../index.html" id="header-title-link"><p id="header-title">NotesVault</p></a>
     </div>
-    <div class="card-container">
-        <h2>Welcome Back!</h2>
-        <p>Sign in to your NotesVault account</p>
-        <form id="loginForm" class="form-space-y-6">
-            <div>
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" required placeholder="you@example.com">
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="••••••••">
-            </div>
-            <div class="flex-between">
-                <div class="flex-center">
-                    <input id="remember-me" name="remember-me" type="checkbox">
-                    <label for="remember-me" class="checkbox-label">Remember me</label>
-                </div>
-                <div class="forgot-password-link"><a href="#">Forgot password?</a></div>
-            </div>
-            <div><button type="submit" class="btn-primary">Sign in</button></div>
-        </form>
-        <div class="switch-link-section">
-            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
-        </div>
+    <nav id="header-navigation" class="nav-menu">
+     <a href="index.html">Home</a>
+        <a href="/pages/BrowseNotes.html">Browse Notes</a>
+        <a href="/pages/features.html">Features</a>
+        <a href="/pages/overview.html">Overview</a>
+        <a href="/pages/jotpad.html">JotPad</a>
+        <a href="/pages/studentAccount.html">Student Account</a>
+        <a href="/pages/about.html">About</a>
+        <!-- ... other links ... -->
+    </nav>
+    <div class="header-right-controls">
+        <!-- This is the button that was missing -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+        <div id="header-signup-box"><a href="signup.html">Sign Up</a></div>
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
     </div>
-    <script src="../scripts/auth.js"></script>
+</header>
+
+
+    
+
+    <main class="page-container">
+        <h1>About NotesVault</h1>
+        <p>NotesVault is a beginner-friendly, open-source web application built with students in mind. It serves as a centralized platform to store, browse, and manage academic notes and Previous Year Questions (PYQs) in a well-organized, semester-wise format.</p>
+        <h2>Our Mission</h2>
+        <p>To democratize academic access by providing a centralized, open-source platform where students can seamlessly share, browse, and store academic resources.</p>
+    </main>
+    
+    <!-- Use the Standardized Footer Component -->
+    <footer class="modern-footer">
+        <!-- (Paste the standard footer HTML here) -->
+    </footer>
+
+    <script src="../scripts/main.js" defer></script>
 </body>
 </html>

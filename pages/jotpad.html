@@ -1,77 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>JotPad - NotesVault</title>
-    <link rel="icon" href="../assets/favicon.png" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/styling/jotpad.css">
-</head>
-<body>
-    <!-- Mobile Sidebar -->
-    <aside class="sidebar" id="mobileSidebar">
-        <a href="../index.html">Home</a>
-        <a href="browse.html">Browse Notes</a>
-        <a href="features.html">Features</a>
-        <a href="overview.html">Overview</a>
-        <a href="jotpad.html">JotPad</a>
-    </aside>
+document.addEventListener('DOMContentLoaded', () => {
+    const noteArea = document.getElementById('noteArea');
+    const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+    const deleteAllBtn = document.getElementById('deleteAllBtn');
 
- <!-- Standard Header -->
-<header id="header">
-    <div id="header-title-box">
-        <a href="../index.html" id="header-title-link"><p id="header-title">NotesVault</p></a>
-    </div>
-    <nav id="header-navigation" class="nav-menu">
-     <a href="index.html">Home</a>
-        <a href="/pages/BrowseNotes.html">Browse Notes</a>
-        <a href="/pages/features.html">Features</a>
-        <a href="/pages/overview.html">Overview</a>
-        <a href="/pages/jotpad.html">JotPad</a>
-        <a href="/pages/studentAccount.html">Student Account</a>
-        <a href="/pages/about.html">About</a>
-        <!-- ... other links ... -->
-    </nav>
-    <div class="header-right-controls">
-        <!-- This is the button that was missing -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fas fa-sun sun-icon"></i>
-            <i class="fas fa-moon moon-icon"></i>
-        </button>
-        <div id="header-signup-box"><a href="signup.html">Sign Up</a></div>
-        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-    </div>
-</header>
+    if (!noteArea) return; // Only run on JotPad page
 
+    // Load saved content from localStorage
+    noteArea.innerHTML = localStorage.getItem("jotpadContent") || "";
 
+    // Function to save content to localStorage
+    const saveContent = () => {
+        localStorage.setItem("jotpadContent", noteArea.innerHTML);
+    };
 
-    <main class="jotpad-container">
-        <div class="jotpad-header">
-            <h1>JotPad</h1>
-            <p>A clean, real-time notepad. Your notes are saved automatically.</p>
-        </div>
-        <div class="editor-wrapper">
-            <div class="editor-container">
-                <div class="note-box" contenteditable="true" id="noteArea" spellcheck="true" data-placeholder="Start typing here..."></div>
-            </div>
-            <div class="button-wrapper">
-                <button class="action-btn download-btn" id="downloadPdfBtn">Download as PDF</button>
-                <button class="action-btn delete-btn" id="deleteAllBtn">Delete All</button>
-            </div>
-        </div>
-    </main>
+    // Use the debounce utility from utilities.js to save on input
+    noteArea.addEventListener("input", debounce(saveContent, 500));
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="../scripts/main.js" defer></script>
-    <script src="../scripts/jotpad.js" defer></script>
-</body>
-</html>
+    // PDF Download
+    downloadPdfBtn.addEventListener('click', async () => {
+        const { jsPDF } = window.jspdf;
+        const content = noteArea.innerText;
+        if (!content.trim()) {
+            showMessage("Note is empty. Nothing to download.", "error");
+            return;
+        }
+        const doc = new jsPDF();
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(12);
+        doc.text(content, 10, 10, { maxWidth: 190 });
+        doc.save("NotesVault_JotPad.pdf");
+    });
+
+    // Delete All
+    deleteAllBtn.addEventListener('click', () => {
+        // This can be enhanced with a custom modal in the future
+        if (window.confirm("Are you sure you want to delete all content? This cannot be undone.")) {
+            noteArea.innerHTML = "";
+            localStorage.removeItem("jotpadContent");
+            showMessage("All content has been deleted.", "success");
+        }
+    });
+});

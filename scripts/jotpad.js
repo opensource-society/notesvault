@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!noteArea) return; // Only run on JotPad page
 
+    
     // Load saved content from localStorage
     noteArea.innerHTML = localStorage.getItem("jotpadContent") || "";
 
