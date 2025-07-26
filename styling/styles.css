@@ -2385,6 +2385,15 @@ main{
 
 
 /* ========== Features Section ========== */
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* optional: centers items horizontally */
+  gap: 1.5rem; /* adds spacing between cards */
+  flex-wrap: wrap; /* wraps on small screens */
+  margin-top: 2rem;
+}
+
 .features-section {
   display: flex;
   flex-wrap: wrap;
