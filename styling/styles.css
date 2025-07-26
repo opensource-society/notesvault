@@ -571,7 +571,6 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-
   .nav-menu a:hover span {
     transform: translate3d(-200%, 0, 0);
   }
@@ -588,6 +587,23 @@
 
 
   /* ------------------------------------------------ */
+ #darkModeToggle,
+.dark-toggle-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 6px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+[data-theme="dark"] {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+
   #header #header-navigation p:hover {
     font-weight: 400;
     text-decoration: underline;
