@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Account - NotesVault</title>
   <link rel="stylesheet" href="../styling/studentAccount.css" />
+  <link rel="stylesheet" href="../styling/theme.css" />
   <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -39,6 +41,12 @@
         <a href="../pages/about.html">About</a>
         <a href="../pages/features.html">Features</a>
       </div>
+      
+      <!-- Theme Toggle Button -->
+      <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">
+        <i class="fas fa-sun sun-icon"></i>
+        <i class="fas fa-moon moon-icon"></i>
+      </button>
 
       <div id="header-signup-box">
         <a href="../pages/signup.html"><p>Sign Up</p></a>
@@ -86,5 +94,6 @@
     </div>
   </div>
 
+  <script src="../scripts/theme.js"></script>
 </body>
 </html>

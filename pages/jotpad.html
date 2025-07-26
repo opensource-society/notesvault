@@ -7,10 +7,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styling/jotpad.css">
+  <link rel="stylesheet" href="../styling/theme.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
 
-  <div class="header">JotPad - A Clean, Real Time Note Taking Editor</div>
+  <div class="header">
+    JotPad - A Clean, Real Time Note Taking Editor
+    
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">
+      <i class="fas fa-sun sun-icon"></i>
+      <i class="fas fa-moon moon-icon"></i>
+    </button>
+  </div>
 
   <div class="editor-wrapper">
     <div class="editor-container">
@@ -65,6 +75,7 @@ function deleteAll() {
 
 
   </script>
-
+  
+  <script src="../scripts/theme.js"></script>
 </body>
 </html>

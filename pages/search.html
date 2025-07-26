@@ -6,6 +6,9 @@
   <title>Browse Notes - NotesVault</title>
   <link rel="icon" href="favicon.png" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styling/styles.css" />
+  <link rel="stylesheet" href="../styling/theme.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
   <style>
     * {
       margin: 0;
@@ -153,6 +156,13 @@
       <a href="search.html">Browse</a>
       <a href="upload.html">Upload</a>
     </nav>
+    
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">
+      <i class="fas fa-sun sun-icon"></i>
+      <i class="fas fa-moon moon-icon"></i>
+    </button>
+    
     <div id="header-signup-box">
       <a href="pages/signup.html"><p>Sign Up</p></a>
     </div>
@@ -234,5 +244,6 @@
     <p>© 2025 NotesVault - GSSoC Contribution</p>
   </footer>
 
+  <script src="../scripts/theme.js"></script>
 </body>
 </html>

@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Features - NotesVault</title>
   <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../styling/styles.css" />
+  <link rel="stylesheet" href="../styling/theme.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
@@ -125,6 +128,12 @@
     <div class="nav-links">
       <a href="index.html">🏠 Home</a>
     </div>
+    
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">
+      <i class="fas fa-sun sun-icon"></i>
+      <i class="fas fa-moon moon-icon"></i>
+    </button>
   </header>
 
   <div class="container">
@@ -178,5 +187,7 @@
       });
     });
   </script>
+  
+  <script src="../scripts/theme.js"></script>
 </body>
 </html>
