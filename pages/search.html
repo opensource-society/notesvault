@@ -141,6 +141,37 @@
       text-align: center;
       font-size: 0.9rem;
     }
+   .spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#loader {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  align-items: center;
+  justify-content: center;
+  display: none; /* initially hidden */
+}
+
+#loader.show {
+  display: flex;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -186,7 +217,11 @@
     </div>
 
     <!-- Note Cards -->
-    <div class="notes-grid">
+     <div id="loader" >
+  <div class="spinner"></div>
+</div>
+
+    <div class="notes-grid" id="notes-container">
       <div class="note-card">
         <h3>Mathematics I</h3>
         <p><strong>Branch:</strong> CSE</p>
