@@ -8,10 +8,8 @@
     <link rel="icon" href="favicon.png" type="image/x-icon" />
   </head>
   <body class="bg-notes-bg-light">
-    <!-- Message Box for notifications -->
     <div id="messageBox" class="message-box"></div>
 
-    <!-- Back to Home Button -->
     <div class="home-button-container">
       <a href="../index.html" class="home-button"> &larr; Back to Home </a>
     </div>
@@ -23,36 +21,18 @@
       <form id="signupForm" class="form-space-y-6">
         <div>
           <label for="name">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="John Doe"
-          />
+          <input type="text" id="name" name="name" required placeholder="John Doe" />
         </div>
 
         <div>
           <label for="email">Email address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="you@example.com"
-          />
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
         </div>
 
         <div>
           <label for="password">Password</label>
           <div id="password-input">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-              placeholder="••••••••"
-            />
+            <input type="password" id="password" name="password" required placeholder="••••••••" />
             <img id="eye1" src="../assets/index/images/eye.png" alt="eye" />
           </div>
         </div>
@@ -60,19 +40,16 @@
         <div>
           <label for="confirm-password">Confirm Password</label>
           <div id="confirm-password-input">
-            <input
-              type="password"
-              id="confirm-password"
-              name="confirm-password"
-              required
-              placeholder="••••••••"
-            />
+            <input type="password" id="confirm-password" name="confirm-password" required placeholder="••••••••" />
             <img id="eye2" src="../assets/index/images/eye.png" alt="eye" />
           </div>
         </div>
 
         <div>
-          <button type="submit" class="btn-primary">Sign up</button>
+          <button type="submit" class="btn-primary" id="signupBtn">
+            <span id="btnText">Sign up</span>
+            <span class="spinner" id="spinner"></span>
+          </button>
         </div>
       </form>
 
@@ -85,105 +62,87 @@
     </div>
 
     <script>
-      // Function to show a message box
-      function showMessageBox(message, type = "success") {
-        const messageBox = document.getElementById("messageBox");
+      // Message box function
+      function showMessageBox(message, type = 'success') {
+        const messageBox = document.getElementById('messageBox');
         messageBox.textContent = message;
-        messageBox.className = "message-box show"; // Reset and show
-        if (type === "error") {
-          messageBox.style.backgroundColor = "var(--red-error)"; // Red for error
-        } else {
-          messageBox.style.backgroundColor = "var(--green-success)"; // Green for success
-        }
-
-        setTimeout(() => {
-          messageBox.classList.remove("show");
-        }, 3000); // Hide after 3 seconds
+        messageBox.className = 'message-box show';
+        messageBox.style.backgroundColor = (type === 'error') ? 'var(--red-error)' : 'var(--green-success)';
+        setTimeout(() => messageBox.classList.remove('show'), 3000);
       }
 
-      document
-        .getElementById("signupForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent default form submission
-
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-          const confirmPassword =
-            document.getElementById("confirm-password").value;
-
-          // Basic validation
-          if (
-            name === "" ||
-            email === "" ||
-            password === "" ||
-            confirmPassword === ""
-          ) {
-            showMessageBox("Please fill in all fields.", "error");
-            return;
-          }
-
-          if (password !== confirmPassword) {
-            showMessageBox("Passwords do not match.", "error");
-            return;
-          }
-
-          // In a real application, you would send this data to a server for user registration.
-          // For this example, we'll just simulate a successful sign-up.
-          console.log("Sign up attempt:", { name, email, password });
-          showMessageBox("Sign up successful! You can now log in.", "success");
-
-          // Simulate redirection after a short delay
-          setTimeout(() => {
-            window.location.href = "login.html"; // Redirect to the login page
-          }, 100);
-        });
-
-      // For toggle eye button
-       //password
+      // Eye toggle logic for password
       let c = true;
+      document.querySelector('#eye1').addEventListener('click', function () {
+        const pwd = document.querySelector('#password');
+        if (c) {
+          pwd.setAttribute('type', 'text');
+          document.querySelector('#eye1').setAttribute('src', '../assets/index/images/hide.png');
+          c = false;
+        } else {
+          pwd.setAttribute('type', 'password');
+          document.querySelector('#eye1').setAttribute('src', '../assets/index/images/eye.png');
+          c = true;
+        }
+      });
 
-      document
-        .querySelector("#eye1")
-        .addEventListener("click", function () {
-          if (c) {
-            document.querySelector("#password").setAttribute("type", "text");
-            document
-              .querySelector("#eye1")
-              .setAttribute("src", "../assets/index/images/hide.png");
-              c = false;
-            } else if (!c) {
-                document
-                .querySelector("#password")
-                .setAttribute("type", "password");
-                document
-                  .querySelector("#eye1")
-                  .setAttribute("src", "../assets/index/images/eye.png");
-                c = true;
-          }
-        });
-        // confirm password
-              let c1 = true;
+      // Eye toggle for confirm password
+      let c1 = true;
+      document.querySelector('#eye2').addEventListener('click', function () {
+        const cpwd = document.querySelector('#confirm-password');
+        if (c1) {
+          cpwd.setAttribute('type', 'text');
+          document.querySelector('#eye2').setAttribute('src', '../assets/index/images/hide.png');
+          c1 = false;
+        } else {
+          cpwd.setAttribute('type', 'password');
+          document.querySelector('#eye2').setAttribute('src', '../assets/index/images/eye.png');
+          c1 = true;
+        }
+      });
 
-      document
-        .querySelector("#eye2")
-        .addEventListener("click", function () {
-          if (c1) {
-            document.querySelector("#confirm-password").setAttribute("type", "text");
-            document
-              .querySelector("#eye2")
-              .setAttribute("src", "../assets/index/images/hide.png");
-              c1 = false;
-            } else if (!c1) {
-                document
-                .querySelector("#confirm-password")
-                .setAttribute("type", "password");
-                document
-                  .querySelector("#eye2")
-                  .setAttribute("src", "../assets/index/images/eye.png");
-                c1 = true;
-          }
-        });
+      // Form submission with spinner
+      document.getElementById('signupForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        const btn = document.getElementById('signupBtn');
+        const btnText = document.getElementById('btnText');
+        const spinner = document.getElementById('spinner');
+
+        btn.classList.add('btn-disabled');
+        spinner.style.display = 'inline-block';
+        btnText.textContent = 'Signing up...';
+
+        if (!name || !email || !password || !confirmPassword) {
+          showMessageBox('Please fill in all fields.', 'error');
+          resetButton();
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          showMessageBox('Passwords do not match.', 'error');
+          resetButton();
+          return;
+        }
+
+        console.log('Sign up attempt:', { name, email, password });
+
+        setTimeout(() => {
+          showMessageBox('Sign up successful! You can now log in.', 'success');
+          window.location.href = 'login.html';
+        }, 1500);
+
+        function resetButton() {
+          btn.classList.remove('btn-disabled');
+          spinner.style.display = 'none';
+          btnText.textContent = 'Sign up';
+        }
+      });
     </script>
   </body>
 </html>

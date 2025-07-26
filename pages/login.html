@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="../styling/login.css" />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
   </head>
-  <body
-    class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4"
-  >
+  <body class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4">
     <div id="messageBox" class="message-box"></div>
 
     <div class="home-button-container">
-      <a href="../index.html" class="home-button"> &larr; Back to Home </a>
+      <a href="../index.html" class="home-button">&larr; Back to Home</a>
     </div>
 
     <div class="card-container">
@@ -23,25 +21,13 @@
       <form id="loginForm" class="form-space-y-6">
         <div>
           <label for="email">Email address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="you@example.com"
-          />
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
         </div>
 
         <div>
           <label for="password">Password</label>
           <div id="password-input">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-              placeholder="••••••••"
-            />
+            <input type="password" id="password" name="password" required placeholder="••••••••" />
             <img id="eye" src="../assets/index/images/eye.png" alt="eye" />
           </div>
         </div>
@@ -58,7 +44,10 @@
         </div>
 
         <div>
-          <button type="submit" class="btn-primary">Sign in</button>
+          <button type="submit" class="btn-primary" id="loginBtn">
+            <span class="spinner hidden" id="spinner"></span>
+            <span id="btnText">Sign in</span>
+          </button>
         </div>
       </form>
 
@@ -71,69 +60,64 @@
     </div>
 
     <script>
-      // Function to show a message box
-      function showMessageBox(message, type = "success") {
-        const messageBox = document.getElementById("messageBox");
+      // Show message function
+      function showMessageBox(message, type = 'success') {
+        const messageBox = document.getElementById('messageBox');
         messageBox.textContent = message;
-        messageBox.className = "message-box show"; // Reset and show
-        if (type === "error") {
-          messageBox.style.backgroundColor = "var(--red-error)"; // Red for error
-        } else {
-          messageBox.style.backgroundColor = "var(--green-success)"; // Green for success
-        }
-
-        setTimeout(() => {
-          messageBox.classList.remove("show");
-        }, 3000); // Hide after 3 seconds
+        messageBox.className = 'message-box show';
+        messageBox.style.backgroundColor =
+          type === 'error' ? 'var(--red-error)' : 'var(--green-success)';
+        setTimeout(() => messageBox.classList.remove('show'), 3000);
       }
 
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent default form submission
-
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-
-          // Basic validation (can be expanded)
-          if (email === "" || password === "") {
-            showMessageBox("Please fill in all fields.", "error");
-            return;
-          }
-
-          // In a real application, you would send this data to a server for authentication.
-          // For this example, we'll just simulate a successful login.
-          console.log("Login attempt:", { email, password });
-          showMessageBox("Login successful! Redirecting...", "success");
-
-          // Simulate redirection after a short delay
-          setTimeout(() => {
-            window.location.href = "../index.html"; // Redirect to the login page
-          }, 100);
-        });
-
-      // writing eye toggle logic
+      // Eye toggle
       let c = true;
+      document.querySelector('#eye').addEventListener('click', function () {
+        const pwd = document.querySelector('#password');
+        if (c) {
+          pwd.setAttribute('type', 'text');
+          document.querySelector('#eye').setAttribute('src', '../assets/index/images/hide.png');
+          c = false;
+        } else {
+          pwd.setAttribute('type', 'password');
+          document.querySelector('#eye').setAttribute('src', '../assets/index/images/eye.png');
+          c = true;
+        }
+      });
 
-      document
-        .querySelector("#eye")
-        .addEventListener("click", function () {
-          if (c) {
-            document.querySelector("#password").setAttribute("type", "text");
-            document
-              .querySelector("#eye")
-              .setAttribute("src", "../assets/index/images/hide.png");
-              c = false;
-            } else if (!c) {
-                document
-                .querySelector("#password")
-                .setAttribute("type", "password");
-                document
-                  .querySelector("#eye")
-                  .setAttribute("src", "../assets/index/images/eye.png");
-                c = true;
-          }
-        });
+      // Handle form submit with spinner
+      document.getElementById('loginForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        const spinner = document.getElementById('spinner');
+        const btnText = document.getElementById('btnText');
+        const loginBtn = document.getElementById('loginBtn');
+
+        spinner.classList.remove('hidden');
+        btnText.textContent = 'Signing in...';
+        loginBtn.disabled = true;
+
+        if (email === '' || password === '') {
+          showMessageBox('Please fill in all fields.', 'error');
+          spinner.classList.add('hidden');
+          btnText.textContent = 'Sign in';
+          loginBtn.disabled = false;
+          return;
+        }
+
+        console.log('Login attempt:', { email, password });
+        await new Promise(res => setTimeout(res, 1000));
+
+        showMessageBox('Login successful! Redirecting...', 'success');
+        setTimeout(() => (window.location.href = '../index.html'), 1000);
+
+        spinner.classList.add('hidden');
+        btnText.textContent = 'Sign in';
+        loginBtn.disabled = false;
+      });
     </script>
   </body>
 </html>
