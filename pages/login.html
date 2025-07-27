@@ -78,9 +78,13 @@
     
     togglePassword.addEventListener('click', function() {
       // Ensure icon has proper classes
-      if (!this.classList.contains('fa-eye') && !this.classList.contains('fa-eye-slash')) {
-        this.classList.add('fa-eye');
-      }
+      // Toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      
+      // Toggle the eye icon
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
       
       // Toggle the type attribute
       const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
