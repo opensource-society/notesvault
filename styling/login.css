@@ -124,6 +124,7 @@ input[type="text"] {
     border-radius: 0.5rem;
     background-color: #fff;
     font-size: 0.875rem;
+    box-sizing: border-box;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -217,6 +218,60 @@ input[type="checkbox"] {
 
 .signup-link-section a:hover {
     color: var(--notes-orange-dark);
+}
+
+.password-container {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-600);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+}
+
+.password-toggle:hover {
+  color: var(--notes-orange);
+}
+
+/* Adjust input padding to prevent overflow */
+input[type="password"],
+input[type="text"] {
+  padding-right: 2.5rem !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure form elements don't overflow */
+.form-space-y-6 > div {
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .password-toggle {
+    right: 8px;
+    font-size: 0.9rem;
+  }
+  
+  input[type="password"],
+  input[type="text"] {
+    padding-right: 2rem !important;
+  }
 }
 
 /* Responsive */
