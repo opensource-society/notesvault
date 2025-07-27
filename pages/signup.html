@@ -1,120 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - NotesVault</title>
-  <link rel="stylesheet" href="../styling/signup.css" />
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - NotesVault</title>
+    <link rel="stylesheet" href="../styling/signup.css" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+  </head>
+  <body class="bg-notes-bg-light">
+    <div id="messageBox" class="message-box"></div>
 
-</head>
-
-<body class="bg-notes-bg-light">
-
-  <div id="messageBox" class="message-box"></div>
-
-  <div class="home-button-container">
-    <a href="../index.html" class="home-button">
-      &larr; Back to Home
-    </a>
-  </div>
-
-  <div class="card-container">
-    <h2>Create Your Account</h2>
-    <p>Join NotesVault today!</p>
-
-    <form id="signupForm" class="form-space-y-6">
-      <div>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required placeholder="John Doe" />
-      </div>
-
-      <div>
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com" />
-      </div>
-
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required placeholder="••••••••" />
-      </div>
-
-      <div>
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" required placeholder="••••••••" />
-      </div>
-
-      <div>
-        <button type="submit" class="btn-primary" id="signupBtn">
-          <span id="btnText">Sign up</span>
-          <span class="spinner" id="spinner"></span>
-        </button>
-      </div>
-    </form>
-
-    <div class="signin-link-section">
-      <p>
-        Already have an account?
-        <a href="login.html">Sign in here</a>
-      </p>
+    <div class="home-button-container">
+      <a href="../index.html" class="home-button"> &larr; Back to Home </a>
     </div>
-  </div>
 
-  <script>
-    function showMessageBox(message, type = 'success') {
-      const messageBox = document.getElementById('messageBox');
-      messageBox.textContent = message;
-      messageBox.className = 'message-box show';
-      messageBox.style.backgroundColor = (type === 'error') ? 'var(--red-error)' : 'var(--green-success)';
+    <div class="card-container">
+      <h2>Create Your Account</h2>
+      <p>Join NotesVault today!</p>
 
-      setTimeout(() => {
-        messageBox.classList.remove('show');
-      }, 3000);
-    }
+      <form id="signupForm" class="form-space-y-6">
+        <div>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="John Doe" />
+        </div>
 
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
-      event.preventDefault();
+        <div>
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
+        </div>
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
+        <div>
+          <label for="password">Password</label>
+          <div id="password-input">
+            <input type="password" id="password" name="password" required placeholder="••••••••" />
+            <img id="eye1" src="../assets/index/images/eye.png" alt="eye" />
+          </div>
+        </div>
 
-      const btn = document.getElementById('signupBtn');
-      const btnText = document.getElementById('btnText');
-      const spinner = document.getElementById('spinner');
+        <div>
+          <label for="confirm-password">Confirm Password</label>
+          <div id="confirm-password-input">
+            <input type="password" id="confirm-password" name="confirm-password" required placeholder="••••••••" />
+            <img id="eye2" src="../assets/index/images/eye.png" alt="eye" />
+          </div>
+        </div>
 
-      
-      btn.classList.add('btn-disabled');
-      spinner.style.display = 'inline-block';
-      btnText.textContent = 'Signing up...';
+        <div>
+          <button type="submit" class="btn-primary" id="signupBtn">
+            <span id="btnText">Sign up</span>
+            <span class="spinner" id="spinner"></span>
+          </button>
+        </div>
+      </form>
 
-      if (!name || !email || !password || !confirmPassword) {
-        showMessageBox('Please fill in all fields.', 'error');
-        resetButton();
-        return;
+      <div class="signin-link-section">
+        <p>
+          Already have an account?
+          <a href="login.html">Sign in here</a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Message box function
+      function showMessageBox(message, type = 'success') {
+        const messageBox = document.getElementById('messageBox');
+        messageBox.textContent = message;
+        messageBox.className = 'message-box show';
+        messageBox.style.backgroundColor = (type === 'error') ? 'var(--red-error)' : 'var(--green-success)';
+        setTimeout(() => messageBox.classList.remove('show'), 3000);
       }
 
-      if (password !== confirmPassword) {
-        showMessageBox('Passwords do not match.', 'error');
-        resetButton();
-        return;
-      }
+      // Eye toggle logic for password
+      let c = true;
+      document.querySelector('#eye1').addEventListener('click', function () {
+        const pwd = document.querySelector('#password');
+        if (c) {
+          pwd.setAttribute('type', 'text');
+          document.querySelector('#eye1').setAttribute('src', '../assets/index/images/hide.png');
+          c = false;
+        } else {
+          pwd.setAttribute('type', 'password');
+          document.querySelector('#eye1').setAttribute('src', '../assets/index/images/eye.png');
+          c = true;
+        }
+      });
 
-      
-      console.log('Sign up attempt:', { name, email, password });
+      // Eye toggle for confirm password
+      let c1 = true;
+      document.querySelector('#eye2').addEventListener('click', function () {
+        const cpwd = document.querySelector('#confirm-password');
+        if (c1) {
+          cpwd.setAttribute('type', 'text');
+          document.querySelector('#eye2').setAttribute('src', '../assets/index/images/hide.png');
+          c1 = false;
+        } else {
+          cpwd.setAttribute('type', 'password');
+          document.querySelector('#eye2').setAttribute('src', '../assets/index/images/eye.png');
+          c1 = true;
+        }
+      });
 
-      setTimeout(() => {
-        showMessageBox('Sign up successful! You can now log in.', 'success');
-        window.location.href = 'login.html';
-      }, 1500);
+      // Form submission with spinner
+      document.getElementById('signupForm').addEventListener('submit', function (event) {
+        event.preventDefault();
 
-      function resetButton() {
-        btn.classList.remove('btn-disabled');
-        spinner.style.display = 'none';
-        btnText.textContent = 'Sign up';
-      }
-    });
-  </script>
-</body>
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        const btn = document.getElementById('signupBtn');
+        const btnText = document.getElementById('btnText');
+        const spinner = document.getElementById('spinner');
+
+        btn.classList.add('btn-disabled');
+        spinner.style.display = 'inline-block';
+        btnText.textContent = 'Signing up...';
+
+        if (!name || !email || !password || !confirmPassword) {
+          showMessageBox('Please fill in all fields.', 'error');
+          resetButton();
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          showMessageBox('Passwords do not match.', 'error');
+          resetButton();
+          return;
+        }
+
+        console.log('Sign up attempt:', { name, email, password });
+
+        setTimeout(() => {
+          showMessageBox('Sign up successful! You can now log in.', 'success');
+          window.location.href = 'login.html';
+        }, 1500);
+
+        function resetButton() {
+          btn.classList.remove('btn-disabled');
+          spinner.style.display = 'none';
+          btnText.textContent = 'Sign up';
+        }
+      });
+    </script>
+  </body>
 </html>
