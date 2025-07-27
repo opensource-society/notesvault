@@ -746,7 +746,7 @@
   }
 
   .main-right-box {
-    background-color: #dae6d7;
+    background-color: #012c4d;  
     width: 30vw;
     border-radius: 15px;
   }
@@ -754,7 +754,7 @@
   .main-right-upper-box {
     margin: 20px;
     padding: 20px;
-    background-color: #f5f9f3;
+    background-color: #ffffff;
     border-radius: 15px;
   }
 
@@ -822,7 +822,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
-    background-color: #dfe9d7;
+    background-color: #ebff37;
     border: none;
     border-radius: 10px;
     padding: 10px 30px;
@@ -857,7 +857,7 @@
   .search-parameters-div .search-parameters-select {
     display: flex;
     border: none;
-    background-color: rgba(165, 201, 160, 0.5607843137);
+    background-color: rgba(255, 255, 11, 0.958); 
     color: #000000;
     padding: 10px;
     border-radius: 20px;
@@ -868,14 +868,14 @@
 
   .search-parameters-div .search-parameters-select:focus {
     outline: none;
-    background-color: rgba(165, 201, 160, 0.8156862745);
+    background-color: rgba(255, 243, 18, 0.896);
   }
 
 .search-parameters-div .search-parameters-option {
   border: none;
   border-radius: 30px;
   padding: 10px;
-  background-color: rgba(165, 201, 160, 0.8156862745);
+  background-color: rgba(160, 165, 201, 0.816);
   color: #2E2E2E;
 }
 
@@ -2501,7 +2501,7 @@ main{
 
 #scrollToTopBtn:hover {
   background: #14524c;
-}}
+}
 /*for features section */
 .card-container {
   display: flex;
@@ -2616,3 +2616,20 @@ main{
       align-items: flex-start;
     }
   }
+
+    #searchbutton {
+      background-color: #03680d;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+     
+    }
+
+    #searchbutton:hover {
+      background-color: #01356d;
+    }
+
