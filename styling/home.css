@@ -1,0 +1,95 @@
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 6rem 0 4rem;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.welcome-text {
+  display: inline-block;
+  background-color: var(--accent-300);
+  color: var(--gray-900);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Search Card */
+.search-card {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-input {
+  position: relative;
+  width: 100%;
+}
+
+.search-input svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  stroke: var(--text-secondary);
+}
+
+.search-input input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  margin-bottom: 1rem;
+}
+
+.feature-icon svg {
+  stroke: var(--primary-500);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .feature-icon svg {
+  stroke: var(--accent-500);
+}
+
+[data-theme="dark"] .welcome-text {
+  background-color: var(--primary-700);
+  color: white;
+}
