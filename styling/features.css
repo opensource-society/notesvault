@@ -1,9 +1,17 @@
 /* Base Styles */
+
+/*  Make the page a flex-column that fills the viewport  */
+html, body{
+    height: 100%;          /*  full viewport  */
+    margin: 0;             /*  kill default gaps  */
+}
+
 body {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     color: white;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -34,6 +42,13 @@ body {
   padding: 2rem;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+/* 👇 this for mobile responsiveness */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .box-feature, .feature {
@@ -252,7 +267,7 @@ body {
         gap: 2rem;
     }
     
-    .feature-grid {
+    .features-grid {
         grid-template-columns: 1fr;
     }
     
@@ -379,11 +394,6 @@ html, body{
     margin: 0;             /*  kill default gaps  */
 }
 
-body{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;     /*  stretch vertically  */
-}
 
 /*  Tell the content area to occupy all free space  */
 .main_content{
