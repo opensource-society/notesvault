@@ -16,40 +16,41 @@
 
 <body>
   <div id="header">
-    <div class="hamburger-wrapper">
-      <button class="hamburger-menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+    <!-- Hamburger Menu for Mobile -->
+    <button class="hamburger-menu" id="hamburger-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
 
-        <div id="header-navigation" class="nav-menu">
-          <a href="./pages/overview.html">Overview</a>
-          <a href="./pages/studentAccount.html">Student Account</a>
-          <a href="./pages/about.html">About</a>
-          <a href="./pages/features.html">Features</a>
-        </div>
-
-        <div id="header-signup-box">
-          <a href="pages/signup.html"><p>Sign Up</p></a>
-        </div>
-      </div>
-    </div>
-
+    <!-- Logo/Title -->
     <a href="index.html" style="text-decoration: none; color: inherit;">
       <div id="header-title-box">
         <p id="header-title">NotesVault</p>
       </div>
     </a>
 
-
+    <!-- Desktop Navigation -->
     <div id="header-navigation" class="nav-menu">
       <a href="./pages/overview.html">Overview</a>
       <a href="./pages/studentAccount.html">Student Account</a>
       <a href="./pages/about.html">About</a>
-      <a href="/">Features</a>
+      <a href="./pages/features.html">Features</a>
     </div>
 
+    <!-- Mobile Navigation Sidebar -->
+    <div class="nav-menu mobile" id="mobile-nav">
+      <a href="./pages/overview.html">Overview</a>
+      <a href="./pages/studentAccount.html">Student Account</a>
+      <a href="./pages/about.html">About</a>
+      <a href="./pages/features.html">Features</a>
+      <a href="./pages/signup.html">Sign Up</a>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Sign Up Button -->
     <div id="header-signup-box">
       <a href="pages/signup.html">
         <p>Sign Up</p>
@@ -107,52 +108,54 @@
   </main>
 
   <section class="features-section">
-
-    <!--upload section-->
     <div class="card-container">
-      <a href="pages/upload.html">
-        <div class="card feature-card" style="width: 18rem;">
-
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
-            stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v12" />
-            <polyline points="5 9 12 2 19 9" />
-            <path d="M5 20h14" />
-          </svg>
+      <!-- Easy Upload Card -->
+      <a href="pages/upload.html" class="card-link">
+        <div class="card feature-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+              stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v12" />
+              <polyline points="5 9 12 2 19 9" />
+              <path d="M5 20h14" />
+            </svg>
+          </div>
           <div class="card-body">
             <h5 class="feature-title">Easy Upload</h5>
             <p class="feature-desc">Add your notes quickly and effortlessly</p>
           </div>
         </div>
       </a>
-      <div class="card feature-card" style="width: 18rem;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 6h5l2 3h11v11H3z" />
-          <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
-        </svg>
-        <div class="card-body">
-          <p>
-          <h5 class="feature-title">Sort The Chaos</h5>
-          </p>
-          <p class="card-text">Neatly arrange all your notes in one place</p>
+
+      <!-- Sort The Chaos Card -->
+      <div class="card feature-card">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h5l2 3h11v11H3z" />
+            <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
+          </svg>
         </div>
-      </div>
-      <div class="card feature-card" style="width: 18rem;" class="feature-card">
-        <!--Tag Icon-->
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
-          <circle cx="16" cy="8" r="1.5" />
-        </svg>
         <div class="card-body">
-          <p>
-          <h5 class="feature-title">Search By Tags</h5>
-          </p>
-          <p class="feature-desc">Find notes using subject tags</p>
+          <h5 class="feature-title">Sort The Chaos</h5>
+          <p class="feature-desc">Neatly arrange all your notes in one place</p>
         </div>
       </div>
 
+      <!-- Search By Tags Card -->
+      <div class="card feature-card">
+        <div class="card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
+            <circle cx="16" cy="8" r="1.5" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <h5 class="feature-title">Search By Tags</h5>
+          <p class="feature-desc">Find notes using subject tags</p>
+        </div>
+      </div>
     </div>
   </section>
   <br>
@@ -193,224 +196,48 @@
       </div>
 
       <!-- Features -->
-     <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styling/styles.css" />
-  <link rel="icon" href="assets/index/images/favicon.png" type="image/x-icon" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <title>NotesVault Home</title>
-  <script src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
-
-  </script>
-</head>
-
-<body>
-  <div id="header">
-    <div class="hamburger-wrapper">
-      <button class="hamburger-menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-
-      <div class="hover-sidebar">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
         <ul>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="/pages/about.html">About</a></li>
-          <li><a href="/pages/overview.html">Overview</a></li>
-          <li><a href="/pages/features.html">Features</a></li>
-          <li><a href="#">Resources</a></li>
+          <li><a href="pages/upload.html"><i class="fas fa-upload"></i> Upload Notes</a></li>
+          <li><a href="pages/search.html"><i class="fas fa-search"></i> Search Notes</a></li>
+          <li><a href="pages/BrowseNotes.html"><i class="fas fa-folder-open"></i> Browse Notes</a></li>
+          <li><a href="pages/todolist.html"><i class="fas fa-tasks"></i> Todo List</a></li>
+          <li><a href="pages/about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="pages/features.html"><i class="fas fa-star"></i> Features</a></li>
+          <li><a href="pages/overview.html"><i class="fas fa-chart-line"></i> Overview</a></li>
+          <li><a href="pages/studentAccount.html"><i class="fas fa-user-graduate"></i> Student Portal</a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
+          <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
         </ul>
       </div>
     </div>
 
-    <a href="index.html" style="text-decoration: none; color: inherit;">
-      <div id="header-title-box">
-        <p id="header-title">NotesVault</p>
-      </div>
-    </a>
-
-
-    <div id="header-navigation" class="nav-menu">
-      <a href="./pages/overview.html">Overview</a>
-      <a href="./pages/studentAccount.html">Student Account</a>
-      <a href="./pages/about.html">About</a>
-      <a href="/">Features</a>
-    </div>
-
-    <div id="header-signup-box">
-      <a href="pages/signup.html">
-        <p>Sign Up</p>
-      </a>
-    </div>
-  </div>
-
-    </div>
-
-
-    <div class="main-right">
-      <div class="main-right-box">
-        <div class="main-right-upper-box">
-          <div class="right-text-div">
-            <p class="right-text">Notes Organised by</p>
-            <p class="right-text" id="typeWriterText">Subject</p>
-            <form id="search-form" class="main-right-search-form" method="get" action="search.html">
-              <div>
-                <div class="search-input-field">
-                  <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                  </svg>
-                  <input class="main-right-search-form-input" type="text" name="query" autocomplete="off"
-                    placeholder="Search">
-                </div>
-              </div>
-              <div id="search-parameters-branch" class="search-parameters-div"></div>
-              <div id="search-parameters-semester" class="search-parameters-div"></div>
-              <div id="search-parameters-subject" class="search-parameters-div"></div>
-              <input type="submit" style="display: none" />
-            </form>
-          </div>
-        </div>
-
-
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; <span id="year">2025</span> NotesVault. All rights reserved.</p>
+        <p class="footer-credit">Made with ❤️ for students, by students</p>
       </div>
     </div>
-  </main>
+  </footer>
 
-  <section class="features-section">
-
-    <!--upload section-->
-    <div class="card-container">
-      <a href="pages/upload.html">
-        <div class="card feature-card" style="width: 18rem;">
-
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
-            stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3v12" />
-            <polyline points="5 9 12 2 19 9" />
-            <path d="M5 20h14" />
-          </svg>
-          <div class="card-body">
-            <h5 class="feature-title">Easy Upload</h5>
-            <p class="feature-desc">Add your notes quickly and effortlessly</p>
-          </div>
-        </div>
-      </a>
-      <div class="card feature-card" style="width: 18rem;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 6h5l2 3h11v11H3z" />
-          <path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H10l-2-3H3z" />
-        </svg>
-        <div class="card-body">
-          <p>
-          <h5 class="feature-title">Sort The Chaos</h5>
-          </p>
-          <p class="card-text">Neatly arrange all your notes in one place</p>
-        </div>
-      </div>
-      <div class="card feature-card" style="width: 18rem;" class="feature-card">
-        <!--Tag Icon-->
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1d1d1d"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 12L12 20a2 2 0 0 1-2.8 0L4 14.8a2 2 0 0 1 0-2.8L12 4l8 8z" />
-          <circle cx="16" cy="8" r="1.5" />
-        </svg>
-        <div class="card-body">
-          <p>
-          <h5 class="feature-title">Search By Tags</h5>
-          </p>
-          <p class="feature-desc">Find notes using subject tags</p>
-        </div>
-      </div>
-
-      <!-- Features -->
-     <!-- Features -->
-<div class="footer-section">
-  <h3>Features</h3>
-  <ul>
-    <li><a href="pages/upload.html"><i class="fas fa-upload"></i> Easy Upload</a></li>
-    <li><a href="pages/search.html"><i class="fas fa-tags"></i> Tag-based Search</a></li>
-    <li><a href="pages/BrowseNotes.html"><i class="fas fa-folder-open"></i> Organized by Semester</a></li>
-    <li><a href="pages/todolist.html"><i class="fas fa-tasks"></i> Todo List</a></li>
-    <li><a href="pages/studentAccount.html"><i class="fas fa-users"></i> Get Details</a></li>
-  </ul>
-</div>
-
-
-
-  <!-- Footer -->
-
-  <!-- 🔺 Place Scroll Button OUTSIDE the .footer-container -->
+  <!-- Scroll to Top Button -->
   <button id="scrollToTopBtn" title="Go to top">
     <i class="fas fa-arrow-up"></i>
   </button>
+
   <script src="scripts/script.js" defer></script>
   <script>
-    function toggleMobileMenu() {
-      const sidebar = document.getElementById("mobileSidebar");
-      sidebar?.classList.toggle("active");
-    }
-
-    document.querySelectorAll(".sidebar a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.getElementById("mobileSidebar")?.classList.remove("active");
-      });
-    });
-
-    document.addEventListener("click", (e) => {
-      const sidebar = document.getElementById("mobileSidebar");
-      const toggle = document.getElementById("hamburgerMenu");
-      if (sidebar && toggle && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
-        sidebar.classList.remove("active");
-      }
-    });
-
-    // Add cuurent year in footer
+    // Add current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
-
-</html>
-
-
-  <!-- Footer -->
-
-  <!-- 🔺 Place Scroll Button OUTSIDE the .footer-container -->
-  <button id="scrollToTopBtn" title="Go to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-  <script src="scripts/script.js" defer></script>
-  <script>
-    function toggleMobileMenu() {
-      const sidebar = document.getElementById("mobileSidebar");
-      sidebar?.classList.toggle("active");
-    }
-
-    document.querySelectorAll(".sidebar a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.getElementById("mobileSidebar")?.classList.remove("active");
-      });
-    });
-
-    document.addEventListener("click", (e) => {
-      const sidebar = document.getElementById("mobileSidebar");
-      const toggle = document.getElementById("hamburgerMenu");
-      if (sidebar && toggle && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
-        sidebar.classList.remove("active");
-      }
-    });
-
-    // Add cuurent year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-
 </html>

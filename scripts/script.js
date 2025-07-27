@@ -236,5 +236,67 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+
+  // --- Mobile Navigation Functionality ---
+  const hamburgerMenu = document.getElementById("hamburger-menu");
+  const mobileNav = document.getElementById("mobile-nav");
+  const mobileOverlay = document.getElementById("mobile-overlay");
+
+  if (hamburgerMenu && mobileNav) {
+    hamburgerMenu.addEventListener("click", function() {
+      // Toggle the active class on mobile navigation
+      mobileNav.classList.toggle("active");
+      
+      // Toggle hamburger animation
+      hamburgerMenu.classList.toggle("active");
+      
+      // Toggle overlay
+      if (mobileOverlay) {
+        mobileOverlay.classList.toggle("active");
+      }
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = mobileNav.classList.contains("active") ? "hidden" : "";
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileNavLinks = mobileNav.querySelectorAll("a");
+    mobileNavLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        closeMobileMenu();
+      });
+    });
+
+    // Close mobile menu when clicking on overlay
+    if (mobileOverlay) {
+      mobileOverlay.addEventListener("click", function() {
+        closeMobileMenu();
+      });
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function(event) {
+      if (!hamburgerMenu.contains(event.target) && !mobileNav.contains(event.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Function to close mobile menu
+    function closeMobileMenu() {
+      mobileNav.classList.remove("active");
+      hamburgerMenu.classList.remove("active");
+      if (mobileOverlay) {
+        mobileOverlay.classList.remove("active");
+      }
+      document.body.style.overflow = "";
+    }
+
+    // Close menu on escape key
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+      }
+    });
+  }
 });
   
