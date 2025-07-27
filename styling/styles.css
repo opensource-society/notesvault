@@ -167,15 +167,15 @@ body {
   left: -200px; /* Initially hidden */
   width: 200px;
   height: 100vh;
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
   background: white;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transition: left 0.3s ease;
-=======
+=========
   background-color: white;
   box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.15); /* Stronger, deeper shadow */
   transition: left 0.4s ease-in-out;
->>>>>>> upstream/main
+>>>>>>>>> Temporary merge branch 2
   border-radius: 20px;
   padding: 30px 20px;
   z-index: 999;
@@ -201,10 +201,10 @@ body {
 }
 
 .hover-sidebar a {
-<<<<<<< HEAD
-=======
+<<<<<<<<< Temporary merge branch 1
+=========
   display: block;
->>>>>>> upstream/main
+>>>>>>>>> Temporary merge branch 2
   text-decoration: none;
   color: black;
 
@@ -217,14 +217,14 @@ body {
   flex-direction: column;
   align-items: anchor-center;
   gap: 50px;
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 }
-=======
+=========
 
 
 }
 
->>>>>>> upstream/main
+>>>>>>>>> Temporary merge branch 2
 .hover-sidebar a:hover {
   color: green;
   text-decoration: underline;
@@ -250,14 +250,14 @@ body {
   align-items: center;
 }
 
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 /* Navigation Menu Styles */
 #header #header-navigation {
   width: 40vw;
   justify-content: space-between;
 }
-=======
->>>>>>> upstream/main
+=========
+>>>>>>>>> Temporary merge branch 2
 
 .theme-toggle {
   display: flex;
