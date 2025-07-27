@@ -6,7 +6,6 @@
   <title>Login - NotesVault</title>
   <link rel="stylesheet" href="../styling/login.css"/>
   <link rel="icon" href="favicon.png" type="image/x-icon"/>
-  <!-- Add Font Awesome for eye icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4">
@@ -78,6 +77,11 @@
     const password = document.getElementById('password');
     
     togglePassword.addEventListener('click', function() {
+      // Ensure icon has proper classes
+      if (!this.classList.contains('fa-eye') && !this.classList.contains('fa-eye-slash')) {
+        this.classList.add('fa-eye');
+      }
+      
       // Toggle the type attribute
       const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
       password.setAttribute('type', type);
@@ -110,9 +114,8 @@
         return;
       }
 
-      // Simulated login - replace this with real fetch call in production
       console.log('Login attempt:', { email, password });
-      await new Promise(res => setTimeout(res, 1000)); // Simulate async
+      await new Promise(res => setTimeout(res, 1000)); 
 
       showMessageBox('Login successful! Redirecting...', 'success');
       setTimeout(() => {

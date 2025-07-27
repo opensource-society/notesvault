@@ -103,6 +103,7 @@ body {
 /* Form */
 .form-space-y-6 > div {
     margin-bottom: 1.25rem;
+    width: 100%;
 }
 
 /* Label */
@@ -114,12 +115,13 @@ label {
     margin-bottom: 0.3rem;
 }
 
-/* Input Fields */
+/* Consolidated Input Fields */
 input[type="email"],
 input[type="password"],
 input[type="text"] {
     width: 100%;
     padding: 0.6rem 1rem;
+    padding-right: 2.5rem;
     border: 1px solid var(--gray-300);
     border-radius: 0.5rem;
     background-color: #fff;
@@ -220,75 +222,35 @@ input[type="checkbox"] {
     color: var(--notes-orange-dark);
 }
 
+/* Password Container */
 .password-container {
-  position: relative;
-  margin-bottom: 1.25rem;
+    position: relative;
+    margin-bottom: 1.25rem;
 }
 
 .password-input-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .password-toggle {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--gray-600);
-  cursor: pointer;
-  font-size: 1rem;
-  transition: color 0.2s ease;
-  background: none;
-  border: none;
-  padding: 0.5rem;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-600);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0.5rem;
 }
 
 .password-toggle:hover {
-  color: var(--notes-orange);
+    color: var(--notes-orange);
 }
 
-/* Adjust input padding to prevent overflow */
-input[type="password"],
-input[type="text"] {
-  padding-right: 2.5rem !important;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Ensure form elements don't overflow */
-.form-space-y-6 > div {
-  margin-bottom: 1.25rem;
-  width: 100%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .password-toggle {
-    right: 8px;
-    font-size: 0.9rem;
-  }
-  
-  input[type="password"],
-  input[type="text"] {
-    padding-right: 2rem !important;
-  }
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-    .card-container {
-        padding: 1.5rem;
-    }
-
-    .card-container h2 {
-        font-size: 1.5rem;
-    }
-
-    .home-button-container {
-        padding: 0 0.5rem;
-    }
-}
-
+/* Spinner */
 .spinner {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-top: 2px solid white;
@@ -307,4 +269,29 @@ input[type="text"] {
 
 .hidden {
     display: none;
+}
+
+/* Consolidated Responsive Styles */
+@media (max-width: 640px) {
+    .card-container {
+        padding: 1.5rem;
+    }
+
+    .card-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .home-button-container {
+        padding: 0 0.5rem;
+    }
+
+    .password-toggle {
+        right: 8px;
+        font-size: 0.9rem;
+    }
+    
+    input[type="password"],
+    input[type="text"] {
+        padding-right: 2rem;
+    }
 }
