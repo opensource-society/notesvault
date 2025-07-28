@@ -665,8 +665,8 @@
   #main .welcome {
     font-weight: 600;
     font-size: calc(7px + 0.4vw);
-    background-color: #f8e1ca;
-    color: #eda950;
+    background-color: #F4A261;
+    color: #1a1a1a;
     width: fit-content;
     padding: 0px 15px;
     border-radius: 15px;
@@ -1330,8 +1330,9 @@
   }
 
   [data-theme="dark"] #header #header-signup-box p {
-    background-color: #2c5a57;
-    color: #b8e6e1;
+    background-color: #F4A261;
+    color: #1a1a1a;
+    font-weight: 600;
   }
 
 
