@@ -2,213 +2,252 @@ document.addEventListener('DOMContentLoaded', () => {
   // Global DOM Elements
   const DOM = {
     searchBranchContainer: document.getElementById('search-parameters-branch'),
-    searchSemesterContainer: document.getElementById('search-parameters-semester'),
-    searchSubjectContainer: document.getElementById('search-parameters-subject'),
+    searchSemesterContainer: document.getElementById(
+      'search-parameters-semester'
+    ),
+    searchSubjectContainer: document.getElementById(
+      'search-parameters-subject'
+    ),
     typewriterElement: document.getElementById('typewriter'),
     searchForm: document.querySelector('.search-form'),
     yearElement: document.getElementById('year'),
-    backToTop: document.querySelector('.back-to-top')
-  };
+    backToTop: document.querySelector('.back-to-top'),
+  }
 
-  const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year'];
-  let allData = { branches: [] };
+  const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year']
+  let allData = { branches: [] }
 
-  // =============== Helper Functions ===============
+  // =============== Helper Functions =============== //
 
   const createDropdown = (container, id, placeholder, options) => {
-    if (!container) return null;
+    if (!container) return null
 
     container.innerHTML = `
       <select id="${id}" class="search-parameters-select" aria-label="${placeholder}">
         <option value="" disabled selected>${placeholder}</option>
-        ${options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+        ${options
+          .map((opt) => `<option value="${opt}">${opt}</option>`)
+          .join('')}
       </select>
-    `;
+    `
 
-    return container.firstElementChild;
-  };
+    return container.firstElementChild
+  }
 
-  // =============== Search ===============
+  // =============== Search Function =============== //
 
   const updateSemesters = () => {
-    const branchSelect = document.getElementById('selectBranch');
-    if (!branchSelect?.value) return;
+    const branchSelect = document.getElementById('selectBranch')
+    if (!branchSelect?.value) return
 
-    DOM.searchSemesterContainer.innerHTML = '';
-    DOM.searchSubjectContainer.innerHTML = '';
+    DOM.searchSemesterContainer.innerHTML = ''
+    DOM.searchSubjectContainer.innerHTML = ''
 
-    const branchData = allData.branches.find(b => b.name === branchSelect.value);
-    if (!branchData?.semesters) return;
+    const branchData = allData.branches.find(
+      (b) => b.name === branchSelect.value
+    )
+    if (!branchData?.semesters) return
 
     const semesterSelect = createDropdown(
       DOM.searchSemesterContainer,
       'selectSemester',
       'Select Semester',
-      branchData.semesters.map(sem => sem.semester)
-    );
+      branchData.semesters.map((sem) => sem.semester)
+    )
 
-    semesterSelect?.addEventListener('change', updateSubjects);
-  };
+    semesterSelect?.addEventListener('change', updateSubjects)
+  }
 
   const updateSubjects = () => {
-    const branchSelect = document.getElementById('selectBranch');
-    const semesterSelect = document.getElementById('selectSemester');
-    if (!branchSelect?.value || !semesterSelect?.value) return;
+    const branchSelect = document.getElementById('selectBranch')
+    const semesterSelect = document.getElementById('selectSemester')
+    if (!branchSelect?.value || !semesterSelect?.value) return
 
-    DOM.searchSubjectContainer.innerHTML = '';
+    DOM.searchSubjectContainer.innerHTML = ''
 
-    const branchData = allData.branches.find(b => b.name === branchSelect.value);
-    const semesterData = branchData?.semesters?.find(sem => sem.semester === semesterSelect.value);
+    const branchData = allData.branches.find(
+      (b) => b.name === branchSelect.value
+    )
+    const semesterData = branchData?.semesters?.find(
+      (sem) => sem.semester === semesterSelect.value
+    )
 
     if (semesterData?.subjects) {
       createDropdown(
         DOM.searchSubjectContainer,
         'selectSubject',
         'Select Subject',
-        semesterData.subjects.map(sub => Object.values(sub)[0])
-      );
+        semesterData.subjects.map((sub) => Object.values(sub)[0])
+      )
     }
-  };
+  }
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    const searchInput = DOM.searchForm?.querySelector("input[type='text']");
+    e.preventDefault()
+    const searchInput = DOM.searchForm?.querySelector("input[type='text']")
     if (searchInput?.value) {
-      window.location.href = `pages/BrowseNotes.html?query=${encodeURIComponent(searchInput.value)}`;
+      window.location.href = `pages/BrowseNotes.html?query=${encodeURIComponent(
+        searchInput.value
+      )}`
     }
-  };
+  }
 
-  // =============== Typewriter ===============
+  // =============== Typewriter Effect =============== //
 
   const typeWriter = (wordIndex = 0, charIndex = 0, isDeleting = false) => {
-    if (!DOM.typewriterElement) return;
+    if (!DOM.typewriterElement) return
 
-    const word = TYPEWRITER_WORDS[wordIndex % TYPEWRITER_WORDS.length];
-    DOM.typewriterElement.textContent = word.substring(0, isDeleting ? charIndex - 1 : charIndex + 1);
+    const word = TYPEWRITER_WORDS[wordIndex % TYPEWRITER_WORDS.length]
+    DOM.typewriterElement.textContent = word.substring(
+      0,
+      isDeleting ? charIndex - 1 : charIndex + 1
+    )
 
-    let delay;
+    let delay
     if (!isDeleting && charIndex === word.length) {
-      delay = 2000;
-      isDeleting = true;
+      delay = 2000
+      isDeleting = true
     } else if (isDeleting && charIndex === 0) {
-      delay = 500;
-      isDeleting = false;
-      wordIndex++;
+      delay = 500
+      isDeleting = false
+      wordIndex++
     } else {
-      delay = isDeleting ? 75 : 150;
+      delay = isDeleting ? 75 : 150
     }
 
-    setTimeout(() => typeWriter(wordIndex, isDeleting ? charIndex - 1 : charIndex + 1, isDeleting), delay);
-  };
+    setTimeout(
+      () =>
+        typeWriter(
+          wordIndex,
+          isDeleting ? charIndex - 1 : charIndex + 1,
+          isDeleting
+        ),
+      delay
+    )
+  }
 
-  // =============== Theme Toggle ===============
+  // =============== Theme Toggle =============== //
 
   const getPreferredTheme = () => {
-    const stored = localStorage.getItem('theme');
-    return stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  };
+    const stored = localStorage.getItem('theme')
+    return (
+      stored ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light')
+    )
+  }
 
   const setTheme = (theme) => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  };
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }
 
   const setupThemeToggle = () => {
-    setTheme(getPreferredTheme());
-    document.querySelectorAll('.theme-toggle, .mobile-theme-toggle').forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') || 'light';
-        setTheme(current === 'dark' ? 'light' : 'dark');
-      });
-    });
-  };
+    setTheme(getPreferredTheme())
+    document
+      .querySelectorAll('.theme-toggle, .mobile-theme-toggle')
+      .forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          const current =
+            document.documentElement.getAttribute('data-theme') || 'light'
+          setTheme(current === 'dark' ? 'light' : 'dark')
+        })
+      })
+  }
 
-  // =============== Mobile Menu ===============
+  // =============== Mobile Menu Navigation =============== //
 
   const toggleMobileMenu = () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const overlay = document.querySelector('.overlay');
+    const menuToggle = document.querySelector('.menu-toggle')
+    const mobileNav = document.querySelector('.mobile-nav')
+    const overlay = document.querySelector('.overlay')
 
-    menuToggle?.classList.toggle('active');
-    mobileNav?.classList.toggle('active');
-    overlay?.classList.toggle('active');
-    document.body.style.overflow = mobileNav?.classList.contains('active') ? 'hidden' : '';
-  };
+    menuToggle?.classList.toggle('active')
+    mobileNav?.classList.toggle('active')
+    overlay?.classList.toggle('active')
+    document.body.style.overflow = mobileNav?.classList.contains('active')
+      ? 'hidden'
+      : ''
+  }
 
   const setupMobileMenu = () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const overlay = document.querySelector('.overlay');
+    const menuToggle = document.querySelector('.menu-toggle')
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link')
+    const overlay = document.querySelector('.overlay')
 
-    menuToggle?.addEventListener('click', toggleMobileMenu);
-    overlay?.addEventListener('click', toggleMobileMenu);
-    mobileNavLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
-  };
+    menuToggle?.addEventListener('click', toggleMobileMenu)
+    overlay?.addEventListener('click', toggleMobileMenu)
+    mobileNavLinks.forEach((link) =>
+      link.addEventListener('click', toggleMobileMenu)
+    )
+  }
 
-  // =============== Back to Top ===============
+  // =============== Back to Top Button =============== //
 
   const setupBackToTop = () => {
-    if (!DOM.backToTop) return;
+    if (!DOM.backToTop) return
     window.addEventListener('scroll', () => {
-      DOM.backToTop.classList.toggle('visible', window.scrollY > 300);
-    });
+      DOM.backToTop.classList.toggle('visible', window.scrollY > 300)
+    })
 
     DOM.backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  };
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+  }
 
-  // =============== Load Components ===============
+  // =============== Load Components (Header & Footer) =============== //
 
   const loadComponents = async () => {
     try {
       const [header, footer] = await Promise.all([
-        fetch('/components/header.html').then(res => res.text()),
-        fetch('/components/footer.html').then(res => res.text())
-      ]);
+        fetch('/components/header.html').then((res) => res.text()),
+        fetch('/components/footer.html').then((res) => res.text()),
+      ])
 
-      document.getElementById('header-placeholder').innerHTML = header;
-      document.getElementById('footer-placeholder').innerHTML = footer;
+      document.getElementById('header-placeholder').innerHTML = header
+      document.getElementById('footer-placeholder').innerHTML = footer
 
-      // Re-initialize header-based features
-      setupThemeToggle();
-      setupMobileMenu();
+      // Re-initialize Header-Based Features
+      setupThemeToggle()
+      setupMobileMenu()
     } catch (error) {
-      console.error('Error loading header/footer:', error);
+      console.error('Error loading header/footer:', error)
     }
-  };
+  }
 
-  // =============== Init ===============
+  // =============== Init =============== //
 
   const init = async () => {
-    setupBackToTop();
+    setupBackToTop()
 
-    if (DOM.typewriterElement) typeWriter();
-    if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch);
+    if (DOM.typewriterElement) typeWriter()
+    if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch)
 
-    if (DOM.yearElement) DOM.yearElement.textContent = new Date().getFullYear();
+    if (DOM.yearElement) DOM.yearElement.textContent = new Date().getFullYear()
 
-    // Load search data
+    // Load Search Data
     try {
-      const response = await fetch('data/search_parameters/parameters.json');
-      allData.branches = (await response.json()).branches.filter(b => b.name?.trim());
+      const response = await fetch('data/search_parameters/parameters.json')
+      allData.branches = (await response.json()).branches.filter((b) =>
+        b.name?.trim()
+      )
 
       const branchSelect = createDropdown(
         DOM.searchBranchContainer,
         'selectBranch',
         'Select Branch',
-        allData.branches.map(b => b.name)
-      );
+        allData.branches.map((b) => b.name)
+      )
 
-      branchSelect?.addEventListener('change', updateSemesters);
+      branchSelect?.addEventListener('change', updateSemesters)
     } catch (error) {
-      console.error('Error loading search parameters:', error);
+      console.error('Error loading search parameters:', error)
     }
 
-    // Load header and footer
-    await loadComponents();
-  };
+    // Load Header & Footer
+    await loadComponents()
+  }
 
-  init();
-});
+  init()
+})
