@@ -63,3 +63,8 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+
+.conatiner {
+    background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+
+}
