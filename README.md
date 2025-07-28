@@ -1,86 +1,76 @@
-# 📚 NotesVault – Academic Notes & PYQs Manager
+📚 NotesVault – Academic Notes & PYQs Manager
+NotesVault is a beginner-friendly, open-source web app designed to help students store, browse, and manage academic notes and previous year questions (PYQs) in one place. This project is perfect for contributors who want to build and grow a useful educational tool from scratch.
 
-**NotesVault** is a beginner-friendly, open-source web app designed to help students **store, browse, and manage academic notes and previous year questions (PYQs)** in one place. This project is perfect for contributors who want to build and grow a useful educational tool from scratch.
+✨ Features (Planned & In Progress)
+✅ Browse notes and PYQs by subject/semester
 
----
+✅ Search and filter by keywords
 
-## ✨ Features (Planned)
+✅ Add new notes manually (or from JSON for demo)
 
-* Browse notes and PYQs by subject/semester
-* Search and filter by keywords
-* Add new notes manually (or from JSON for demo)
-* Responsive design for all devices
-* Dark/light mode toggle
-* Upload UI and metadata editing
-* Tag-based filtering
+✅ Responsive design for all devices
 
----
+✅ Dark/light mode toggle
 
-## 📁 Folder Structure (Suggested)
+⏳ Upload UI and metadata editing (Upcoming)
 
-```
+⏳ Tag-based filtering (Upcoming)
+
+📁 Folder Structure (Suggested)
+graphql
+Copy code
 notesvault/
-├── assets/            # Icons, PDFs, static files
-    └── <asset_folders>
-├── data/              # All JSON files for notes/PYQs
+├── index.html         # Homepage UI
+├── style.css          # Global styles and theming
+├── script.js          # Application logic (load/display/filter)
+├── data/              # JSON files for notes/PYQs
 │   └── notes.json
-├── pages/             # All pages used in the project
-│   └── <all .html files>
-├── scripts            # Application logic (load/display/filter)
-    └── <scripts>
-├── styling            # Global styles and theming
-    └── <style files>
+├── assets/            # Icons, PDFs, static files
+├── pages/             # All HTML pages used in the project
+├── scripts/           # Additional JS logic (if needed)
+├── styling/           # Extra CSS files or themes
 └── README.md
-```
+🛠 Getting Started (Development)
+Clone the repository
 
----
+bash
+Copy code
+git clone https://github.com/opensource-society/NotesVault.git
+cd NotesVault
+Open the app
+Simply open index.html in your browser. All data is stored locally via JSON or localStorage.
 
-## 🛠️ Getting Started (Development)
+Develop and test
 
-1. **Clone the repository**
+Edit notes.json to simulate new data
 
-    ```bash
-    git clone https://github.com/opensource-society/NotesVault.git
-    cd NotesVault
-    ```
+Modify layout or logic in style.css and script.js
 
-2. **Open the app**
+Use browser DevTools to inspect results
 
-Simply open `index.html` in your browser. All data is stored locally via JSON or localStorage.
+🧑‍💻 Contributing
+We welcome all kinds of contributions, especially from beginners! Since the project is in early stages, you can help build core features from scratch.
 
-3. **Develop and test**
+Good first issues:
 
-* Edit `notes.json` to simulate new data
-* Modify layout or logic in `style.css` and `script.js`
-* Use browser DevTools to inspect results
+Setup basic UI structure or card layout
 
----
+Add new subjects or notes to JSON
 
-## 🧑‍💻 Contributing
+Implement search and filtering logic
 
-We welcome all kinds of contributions, especially from beginners! Since the project is in early stages, **you can help build core features from scratch**.
+Improve design responsiveness
 
-**Good first issues:**
+Add support for dark mode
 
-* Setup basic UI structure or card layout
-* Add new subjects or notes to JSON
-* Implement search and filtering logic
-* Improve design responsiveness
-* Add support for dark mode
-* Add upload simulation with preview
+Add upload simulation with preview
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+See CONTRIBUTING.md to get started.
 
----
+📄 License
+This project is licensed under the MIT License.
 
-## 📄 License
+🆕 Updates
+Added favicon (favicon.ico) to the site.
 
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-> Let's build NotesVault together — an open-source resource that helps thousands of students revise and succeed. 🚀
-
-## Updates
-- Added favicon (favicon.ico) to the site.
-- Added app icon (Icon.jpg) to the header, left of the app name.
+Added app icon (Icon.jpg) to the header, left of the app name.
