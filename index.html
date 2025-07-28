@@ -8,30 +8,14 @@
   <link rel="icon" href="assets/index/images/favicon.png" type="image/x-icon" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <title>NotesVault Home</title>
-
-  <style>
-    #search-parameters-branch select,
-    #search-parameters-branch button {
-      background-color: #f4a261;
-      color: black;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body>
+
   <!-- Header -->
-  <div id="header">
-    <div class="hamburger-wrapper">
-      <button class="hamburger-menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="logo">NotesVault</div>
     </div>
 
     <a href="index.html" style="text-decoration:none; color:inherit;">
@@ -59,37 +43,44 @@
   <!-- Main Section -->
   <main id="main">
     <div class="main-left">
-      <h2 class="main-text welcome">Welcome Back</h2>
-      <h1 class="main-heading">Your Go-To Companion for<br />Organized Learning.</h1>
+      <p class="main-text welcome">Welcome Back</p>
+      <h1 class="main-heading">
+        Your Go-To Companion for<br />Organized Learning.
+      </h1>
       <p class="main-text">
-        Keep your study notes and PYQs organized, easy to find,<br />
-        and always just a click away with NotesVault.
+        Keep your study notes and PYQs organized, easy to find,<br />and
+        always just a click away with NotesVault.
       </p>
-
-      <div class="main-left-links" style="display:flex; gap:15px;">
-        <a href="./search.html" style="text-decoration:none;">
-          <button
-            style="background:#f4a261;color:black;padding:12px 28px;border:none;border-radius:30px;font-size:16px;cursor:pointer;">
-            Browse Notes
-          </button>
-        </a>
-
-        <a href="./pages/upload.html" style="text-decoration:none;">
-          <button
-            style="padding:12px 28px;border:2px solid black;background:white;color:black;border-radius:30px;font-size:16px;cursor:pointer;">
-            Upload Notes
-          </button>
-        </a>
+      <div class="main-left-links">
+        <a href="search.html" class="links-text try-box" style="color: black; text-decoration: none;">Browse Notes</a>
+        <a href="upload.html" class="links-text try-box" style="color: black; text-decoration: none;">Upload Notes</a>
       </div>
     </div>
+
+    <div class="main-right">
+      <div class="main-right-box">
+        <div class="main-right-upper-box">
+          <div class="right-text-div">
+            <p class="right-text">Notes Organised by</p>
+            <p class="right-text" id="typeWriterText">Subject</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="About">
+      <p class="About-left-heading">About NotesVault</p>
+      <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
+      <p class="About-left-link" onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'>Learn More →</p>
+    </section>
   </main>
 
-  <!-- ✅ Features Section (Removed Duplicate Copy) -->
-  <section class="features-section" style="padding:60px 0; background:#0D0D0D;">
+  <!-- Features Section -->
+  <section class="features-section" style="padding:60px 0; background:white;">
     <div class="card-container"
       style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:1200px;margin:auto;">
 
-      <!-- ✅ Easy Upload -->
+      <!-- Easy Upload -->
       <a href="pages/upload.html" style="text-decoration:none;">
         <div class="card feature-card"
           style="width:300px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:black;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.3);padding:20px;">
@@ -99,7 +90,7 @@
         </div>
       </a>
 
-      <!-- ✅ Sort The Chaos -->
+      <!-- Sort The Chaos -->
       <a href="pages/overview.html" style="text-decoration:none;">
         <div class="card feature-card"
           style="width:300px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:black;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.3);padding:20px;">
@@ -109,7 +100,7 @@
         </div>
       </a>
 
-      <!-- ✅ Search By Tags -->
+      <!-- Search By Tags -->
       <a href="pages/search.html" style="text-decoration:none;">
         <div class="card feature-card"
           style="width:300px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:black;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.3);padding:20px;">
@@ -123,10 +114,8 @@
 
   <!-- Footer -->
   <footer style="background:#111; color:white; padding:50px 20px; font-family:sans-serif; margin-top:50px;">
-    <div
-      style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
+    <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
 
-      <!-- 📚 About NotesVault -->
       <div style="flex:1; min-width:250px;">
         <h2 style="font-size:26px; margin-bottom:10px; color:#f4a261;">📚 NotesVault</h2>
         <p style="font-size:16px; line-height:1.5; color:#ddd;">
@@ -140,7 +129,6 @@
         </a>
       </div>
 
-      <!-- ✨ Features -->
       <div style="flex:1; min-width:220px;">
         <h3 style="font-size:22px; margin-bottom:15px; color:#f4a261;">✨ Features</h3>
         <ul style="list-style:none; padding:0; font-size:18px; line-height:2;">
@@ -151,7 +139,6 @@
         </ul>
       </div>
 
-      <!-- 🌐 Social Media -->
       <div style="flex:1; min-width:220px;">
         <h3 style="font-size:22px; margin-bottom:15px; color:#f4a261;">🌐 Connect With Us</h3>
         <div style="display:flex; gap:15px; margin-top:10px;">
@@ -162,16 +149,16 @@
         </div>
       </div>
     </div>
-
     <p style="text-align:center; margin-top:30px; font-size:14px; color:#aaa;">
       © <span id="year"></span> NotesVault. All Rights Reserved.
     </p>
   </footer>
 
-  <!-- ✅ Only ONE script for year -->
+  <!-- JS -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
   <script src="scripts/script.js" defer></script>
 </body>
+
 </html>
