@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault Features</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0f0f1a;
+            color: #ffffff;
+        }
+
+        .features-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #1a1a2e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .feature-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #00eaff;
+        }
+
+        .feature-card p {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="features-section">
+        <h1 class="section-title">📚 Features</h1>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h2>📁 Organize Notes</h2>
+                <p>Sort and store notes by subject, semester, or custom tags for easy access.</p>
+            </div>
+            <div class="feature-card">
+                <h2>🔍 Smart Search</h2>
+                <p>Search your notes and PYQs using keywords, filters, or subjects.</p>
+            </div>
+            <div class="feature-card">
+                <h2>🗂️ Previous Year Questions</h2>
+                <p>Access a curated database of PYQs and exam-relevant content.</p>
+            </div>
+            <div class="feature-card">
+                <h2>📥 Upload & Share</h2>
+                <p>Upload your own notes and contribute to a community-driven library.</p>
+            </div>
+            <div class="feature-card">
+                <h2>📊 Progress Tracker</h2>
+                <p>Track subjects you've completed and the ones you need to review more.</p>
+            </div>
+            <div class="feature-card">
+                <h2>🧠 Smart Recommendations</h2>
+                <p>Get note and PYQ suggestions based on your recent activity.</p>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Add simple hover animation or analytics tracking if needed
+        document.querySelectorAll(".feature-card").forEach((card) => {
+            card.addEventListener("mouseenter", () => {
+                card.style.border = "1px solid #00eaff";
+            });
+            card.addEventListener("mouseleave", () => {
+                card.style.border = "1px solid rgba(255,255,255,0.05)";
+            });
+        });
+
+    </script>
+</body>
+
+</html>
