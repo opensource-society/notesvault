@@ -1,298 +1,214 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // GLOBAL VARIABLES
-  const allData = {} // Will Hold Search Parameters Data
-  const typewriterWords = ['Branch', 'Semester', 'Subject', 'Year']
-
-  // ELEMENT REFERENCES
-  const elements = {
-    // Search Elements
+document.addEventListener('DOMContentLoaded', () => {
+  // Global DOM Elements
+  const DOM = {
     searchBranchContainer: document.getElementById('search-parameters-branch'),
-    searchSemesterContainer: document.getElementById(
-      'search-parameters-semester'
-    ),
-    searchSubjectContainer: document.getElementById(
-      'search-parameters-subject'
-    ),
+    searchSemesterContainer: document.getElementById('search-parameters-semester'),
+    searchSubjectContainer: document.getElementById('search-parameters-subject'),
     typewriterElement: document.getElementById('typewriter'),
     searchForm: document.querySelector('.search-form'),
-
-    // Theme Elements
-    themeToggle: document.querySelector('.theme-toggle'),
-    mobileThemeToggle: document.querySelector('.mobile-theme-toggle'),
-
-    // Mobile Menu Elements
-    menuToggle: document.querySelector('.menu-toggle'),
-    mobileNav: document.querySelector('.mobile-nav'),
-    overlay: document.querySelector('.overlay'),
-
-    // Footer Elements
     yearElement: document.getElementById('year'),
+    backToTop: document.querySelector('.back-to-top')
+  };
 
-    // Back To Top Button
-    backToTop: document.querySelector('.back-to-top'),
-  }
+  const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year'];
+  let allData = { branches: [] };
 
-  // HELPER FUNCTIONS
+  // =============== Helper Functions ===============
 
-  /**
-   * Creates a dropdown menu with options
-   * @param {HTMLElement} container - Parent element to append the dropdown to
-   * @param {string} id - ID for the select element
-   * @param {string} defaultText - Placeholder text for the default option
-   * @param {Array} options - Array of options to populate the dropdown
-   * @returns {HTMLSelectElement} The created select element
-   */
-  function createDropdown(container, id, defaultText, options) {
-    if (!container) return null
+  const createDropdown = (container, id, placeholder, options) => {
+    if (!container) return null;
 
-    container.innerHTML = ''
-    const select = document.createElement('select')
-    select.id = id
-    select.className = 'search-parameters-select'
-    select.setAttribute('aria-label', defaultText)
+    container.innerHTML = `
+      <select id="${id}" class="search-parameters-select" aria-label="${placeholder}">
+        <option value="" disabled selected>${placeholder}</option>
+        ${options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+      </select>
+    `;
 
-    // Default Option
-    const defaultOption = document.createElement('option')
-    defaultOption.value = ''
-    defaultOption.disabled = true
-    defaultOption.selected = true
-    defaultOption.textContent = defaultText
-    select.appendChild(defaultOption)
+    return container.firstElementChild;
+  };
 
-    // Add Options
-    options.forEach((option) => {
-      const optElement = document.createElement('option')
-      optElement.value = option
-      optElement.textContent = option
-      select.appendChild(optElement)
-    })
+  // =============== Search ===============
 
-    container.appendChild(select)
-    return select
-  }
+  const updateSemesters = () => {
+    const branchSelect = document.getElementById('selectBranch');
+    if (!branchSelect?.value) return;
 
-  // SEARCH FUNCTIONALITY
+    DOM.searchSemesterContainer.innerHTML = '';
+    DOM.searchSubjectContainer.innerHTML = '';
 
-  function updateSemesters() {
-    const selectedBranch = document.getElementById('selectBranch')?.value
-    if (!selectedBranch) return
+    const branchData = allData.branches.find(b => b.name === branchSelect.value);
+    if (!branchData?.semesters) return;
 
-    // Clear Subsequent Dropdowns
-    elements.searchSemesterContainer.innerHTML = ''
-    elements.searchSubjectContainer.innerHTML = ''
-
-    const branchData = allData.branches.find((b) => b.name === selectedBranch)
-    if (!branchData?.semesters) return
-
-    const semesterNames = branchData.semesters.map((sem) => sem.semester)
     const semesterSelect = createDropdown(
-      elements.searchSemesterContainer,
+      DOM.searchSemesterContainer,
       'selectSemester',
       'Select Semester',
-      semesterNames
-    )
+      branchData.semesters.map(sem => sem.semester)
+    );
 
-    semesterSelect?.addEventListener('change', updateSubjects)
-  }
+    semesterSelect?.addEventListener('change', updateSubjects);
+  };
 
-  function updateSubjects() {
-    const selectedBranch = document.getElementById('selectBranch')?.value
-    const selectedSemester = document.getElementById('selectSemester')?.value
-    if (!selectedBranch || !selectedSemester) return
+  const updateSubjects = () => {
+    const branchSelect = document.getElementById('selectBranch');
+    const semesterSelect = document.getElementById('selectSemester');
+    if (!branchSelect?.value || !semesterSelect?.value) return;
 
-    elements.searchSubjectContainer.innerHTML = ''
+    DOM.searchSubjectContainer.innerHTML = '';
 
-    const branchData = allData.branches.find((b) => b.name === selectedBranch)
-    if (!branchData?.semesters) return
+    const branchData = allData.branches.find(b => b.name === branchSelect.value);
+    const semesterData = branchData?.semesters?.find(sem => sem.semester === semesterSelect.value);
 
-    const semesterData = branchData.semesters.find(
-      (sem) => sem.semester === selectedSemester
-    )
-    if (!semesterData?.subjects) return
+    if (semesterData?.subjects) {
+      createDropdown(
+        DOM.searchSubjectContainer,
+        'selectSubject',
+        'Select Subject',
+        semesterData.subjects.map(sub => Object.values(sub)[0])
+      );
+    }
+  };
 
-    const subjectNames = semesterData.subjects.map(
-      (sub) => Object.values(sub)[0]
-    )
-    createDropdown(
-      elements.searchSubjectContainer,
-      'selectSubject',
-      'Select Subject',
-      subjectNames
-    )
-  }
-
-  function handleSearchFormSubmit(e) {
-    e.preventDefault()
-    const searchInput = elements.searchForm.querySelector("input[type='text']")
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchInput = DOM.searchForm?.querySelector("input[type='text']");
     if (searchInput?.value) {
-      window.location.href = `pages/BrowseNotes.html?query=${encodeURIComponent(
-        searchInput.value
-      )}`
+      window.location.href = `pages/BrowseNotes.html?query=${encodeURIComponent(searchInput.value)}`;
     }
-  }
+  };
 
-  // TYPEWRITER EFFECT
-  function typeWriterEffect(wordIndex = 0, charIndex = 0, isDeleting = false) {
-    if (!elements.typewriterElement) return
+  // =============== Typewriter ===============
 
-    const currentWord = typewriterWords[wordIndex % typewriterWords.length]
+  const typeWriter = (wordIndex = 0, charIndex = 0, isDeleting = false) => {
+    if (!DOM.typewriterElement) return;
 
-    if (isDeleting) {
-      elements.typewriterElement.textContent = currentWord.substring(
-        0,
-        charIndex - 1
-      )
-      charIndex--
-    } else {
-      elements.typewriterElement.textContent = currentWord.substring(
-        0,
-        charIndex + 1
-      )
-      charIndex++
-    }
+    const word = TYPEWRITER_WORDS[wordIndex % TYPEWRITER_WORDS.length];
+    DOM.typewriterElement.textContent = word.substring(0, isDeleting ? charIndex - 1 : charIndex + 1);
 
-    // Timing Configuration
-    let typeSpeed
-    if (!isDeleting && charIndex === currentWord.length) {
-      typeSpeed = 2000 // Pause At End Of Word
-      isDeleting = true
+    let delay;
+    if (!isDeleting && charIndex === word.length) {
+      delay = 2000;
+      isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
-      typeSpeed = 500 // Pause Before Next Word
-      isDeleting = false
-      wordIndex++
+      delay = 500;
+      isDeleting = false;
+      wordIndex++;
     } else {
-      typeSpeed = isDeleting ? 75 : 150
+      delay = isDeleting ? 75 : 150;
     }
 
-    setTimeout(
-      () => typeWriterEffect(wordIndex, charIndex, isDeleting),
-      typeSpeed
-    )
-  }
+    setTimeout(() => typeWriter(wordIndex, isDeleting ? charIndex - 1 : charIndex + 1, isDeleting), delay);
+  };
 
-  // THEME MANAGEMENT
+  // =============== Theme Toggle ===============
 
-  function initTheme() {
-    const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light')
+  const getPreferredTheme = () => {
+    const stored = localStorage.getItem('theme');
+    return stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  };
 
-    document.documentElement.setAttribute('data-theme', initialTheme)
-  }
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
 
-  function toggleTheme() {
-    const html = document.documentElement
-    const currentTheme = html.getAttribute('data-theme') || 'light'
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+  const setupThemeToggle = () => {
+    setTheme(getPreferredTheme());
+    document.querySelectorAll('.theme-toggle, .mobile-theme-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    });
+  };
 
-    html.setAttribute('data-theme', newTheme)
-    localStorage.setItem('theme', newTheme)
-  }
+  // =============== Mobile Menu ===============
 
-  // MOBILE MENU
-  function setupMobileMenu() {
-    if (!elements.menuToggle || !elements.mobileNav) return
+  const toggleMobileMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const overlay = document.querySelector('.overlay');
 
-    elements.menuToggle.addEventListener('click', () => {
-      elements.menuToggle.classList.toggle('active')
-      elements.mobileNav.classList.toggle('active')
-      elements.overlay.classList.toggle('active')
-      document.body.style.overflow = elements.mobileNav.classList.contains(
-        'active'
-      )
-        ? 'hidden'
-        : ''
-    })
+    menuToggle?.classList.toggle('active');
+    mobileNav?.classList.toggle('active');
+    overlay?.classList.toggle('active');
+    document.body.style.overflow = mobileNav?.classList.contains('active') ? 'hidden' : '';
+  };
 
-    elements.overlay.addEventListener('click', () => {
-      elements.menuToggle.classList.remove('active')
-      elements.mobileNav.classList.remove('active')
-      elements.overlay.classList.remove('active')
-      document.body.style.overflow = ''
-    })
+  const setupMobileMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const overlay = document.querySelector('.overlay');
 
-    // Close Menu When Clicking On links
-    document.querySelectorAll('.mobile-nav-link').forEach((link) => {
-      link.addEventListener('click', () => {
-        elements.menuToggle.classList.remove('active')
-        elements.mobileNav.classList.remove('active')
-        elements.overlay.classList.remove('active')
-        document.body.style.overflow = ''
-      })
-    })
-  }
+    menuToggle?.addEventListener('click', toggleMobileMenu);
+    overlay?.addEventListener('click', toggleMobileMenu);
+    mobileNavLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+  };
 
-  // BACK TO TOP BUTTON
-  function setupBackToTop() {
-    if (!elements.backToTop) return
+  // =============== Back to Top ===============
 
+  const setupBackToTop = () => {
+    if (!DOM.backToTop) return;
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        elements.backToTop.classList.add('visible')
-      } else {
-        elements.backToTop.classList.remove('visible')
-      }
-    })
+      DOM.backToTop.classList.toggle('visible', window.scrollY > 300);
+    });
 
-    elements.backToTop.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    })
-  }
+    DOM.backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  };
 
-  // INITIALIZATION
-  function init() {
-    // Initialize Dropdowns
-    fetch('data/search_parameters/parameters.json')
-      .then((res) => res.json())
-      .then((data) => {
-        allData.branches = data.branches.filter((b) => b.name?.trim())
-        const branchNames = allData.branches.map((b) => b.name)
-        const branchSelect = createDropdown(
-          elements.searchBranchContainer,
-          'selectBranch',
-          'Select Branch',
-          branchNames
-        )
-        branchSelect?.addEventListener('change', updateSemesters)
-      })
-      .catch(console.error)
+  // =============== Load Components ===============
 
-    // Initialize Theme
-    initTheme()
-    if (elements.themeToggle) {
-      elements.themeToggle.addEventListener('click', toggleTheme)
+  const loadComponents = async () => {
+    try {
+      const [header, footer] = await Promise.all([
+        fetch('/components/header.html').then(res => res.text()),
+        fetch('/components/footer.html').then(res => res.text())
+      ]);
+
+      document.getElementById('header-placeholder').innerHTML = header;
+      document.getElementById('footer-placeholder').innerHTML = footer;
+
+      // Re-initialize header-based features
+      setupThemeToggle();
+      setupMobileMenu();
+    } catch (error) {
+      console.error('Error loading header/footer:', error);
     }
-    if (elements.mobileThemeToggle) {
-      elements.mobileThemeToggle.addEventListener('click', toggleTheme)
+  };
+
+  // =============== Init ===============
+
+  const init = async () => {
+    setupBackToTop();
+
+    if (DOM.typewriterElement) typeWriter();
+    if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch);
+
+    if (DOM.yearElement) DOM.yearElement.textContent = new Date().getFullYear();
+
+    // Load search data
+    try {
+      const response = await fetch('data/search_parameters/parameters.json');
+      allData.branches = (await response.json()).branches.filter(b => b.name?.trim());
+
+      const branchSelect = createDropdown(
+        DOM.searchBranchContainer,
+        'selectBranch',
+        'Select Branch',
+        allData.branches.map(b => b.name)
+      );
+
+      branchSelect?.addEventListener('change', updateSemesters);
+    } catch (error) {
+      console.error('Error loading search parameters:', error);
     }
 
-    // Initialize Mobile Menu
-    setupMobileMenu()
+    // Load header and footer
+    await loadComponents();
+  };
 
-    // Initialize Typewriter Effect
-    if (elements.typewriterElement) {
-      typeWriterEffect()
-    }
-
-    // Initialize Search Form
-    if (elements.searchForm) {
-      elements.searchForm.addEventListener('submit', handleSearchFormSubmit)
-    }
-
-    // Initialize Back To Top Button
-    setupBackToTop()
-
-    // Current Year Logic
-    if (elements.yearElement) {
-      elements.yearElement.textContent = new Date().getFullYear()
-    }
-  }
-
-  // Start the application
-  init()
-})
+  init();
+});

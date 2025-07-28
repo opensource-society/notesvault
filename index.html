@@ -8,174 +8,22 @@
       content="NotesVault - Organize your academic notes and PYQs semester-wise"
     />
     <title>NotesVault | Home</title>
-    
+
     <link rel="icon" href="assets/index/images/favicon.png" />
-    
+
     <link rel="stylesheet" href="styling/variables.css" />
     <link rel="stylesheet" href="styling/base.css" />
     <link rel="stylesheet" href="styling/home.css" />
-    <link rel="stylesheet" href="styling/navbar.css" />
-    <link rel="stylesheet" href="styling/Footer.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
 
   <body>
-    <!-- Skip to Content Link  -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header class="navbar">
-      <div class="navbar-container">
-        <a href="index.html" class="navbar-logo">
-          <img src="#" alt="" />
-          <span>NotesVault</span>
-        </a>
-
-        <nav class="navbar-nav">
-          <ul class="nav-links">
-            <li><a href="index.html" class="nav-link active">Home</a></li>
-            <li><a href="pages/overview.html" class="nav-link">Overview</a></li>
-            <li>
-              <a href="pages/studentAccount.html" class="nav-link"
-                >Student Account</a
-              >
-            </li>
-            <li><a href="pages/features.html" class="nav-link">Features</a></li>
-            <li><a href="pages/about.html" class="nav-link">About</a></li>
-          </ul>
-        </nav>
-
-        <div class="navbar-actions">
-          <!-- Theme Toggle Button -->
-          <button class="theme-toggle" aria-label="Toggle dark mode">
-            <span class="theme-icon sun">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </span>
-            <span class="theme-icon moon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                ></path>
-              </svg>
-            </span>
-          </button>
-
-          <div class="auth-buttons">
-            <button class="btn btn-secondary">Login</button>
-            <button class="btn btn-primary">Sign Up</button>
-          </div>
-        </div>
-
-        <button class="menu-toggle" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <nav class="mobile-nav">
-        <ul class="mobile-nav-links">
-          <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
-          <li>
-            <a href="pages/overview.html" class="mobile-nav-link">Overview</a>
-          </li>
-          <li>
-            <a href="pages/studentAccount.html" class="mobile-nav-link"
-              >Student Account</a
-            >
-          </li>
-          <li>
-            <a href="pages/features.html" class="mobile-nav-link">Features</a>
-          </li>
-          <li><a href="pages/about.html" class="mobile-nav-link">About</a></li>
-        </ul>
-
-        <div class="mobile-actions">
-          <!-- Mobile Theme Toggle -->
-          <button
-            class="theme-toggle mobile-theme-toggle"
-            aria-label="Toggle dark mode"
-          >
-            <span class="theme-icon sun">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            </span>
-            <span class="theme-icon moon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                ></path>
-              </svg>
-            </span>
-          </button>
-
-          <div class="mobile-auth-buttons">
-            <button class="btn btn-secondary">Login</button>
-            <button class="btn btn-primary">Sign Up</button>
-          </div>
-        </div>
-      </nav>
-
-      <div class="overlay"></div>
-    </header>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -295,100 +143,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-brand">
-          <a href="index.html" class="footer-logo">
-            <img src="assets/logo.svg" alt="NotesVault Logo" />
-            <span>NotesVault</span>
-          </a>
-          <p class="footer-description">
-            Your go-to platform for organized learning. Store, browse, and
-            manage academic notes efficiently.
-          </p>
-          <div class="footer-social">
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="footer-links">
-          <h3>Features</h3>
-          <ul>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fas fa-upload"></i> Easy Upload</a
-              >
-            </li>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fas fa-tags"></i> Tag-based Search</a
-              >
-            </li>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fas fa-folder-open"></i> Organized Notes</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h3>Community</h3>
-          <ul>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fab fa-github"></i> GitHub</a
-              >
-            </li>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fab fa-discord"></i> Discord</a
-              >
-            </li>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fab fa-youtube"></i> YouTube</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h3>Legal</h3>
-          <ul>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fas fa-file-alt"></i> Terms</a
-              >
-            </li>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fas fa-lock"></i> Privacy</a
-              >
-            </li>
-            <li>
-              <a href="#" class="footer-link"
-                ><i class="fas fa-cookie"></i> Cookies</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="copyright">
-          © <span id="year"></span> NotesVault. All rights reserved.
-        </p>
-      </div>
-    </footer>
-
-    <!-- Back To Top Button -->
-    <div class="back-to-top">
-      <i class="fas fa-arrow-up"></i>
-    </div>
+    <div id="footer-placeholder"></div>
 
     <script src="scripts/script.js" defer></script>
+    
   </body>
 </html>

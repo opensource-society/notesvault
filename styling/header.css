@@ -63,18 +63,18 @@
 
 .nav-links {
   display: flex;
-  gap: 2.25rem;
+  gap: 2rem;
   list-style: none;
 }
 
 .nav-link {
   position: relative;
   padding: 0.65rem 0;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .nav-link::before {
@@ -408,5 +408,9 @@
   
   .navbar-logo img {
     height: 2rem;
+  }
+
+  .navbar-actions {
+    display: none;
   }
 }
