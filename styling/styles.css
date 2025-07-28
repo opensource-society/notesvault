@@ -1,76 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 
-  .theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(22, 61, 59, 0.1);
-    border: 1px solid rgba(22, 61, 59, 0.2);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-right: 15px;
-    position: relative;
-    overflow: hidden;
-  }
 
-  .theme-toggle:hover {
-    background: rgba(22, 61, 59, 0.2);
-    border-color: rgba(22, 61, 59, 0.3);
-    transform: scale(1.05);
-  }
-
-  .theme-toggle .sun-icon,
-  .theme-toggle .moon-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
-    color: #163d3b;
-  }
-
-  .theme-toggle .sun-icon {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .theme-toggle .moon-icon {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  /* Dark mode theme toggle button styles */
-  [data-theme="dark"] .theme-toggle {
-    background: rgba(223, 248, 248, 0.1);
-    border-color: rgba(223, 248, 248, 0.2);
-  }
-
-  [data-theme="dark"] .theme-toggle:hover {
-    background: rgba(223, 248, 248, 0.2);
-    border-color: rgba(223, 248, 248, 0.3);
-  }
-
-  [data-theme="dark"] .theme-toggle .sun-icon,
-  [data-theme="dark"] .theme-toggle .moon-icon {
-    color: #dff8f8;
-  }
-
-  [data-theme="dark"] .theme-toggle .sun-icon {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  [data-theme="dark"] .theme-toggle .moon-icon {
-    opacity: 1;
-    visibility: visible;
-  }
-
-
-/* Navigation Menu Styles with updated order for theme toggle */
-/* General reset */
 * {
   margin: 0;
   padding: 0;
@@ -99,8 +29,8 @@
     padding: 15px 20px;
     background: #ffffff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     border-bottom: none !important;
     margin: 0;
   }
@@ -160,46 +90,33 @@
   padding-left: 20px;
 }
 
-/* Sidebar - hidden by default */
 .hover-sidebar {
-
   position: absolute;
-  top: 0;
-  left: -200px; /* Initially hidden */
-  width: 200px;
+  top: 50px;
+  left: -350px;
+  width: 300px;
   height: 100vh;
-  background-color: white;
-  box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.15); /* Stronger, deeper shadow */
+  background: #ffffff; /* Solid white */
+  color: black; /* Default text color */
+  box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.15);
   transition: left 0.4s ease-in-out;
   border-radius: 20px;
   padding: 30px 20px;
   z-index: 999;
+  display:none;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px black solid;
+  background-color: #000;
+}
 
-      position: absolute;
-    top: 35px;
-    left: -350px;
-    width: 300px;
-    display: flex;
-    opacity: 0.9;
-
-    /* height: 100vh; */
-    background: white;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s ease;
-    border-radius: 20px;
-    /* border: 2px black; */
-    align-content: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-
-
+.hover-sidebar.sidebar-active {
+  left: 0;
 }
 
 .hover-sidebar a {
-  display: block;
-  text-decoration: none;
   color: black;
-
+  text-decoration: none;
   font-size: 16px;
   margin: 20px 0;
   transition: color 0.2s ease;
@@ -207,15 +124,16 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
-  align-items: anchor-center;
+  align-items: center;
   gap: 50px;
-
-
 }
 
 .hover-sidebar a:hover {
   color: green;
   text-decoration: underline;
+}
+.dark-mode .hover-sidebar a {
+  color: white; /* <-- Remove or override if unnecessary */
 }
 
 /* On hover of hamburger, slide sidebar in */
@@ -240,7 +158,7 @@
 
 
 
-  .theme-toggle {
+  /* .theme-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -254,9 +172,9 @@
     margin-right: 15px;
     position: relative;
     overflow: hidden;
-  }
+  } */
 
-  .theme-toggle:hover {
+  /* .theme-toggle:hover {
     background: rgba(22, 61, 59, 0.2);
     border-color: rgba(22, 61, 59, 0.3);
     transform: scale(1.05);
@@ -283,7 +201,7 @@
   }
 
   /* Dark mode theme toggle button styles */
-  [data-theme="dark"] .theme-toggle {
+  /* [data-theme="dark"] .theme-toggle {
     background: rgba(223, 248, 248, 0.1);
     border-color: rgba(223, 248, 248, 0.2);
   }
@@ -306,7 +224,7 @@
   [data-theme="dark"] .theme-toggle .moon-icon {
     opacity: 1;
     visibility: visible;
-  }
+  }  */
 
   /* Integrated code from paste-2.txt (lines 90 to 154) */
 
@@ -352,8 +270,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     box-shadow: none !important;
     border-bottom: none !important;
     margin: 0;
@@ -584,13 +502,6 @@
     color: #017c01;
     position: absolute;
   }
-  /* Light Mode */
-  .nav-menu a {
-     color: #000000;
-  }
-
-  /* Dark Mode */
-
 
   .nav-menu a span {
     display: inline-block;
@@ -816,6 +727,7 @@
 
     align-items: center;
   }
+}
 
   .main-right-search .main-right-search-form-input {
     display: inline-flex;
@@ -887,10 +799,10 @@
   color: #2E2E2E;
 }
 
-[data-theme="dark"] .search-parameters-select option {
+/* [data-theme="dark"] .search-parameters-select option {
   background-color: rgba(60, 80, 60, 0.9) !important;
   color: #e0e0e0 !important;
-}
+} */
 
 
   .About {
@@ -1297,7 +1209,7 @@
   }
 
   /* Dark Mode Styles */
-  [data-theme="dark"] {
+  /* [data-theme="dark"] {
     color-scheme: dark;
   }
 
@@ -1511,7 +1423,7 @@
 
   [data-theme="dark"] .footer-bottom-links a:hover {
     color: #dff8f8;
-  }
+  } */
 
   /* Responsive breakpoints integrated from paste-2.txt */
 
@@ -1527,7 +1439,7 @@
     }
   }
 
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     .theme-toggle {
       width: 35px;
       height: 35px;
@@ -1567,7 +1479,7 @@
       width: 14px;
       height: 14px;
     }
-  }
+  } */
 
 
   /* Modern Footer Styles */
@@ -1592,6 +1504,7 @@
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #0d0d0d;
   }
 
   .footer-top {
@@ -1645,6 +1558,7 @@
     color: #dff8f8;
     text-decoration: none;
     transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 0 0 transparent;
     /* base state */
@@ -2030,8 +1944,8 @@ nav {
 
   /* ✨ Glassmorphism with green tint */
   background: rgba(76, 175, 80, 0.2); /* Greenish glass background */
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-radius: 16px;
   border: 1px solid rgba(76, 175, 80, 0.3);
   box-shadow: 0 8px 32px rgba(76, 175, 80, 0.25);
@@ -2222,7 +2136,7 @@ main{
   stroke: #1d1d1d !important;
 }
 
-[data-theme="dark"] .feature-card {
+/* [data-theme="dark"] .feature-card {
   background: #223024;
   color: #f7f7f7;
   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
@@ -2236,7 +2150,7 @@ main{
 }
 [data-theme="dark"] .feature-card:hover {
   box-shadow: 0 6px 24px rgba(247,184,110,0.18);
-}
+} */
 
 .feature-card:hover {
   box-shadow: 0 6px 24px rgba(76,175,80,0.13);
@@ -2427,11 +2341,7 @@ main{
 }
 
 /* ========== Custom Footer ========== */
-.custom-footer {
-  background: #163d3b;
-  color: #ffffff;
-  padding: 4rem 2rem;
-}
+
 
 .footer-container {
   display: grid;
@@ -2487,6 +2397,11 @@ main{
 #scrollToTopBtn {
   position: fixed;
   bottom: 30px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   right: 30px;
   background: #163d3b;
   color: #fff;
@@ -2496,12 +2411,12 @@ main{
   font-size: 1rem;
   cursor: pointer;
   z-index: 10;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 #scrollToTopBtn:hover {
   background: #14524c;
-}}
+}
 /*for features section */
 .card-container {
   display: flex;
@@ -2540,6 +2455,7 @@ main{
     font-family: 'Segoe UI', sans-serif;
     border-top: 2px solid #b2d8c5;
     margin-top: 80px;
+    background-color: #0d0d0d;
   }
 
   .footer-container {
@@ -2562,7 +2478,7 @@ main{
 
   .footer-description {
     font-size: 15px;
-    color: #333;
+    color: #ccc;
     line-height: 1.6;
   }
 
@@ -2616,3 +2532,149 @@ main{
       align-items: flex-start;
     }
   }
+
+/* Hamburger menu hidden by default */
+/* .hamburger-icon {
+  
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+  padding-right: 20px;
+} */
+
+
+
+
+
+.navbar-center {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+}
+
+.navbar-center a {
+  text-decoration: none;
+  color: black;
+}
+
+.signup-btn {
+  background-color: #2d89ef;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Add above the media query */
+.hamburger-icon {
+  display: none;
+}
+
+/* Base layout for desktop */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: white;
+  width: 100%;
+  position: relative;
+}
+
+.navbar-left .logo {
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+
+.navbar-center {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  font-size: 1.5rem;
+}
+
+
+.navbar-center a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar-center a:hover {
+  color: #007bff;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Sign Up Button */
+.signup-btn {
+  padding: 8px 16px;
+  background-color: #2e90fa;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hamburger hidden on desktop */
+.hamburger-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .navbar-left .logo {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .hamburger-icon {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    background-color: transparent;
+    color: black; /* or white depending on background */
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1001;
+  }
+
+  .navbar-center,
+  .signup-btn {
+    display: none;
+  }
+
+  .navbar-center.show,
+  .signup-btn.show {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 60px; /* Push down below header */
+  }
+
+  .navbar-center.show a {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+}
