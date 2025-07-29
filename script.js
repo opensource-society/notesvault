@@ -282,7 +282,7 @@ function updateFilterSubjects(branch) {
 
 
 // ...existing code...
-  function displayNotes(notes) {
+function displayNotes(notes) {
     notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
     const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
     notes
