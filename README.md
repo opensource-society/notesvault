@@ -48,7 +48,7 @@ notesvault/
 ---
 
 <details>
-<summary>🛠 Getting Started</summary>
+<summary>🛠 Getting Started(Click to view Details)</summary>
 
 ### 1️⃣ Clone the Repository  
 ```bash
@@ -67,7 +67,7 @@ cd NotesVault
 </details>
 
 <details>
-<summary>🧑‍💻 Contributing</summary>
+<summary>🧑‍💻 Contributing(Click to view Details)</summary>
 We welcome all contributions, especially from beginners! 🎉
 
 **Good First Issues:**
