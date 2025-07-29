@@ -283,9 +283,9 @@ function updateFilterSubjects(branch) {
 
 // ...existing code...
 function displayNotes(notes) {
-    notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-    const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
-    notes
+  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+  const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
+  notes
     .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
     .forEach(note => {
       const card = document.createElement("div");
@@ -293,11 +293,11 @@ function displayNotes(notes) {
       const isBookmarked = bookmarked.includes(note.title); // assuming title is unique
       card.innerHTML = `
       <div>
-  <h3>${note.title}</h3>
-  <p><strong>Branch:</strong> ${note.branch}</p>
-  <p><strong>Semester:</strong> ${note.semester}</p>
-  <p><strong>Subject:</strong> ${note.subject}</p>
-    <div class="rating" data-id="${note.title}">
+      <h3>${note.title}</h3>
+      <p><strong>Branch:</strong> ${note.branch}</p>
+      <p><strong>Semester:</strong> ${note.semester}</p>
+      <p><strong>Subject:</strong> ${note.subject}</p>
+      <div class="rating" data-id="${note.title}">
     ${[1, 2, 3, 4, 5].map(i => `<span class="star" data-value="${i}">&#9733;</span>`).join('')}
   </div>
 </div>
