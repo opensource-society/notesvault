@@ -130,8 +130,7 @@ else if (isDeleting && charIndex === 0) {
   isDeleting = false;
   currentWordIndex = (currentWordIndex + 1) % words.length;
   typeSpeed = 500;
-});
-  // Pause before starting a new word
+});// Pause before starting a new word
 
     // Function to update the Subject dropdown based on the selected Semester
     function updateSubjects() {
