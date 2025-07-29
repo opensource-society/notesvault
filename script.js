@@ -120,6 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
       charIndex++;
     }
   }
+
+  
   let typeSpeed = isDeleting ? 75 : 150;// Slower, more natural speeds
   if (!isDeleting && charIndex === currentWord.length) {
       typeSpeed = 2000; // Pause after typing a word
@@ -212,7 +214,10 @@ subjectNames = semesterData.subjects
       window.location.href = "upload.html";
     });
   });
+  
   // Update the DOMContentLoaded event listener to include theme initialization
+  
+  
   const branchFilter = document.getElementById("branch-filter");
   const semesterFilter = document.getElementById("semester-filter");
   const subjectFilter = document.getElementById("subject-filter");
@@ -223,6 +228,7 @@ subjectNames = semesterData.subjects
     "CSE IOT": ["IoT Fundamentals", "Sensors", "Microcontrollers"],
     "CSE DS": ["Data Science Basics", "Statistics", "Python for DS"]
   };
+  
   let notesData = [];
   fetch("data/notes.json")
     .then(res => res.json())
@@ -452,7 +458,6 @@ document.addEventListener("DOMContentLoaded", () => {
       helpTooltip.style.display = "none";
     }
   });
-}); 
-})// <-- closes the help tooltip DOMContentLoaded arrow function
+}); // <-- closes the help tooltip DOMContentLoaded arrow function
 
  // <-- close
