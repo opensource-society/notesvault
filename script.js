@@ -115,17 +115,18 @@ document.addEventListener("DOMContentLoaded", function () {
       typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
     } 
-    else {
+    else 
+    {
       typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
       charIndex++;
     }
   }
 
-let typeSpeed = isDeleting ? 75 : 150;// Slower, more natural speeds
-if (!isDeleting && charIndex === currentWord.length) {
-  typeSpeed = 2000; // Pause after typing a word
-  isDeleting = true;
-});
+  let typeSpeed = isDeleting ? 75 : 150;// Slower, more natural speeds
+  if (!isDeleting && charIndex === currentWord.length) {
+    typeSpeed = 2000; // Pause after typing a word
+    isDeleting = true;
+  });
 else if (isDeleting && charIndex === 0) {
   isDeleting = false;
   currentWordIndex = (currentWordIndex + 1) % words.length;
