@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Upload Notes</title>
+  <link rel="stylesheet" href="../styling/styles.css"/>
   <meta name="description" content="Upload your study notes to NotesVault.">
   <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="../styling/styles.css">
@@ -114,8 +115,64 @@
     <div id="message" class="mt-4 text-green-600 font-medium"></div>
   </main>
 
-  <footer class="text-center text-sm mt-10 text-gray-500">&copy; 2025 NotesVault</footer>
+  <!-- Use this footer in all pages -->
+<footer class="custom-footer">
+  <div class="footer-container">
+    <!-- About NotesVault Section -->
+    <div class="footer-section about-section">
+      <h2><strong>NotesVault</strong></h2>
+      <p class="footer-description">
+        A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong> academic notes & PYQs semester-wise.
+        Contribute easily, organize efficiently, and search by tags.
+      </p>
+      <a
+        class="footer-learn-link"
+        href="https://github.com/opensource-society/notesvault"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Learn More →</a>
+    </div>
 
+    <!-- Community -->
+    <div class="footer-section">
+      <h3>Community</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+        <li><a href="https://github.com/opensource-society/notesvault.git" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Social Media</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <!-- Features -->
+    <div class="footer-section">
+      <h3>Features</h3>
+      <ul>
+        <li><a href="upload.html"><i class="fas fa-upload"></i> Easy Upload</a></li>
+        <li><a href="search.html"><i class="fas fa-tags"></i> Tag-based Search</a></li>
+        <li><a href="BrowseNotes.html"><i class="fas fa-folder-open"></i> Organized by Semester</a></li>
+        <li><a href="todolist.html"><i class="fas fa-tasks"></i> Todo List</a></li>
+        <li><a href="studentAccount.html"><i class="fas fa-users"></i> Get Details</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> NotesVault. All rights reserved.
+  </div>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
   <!-- Script to Load Dropdowns from JSON -->
   <script>
     let data;
