@@ -212,7 +212,7 @@ subjectNames = semesterData.subjects
   document.querySelectorAll(".upload-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       window.location.href = "upload.html";
-  });
+       });
   });
 
 
