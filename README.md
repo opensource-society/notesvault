@@ -1,86 +1,99 @@
-# 📚 NotesVault – Academic Notes & PYQs Manager
+<h1 align="center">📚 NotesVault – Academic Notes & PYQs Manager</h1>
 
-**NotesVault** is a beginner-friendly, open-source web app designed to help students **store, browse, and manage academic notes and previous year questions (PYQs)** in one place. This project is perfect for contributors who want to build and grow a useful educational tool from scratch.
+<p align="center">
+A <b>beginner-friendly open-source web app</b> to store, browse & manage academic notes and previous year questions (PYQs) in one place.<br>
+🚀 Perfect for contributors who want to build and grow a useful educational tool!
+</p>
 
----
-
-## ✨ Features (Planned)
-
-* Browse notes and PYQs by subject/semester
-* Search and filter by keywords
-* Add new notes manually (or from JSON for demo)
-* Responsive design for all devices
-* Dark/light mode toggle
-* Upload UI and metadata editing
-* Tag-based filtering
+<p align="center">
+    <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square"/>
+    <img src="https://img.shields.io/github/stars/opensource-society/NotesVault?style=flat-square"/>
+    <img src="https://img.shields.io/github/forks/opensource-society/NotesVault?style=flat-square"/>
+    <img src="https://img.shields.io/badge/PRs-Welcome-blue?style=flat-square"/>
+</p>
 
 ---
 
-## 📁 Folder Structure (Suggested)
+## 🟢 Overview  
+NotesVault helps students **store, browse, search, and manage notes & PYQs** in one place.  
+It is **responsive, beginner-friendly, and open-source** – ideal for new contributors.
 
+---
+
+## ✨ Features  
+- Browse notes & PYQs by subject/semester  
+- Search & filter by keywords  
+- Add new notes manually or via JSON  
+- Responsive design (mobile & desktop)  
+- Dark / light mode toggle  
+- Upcoming: Upload UI & metadata editing  
+- Upcoming: Tag-based filtering  
+
+---
+
+## 📂 Folder Structure  
 ```
 notesvault/
-├── assets/            # Icons, PDFs, static files
-    └── <asset_folders>
-├── data/              # All JSON files for notes/PYQs
-│   └── notes.json
-├── pages/             # All pages used in the project
-│   └── <all .html files>
-├── scripts            # Application logic (load/display/filter)
-    └── <scripts>
-├── styling            # Global styles and theming
-    └── <style files>
+├── index.html         # Homepage UI
+├── style.css          # Global styles
+├── script.js          # App logic
+├── data/notes.json    # Notes/PYQs data
+├── assets/            # Icons, PDFs, demo GIF
+├── pages/             # Extra HTML pages
+├── scripts/           # Additional JS logic
+├── styling/           # Extra CSS themes
 └── README.md
 ```
 
 ---
 
-## 🛠️ Getting Started (Development)
+<details>
+<summary>🛠 Getting Started</summary>
 
-1. **Clone the repository**
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/opensource-society/NotesVault.git
+cd NotesVault
+```
 
-    ```bash
-    git clone https://github.com/opensource-society/NotesVault.git
-    cd NotesVault
-    ```
+### 2️⃣ Run the App  
+- Open `index.html` in any browser  
+- Data is stored via JSON or LocalStorage
 
-2. **Open the app**
+### 3️⃣ For Development  
+- Edit `data/notes.json` to add notes  
+- Modify `style.css` or `script.js` for UI & logic
 
-Simply open `index.html` in your browser. All data is stored locally via JSON or localStorage.
+</details>
 
-3. **Develop and test**
+<details>
+<summary>🧑‍💻 Contributing</summary>
+We welcome all contributions, especially from beginners! 🎉
 
-* Edit `notes.json` to simulate new data
-* Modify layout or logic in `style.css` and `script.js`
-* Use browser DevTools to inspect results
+**Good First Issues:**
+- Create basic UI/card layout
+- Add subjects/notes to JSON
+- Implement search & filtering
+- Improve responsive design
+- Add dark mode
+- Upload simulation
 
----
-
-## 🧑‍💻 Contributing
-
-We welcome all kinds of contributions, especially from beginners! Since the project is in early stages, **you can help build core features from scratch**.
-
-**Good first issues:**
-
-* Setup basic UI structure or card layout
-* Add new subjects or notes to JSON
-* Implement search and filtering logic
-* Improve design responsiveness
-* Add support for dark mode
-* Add upload simulation with preview
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+See `CONTRIBUTING.md` for full guide.
+</details>
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+## 🆕 Recent Updates
+- Added favicon (`favicon.ico`)
+- Added app icon (`Icon.jpg`)
+- Revamped README.md for clarity
 
 ---
 
-> Let's build NotesVault together — an open-source resource that helps thousands of students revise and succeed. 🚀
+## 📜 License
+Licensed under the MIT License – Free to use, modify, and distribute.
 
-## Updates
-- Added favicon (favicon.ico) to the site.
-- Added app icon (Icon.jpg) to the header, left of the app name.
+---
+
+<h3 align="center">⭐ Star this repo to support NotesVault!</h3>
+<p align="center">💬 Have suggestions? Open an <b>issue</b> or start a <b>discussion</b>.</p>
