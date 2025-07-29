@@ -290,7 +290,9 @@ function updateFilterSubjects(branch) {
 
     const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
 
-    notes.forEach(note => {
+    notes
+      .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
+      .forEach(note => {
       const card = document.createElement("div");
       card.className = "note-card";
 
