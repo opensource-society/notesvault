@@ -285,20 +285,20 @@ function updateFilterSubjects(branch) {
 // ...existing code...
 
 
-  function displayNotes(notes) {
-    notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+function displayNotes(notes) {
+  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
 
-    const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
+  const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
 
-    notes
-      .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
-      .forEach(note => {
-      const card = document.createElement("div");
-      card.className = "note-card";
+  notes
+    .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
+    .forEach(note => {
+    const card = document.createElement("div");
+    card.className = "note-card";
 
-      const isBookmarked = bookmarked.includes(note.title); // assuming title is unique
+    const isBookmarked = bookmarked.includes(note.title); // assuming title is unique
 
-      card.innerHTML = `
+    card.innerHTML = `
       <div>
   <h3>${note.title}</h3>
   <p><strong>Branch:</strong> ${note.branch}</p>
