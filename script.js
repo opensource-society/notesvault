@@ -355,17 +355,15 @@ ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
     displayNotes(filtered);
 
   });
-
-document.addEventListener('DOMContentLoaded', function() {
-  var easyUploadCard = document.querySelector('.easy-upload-card');
-  if (easyUploadCard) {
-    easyUploadCard.style.cursor = 'pointer';
-    easyUploadCard.addEventListener('click', function() {
-      window.location.href = '/upload.html';
-    });
-  }
-});
-
+  document.addEventListener('DOMContentLoaded', function() {
+    var easyUploadCard = document.querySelector('.easy-upload-card');
+    if (easyUploadCard) {
+      easyUploadCard.style.cursor = 'pointer';
+      easyUploadCard.addEventListener('click', function() {
+        window.location.href = '/upload.html';
+      });
+    }
+  });
 });
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -373,14 +371,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (query) {
     const notes = document.querySelectorAll(".note-card");
     let matchFound = false;
-
     notes.forEach((note) => {
       const content = note.textContent.toLowerCase();
       const show = content.includes(query);
       note.style.display = show ? "block" : "none";
       if (show) matchFound = true;
     });
-
     if (!matchFound) {
       const msg = document.createElement("p");
       msg.textContent = `No notes found for "${query}"`;
@@ -391,22 +387,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
-
 function runQuerySearch() {
   const urlParams = new URLSearchParams(window.location.search);
   const query = urlParams.get("query")?.trim().toLowerCase();
-
   if (query) {
     const notes = document.querySelectorAll(".note-card");
     let matchFound = false;
-
     notes.forEach((note) => {
       const content = note.textContent.toLowerCase();
       const show = content.includes(query);
       note.style.display = show ? "block" : "none";
       if (show) matchFound = true;
     });
-
     if (!matchFound) {
       const msg = document.createElement("p");
       msg.textContent = `No notes found for "${query}"`;
