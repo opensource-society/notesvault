@@ -2532,7 +2532,7 @@ main{
   position: fixed;
   bottom: 100px;
   right: 30px;
-  z-index: 100;
+  z-index: 1005;
 }
 
 #helpBtn {
