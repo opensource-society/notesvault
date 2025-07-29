@@ -283,8 +283,6 @@ function updateFilterSubjects(branch) {
 
 
 // ...existing code...
-
-
 function displayNotes(notes) {
   notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
 
