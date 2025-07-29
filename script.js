@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
       typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
       charIndex++;
     }
-
+  }
 
     let typeSpeed = isDeleting ? 75 : 150; // Slower, more natural speeds
 
@@ -213,7 +213,7 @@ subjectNames = semesterData.subjects
     btn.addEventListener("click", () => {
       window.location.href = "upload.html";
     });
-
+  });
   // Update the DOMContentLoaded event listener to include theme initialization
 
 
@@ -372,6 +372,7 @@ ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
     );
     displayNotes(filtered);
   });
+});
 
 [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
   filter.addEventListener("change", () => {
@@ -464,6 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
       helpTooltip.style.display = "none";
     }
   });
-}); // <-- closes the help tooltip DOMContentLoaded arrow function
+}); 
+})// <-- closes the help tooltip DOMContentLoaded arrow function
 
  // <-- close
