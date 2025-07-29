@@ -42,6 +42,8 @@ a:hover {
   color: var(--primary-700);
 }
 
+
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -73,7 +75,7 @@ a:hover {
 }
 
 .btn-secondary:hover {
-  background-color: var(--gray-100);
+  /* background-color: var(--gray-500); */
   border-color: var(--gray-300);
 }
 

@@ -1,18 +1,19 @@
-/* ======================
-   HERO SECTION 
-   ====================== */
+/* Hero Section */
 .hero {
   --hero-padding-y: 8rem;
   --search-card-width: 480px;
-  
   position: relative;
   padding: var(--hero-padding-y) 0;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+  background: linear-gradient(
+    to bottom,
+    var(--bg-primary),
+    var(--bg-secondary)
+  );
 }
 
-/* Background Gradient Animation */
+/* Background Gradient */
 .hero::before {
   content: '';
   position: absolute;
@@ -21,8 +22,8 @@
   width: 120%;
   height: 200%;
   background: radial-gradient(
-    circle at 70% 50%, 
-    rgba(var(--primary-400), 0.1) 0%, 
+    circle at 70% 50%,
+    rgba(var(--primary-400), 0.1) 0%,
     transparent 70%
   );
   opacity: 0.15;
@@ -31,7 +32,8 @@
 }
 
 @keyframes gradient-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1) rotate(0deg);
     opacity: 0.1;
   }
@@ -142,8 +144,7 @@
   background-color: var(--card-bg);
   border-radius: 1.5rem;
   padding: 2.25rem;
-  box-shadow: 
-    0 12px 40px -12px rgba(0, 0, 0, 0.1),
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.1),
     inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   width: 100%;
   max-width: var(--search-card-width);
@@ -155,8 +156,7 @@
 
 .search-card:hover {
   transform: translateY(-8px);
-  box-shadow: 
-    0 20px 50px -15px rgba(0, 0, 0, 0.15),
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.15),
     inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
@@ -207,16 +207,14 @@
   color: var(--text-primary);
   font-size: 1.05rem;
   transition: all 0.3s ease;
-  box-shadow: 
-    inset 0 1px 3px rgba(0, 0, 0, 0.05),
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05),
     0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .search-input input:focus {
   outline: none;
   border-color: var(--primary-500);
-  box-shadow: 
-    0 0 0 3px rgba(0, 140, 45, 0.1),
+  box-shadow: 0 0 0 3px rgba(0, 140, 45, 0.1),
     inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -224,9 +222,8 @@
   stroke: var(--primary-500);
 }
 
-/* ======================
-   FEATURES SECTION 
-   ====================== */
+
+/* Features Section */
 .features {
   position: relative;
   padding: 6rem 0;
@@ -317,9 +314,8 @@
   line-height: 1.6;
 }
 
-/* ======================
-   RESPONSIVE DESIGN
-   ====================== */
+
+/* Responsive Design */
 @media (max-width: 1200px) {
   .hero .container {
     gap: 3rem;
@@ -331,12 +327,12 @@
     --hero-padding-y: 6rem;
     --search-card-width: 100%;
   }
-  
+
   .hero .container {
     grid-template-columns: 1fr;
     gap: 3.5rem;
   }
-  
+
   .search-card {
     max-width: 600px;
     margin: 0 auto;
@@ -347,16 +343,16 @@
   .hero {
     --hero-padding-y: 5rem;
   }
-  
+
   .hero h1 {
     font-size: 2.5rem;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     gap: 0.75rem;
   }
-  
+
   .search-card {
     padding: 1.75rem;
   }
@@ -364,7 +360,7 @@
   .features {
     padding: 4rem 0;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
     max-width: 400px;
@@ -376,24 +372,25 @@
   .hero {
     --hero-padding-y: 4rem;
   }
-  
+
   .hero h1 {
     font-size: 2.25rem;
   }
-  
+
   .subtext {
     font-size: 1.05rem;
   }
-  
+
   .search-card {
     padding: 1.5rem;
     border-radius: 1.25rem;
   }
-  
+
   .search-input input {
     padding: 1rem 1rem 1rem 3rem;
   }
 }
+
 
 /* Animations */
 @keyframes fadeInUp {

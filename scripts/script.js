@@ -211,6 +211,24 @@ document.addEventListener('DOMContentLoaded', () => {
       // Re-initialize Header-Based Features
       setupThemeToggle()
       setupMobileMenu()
+
+      // =============== Set Active Nav Link =============== //
+      const currentPath = window.location.pathname.split('/').pop()
+
+      document.querySelectorAll('.nav-link').forEach((link) => {
+        const linkPath = link.getAttribute('href')?.split('/').pop()
+        if (linkPath === currentPath) {
+          link.classList.add('active')
+        }
+      })
+
+      // =============== Set Active Footer Link =============== //
+      document.querySelectorAll('.footer-link').forEach((link) => {
+        const linkPath = link.getAttribute('href')?.split('/').pop()
+        if (linkPath === currentPath) {
+          link.classList.add('active')
+        }
+      })
     } catch (error) {
       console.error('Error loading header/footer:', error)
     }
@@ -219,8 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // =============== Init =============== //
 
   const init = async () => {
-    setupBackToTop()
-
     if (DOM.typewriterElement) typeWriter()
     if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch)
 
@@ -247,6 +263,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load Header & Footer
     await loadComponents()
+
+    // Load Back To Top Button
+    DOM.backToTop = document.querySelector('.back-to-top')
+    setupBackToTop()
   }
 
   init()

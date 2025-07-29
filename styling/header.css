@@ -37,15 +37,20 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--primary-400) !important;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  transition: none !important; 
 }
 
 .navbar-logo:hover {
-  transform: scale(1.05);
+  color: var(--primary-400) !important;
+}
+
+.navbar-logo:hover {
+  transform: none;
 }
 
 .navbar-logo img {
@@ -63,14 +68,14 @@
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   list-style: none;
 }
 
 .nav-link {
   position: relative;
   padding: 0.65rem 0;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -81,22 +86,23 @@
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
-  height: 3px;
-  background-color: var(--primary-500);
+  height: 2px;
+  background-color: var(--primary-400);
   border-radius: 3px;
   transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--primary-500);
+  color: var(--primary-400);
 }
 
 .nav-link:hover::before,
 .nav-link.active::before {
-  width: 100%;
+  width: 65%;
 }
 
 /* Auth Buttons */
