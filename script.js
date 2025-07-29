@@ -305,19 +305,18 @@ function displayNotes(notes) {
   <p><strong>Semester:</strong> ${note.semester}</p>
   <p><strong>Subject:</strong> ${note.subject}</p>
     <div class="rating" data-id="${note.title}">
-      ${[1, 2, 3, 4, 5].map(i => `<span class="star" data-value="${i}">&#9733;</span>`).join('')}
-    </div>
+    ${[1, 2, 3, 4, 5].map(i => `<span class="star" data-value="${i}">&#9733;</span>`).join('')}
   </div>
-  <div class="mark">
-  <a href="${note.link}" target="_blank" download>Download</a>
-  <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" data-id="${note.title}">
-  ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
-  </button>
-  </div>
-`;
+</div>
+<div class="mark">
+<a href="${note.link}" target="_blank" download>Download</a>
+<button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" data-id="${note.title}">
+${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
+</button>
+</div>`;
 
 
-      notesContainer.appendChild(card);
+    notesContainer.appendChild(card);
     });
 
     // Add event listeners to bookmark buttons
