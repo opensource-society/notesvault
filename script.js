@@ -357,6 +357,9 @@ ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
       });
     }
 }
+
+
+  
 [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
   filter.addEventListener("change", () => {
     const branchVal = branchFilter.value;
