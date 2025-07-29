@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchBranchContainer = document.getElementById("search-parameters-branch");
   const searchSemesterContainer = document.getElementById("search-parameters-semester");
   const searchSubjectContainer = document.getElementById("search-parameters-subject");
+  const searchButton = document.getElementById("search-button");  //for accessing in js for visibility
   const branchFilter = document.getElementById("branch-filter");
   const semesterFilter = document.getElementById("semester-filter");
   const subjectFilter = document.getElementById("subject-filter");

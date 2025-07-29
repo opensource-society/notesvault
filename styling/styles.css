@@ -35,6 +35,21 @@
     margin: 0;
   }
 
+  /* Adding styles for Submit button in honme page*/
+  #search-button{
+    padding: 10px;
+    border: 1px solid greenyellow;
+    background: linear-gradient(to right, rgb(2, 168, 2), rgb(0, 216, 0));
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.5s ease;
+  }
+
+  #search-button:hover{
+    background: linear-gradient(to right, rgba(1, 107, 1, 0.842), rgba(0, 194, 0, 0.753));
+  }
+
   /* Flex box for left/right header items */
   #header div {
     display: flex;
@@ -764,7 +779,7 @@
 }
 
 
-}
+
 
   .search-parameters-div .search-parameters-select {
     display: flex;
