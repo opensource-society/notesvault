@@ -213,6 +213,7 @@ subjectNames = semesterData.subjects
     btn.addEventListener("click", () => {
       window.location.href = "upload.html";
   });
+  });
 
 
   // Update the DOMContentLoaded event listener to include theme initialization
