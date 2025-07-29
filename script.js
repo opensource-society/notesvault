@@ -214,10 +214,8 @@ subjectNames = semesterData.subjects
       window.location.href = "upload.html";
     });
   });
+  
   // Update the DOMContentLoaded event listener to include theme initialization
-
-
-
   const branchFilter = document.getElementById("branch-filter");
   const semesterFilter = document.getElementById("semester-filter");
   const subjectFilter = document.getElementById("subject-filter");
