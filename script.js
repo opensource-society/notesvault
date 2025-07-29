@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  
   let typeSpeed = isDeleting ? 75 : 150;// Slower, more natural speeds
   if (!isDeleting && charIndex === currentWord.length) {
       typeSpeed = 2000; // Pause after typing a word
