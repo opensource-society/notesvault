@@ -120,10 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
       charIndex++;
     }
   }
-
-    let typeSpeed = isDeleting ? 75 : 150; // Slower, more natural speeds
-
-    if (!isDeleting && charIndex === currentWord.length) {
+  let typeSpeed = isDeleting ? 75 : 150;// Slower, more natural speeds
+  if (!isDeleting && charIndex === currentWord.length) {
       typeSpeed = 2000; // Pause after typing a word
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
@@ -214,22 +212,18 @@ subjectNames = semesterData.subjects
       window.location.href = "upload.html";
     });
   });
-  
   // Update the DOMContentLoaded event listener to include theme initialization
   const branchFilter = document.getElementById("branch-filter");
   const semesterFilter = document.getElementById("semester-filter");
   const subjectFilter = document.getElementById("subject-filter");
   const notesContainer = document.getElementById("notes-container");
-
   const subjectMap = {
     "CSE": ["Maths", "DBMS", "OS", "DSA"],
     "CSE AIML": ["AI", "ML", "Python"],
     "CSE IOT": ["IoT Fundamentals", "Sensors", "Microcontrollers"],
     "CSE DS": ["Data Science Basics", "Statistics", "Python for DS"]
   };
-
   let notesData = [];
-
   fetch("data/notes.json")
     .then(res => res.json())
     .then(data => {
@@ -281,18 +275,16 @@ function updateFilterSubjects(branch) {
 
 
 // ...existing code...
-function displayNotes(notes) {
-  notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
-  const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
-  notes
+  function displayNotes(notes) {
+    notesContainer.innerHTML = notes.length === 0 ? "<p>No notes found.</p>" : "";
+    const bookmarked = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
+    notes
     .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
     .forEach(note => {
-    const card = document.createElement("div");
-    card.className = "note-card";
-
-    const isBookmarked = bookmarked.includes(note.title); // assuming title is unique
-
-    card.innerHTML = `
+      const card = document.createElement("div");
+      card.className = "note-card";
+      const isBookmarked = bookmarked.includes(note.title); // assuming title is unique
+      card.innerHTML = `
       <div>
   <h3>${note.title}</h3>
   <p><strong>Branch:</strong> ${note.branch}</p>
@@ -308,9 +300,7 @@ function displayNotes(notes) {
 ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
 </button>
 </div>`;
-
-
-    notesContainer.appendChild(card);
+      notesContainer.appendChild(card);
     });
 
     // Add event listeners to bookmark buttons
