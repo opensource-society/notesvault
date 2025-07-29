@@ -311,24 +311,23 @@ ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
     });
 
     // Add event listeners to bookmark buttons
-    document.querySelectorAll(".bookmark-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const id = btn.getAttribute("data-id");
-        let bookmarks = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
-
-        if (bookmarks.includes(id)) {
-          bookmarks = bookmarks.filter(b => b !== id);
-          btn.textContent = "☆ Bookmark";
-          btn.classList.remove("bookmarked");
-        } else {
-          bookmarks.push(id);
-          btn.textContent = "★ Bookmarked";
-          btn.classList.add("bookmarked");
+  document.querySelectorAll(".bookmark-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-id");
+      let bookmarks = JSON.parse(localStorage.getItem("bookmarkedNotes") || "[]");
+      if (bookmarks.includes(id)) {
+        bookmarks = bookmarks.filter(b => b !== id);
+        btn.textContent = "☆ Bookmark";
+        btn.classList.remove("bookmarked");
         }
-
-        localStorage.setItem("bookmarkedNotes", JSON.stringify(bookmarks));
-      });
+      else {
+        bookmarks.push(id);
+        btn.textContent = "★ Bookmarked";
+        btn.classList.add("bookmarked");
+      }
+      localStorage.setItem("bookmarkedNotes", JSON.stringify(bookmarks));
     });
+  });
     // Add event listeners to star ratings
     document.querySelectorAll(".rating").forEach(rating => {
       const noteId = rating.dataset.id;
@@ -367,7 +366,6 @@ ${isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
     displayNotes(filtered);
   });
 });
-
 [branchFilter, semesterFilter, subjectFilter].forEach(filter => {
   filter.addEventListener("change", () => {
     const branchVal = branchFilter.value;
@@ -392,11 +390,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const query = urlParams.get("query")?.trim().toLowerCase();
-
   if (query) {
     const notes = document.querySelectorAll(".note-card");
     let matchFound = false;
