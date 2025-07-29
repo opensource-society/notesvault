@@ -212,8 +212,8 @@ subjectNames = semesterData.subjects
   document.querySelectorAll(".upload-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       window.location.href = "upload.html";
-       });
-  });
+    });
+  
 
 
   // Update the DOMContentLoaded event listener to include theme initialization
@@ -471,4 +471,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 }); // <-- closes the help tooltip DOMContentLoaded arrow function
 
-}); // <-- closes the main DOMContentLoaded function
+ // <-- closes the main DOMContentLoaded function
