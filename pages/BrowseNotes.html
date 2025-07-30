@@ -382,6 +382,38 @@
       transform: rotate(90deg);
     }
 
+     .notes-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin:20px 30px 10px;
+    }
+    #trash-toggle {
+  background: #867878;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+#trash-toggle:hover {
+  background: #654e4e;
+}
+.note-select {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transform: scale(1.5);
+  display: none;
+}
+
+.trash-mode .note-select {
+  display: block;
+}
+
+
     /* Responsive Design (Media Queries) */
     @media (max-width: 768px) {
       .note-card-footer {
@@ -447,6 +479,7 @@
               <li><a href="overview.html">Overview</a></li>
               <li><a href="#">Features</a></li>
               <li><a href="#">Resources</a></li>
+              <li><a href="../pages/bin.html">Trash Bin</a></li>
             </ul>
           </div>
         </div>
@@ -469,7 +502,10 @@
     </header>
 
     <main class="browse-notes-container">
+       <div class="notes-header">
       <h1>Browse All Notes</h1>
+
+  </div>
 
       <div class="notes-grid" id="notesGrid">
         <div class="loading-message" id="loadingMessage">Loading notes...</div>
@@ -500,183 +536,183 @@
       </div>
     </div>
 
-    <script>
-      // your code goes here
-      document.addEventListener('DOMContentLoaded', () => {
-        const notesGrid = document.getElementById('notesGrid')
-        const loadingMessage = document.getElementById('loadingMessage')
-        const noNotesMessage = document.getElementById('noNotesMessage')
-        const noteDetailModal = document.getElementById('noteDetailModal')
-        const closeModalButton = noteDetailModal.querySelector('.close-button')
-        const modalNoteTitle = document.getElementById('modalNoteTitle')
-        const modalNoteBranch = document.getElementById('modalNoteBranch')
-        const modalNoteSemester = document.getElementById('modalNoteSemester')
-        const modalNoteDescription = document.getElementById(
-          'modalNoteDescription'
-        )
-        const modalNoteUploader = document.getElementById('modalNoteUploader')
-        const modalNoteUploadDate = document.getElementById(
-          'modalNoteUploadDate'
-        )
-        const modalDownloadButton = document.getElementById(
-          'modalDownloadButton'
-        )
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const notesGrid = document.getElementById('notesGrid');
+    const loadingMessage = document.getElementById('loadingMessage');
+    const noNotesMessage = document.getElementById('noNotesMessage');
+    const noteDetailModal = document.getElementById('noteDetailModal');
+    const closeModalButton = noteDetailModal.querySelector('.close-button');
+    const modalNoteTitle = document.getElementById('modalNoteTitle');
+    const modalNoteBranch = document.getElementById('modalNoteBranch');
+    const modalNoteSemester = document.getElementById('modalNoteSemester');
+    const modalNoteDescription = document.getElementById('modalNoteDescription');
+    const modalNoteUploader = document.getElementById('modalNoteUploader');
+    const modalNoteUploadDate = document.getElementById('modalNoteUploadDate');
+    const modalDownloadButton = document.getElementById('modalDownloadButton');
 
-        // Dummy data to simulate notes fetched from a backend
-        // In a real application, this would be fetched from your Node.js/Express API
-        const dummyNotes = [
-          {
-            _id: 'note1',
-            title: 'Data Structures & Algorithms Basics',
-            branch: 'Computer Science',
-            semester: '3rd',
-            description:
-              'Comprehensive notes on fundamental data structures (arrays, linked lists, trees, graphs) and common algorithms (sorting, searching).',
-            uploader: 'Alice Smith',
-            uploadDate: '2023-03-15',
-            filePath: 'http://example.com/notes/dsa_basics.pdf', // Placeholder for actual file path
-          },
-          {
-            _id: 'note2',
-            title: 'Principles of Digital Electronics',
-            branch: 'Electronics Engineering',
-            semester: '4th',
-            description:
-              'Detailed notes covering logic gates, Boolean algebra, combinational and sequential circuits.',
-            uploader: 'Bob Johnson',
-            uploadDate: '2023-04-20',
-            filePath: 'http://example.com/notes/digital_electronics.pdf',
-          },
-          {
-            _id: 'note3',
-            title: 'Thermodynamics for Mechanical Engineers',
-            branch: 'Mechanical Engineering',
-            semester: '5th',
-            description:
-              'Concepts of thermodynamics, laws, cycles, and their applications in various systems.',
-            uploader: 'Charlie Brown',
-            uploadDate: '2023-05-10',
-            filePath: 'http://example.com/notes/thermodynamics.pdf',
-          },
-          {
-            _id: 'note4',
-            title: 'Object-Oriented Programming with Java',
-            branch: 'Information Technology',
-            semester: '3rd',
-            description:
-              'Introduction to OOP principles using Java: classes, objects, inheritance, polymorphism, abstraction, and encapsulation.',
-            uploader: 'Alice Smith',
-            uploadDate: '2023-06-01',
-            filePath: 'http://example.com/notes/oop_java.pdf',
-          },
-          {
-            _id: 'note5',
-            title: 'Linear Algebra and Its Applications',
-            branch: 'Mathematics',
-            semester: '3rd',
-            description:
-              'Explores vector spaces, linear transformations, eigenvalues, and applications of linear algebra in various fields.',
-            uploader: 'Ritika Mehta',
-            uploadDate: '2023-09-12',
-            filePath: 'http://example.com/notes/linear-algebra.pdf',
-          },
-        ]
+    const dummyNotes = [
+      {
+        _id: 'note1',
+        title: 'Data Structures & Algorithms Basics',
+        branch: 'Computer Science',
+        semester: '3rd',
+        description: 'Comprehensive notes on data structures and algorithms.',
+        uploader: 'Alice Smith',
+        uploadDate: '2023-03-15',
+        filePath: 'http://example.com/notes/dsa_basics.pdf'
+      },
+      {
+        _id: 'note2',
+        title: 'Digital Electronics',
+        branch: 'Electronics Engineering',
+        semester: '4th',
+        description: 'Covers logic gates and digital circuits.',
+        uploader: 'Bob Johnson',
+        uploadDate: '2023-04-20',
+        filePath: 'http://example.com/notes/digital_electronics.pdf'
+      },
+      {
+        _id: 'note3',
+        title: 'Thermodynamics for Mechanical Engineers',
+        branch: 'Mechanical Engineering',
+        semester: '5th',
+        description: 'Concepts of thermodynamics, laws, cycles, and their applications in various systems.',
+        uploader: 'Charlie Brown',
+        uploadDate: '2023-05-10',
+        filePath: 'http://example.com/notes/thermodynamics.pdf',
+      },
+      {
+        _id: 'note4',
+        title: 'Object-Oriented Programming with Java',
+        branch: 'Information Technology',
+        semester: '3rd',
+        description: 'Introduction to OOP principles using Java.',
+        uploader: 'Alice Smith',
+        uploadDate: '2023-06-01',
+        filePath: 'http://example.com/notes/oop_java.pdf',
+      },
+      {
+        _id: 'note5',
+        title: 'Linear Algebra and Its Applications',
+        branch: 'Mathematics',
+        semester: '3rd',
+        description: 'Explores vector spaces, linear transformations, eigenvalues.',
+        uploader: 'Ritika Mehta',
+        uploadDate: '2023-09-12',
+        filePath: 'http://example.com/notes/linear-algebra.pdf',
+      },
+    ];
 
-        // Function to fetch notes (simulated)
-        async function fetchNotes() {
-          loadingMessage.style.display = 'block'
-          noNotesMessage.style.display = 'none'
-          notesGrid.innerHTML = '' // Clear existing notes
+    function initializeNotes() {
+      const existingNotes = JSON.parse(localStorage.getItem('notes') || '[]');
+      if (existingNotes.length === 0) {
+        localStorage.setItem('notes', JSON.stringify(dummyNotes));
+        localStorage.setItem('trashNotes', JSON.stringify([]));
+      }
+    }
 
-          try {
-            // In a real app, replace this with an actual API call:
-            // const response = await fetch('/api/notes');
-            // const notes = await response.json();
+    async function fetchNotes() {
+      loadingMessage.style.display = 'block';
+      noNotesMessage.style.display = 'none';
+      notesGrid.innerHTML = '';
 
-            // Simulate API delay
-            await new Promise((resolve) => setTimeout(resolve, 1000))
-            const notes = dummyNotes // Use dummy data for demonstration
+      try {
+        await new Promise((res) => setTimeout(res, 500));
+        const notes = JSON.parse(localStorage.getItem('notes') || '[]');
 
-            if (notes.length === 0) {
-              noNotesMessage.style.display = 'block'
-            } else {
-              notes.forEach((note) => {
-                const noteCard = createNoteCard(note)
-                notesGrid.appendChild(noteCard)
-              })
-            }
-          } catch (error) {
-            console.error('Error fetching notes:', error)
-            notesGrid.innerHTML = `<p class="error-message">Failed to load notes. Please try again later.</p>`
-          } finally {
-            loadingMessage.style.display = 'none'
-          }
+        if (notes.length === 0) {
+          noNotesMessage.style.display = 'block';
+        } else {
+          notes.forEach((note) => {
+            const noteCard = createNoteCard(note);
+            notesGrid.appendChild(noteCard);
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching notes:', error);
+        notesGrid.innerHTML = `<p class="error-message">Failed to load notes.</p>`;
+      } finally {
+        loadingMessage.style.display = 'none';
+      }
+    }
+
+    function createNoteCard(note) {
+      const noteCard = document.createElement('div');
+      noteCard.classList.add('note-card');
+      noteCard.setAttribute('data-note-id', note._id);
+
+      noteCard.innerHTML = `
+        <div class="note-card-body">
+          <h3>${note.title}</h3>
+          <p><strong>Branch:</strong> ${note.branch}</p>
+          <p><strong>Semester:</strong> ${note.semester}</p>
+          <p><strong>Uploaded By:</strong> ${note.uploader}</p>
+          <div class="actions">
+            <button class="view-button"><i class="fas fa-eye"></i> View</button>
+            <button class="delete-button"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+      `;
+
+      const viewButton = noteCard.querySelector('.view-button');
+      viewButton.addEventListener('click', () => openNoteDetailModal(note));
+
+      const deleteButton = noteCard.querySelector('.delete-button');
+      deleteButton.addEventListener('click', () => {
+        moveNoteToTrash(note._id);
+        fetchNotes();
+      });
+
+      return noteCard;
+    }
+
+    function moveNoteToTrash(noteId) {
+      const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+      const trash = JSON.parse(localStorage.getItem('trashNotes') || '[]');
+      const noteToDelete = notes.find((n) => n._id === noteId);
+
+      if (noteToDelete) {
+        const updatedNotes = notes.filter((n) => n._id !== noteId);
+
+        // Prevent duplicates in trash
+        const alreadyTrashed = trash.some((n) => n._id === noteId);
+        if (!alreadyTrashed) {
+          trash.push(noteToDelete);
         }
 
-        function createNoteCard(note) {
-          const noteCard = document.createElement('div')
-          noteCard.classList.add('note-card')
-          noteCard.setAttribute('data-note-id', note._id)
+        localStorage.setItem('notes', JSON.stringify(updatedNotes));
+        localStorage.setItem('trashNotes', JSON.stringify(trash));
+      }
+    }
 
-          noteCard.innerHTML = `
-            <div class="note-card-body">
-              <h3>${note.title}</h3>
-              <p><strong>Branch:</strong> ${note.branch}</p>
-              <p><strong>Semester:</strong> ${note.semester}</p>
-              <p><strong>Uploaded By:</strong> ${note.uploader}</p>
-              <div class="actions">
-                <button class="view-button">
-                  <i class="fas fa-eye"></i>
-                  View
-                </button>
-              </div>
-            </div>
-          `
+    function openNoteDetailModal(note) {
+      modalNoteTitle.textContent = note.title;
+      modalNoteBranch.textContent = note.branch;
+      modalNoteSemester.textContent = note.semester;
+      modalNoteDescription.textContent = note.description;
+      modalNoteUploader.textContent = note.uploader;
+      modalNoteUploadDate.textContent = new Date(note.uploadDate).toLocaleDateString();
+      modalDownloadButton.href = note.filePath;
+      modalDownloadButton.setAttribute('download', `${note.title.replace(/\s/g, '_')}.pdf`);
+      noteDetailModal.style.display = 'flex';
+    }
 
-          // Attach event listener for the "View" button
-          const viewButton = noteCard.querySelector('.view-button')
-          viewButton.addEventListener('click', () => openNoteDetailModal(note))
+    function closeNoteDetailModal() {
+      noteDetailModal.style.display = 'none';
+    }
 
-          return noteCard
-        }
+    closeModalButton.addEventListener('click', closeNoteDetailModal);
+    window.addEventListener('click', (event) => {
+      if (event.target === noteDetailModal) {
+        closeNoteDetailModal();
+      }
+    });
 
-        // Function to open the note detail modal
-        function openNoteDetailModal(note) {
-          modalNoteTitle.textContent = note.title
-          modalNoteBranch.textContent = note.branch
-          modalNoteSemester.textContent = note.semester
-          modalNoteDescription.textContent = note.description
-          modalNoteUploader.textContent = note.uploader
-          modalNoteUploadDate.textContent = new Date(
-            note.uploadDate
-          ).toLocaleDateString()
-          modalDownloadButton.href = note.filePath
-          modalDownloadButton.setAttribute(
-            'download',
-            `${note.title.replace(/\s/g, '_')}.pdf`
-          ) // Set download filename
+    initializeNotes();
+    fetchNotes();
+  });
+</script>
 
-          noteDetailModal.style.display = 'flex' // Use flex to center the modal
-        }
-
-        // Function to close the note detail modal
-        function closeNoteDetailModal() {
-          noteDetailModal.style.display = 'none'
-        }
-
-        // Event listener for closing modal when close button is clicked
-        closeModalButton.addEventListener('click', closeNoteDetailModal)
-
-        // Event listener for closing modal when clicking outside the modal content
-        window.addEventListener('click', (event) => {
-          if (event.target === noteDetailModal) {
-            closeNoteDetailModal()
-          }
-        })
-
-        // Initial fetch of notes when the page loads
-        fetchNotes()
-      })
-    </script>
   </body>
 </html>
