@@ -50,6 +50,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
+| [@ManiGaneshwari](https://github.com/ManiGaneshwari) | 1 | 0 | 0 | 0 |
 | [@LavanyaC04](https://github.com/LavanyaC04) | 1 | 0 | 0 | 0 |
 | [@Shubham-cyber-prog](https://github.com/Shubham-cyber-prog) | 0 | 1 | 0 | 0 |
 | [@Disha19-09](https://github.com/Disha19-09) | 1 | 0 | 0 | 0 |
