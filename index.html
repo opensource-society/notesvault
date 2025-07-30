@@ -26,7 +26,7 @@
     </div>
 
     <div class="navbar-right">
-      <a href="pages/signup.html" class="signup-btn">Sign Up</a>
+      <a href="pages/signup.html" class="signup-btn"><p id="changed_name">Sign Up</p></a>
       <div id="hamburger" class="hamburger-icon">☰</div>
     </div>
   </header>
@@ -169,6 +169,13 @@
   <!-- JS -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    const name = sessionStorage.getItem("name");
+      const name2= localStorage.getItem("name");
+      if (name) {
+        document.getElementById("changed_name").textContent = name;
+  }   else {
+        document.getElementById("changed_name").textContent ="Sign Up";
+}
   </script>
   <script src="scripts/script.js" defer></script>
 </body>

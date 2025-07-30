@@ -104,10 +104,11 @@
       
       console.log('Sign up attempt:', { name, email, password });
 
-      setTimeout(() => {
-        showMessageBox('Sign up successful! You can now log in.', 'success');
-        window.location.href = 'login.html';
-      }, 1500);
+      setTimeout(()=>{
+            sessionStorage.setItem('name', name);
+            localStorage.setItem('name',name);
+            window.location.href = '../index.html';
+        }, 1000);
 
       function resetButton() {
         btn.classList.remove('btn-disabled');
