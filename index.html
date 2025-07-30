@@ -11,11 +11,11 @@
 </head>
 
 <body>
-
-  <!-- Header -->
   <header class="navbar">
     <div class="navbar-left">
-      <div class="logo">NotesVault</div>
+      <a href="index.html" style="text-decoration: none; color: inherit;">
+        <div class="logo">NotesVault</div>
+      </a>
     </div>
 
     <div class="navbar-center" id="header-navigation">
@@ -26,12 +26,12 @@
     </div>
 
     <div class="navbar-right">
+      <a href="pages/login.html" class="signin-btn">Sign In</a>
       <a href="pages/signup.html" class="signup-btn">Sign Up</a>
       <div id="hamburger" class="hamburger-icon">☰</div>
     </div>
   </header>
 
-  <!-- Search -->
   <div class="Search-box bg-black h-[100px]">
     <div class="main-right-search">
       <form id="search-form" class="main-right-search-form" method="get" action="search.html">
@@ -52,7 +52,6 @@
     </div>
   </div>
 
-  <!-- Main Section -->
   <main id="main">
     <div class="main-left">
       <p class="main-text welcome">Welcome Back</p>
@@ -64,8 +63,8 @@
         always just a click away with NotesVault.
       </p>
       <div class="main-left-links">
-        <a href="search.html" class="links-text try-box" style="color: black; text-decoration: none;">Browse Notes</a>
-        <a href="upload.html" class="links-text try-box" style="color: black; text-decoration: none;">Upload Notes</a>
+        <a class="links-text features-box" href="search.html">Browse Notes</a>
+        <a class="links-text try-box" href="upload.html">Upload Notes</a>
       </div>
     </div>
 
@@ -87,12 +86,10 @@
     </section>
   </main>
 
-  <!-- Features Section -->
   <section class="features-section" style="padding:60px 0; background:white;">
     <div class="card-container"
       style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:1200px;margin:auto;">
 
-      <!-- Easy Upload -->
       <a href="pages/upload.html" style="text-decoration:none;">
         <div class="card feature-card"
           style="width:300px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:black;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.3);padding:20px;">
@@ -102,7 +99,6 @@
         </div>
       </a>
 
-      <!-- Sort The Chaos -->
       <a href="pages/overview.html" style="text-decoration:none;">
         <div class="card feature-card"
           style="width:300px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:black;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.3);padding:20px;">
@@ -112,7 +108,6 @@
         </div>
       </a>
 
-      <!-- Search By Tags -->
       <a href="pages/search.html" style="text-decoration:none;">
         <div class="card feature-card"
           style="width:300px;height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:black;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.3);padding:20px;">
@@ -124,7 +119,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer style="background:#111; color:white; padding:50px 20px; font-family:sans-serif; margin-top:50px;">
     <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
 
@@ -166,11 +160,34 @@
     </p>
   </footer>
 
-  <!-- JS -->
+  <button id="scrollToTopBtn" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="scripts/script.js" defer></script>
   <script>
+    function toggleMobileMenu() {
+      const sidebar = document.getElementById("mobileSidebar");
+      sidebar?.classList.toggle("active");
+    }
+
+    document.querySelectorAll(".sidebar a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("mobileSidebar")?.classList.remove("active");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      const sidebar = document.getElementById("mobileSidebar");
+      const toggle = document.getElementById("hamburgerMenu");
+      if (sidebar && toggle && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        sidebar.classList.remove("active");
+      }
+    });
+
+    // Add current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script src="scripts/script.js" defer></script>
 </body>
 
 </html>
