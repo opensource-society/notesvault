@@ -1,37 +1,23 @@
+/* ------------  Reset & Base  ------------ */
 * {
-    margin: 0px;
-    padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: linear-gradient(to right, #718c8f 0%, #4b8681 100%);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+  background: linear-gradient(to right, #718c8f 0%, #4b8681 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
 }
 
-#pge_title {
-    text-align: center;
-    margin-top: 2vh;
-    font-size: 5vh;
-
-}
-#empty-message{
-    color:black;
-}
-
-#note {
-    text-align: center;
-    margin-top: 1.2vh;
-}
-
+/* ------------  Page Elements  ------------ */
 .page-title {
-  font-size: 2rem;
-  font-weight: bold;
   margin: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
   color: #123;
 }
 
@@ -39,19 +25,27 @@ body {
   padding: 2rem;
 }
 
-.notes-grid {
+/* ------------  Flex Grids  ------------ */
+.notes-grid,
+#trash-notes-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
   justify-content: center;
+  gap: 1.5rem;
+  padding: 20px;
 }
 
+/* ------------  Card  ------------ */
 .note-card {
-  background: white;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 280px;
+  background: #fff;
+  color: #000;
+  width: 280px;                 /* consistent width on both pages   */
+  max-width: 400px;             /* upper bound for wider viewports  */
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
   transition: transform 0.3s ease;
 }
 
@@ -59,70 +53,50 @@ body {
   transform: translateY(-5px);
 }
 
-.note-card-body h3 {
+.note-card h3 {
   font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
 }
 
-.note-card-body p {
+.note-card p {
   font-size: 0.95rem;
   margin: 0.25rem 0;
 }
 
+/* ------------  Buttons / Actions  ------------ */
 .actions {
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
 
-.actions button {
+.actions button,
+.note-card button {             /* generic button styling           */
   padding: 0.5rem 0.75rem;
   border: none;
   border-radius: 0.5rem;
+  font-weight: 700;
   cursor: pointer;
-  background-color: #f44336;
-  color: white;
-  font-weight: bold;
+  color: #fff;
 }
 
-.actions button.restore-button {
-  background-color: #4caf50;
-}
-
-
-.note-card {
-    background: white;
-    color: black;
-    padding: 20px;
-    margin: 15px auto;
-    border-radius: 10px;
-    max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    text-align: center;
-}
-.note-card h3 {
-    margin-bottom: 10px;
-}
+/* primary (delete) */
+.actions .delete-button,
 .note-card button {
-    margin: 5px;
-    padding: 8px 12px;
-    border: none;
-    background-color: #0066cc;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  background: #0066cc;
 }
+
+.actions .delete-button:hover,
 .note-card button:hover {
-    background-color: #004999;
+  background: #004999;
 }
 
-#trash-notes-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:20px;
-    padding: 20px;
+/* success (restore) */
+.actions .restore-button {
+  background: #4caf50;
 }
 
+.actions .restore-button:hover {
+  background: #3a933f;
+}

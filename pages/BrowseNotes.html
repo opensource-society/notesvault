@@ -666,7 +666,6 @@
 
       const deleteButton = noteCard.querySelector('.delete-button');
       deleteButton.addEventListener('click', () => {
-        console.log("🟡 moveNoteToTrash called for ID:", note._id);
         moveNoteToTrash(note._id);
         fetchNotes();
       });
