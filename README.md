@@ -10,7 +10,7 @@
 - 🔍 Search and filter by keywords
 - ➕ Add new notes manually (or via JSON for demo)
 - 📱 Ensure responsive design for all devices
-- 🌗Toggle between dark and light mode
+- 🌗 Toggle between dark and light mode
 - ⬆️ Upload files with UI and metadata editing
 - 🏷️ Filter notes by tags
 
