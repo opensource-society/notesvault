@@ -1,9 +1,7 @@
 /* Hero Section */
 .hero {
-  --hero-padding-y: 8rem;
-  --search-card-width: 480px;
+  padding: 8rem 0;
   position: relative;
-  padding: var(--hero-padding-y) 0;
   overflow: hidden;
   isolation: isolate;
   background: linear-gradient(
@@ -11,6 +9,7 @@
     var(--bg-primary),
     var(--bg-secondary)
   );
+  --search-card-width: 480px;
 }
 
 /* Background Gradient */
