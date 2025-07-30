@@ -666,31 +666,41 @@
 
       const deleteButton = noteCard.querySelector('.delete-button');
       deleteButton.addEventListener('click', () => {
+        console.log("🟡 moveNoteToTrash called for ID:", note._id);
         moveNoteToTrash(note._id);
         fetchNotes();
       });
 
       return noteCard;
     }
+function moveNoteToTrash(noteId) {
+  // Retrieve current notes and trash
+  let notes = JSON.parse(localStorage.getItem('notes') || '[]');
+  let trash = JSON.parse(localStorage.getItem('trashNotes') || '[]');
 
-    function moveNoteToTrash(noteId) {
-      const notes = JSON.parse(localStorage.getItem('notes') || '[]');
-      const trash = JSON.parse(localStorage.getItem('trashNotes') || '[]');
-      const noteToDelete = notes.find((n) => n._id === noteId);
+  // Find the note to delete
+  const noteToDelete = notes.find((n) => n._id === noteId);
 
-      if (noteToDelete) {
-        const updatedNotes = notes.filter((n) => n._id !== noteId);
+  if (noteToDelete) {
+    // Remove the note from the main notes list
+    notes = notes.filter((n) => n._id !== noteId);
 
-        // Prevent duplicates in trash
-        const alreadyTrashed = trash.some((n) => n._id === noteId);
-        if (!alreadyTrashed) {
-          trash.push(noteToDelete);
-        }
-
-        localStorage.setItem('notes', JSON.stringify(updatedNotes));
-        localStorage.setItem('trashNotes', JSON.stringify(trash));
-      }
+    // Avoid duplicates in trash
+    const alreadyTrashed = trash.some((n) => n._id === noteId);
+    if (!alreadyTrashed) {
+      trash.push(noteToDelete);
     }
+
+    // Save updated lists back to localStorage
+    localStorage.setItem('notes', JSON.stringify(notes));
+    localStorage.setItem('trashNotes', JSON.stringify(trash));
+
+    console.log(`🗑️ Note with ID ${noteId} moved to trash.`);
+  } else {
+    console.warn(`⚠️ Note with ID ${noteId} not found.`);
+  }
+}
+
 
     function openNoteDetailModal(note) {
       modalNoteTitle.textContent = note.title;

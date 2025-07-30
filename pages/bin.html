@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trash Bin</title>
-  <link rel="stylesheet" href="../styling/bin.css">
+  <link rel="stylesheet" href="../styling/bin.css" />
 </head>
 <body>
-  <h1>Trash Bin</h1>
-  <div id="trash-notes-container"></div>
+   <header>
+    <h1 class="page-title">🗑️ Trash Bin</h1>
+  </header>
 
-  <script src="../scripts/bin.js"></script>
+  <main>
+      <div id="empty-message" style="display:none; ">No notes in bin.</div>
+    <section class="notes-section">
+      <div id="trash-notes-container" class="notes-container">
+        <!-- Trashed notes will be inserted here by JS -->
+      </div>
+    </section>
+  </main>
+
+
+
+  <script src="../scripts/bin.js" defer></script>
 </body>
-
 </html>
