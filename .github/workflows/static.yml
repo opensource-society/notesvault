@@ -1,43 +1,33 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
+    # Runs on pushes targeting main and master
+    branches:
+      - main
+      - master
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  contents: write  # Required for pushing to gh-pages branch
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # Use the latest Ubuntu runner environment
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Checkout the branch
+        # Checkout the current branch (main or master) that triggered the workflow
+        uses: actions/checkout@v3
         with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          fetch-depth: 1 # Fetch only the latest commit to speed up the workflow
+      - name: Deploy to gh-pages branch in subfolder
+        # Use peaceiris/actions-gh-pages to deploy the content
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub automatically provides this token
+          publish_dir: ./                           # Path to the content you want to publish (root directory here)
+          publish_branch: gh-pages                  # Target branch to publish to (must be enabled in GitHub Pages settings)
+          destination_dir: ${{ github.ref_name }}   # Store files in a folder named after the branch (e.g., /main/, /master/)
