@@ -434,7 +434,7 @@ body {
     width: 80vw;
   }
 
-  .main-right-search-form-input {
+  .main-right .main-right-search-form-input {
     width: calc(80vw - 130px);
     max-width: calc(500px - 130px);
   }
