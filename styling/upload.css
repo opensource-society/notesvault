@@ -1,19 +1,10 @@
+/* MultipleFiles/upload.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
 
 /* CSS Variables for Upload Page Theme */
 :root {
-  --color-base: #f9faf4;
-  --color-ink: #161A30;
-  --color-primary: #113946;
-  --color-primary-hover: #0d2f34;
-  --color-accent: #B4CFB0;
-  --color-white: #ffffff;
-  --color-gray-300: #d1d5db;
-  --color-gray-500: #6b7280;
-  --color-gray-700: #374151;
-  --color-red-500: #ef4444;
-  --color-green-600: #16a34a;
-  --color-indigo-500: #6366f1;
+  /* Variables are now defined in styles.css and inherited */
 }
 
 /* Base Styles */
@@ -25,25 +16,27 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--color-base);
-  color: var(--color-ink);
+  background-color: var(--primary-bg); /* Adjusted for theme */
+  color: var(--text-color); /* Adjusted for theme */
   line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header Styles */
 header {
-  background-color: var(--color-white);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background-color: var(--header-bg); /* Adjusted for theme */
+  box-shadow: 0 1px 3px 0 var(--shadow-color), 0 1px 2px 0 var(--shadow-color); /* Adjusted for theme */
   padding: 0.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 header h1 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-ink);
+  color: var(--header-text); /* Adjusted for theme */
 }
 
 nav {
@@ -53,7 +46,7 @@ nav {
 }
 
 nav a {
-  color: var(--color-ink);
+  color: var(--header-text); /* Adjusted for theme */
   text-decoration: none;
 }
 
@@ -63,8 +56,8 @@ nav a:hover {
 
 .signup-btn {
   padding: 0.25rem 1rem;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--button-bg); /* Adjusted for theme */
+  color: var(--button-text); /* Adjusted for theme */
   border-radius: 9999px;
   font-size: 0.875rem;
   border: none;
@@ -73,7 +66,7 @@ nav a:hover {
 }
 
 .signup-btn:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--link-color); /* Adjusted for theme */
 }
 
 /* Main Content Styles */
@@ -81,15 +74,17 @@ main {
   max-width: 768px;
   margin: 3rem auto 0;
   padding: 1.5rem;
-  background-color: var(--color-white);
+  background-color: var(--card-bg); /* Adjusted for theme */
   border-radius: 0.75rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px 0 var(--shadow-color), 0 1px 2px 0 var(--shadow-color); /* Adjusted for theme */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 main h2 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 /* Form Styles */
@@ -104,10 +99,10 @@ main h2 {
   margin-top: 190px;
   padding: 2rem;
   
-  background: white;
+  background: var(--card-bg); /* Adjusted for theme */
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
-  border: 2px green solid;
+  border: 2px var(--accent-color) solid; /* Adjusted for theme */
 }
 
 .form-group {
@@ -120,10 +115,11 @@ main h2 {
   font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 0.25rem;
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .required {
-  color: var(--color-red-500);
+  color: var(--link-color); /* Adjusted for theme */
 }
 
 .form-input,
@@ -131,44 +127,48 @@ main h2 {
   margin-top: 0.25rem;
   width: 100%;
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-gray-300);
+  border: 1px solid var(--input-border); /* Adjusted for theme */
   border-radius: 0.5rem;
   font-size: 0.875rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--input-bg); /* Adjusted for theme */
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .form-input:focus,
 .form-select:focus {
   outline: none;
-  border-color: var(--color-indigo-500);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: var(--accent-color); /* Adjusted for theme */
+  box-shadow: 0 0 0 3px var(--shadow-color); /* Adjusted for theme */
 }
 
 .form-input::placeholder {
-  color: var(--color-gray-500);
+  color: var(--placeholder-color); /* Adjusted for theme */
 }
 
 .file-input {
   display: block;
   width: 100%;
-  border: 1px solid var(--color-gray-300);
+  border: 1px solid var(--input-border); /* Adjusted for theme */
   border-radius: 0.375rem;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 var(--shadow-color); /* Adjusted for theme */
   font-size: 0.875rem;
   padding: 0.5rem;
+  background-color: var(--input-bg); /* Adjusted for theme */
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .file-input:focus {
   outline: none;
-  border-color: var(--color-indigo-500);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: var(--accent-color); /* Adjusted for theme */
+  box-shadow: 0 0 0 3px var(--shadow-color); /* Adjusted for theme */
 }
 
 /* Submit Button */
 .submit-btn {
   width: 100%;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--button-bg); /* Adjusted for theme */
+  color: var(--button-text); /* Adjusted for theme */
   padding: 0.5rem;
   border-radius: 9999px;
   border: none;
@@ -178,13 +178,13 @@ main h2 {
 }
 
 .submit-btn:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--link-color); /* Adjusted for theme */
 }
 
 /* Message Styles */
 .message {
   margin-top: 1rem;
-  color: var(--color-green-600);
+  color: var(--link-color); /* Adjusted for theme */
   font-weight: 500;
 }
 
@@ -193,7 +193,7 @@ footer {
   text-align: center;
   font-size: 0.875rem;
   margin-top: 2.5rem;
-  color: var(--color-gray-500);
+  color: var(--footer-link); /* Adjusted for theme */
 }
 
 /* Responsive Design */
@@ -232,3 +232,4 @@ footer {
     font-size: 1.25rem;
   }
 }
+

@@ -1,534 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browse Notes - NotesVault</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../styles.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styling/styles.css" />
+    <!-- <link rel="stylesheet" href="../styling/overview.css" /> -->bs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>About - NotesVault</title>tyles.css"/>
     <link rel="icon" href="favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../styling/overview.css">
-</head>
-<style>
-    /* General Body and Font Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-/* Header Styling (from the provided image) */
-header {
-    background-color: #ffffff;
-    padding: 15px 50px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #333; /* Adjust as per your logo's color */
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #007bff; /* Example hover color */
-}
-
-.sign-up-btn {
-    background-color: #4CAF50; /* A green color for sign-up */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
-
-.sign-up-btn:hover {
-    background-color: #45a049;
-}
-
-/* Browse Notes Page Specific Styles */
-.browse-notes-container {
-    padding: 40px 50px;
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.browse-notes-container h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.notes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    justify-content: center;
-}
-
-.note-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.note-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.note-card h3 {
-    margin-top: 0;
-    color: #007bff; /* Primary color for titles */
-    font-size: 1.3em;
-    margin-bottom: 10px;
-}
-
-.note-card p {
-    margin: 5px 0;
-    color: #666;
-    font-size: 0.95em;
-}
-
-.note-card .actions {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-}
-
-.note-card .view-button,
-.note-card .download-button {
-    flex: 1;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    text-align: center;
-    text-decoration: none; /* For download button which is an <a> */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.note-card .view-button {
-    background-color: #28a745; /* Green for view */
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-.note-card .view-button:hover {
-    background-color: #218838;
-}
-
-.note-card .download-button {
-    background-color: #007bff; /* Blue for download */
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-.note-card .download-button:hover {
-    background-color: #0056b3;
-}
-
-.loading-message, .no-notes-message {
-    grid-column: 1 / -1; /* Span across all columns */
-    text-align: center;
-    font-size: 1.2em;
-    color: #888;
-    padding: 20px;
-}
-.search-bar {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.search-bar input {
-    width: 60%;
-    max-width: 500px;
-    padding: 12px 18px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.search-bar input:focus {
-    border-color: #007bff;
-}
-
-
-/* Modal Styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 30px;
-    border: 1px solid #888;
-    border-radius: 10px;
-    width: 80%; /* Could be more specific, e.g., 600px */
-    max-width: 700px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-}
-
-.close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-}
-
-.modal-content h2 {
-    color: #007bff;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
-
-.modal-content p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-.modal-content strong {
-    color: #555;
-}
-
-.modal-content .download-button {
-    display: inline-flex; /* Use inline-flex for centering icon and text */
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    align-items: center; /* Vertically align icon and text */
-    gap: 8px; /* Space between icon and text */
-}
-
-.modal-content .download-button:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-    }
-
-    nav ul {
-        display: none; /* Hide nav links on small screens, can implement a hamburger menu */
-    }
-
-    .browse-notes-container {
-        padding: 20px;
-    }
-
-    .notes-grid {
-        grid-template-columns: 1fr; /* Single column on small screens */
-    }
-
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-}
-
-</style>
-<body>
+      rel="stylesheet"eet" href="../styling/overview.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-...hash..."
+      crossorigin="anonymous"Styling */
+      referrerpolicy="no-referrer"
+    />nt-family: Arial, sans-serif;
+    <link rel="stylesheet" href="../styling/about.css">
+    <script: 0;
+      src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>r Styling (from the provided image) */
     <header>
-      <div id="header">
+      <div id="header">ffffff;
         <div class="hamburger-wrapper">
-          <!-- Hamburger icon -->
-          <button class="hamburger-menu">
+          <button class="hamburger-menu">.05);
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
           </button>
-
-          <!-- Sidebar menu (hidden by default, visible on hover) -->
           <div class="hover-sidebar">
-            <ul>
+            <ul> center;
               <li><a href="../index.html">Dashboard</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="overview.html">Overview</a></li>
-              <li><a href="#">Features</a></li>
+              <li><a href="features.html">Features</a></li>
               <li><a href="#">Resources</a></li>
-            </ul>
+            </ul>/* Adjust as per your logo's color */
           </div>
         </div>
         <div id="header-title-box">
           <p id="header-title">NotesVault</p>
         </div>
-
-        
-
-        <!-- Navigation Menu -->
         <div id="header-navigation" class="nav-menu">
           <a href="overview.html">Overview</a>
+          <a href="studentAccount.html">Student Account</a>
+          <a href="about.html">About</a>
+          <a href="features.html">Features</a>
+        </div>
+        <div id="header-signup-box">
+           <a href="signup.html"><p>Sign Up</p></a>
+        </div>t: 500;
+        <button id="theme-toggle" title="Toggle Dark Mode">on: color 0.3s ease;
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>ple hover color */
+
+    <div class="main_content">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-title">About NotesVault</h1>
+          <p class="hero-subtitle">Empowering Students Through Collaborative Learning</p>
+          <div class="hero-stats">
+            <div class="stat-item">r;
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Notes Shared</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Contributors</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>Page Specific Styles */
+              <span class="stat-label">Available</span>container {
+            </div> 40px 50px;
+          </div>    max-width: 1200px;
+        </div>
+      </div>
+
+      <!-- Introduction Section -->0, 0, 0.1);
+      <div class="intro-section">
+        <div class="intro-content">
+          <div class="intro-text">
+            <h2>What is NotesVault?</h2>center;
+            <p>;
+              NotesVault is a revolutionary, open-source platform designed specifically for students who believe in the power of collaborative learning. We've created a centralized hub where academic notes, Previous Year Questions (PYQs), and study materials are organized, accessible, and community-driven.
+            </p>
+            <p>
+              Born from the frustration of scattered resources across WhatsApp groups, Google Drives, and countless broken links, NotesVault brings order to the chaos of student life. Our platform doesn't just store your notes—it builds bridges between learners, fostering a supportive ecosystem where knowledge flows freely.
+            </p>
+          </div>it, minmax(280px, 1fr));
+          <div class="intro-visual">
+            <div class="feature-grid">
+              <div class="feature-icon">
+                <i class="fas fa-users"></i>
+                <span>Collaborative</span>
+              </div>
+              <div class="feature-icon">d #e0e0e0;
+                <i class="fas fa-search"></i>
+                <span>Searchable</span>
+              </div> 0.05);
+              <div class="feature-icon">sform 0.2s ease, box-shadow 0.2s ease;
+                <i class="fas fa-mobile-alt"></i>
+                <span>Responsive</span>
+              </div>
+              <div class="feature-icon">
+                <i class="fas fa-code-branch"></i>
+                <span>Open Source</span> {
+              </div> translateY(-5px);
+            </div>ow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          </div>}
+        </div>
+      </div>
+
+      <div class="notesvault-section">or titles */
+        <!-- Mission & Vision with enhanced design -->
+        <div class="section mission-vision-section">
+          <div class="section-header">
+            <i class="fas fa-bullseye section-icon"></i>
+            <h2>Our Mission & Vision</h2>
+          </div>
+          <div class="mission-vision-grid">
+            <div class="mission-card">
+              <div class="card-header">
+                <i class="fas fa-rocket"></i>
+                <h3>Mission</h3>
+              </div>px;
+              <p>
+                To democratize academic access by providing a centralized, open-source platform where students can seamlessly share, browse, and store academic resources like notes and PYQs, breaking down barriers to quality education.
+              </p>
+            </div>
+            <div class="vision-card">
+              <div class="card-header">-button {
+                <i class="fas fa-eye"></i>
+                <h3>Vision</h3>
+              </div>
+              <p> 5px;
+                To create a world where learning is truly collaborative, efficient, and accessible for every student—regardless of their background, college, or resources—by eliminating knowledge silos and fostering a supportive global learning community.ter;
+              </p> 0.9em;
+            </div>    text-align: center;
+          </div>on which is an <a> */
+        </div>
+
+        <!-- Enhanced How It Helps Students -->
+        <div class="section how-it-helps-section">
+          <div class="section-header">
+            <i class="fas fa-graduation-cap section-icon"></i>
+            <h2>Transforming Student Life</h2>
+          </div> view */
+          
+          <div class="problem-solution">
+            <div class="problem-statement">
+              <h3>The Problem We Solve</h3>
+              <blockquote class="problem-quote">
+                <i class="fas fa-quote-left"></i>38;
+                "Students were drowning in scattered notes across WhatsApp groups, broken Google Drive links, and disorganized folders. We knew there had to be a better way."
+                <i class="fas fa-quote-right"></i>
+              </blockquote>
+            </div>r download */
+            
+            <div class="solution-grid">
+              <div class="solution-card">
+                <div class="solution-icon">
+                  <i class="fas fa-database"></i>
+                </div>: #0056b3;
+                <h4>Unified Resource Hub</h4>
+                <p>No more digging through endless chat threads or broken drives. Everything you need is organized in one accessible location.</p>
+              </div>
+              */
+              <div class="solution-card">;
+                <div class="solution-icon">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+                <h4>Smart Search & Filtering</h4>
+                <p>Find exactly what you need with intelligent subject tags, semester filters, and advanced search capabilities.</p>
+              </div>
+              
+              <div class="solution-card">
+                <div class="solution-icon">
+                  <i class="fas fa-users-cog"></i>
+                </div>
+                <h4>Community-Driven</h4> 500px;
+                <p>Every student can contribute, creating a thriving ecosystem of shared knowledge and collaborative learning.</p>
+              </div>
+              
+              <div class="solution-card">
+                <div class="solution-icon">;
+                  <i class="fas fa-clock"></i>
+                </div>er-color 0.3s ease;
+                <h4>24/7 Availability</h4>
+                <p>Access your study materials anytime, anywhere. No more last-minute panic before exams.</p>
+              </div>put:focus {
+            </div>    border-color: #007bff;
+          </div>
+        </div>
+
+        <!-- Enhanced Tech Stack -->
+        <div class="section tech-stack-section">
+          <div class="section-header">e; /* Hidden by default */
+            <i class="fas fa-code section-icon"></i>on: fixed; /* Stay in place */
+            <h2>Built with Modern Technology</h2>
+          </div>
+          
+          <div class="tech-categories">
+            <div class="tech-category">*/
+              <div class="tech-category-header">
+                <i class="fas fa-paint-brush"></i>: rgba(0,0,0,0.5); /* Black w/ opacity */
+                <h3>Frontend</h3>r horizontally */
+                <span class="status-badge current">Current</span>ically */
+              </div>
+              <div class="tech-list">
+                <div class="tech-item">
+                  <i class="fab fa-html5"></i>#fefefe;
+    margin: auto; <span>HTML5</span>
+    padding: 30px;<small>Semantic markup for accessibility</small>
+    border: 1px solid #888;
+    border-radius: 10px;ss="tech-item">
+    width: 80%; /* Could be more specific, e.g., 600px */re specific, e.g., 600px */
+    max-width: 700px;an>CSS3</span>
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);h flexbox & grid</small>
+    position: relative;
+}               <div class="tech-item">
+                  <i class="fab fa-js-square"></i>
+.close-button {   <span>JavaScript</span>
+    color: #aaa;  <small>Interactive user experience</small>
+    float: right;/div>ight;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;iv class="tech-category">
+    right: 20px;iv class="tech-category-header">
+    cursor: pointer;lass="fas fa-server"></i>
+}               <h3>Backend</h3>
+                <span class="status-badge planned">Planned</span>
+.close-button:hover,
+.close-button:focus {ass="tech-list">
+    color: black;div class="tech-item">
+    text-decoration: none;="fab fa-node-js"></i>one;
+}                 <span>Node.js</span>
+                  <small>Server-side JavaScript runtime</small>
+.modal-content h2 {iv>
+    color: #007bff;v class="tech-item">
+    margin-top: 0;<i class="fas fa-route"></i>
+    margin-bottom: 20px;Express.js</span>
+    font-size: 1.8em;all>Fast web application framework</small>
+}               </div>
+                <div class="tech-item">
+.modal-content p {<i class="fas fa-fire"></i>
+    margin-bottom: 10px;Firebase</span>0px;
+    line-height: 1.6;all>Authentication & real-time database</small>.6;
+}               </div>
+              </div>
+.modal-content strong {
+    color: #555;
+}           <div class="tech-category">
+              <div class="tech-category-header">
+.modal-content .download-button {tools"></i>load-button {
+    display: inline-flex; /* Use inline-flex for centering icon and text */*/
+    margin-top: 20px; class="status-badge planned">Planned</span>
+    padding: 12px 25px;
+    background-color: #007bff;-list">
+    color: white;div class="tech-item">
+    border-radius: 5px;ass="fab fa-github"></i>;
+    text-decoration: none;tHub Actions</span>
+    font-size: 1.1em;all>Continuous integration & deployment</small>
+    transition: background-color 0.3s ease;
+    align-items: center; /* Vertically align icon and text */
+    gap: 8px; /* Space between icon and text */etween icon and text */
+}                 <span>MongoDB</span>
+                  <small>Document-based database</small>
+.modal-content .download-button:hover {
+    background-color: #0056b3;ch-item">
+}                 <i class="fas fa-wind"></i>
+                  <span>Tailwind CSS</span>
+/* Responsive Design */l>Utility-first CSS framework</small>gn */
+@media (max-width: 768px) {8px) {
+    header {  </div>
+        padding: 15px 20px;adding: 15px 20px;
+    }     </div>
+        </div>
+    nav ul {
+        display: none; /* Hide nav links on small screens, can implement a hamburger menu */
+    }   <div class="section github-section">
+          <div class="section-header">
+    .browse-notes-container {github section-icon"></i>e-notes-container {
+        padding: 20px;ource & Community Driven</h2>
+    }     </div>
+          
+    .notes-grid {ass="github-content">
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }         <div class="opensource-badge">
+                <i class="fas fa-heart"></i>
+    .modal-content {n>Made with Love by the Community</span>
+        width: 95%;>
+        padding: 20px;
+    }         <p class="github-description">
+}               NotesVault is proudly open-source and welcomes contributors of all skill levels! Whether you're a beginner looking to make your first contribution or an experienced developer wanting to add advanced features, there's a place for you in our community.
+              </p>
+</style>      
+<body>        <div class="github-stats">
+    <header>    <div class="github-stat">
+      <div id="header">ass="fas fa-star"></i>
+        <div class="hamburger-wrapper">ub</span>
+          <!-- Hamburger icon -->
+          <button class="hamburger-menu">s="hamburger-menu">
+            <span class="hamburger-line"></span></i></span>
+            <span class="hamburger-line"></span>pan>
+            <span class="hamburger-line"></span>
+          </button>v class="github-stat">
+                  <i class="fas fa-bug"></i>
+          <!-- Sidebar menu (hidden by default, visible on hover) -->ult, visible on hover) -->
+          <div class="hover-sidebar">-sidebar">
+            <ul>div>
+              <li><a href="../index.html">Dashboard</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="overview.html">Overview</a></li>w</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Resources</a></li>i>
+            </ul>div class="step">
+          </div>  <div class="step-number">1</div>
+        </div>    <div class="step-content">
+        <div id="header-title-box"> Codebase</h4>r-title-box">
+          <p id="header-title">NotesVault</p>itory and familiarize yourself with the project structure</p>esVault</p>
+        </div>    </div>
+                </div>
+                <div class="step">
+                  <div class="step-number">2</div>
+        <!-- Navigation Menu -->ep-content">Menu -->
+        <div id="header-navigation" class="nav-menu">navigation" class="nav-menu">
+          <a href="overview.html">Overview</a> "good first issue" - perfect for newcomers</p>Overview</a>
           <a href="/">Student Account</a>
           <a href="about.html">About</a>
           <a href="/">Features</a>
-        </div>
-
-        <div id="header-signup-box">
-          <p>Sign Up</p>
-        </div>
-      </div>
-    </header>
-
-    <main class="browse-notes-container">
-        <h1>Browse All Notes</h1>
-        <!--Search Bar-->
+        </div>    <div class="step-number">3</div>
+                  <div class="step-content">
+        <div id="header-signup-box">munity</h4>r-signup-box">
+          <p>Sign Up</p>onnect with other contributors and get help when you need it</p></p>
+        </div>    </div>
+      </div>    </div>
+    </header> </div>
+              
+    <main class="browse-notes-container">iner">
+        <h1>Browse All Notes</h1>github.com/opensource-society/notesvault" target="_blank" class="github-button primary">ll Notes</h1>
+        <!--Search Bar-->s="fab fa-github"></i>
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search notes by title, branch, or semester..." />
-        </div>
-
-
-        <div class="notes-grid" id="notesGrid">
-            <div class="loading-message" id="loadingMessage">Loading notes...</div>
-            <div class="no-notes-message" id="noNotesMessage" style="display: none;">No notes found.</div>
-        </div>
-    </main>
+        </div>  <a href="https://github.com/opensource-society/notesvault/issues" target="_blank" class="github-button secondary">
+                  <i class="fas fa-tasks"></i>
+                  Browse Issues
+        <div class="notes-grid" id="notesGrid">id">
+            <div class="loading-message" id="loadingMessage">Loading notes...</div></div>
+            <div class="no-notes-message" id="noNotesMessage" style="display: none;">No notes found.</div>notes found.</div>
+        </div>v>
+    </main>iv>
 
     <div id="noteDetailModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modalNoteTitle"></h2>
-            <p><strong>Branch:</strong> <span id="modalNoteBranch"></span></p>
+        <div class="modal-content">ty-section">
+            <span class="close-button">&times;</span>button">&times;</span>
+            <h2 id="modalNoteTitle"></h2>n-icon"></i>  <h2 id="modalNoteTitle"></h2>
+            <p><strong>Branch:</strong> <span id="modalNoteBranch"></span></p>n></p>
             <p><strong>Semester:</strong> <span id="modalNoteSemester"></span></p>
             <p><strong>Description:</strong> <span id="modalNoteDescription"></span></p>
-            <p><strong>Uploaded By:</strong> <span id="modalNoteUploader"></span></p>
-            <p><strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span></p>
-            <a id="modalDownloadButton" class="download-button" href="#" download>
+            <p><strong>Uploaded By:</strong> <span id="modalNoteUploader"></span></p>teUploader"></span></p>
+            <p><strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span></p>lNoteUploadDate"></span></p>
+            <a id="modalDownloadButton" class="download-button" href="#" download>a community of learners, creators, and innovators who believe that education should be accessible to everyone.</p>lass="download-button" href="#" download>
                 <i class="fas fa-download"></i> Download Note
             </a>
-        </div>
-    </div>
-
-    <script >
+        </div>iv class="community-stats">
+    </div>    <div class="community-stat">
+                <div class="stat-icon">
+    <script >     <i class="fas fa-users"></i>
         // your code goes here
-document.addEventListener('DOMContentLoaded', () => {
-    const notesGrid = document.getElementById('notesGrid');
-    const loadingMessage = document.getElementById('loadingMessage');
+document.addEventListener('DOMContentLoaded', () => {tentLoaded', () => {
+    const notesGrid = document.getElementById('notesGrid');cument.getElementById('notesGrid');
+    const loadingMessage = document.getElementById('loadingMessage');mentById('loadingMessage');
     const noNotesMessage = document.getElementById('noNotesMessage');
     const noteDetailModal = document.getElementById('noteDetailModal');
-    const closeModalButton = noteDetailModal.querySelector('.close-button');
+    const closeModalButton = noteDetailModal.querySelector('.close-button');or('.close-button');
     const modalNoteTitle = document.getElementById('modalNoteTitle');
     const modalNoteBranch = document.getElementById('modalNoteBranch');
     const modalNoteSemester = document.getElementById('modalNoteSemester');
-    const modalNoteDescription = document.getElementById('modalNoteDescription');
-    const modalNoteUploader = document.getElementById('modalNoteUploader');
-    const modalNoteUploadDate = document.getElementById('modalNoteUploadDate');
+    const modalNoteDescription = document.getElementById('modalNoteDescription');alNoteDescription');
+    const modalNoteUploader = document.getElementById('modalNoteUploader');etElementById('modalNoteUploader');
+    const modalNoteUploadDate = document.getElementById('modalNoteUploadDate');dalNoteUploadDate');
     const modalDownloadButton = document.getElementById('modalDownloadButton');
-
-    // Dummy data to simulate notes fetched from a backend
+              </div>
+    // Dummy data to simulate notes fetched from a backendtched from a backend
     // In a real application, this would be fetched from your Node.js/Express API
-    const dummyNotes = [
-        {
-            _id: 'note1',
-            title: 'Data Structures & Algorithms Basics',
-            branch: 'Computer Science',
-            semester: '3rd',
-            description: 'Comprehensive notes on fundamental data structures (arrays, linked lists, trees, graphs) and common algorithms (sorting, searching).',
-            uploader: 'Alice Smith',
-            uploadDate: '2023-03-15',
-            filePath: 'http://example.com/notes/dsa_basics.pdf' // Placeholder for actual file path
-        },
-        {
+    const dummyNotes = [ss="fas fa-university"></i>
+        {       </div>
+            _id: 'note1',s="stat-content">1',
+            title: 'Data Structures & Algorithms Basics',a Structures & Algorithms Basics',
+            branch: 'Computer Science',el">Universities</span>: 'Computer Science',
+            semester: '3rd','3rd',
+            description: 'Comprehensive notes on fundamental data structures (arrays, linked lists, trees, graphs) and common algorithms (sorting, searching).',ng).',
+            uploader: 'Alice Smith',mith',
+            uploadDate: '2023-03-15',3-15',
+            filePath: 'http://example.com/notes/dsa_basics.pdf' // Placeholder for actual file pathtual file path
+        },v>
+        {>
             _id: 'note2',
             title: 'Digital Electronics Principles',
             branch: 'Electronics Engineering',
-            semester: '4th',
+            semester: '4th',op">
             description: 'Detailed notes covering logic gates, Boolean algebra, combinational and sequential circuits.',
-            uploader: 'Bob Johnson',
-            uploadDate: '2023-04-20',
-            filePath: 'http://example.com/notes/digital_electronics.pdf'
-        },
-        {
-            _id: 'note3',
+            uploader: 'Bob Johnson',>NotesVault</div>
+            uploadDate: '2023-04-20',ion">adDate: '2023-04-20',
+            filePath: 'http://example.com/notes/digital_electronics.pdf'dy notescom/notes/digital_electronics.pdf'
+        },    and PYQs organized, easy to find, and always just a click away.
+        {   </p>
+            _id: 'note3',ocial-links">
             title: 'Thermodynamics for Mechanical Engineers',
-            branch: 'Mechanical Engineering',
-            semester: '5th',
+            branch: 'Mechanical Engineering',source-society/notesvault"ng',
+            semester: '5th',l-link"ester: '5th',
             description: 'Concepts of thermodynamics, laws, cycles, and their applications in various systems.',
-            uploader: 'Charlie Brown',
+            uploader: 'Charlie Brown',er"
             uploadDate: '2023-05-10',
-            filePath: 'http://example.com/notes/thermodynamics.pdf'
-        },
-        {
+            filePath: 'http://example.com/notes/thermodynamics.pdf'l="currentColor">th: 'http://example.com/notes/thermodynamics.pdf'
+        },        <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.300 24 12c0-6.627-5.373-12-12-12z"/>
+        {       </svg>
             _id: 'note4',
-            title: 'Object-Oriented Programming with Java',
-            branch: 'Information Technology',
-            semester: '3rd',
-            description: 'Introduction to OOP principles using Java: classes, objects, inheritance, polymorphism, abstraction, and encapsulation.',
-            uploader: 'Alice Smith',
+            title: 'Object-Oriented Programming with Java',riented Programming with Java',
+            branch: 'Information Technology',iewBox="0 0 24 24" fill="currentColor">: 'Information Technology',
+            semester: '3rd',20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/>er: '3rd',
+            description: 'Introduction to OOP principles using Java: classes, objects, inheritance, polymorphism, abstraction, and encapsulation.',ion.',
+            uploader: 'Alice Smith',er: 'Alice Smith',
             uploadDate: '2023-06-01',
             filePath: 'http://example.com/notes/oop_java.pdf'
         },
-        {
-            _id: 'note5',
+        { <div class="footer-links">
+            _id: 'note5',ks</h4>
             title: 'Calculus I - Differentiation',
-            branch: 'Mathematics',
-            semester: '1st',
-            description: 'Basic concepts of differentiation, limits, continuity, and applications.',
-            uploader: 'David Lee',
-            uploadDate: '2023-07-10',
+            branch: 'Mathematics',ew">Overview</a></li>
+            semester: '1st',features">Features</a></li>
+            description: 'Basic concepts of differentiation, limits, continuity, and applications.',rentiation, limits, continuity, and applications.',
+            uploader: 'David Lee',">Upload Notes</a></li>ader: 'David Lee',
+            uploadDate: '2023-07-10',out</a></li>            uploadDate: '2023-07-10',
             filePath: 'http://example.com/notes/calculus1.pdf'
-        }
+        } </div>
     ];
-
+          <div class="footer-community">
     // Function to fetch notes (simulated)
-    async function fetchNotes() {
-        loadingMessage.style.display = 'block';
-        noNotesMessage.style.display = 'none';
+    async function fetchNotes() {-badges"> fetchNotes() {
+        loadingMessage.style.display = 'block';.tech/" class="gssoc-badge" target="_blank" rel="noopener noreferrer">
+        noNotesMessage.style.display = 'none';com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0a1ea17-12ac-433f-9266-afb96c11f06a_200x200.jpeg"/>'none';
         notesGrid.innerHTML = ''; // Clear existing notes
-
-       
-    }
-
-    // Function to create a note card HTML element
-    function createNoteCard(note) {
+              <a href="https://github.com/opensource-society" class="oss-link" target="_blank" rel="noopener noreferrer">
+                <div class="oss-badge">
+    }             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L1.608 6v12L12 24l10.392-6V6L12 0zm0 2.19l8.392 4.85v9.92L12 21.81l-8.392-4.85V7.04L12 2.19z"/>
+    // Function to create a note card HTML elementlement
+    function createNoteCard(note) { Society</span>eNoteCard(note) {
         const noteCard = document.createElement('div');
         noteCard.classList.add('note-card');
-        noteCard.setAttribute('data-note-id', note._id);
-
-        noteCard.innerHTML = `
-            <h3>${note.title}</h3>
+        noteCard.setAttribute('data-note-id', note._id););
+            <p class="community-text">
+        noteCard.innerHTML = ` community of learners and contributorsrd.innerHTML = `
+            <h3>${note.title}</h3>note.title}</h3>
             <p><strong>Branch:</strong> ${note.branch}</p>
             <p><strong>Semester:</strong> ${note.semester}</p>
             <p><strong>Uploaded By:</strong> ${note.uploader}</p>
-            <div class="actions">
+            <div class="actions">">
                 <button class="view-button"><i class="fas fa-eye"></i> View</button>
-                <a class="download-button" href="${note.filePath}" download="${note.title.replace(/\s/g, '_')}.pdf">
+                <a class="download-button" href="${note.filePath}" download="${note.title.replace(/\s/g, '_')}.pdf">le.replace(/\s/g, '_')}.pdf">
                     <i class="fas fa-download"></i> Download
-                </a>
+                </a> NotesVault. Built with ❤️ by the Open Source Community
             </div>
-        `;
-
-        // Attach event listener for the "View" button
-        const viewButton = noteCard.querySelector('.view-button');
-        viewButton.addEventListener('click', () => openNoteDetailModal(note));
-
-        return noteCard;
-    }
-    const searchInput = document.getElementById('searchInput');
+        `;  <div class="footer-bottom-links">
+              <a href="#privacy">Privacy Policy</a>viewButton = noteCard.querySelector('.view-button');
+        viewButton.addEventListener('click', () => openNoteDetailModal(note));ote));
+          </div>
+        return noteCard;turn noteCard;
+    } </div>
+    const searchInput = document.getElementById('searchInput');t');
     let allNotes = []; // Holds all notes, including hidden
-
+    <script src="../scripts/script.js" defer></script>
       // Replace dummyNotes assignment:
     allNotes = dummyNotes;
 
     function displayNotes(notesToShow, initialLoad = false) {
     notesGrid.innerHTML = '';
     if (notesToShow.length === 0) {
-        noNotesMessage.style.display = 'block';
-        return;
+        noNotesMessage.style.display = 'block';oad = false) {
+        return;nnerHTML = '';
+    } else {sToShow.length === 0) {
+        noNotesMessage.style.display = 'none';;
+    }   return;
     } else {
-        noNotesMessage.style.display = 'none';
-    }
-
     const notesToDisplay = initialLoad ? notesToShow.slice(0, 3) : notesToShow;
-
+    }
     notesToDisplay.forEach(note => {
-        const noteCard = createNoteCard(note);
+        const noteCard = createNoteCard(note);ToShow.slice(0, 3) : notesToShow;
         notesGrid.appendChild(noteCard);
-    });
-   }
-
+    });esToDisplay.forEach(note => {
+   }    const noteCard = createNoteCard(note);
+        notesGrid.appendChild(noteCard);
       // Update fetchNotes() to call displayNotes():
     async function fetchNotes() {
     loadingMessage.style.display = 'block';
-    notesGrid.innerHTML = '';
-
-    try {
+    notesGrid.innerHTML = '';to call displayNotes():
+    async function fetchNotes() {
+    try {ngMessage.style.display = 'block';
         await new Promise(resolve => setTimeout(resolve, 1000));
         allNotes = dummyNotes; // Store all notes
         displayNotes(allNotes, true); // Show only 3 at first
-    } catch (error) {
+    } catch (error) {mise(resolve => setTimeout(resolve, 1000));
         console.error('Error fetching notes:', error);
         notesGrid.innerHTML = `<p class="error-message">Failed to load notes. Please try again later.</p>`;
-    } finally {
+    } finally {ror) {
+        loadingMessage.style.display = 'none'; error);
+    }   notesGrid.innerHTML = `<p class="error-message">Failed to load notes. Please try again later.</p>`;
+   }} finally {
         loadingMessage.style.display = 'none';
-    }
-   }
-
 // Add search filter:
     searchInput.addEventListener('keyup', () => {
     const query = searchInput.value.toLowerCase().trim();
-
+// Add search filter:
     const filteredNotes = allNotes.filter(note =>
-        note.title.toLowerCase().includes(query) ||
+        note.title.toLowerCase().includes(query) ||rim();
         note.branch.toLowerCase().includes(query) ||
         note.semester.toLowerCase().includes(query)
-    );
-
-    displayNotes(filteredNotes);
+    );  note.title.toLowerCase().includes(query) ||
+        note.branch.toLowerCase().includes(query) ||
+    displayNotes(filteredNotes);e().includes(query)
    });
 
-
+    displayNotes(filteredNotes);
     // Function to open the note detail modal
     function openNoteDetailModal(note) {
         modalNoteTitle.textContent = note.title;
@@ -537,30 +535,34 @@ document.addEventListener('DOMContentLoaded', () => {
         modalNoteDescription.textContent = note.description;
         modalNoteUploader.textContent = note.uploader;
         modalNoteUploadDate.textContent = new Date(note.uploadDate).toLocaleDateString();
-        modalDownloadButton.href = note.filePath;
+        modalDownloadButton.href = note.filePath;escription;
         modalDownloadButton.setAttribute('download', `${note.title.replace(/\s/g, '_')}.pdf`); // Set download filename
-
+        modalNoteUploadDate.textContent = new Date(note.uploadDate).toLocaleDateString();
         noteDetailModal.style.display = 'flex'; // Use flex to center the modal
-    }
+    }   modalDownloadButton.setAttribute('download', `${note.title.replace(/\s/g, '_')}.pdf`); // Set download filename
 
-    // Function to close the note detail modal
+    // Function to close the note detail modal; // Use flex to center the modal
     function closeNoteDetailModal() {
         noteDetailModal.style.display = 'none';
-    }
-
+    }/ Function to close the note detail modal
+    function closeNoteDetailModal() {
     // Event listener for closing modal when close button is clicked
     closeModalButton.addEventListener('click', closeNoteDetailModal);
 
     // Event listener for closing modal when clicking outside the modal content
-    window.addEventListener('click', (event) => {
+    window.addEventListener('click', (event) => {oseNoteDetailModal);
         if (event.target === noteDetailModal) {
+            closeNoteDetailModal();odal when clicking outside the modal content
+        }w.addEventListener('click', (event) => {
+    }); if (event.target === noteDetailModal) {
             closeNoteDetailModal();
-        }
-    });
-
     // Initial fetch of notes when the page loads
     fetchNotes();
 });
+    </script>l fetch of notes when the page loads
+</body>chNotes();
+</html>
     </script>
+<script src="../scripts/theme.js"></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
-/* Todo List Styles - NotesVault Theme */
+/* MultipleFiles/todolist.css */
 
 /* Main Container */
 .todo-main {
   min-height: 100vh;
   padding-top: 100px;
   padding-bottom: 100px;
-  background: linear-gradient(135deg, #f9faf4 0%, #e8f5e8 100%);
+  background: var(--primary-bg); /* Adjusted for theme */
   font-family: "Poppins", sans-serif;
+  transition: background 0.3s ease;
 }
 
 .todo-container {
@@ -24,32 +25,35 @@
 .todo-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #163d3b;
+  color: var(--text-color); /* Adjusted for theme */
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .todo-title i {
-  color: #B4CFB0;
+  color: var(--accent-color); /* Adjusted for theme */
 }
 
 .todo-subtitle {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-color); /* Adjusted for theme */
   font-weight: 400;
+  transition: color 0.3s ease;
 }
 
 /* Form Container */
 .todo-form-container {
-  background: white;
+  background: var(--card-bg); /* Adjusted for theme */
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(22, 61, 59, 0.1);
+  box-shadow: 0 8px 32px var(--shadow-color); /* Adjusted for theme */
   margin-bottom: 2rem;
-  border: 1px solid rgba(22, 61, 59, 0.1);
+  border: 1px solid var(--card-border); /* Adjusted for theme */
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .todo-form {
@@ -65,29 +69,30 @@
 .task-input {
   flex: 1;
   padding: 1rem 1.5rem;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--input-border); /* Adjusted for theme */
   border-radius: 12px;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
-  background: #fafbfc;
+  background: var(--input-bg); /* Adjusted for theme */
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .task-input:focus {
   outline: none;
-  border-color: #B4CFB0;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(180, 207, 176, 0.1);
+  border-color: var(--accent-color); /* Adjusted for theme */
+  background: var(--input-bg); /* Adjusted for theme */
+  box-shadow: 0 0 0 3px var(--shadow-color); /* Adjusted for theme */
 }
 
 .task-input::placeholder {
-  color: #9ca3af;
+  color: var(--placeholder-color); /* Adjusted for theme */
 }
 
 .add-btn {
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #163d3b 0%, #113946 100%);
-  color: white;
+  background: var(--button-bg); /* Adjusted for theme */
+  color: var(--button-text); /* Adjusted for theme */
   border: none;
   border-radius: 12px;
   font-size: 1rem;
@@ -103,7 +108,7 @@
 
 .add-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(22, 61, 59, 0.3);
+  box-shadow: 0 8px 25px var(--shadow-color); /* Adjusted for theme */
 }
 
 .add-btn:active {
@@ -131,13 +136,14 @@
   font-weight: 600;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  background: rgba(22, 61, 59, 0.1);
-  color: #163d3b;
+  background: var(--secondary-bg); /* Adjusted for theme */
+  color: var(--text-color); /* Adjusted for theme */
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .completed-count {
-  background: rgba(180, 207, 176, 0.2);
-  color: #2d5a2d;
+  background: var(--secondary-bg); /* Adjusted for theme */
+  color: var(--link-color); /* Adjusted for theme */
 }
 
 .task-actions {
@@ -160,36 +166,37 @@
 }
 
 .clear-btn {
-  background: rgba(239, 68, 68, 0.1);
-  color: #dc2626;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: var(--secondary-bg); /* Adjusted for theme */
+  color: var(--link-color); /* Adjusted for theme */
+  border: 1px solid var(--card-border); /* Adjusted for theme */
 }
 
 .clear-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
+  background: var(--secondary-bg); /* Adjusted for theme */
   transform: translateY(-1px);
 }
 
 .clear-all-btn {
-  background: rgba(239, 68, 68, 0.1);
-  color: #dc2626;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: var(--secondary-bg); /* Adjusted for theme */
+  color: var(--link-color); /* Adjusted for theme */
+  border: 1px solid var(--card-border); /* Adjusted for theme */
 }
 
 .clear-all-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
+  background: var(--secondary-bg); /* Adjusted for theme */
   transform: translateY(-1px);
 }
 
 /* Task List Container */
 .todo-list-container {
-  background: white;
+  background: var(--card-bg); /* Adjusted for theme */
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(22, 61, 59, 0.1);
-  border: 1px solid rgba(22, 61, 59, 0.1);
+  box-shadow: 0 8px 32px var(--shadow-color); /* Adjusted for theme */
+  border: 1px solid var(--card-border); /* Adjusted for theme */
   min-height: 300px;
   position: relative;
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .todo-list {
@@ -203,43 +210,43 @@
   align-items: center;
   padding: 1rem;
   margin-bottom: 0.75rem;
-  background: #fafbfc;
+  background: var(--secondary-bg); /* Adjusted for theme */
   border-radius: 12px;
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--card-border); /* Adjusted for theme */
   transition: all 0.3s ease;
   animation: slideIn 0.3s ease;
 }
 
 .todo-item:hover {
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(22, 61, 59, 0.1);
+  box-shadow: 0 4px 12px var(--shadow-color); /* Adjusted for theme */
 }
 
 .todo-item.completed {
-  background: rgba(180, 207, 176, 0.1);
-  border-color: rgba(180, 207, 176, 0.3);
+  background: var(--secondary-bg); /* Adjusted for theme */
+  border-color: var(--card-border); /* Adjusted for theme */
 }
 
 .todo-item.completed .todo-text {
   text-decoration: line-through;
-  color: #6b7280;
+  color: var(--placeholder-color); /* Adjusted for theme */
 }
 
 .todo-checkbox {
   width: 20px;
   height: 20px;
-  border: 2px solid #d1d5db;
+  border: 2px solid var(--input-border); /* Adjusted for theme */
   border-radius: 6px;
   margin-right: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  background: white;
+  background: var(--input-bg); /* Adjusted for theme */
 }
 
 .todo-checkbox:checked {
-  background: #B4CFB0;
-  border-color: #B4CFB0;
+  background: var(--accent-color); /* Adjusted for theme */
+  border-color: var(--accent-color); /* Adjusted for theme */
 }
 
 .todo-checkbox:checked::after {
@@ -248,7 +255,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: var(--button-text); /* Adjusted for theme */
   font-size: 12px;
   font-weight: bold;
 }
@@ -256,7 +263,7 @@
 .todo-text {
   flex: 1;
   font-size: 1rem;
-  color: #374151;
+  color: var(--text-color); /* Adjusted for theme */
   font-weight: 500;
   word-break: break-word;
   line-height: 1.5;
@@ -282,22 +289,22 @@
 }
 
 .edit-btn {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background: var(--secondary-bg); /* Adjusted for theme */
+  color: var(--link-color); /* Adjusted for theme */
 }
 
 .edit-btn:hover {
-  background: rgba(59, 130, 246, 0.2);
+  background: var(--secondary-bg); /* Adjusted for theme */
   transform: scale(1.05);
 }
 
 .delete-btn {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+  background: var(--secondary-bg); /* Adjusted for theme */
+  color: var(--link-color); /* Adjusted for theme */
 }
 
 .delete-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
+  background: var(--secondary-bg); /* Adjusted for theme */
   transform: scale(1.05);
 }
 
@@ -305,7 +312,7 @@
 .empty-state {
   text-align: center;
   padding: 3rem 2rem;
-  color: #9ca3af;
+  color: var(--placeholder-color); /* Adjusted for theme */
   display: none;
 }
 
@@ -323,12 +330,12 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #6b7280;
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .empty-state p {
   font-size: 1rem;
-  color: #9ca3af;
+  color: var(--placeholder-color); /* Adjusted for theme */
 }
 
 /* Animations */
@@ -356,78 +363,6 @@
 
 .todo-item {
   animation: slideIn 0.3s ease;
-}
-
-/* Dark Mode Support */
-[data-theme="dark"] .todo-main {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-}
-
-[data-theme="dark"] .todo-title {
-  color: #dff8f8;
-}
-
-[data-theme="dark"] .todo-subtitle {
-  color: #a0a0a0;
-}
-
-[data-theme="dark"] .todo-form-container,
-[data-theme="dark"] .todo-list-container {
-  background: #2a2a2a;
-  border-color: rgba(223, 248, 248, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .task-input {
-  background: #3a3a3a;
-  border-color: #4a4a4a;
-  color: #dff8f8;
-}
-
-[data-theme="dark"] .task-input:focus {
-  border-color: #B4CFB0;
-  background: #3a3a3a;
-}
-
-[data-theme="dark"] .task-input::placeholder {
-  color: #808080;
-}
-
-[data-theme="dark"] .task-count,
-[data-theme="dark"] .completed-count {
-  background: rgba(223, 248, 248, 0.1);
-  color: #dff8f8;
-}
-
-[data-theme="dark"] .completed-count {
-  background: rgba(180, 207, 176, 0.2);
-  color: #B4CFB0;
-}
-
-[data-theme="dark"] .todo-item {
-  background: #3a3a3a;
-  border-color: #4a4a4a;
-}
-
-[data-theme="dark"] .todo-item.completed {
-  background: rgba(180, 207, 176, 0.1);
-  border-color: rgba(180, 207, 176, 0.2);
-}
-
-[data-theme="dark"] .todo-text {
-  color: #dff8f8;
-}
-
-[data-theme="dark"] .todo-item.completed .todo-text {
-  color: #808080;
-}
-
-[data-theme="dark"] .empty-state {
-  color: #808080;
-}
-
-[data-theme="dark"] .empty-state h3 {
-  color: #a0a0a0;
 }
 
 /* Responsive Design */
@@ -502,3 +437,4 @@
     justify-content: center;
   }
 } 
+

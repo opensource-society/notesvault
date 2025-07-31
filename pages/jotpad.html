@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NotesVault | JotPad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styling/jotpad.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesVault Footer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"et">
+        rel="stylesheet">favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styling/Footer.css">
 </head>
 <body>
-
-  <div class="header">JotPad - A Clean, Real Time Note Taking Editor</div>
-
-  <div class="editor-wrapper">
-    <div class="editor-container">
-      <div class="note-box empty" contenteditable="true" id="noteArea" spellcheck="true">
-      </div>
-
-      <div class="button-wrapper">
-  <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
-  <button class="delete-btn" onclick="deleteAll()">Delete All</button>
-</div>
-
-     </div>
-
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script>
-    async function downloadPDF() {
-      const { jsPDF } = window.jspdf;
-      const content = document.getElementById('noteArea').innerText;
-
-      const doc = new jsPDF();
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(14);
-      doc.text(content, 10, 20, { maxWidth: 180 });
-      doc.save("MyNotes.pdf");
-    }
-
-    const noteArea=document.getElementById("noteArea");
-    noteArea.innerHTML = localStorage.getItem("noteContent") || "";
-    function togglePlaceholder(){
-      if(noteArea.innerText.trim()===""){
-        noteArea.classList.add("empty");
-      }
-      else{
-        noteArea.classList.remove("empty");
-      }
-    }
-    noteArea.addEventListener("input",togglePlaceholder);
-    noteArea.addEventListener("blur",togglePlaceholder);
-    noteArea.addEventListener("focus", togglePlaceholder);
-    togglePlaceholder()
-
-
-function deleteAll() {
-  if (confirm("Are you sure you want to delete all notes?")) {
-    noteArea.innerHTML = "";
-    localStorage.removeItem("noteContent");
-    togglePlaceholder();
-  }
-}
-
-
-  </script>
-
+    <footer class="modern-footer">lean, Real Time Note Taking Editor</div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2 class="footer-logo">NotesVault</h2>
+                <p class="footer-description">ble="true" id="noteArea" spellcheck="true">
+                    A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong>
+                    academic notes & PYQs semester-wise. Contribute easily, organize efficiently, and search by tags.
+                </p>tton-wrapper">
+            </div>ownload-btn" onclick="downloadPDF()">Download as PDF</button>
+            <div class="footer-section">leteAll()">Delete All</button>
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                    </li>
+                    <li><a href="https://github.com/opensource-society/notesvault" target="_blank"><i
+                                class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+                </ul>
+            </div> downloadPDF() {
+            <div class="footer-section">
+                <h3>Social Media</h3>mentById('noteArea').innerText;
+                <ul>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i>
+                            Instagram</a></li>
+                    <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </li>df");
+                </ul>
+            </div>
+            <div class="footer-links">ById("noteArea");
+                <h4>Quick Links</h4>e.getItem("noteContent") || "";
+                <ul>laceholder(){
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/features.html">Features</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/upload.html">Upload Notes</a></li>
+                </ul>sList.remove("empty");
+            </div>
+        </div>
+        <div class="footer-divider"></div>lePlaceholder);
+        <div class="footer-bottom-content">Placeholder);
+            <p class="copyright">&copy; <span id="year"></span> NotesVault. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Quick Links</a>ete all notes?")) {
+                <a href="#">Resources</a>
+                <a href="#">Community</a>);
+            </div>der();
+        </div>
+    </footer>
+    <button id="theme-toggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="../scripts/theme.js"></script>
 </body>
 </html>

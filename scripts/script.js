@@ -1,3 +1,5 @@
+// MultipleFiles/script.js
+
 document.addEventListener("DOMContentLoaded", function () {
   let allData = {};
 
@@ -99,24 +101,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  function toggleTheme() {
-    const html = document.documentElement;
-    const currentTheme = html.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  }
-
-  const themeToggleButton = document.getElementById('themeToggle');
-  if (themeToggleButton) {
-    themeToggleButton.addEventListener('click', toggleTheme);
-  }
-
-  (function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
-  })();
+  // Removed theme toggle logic from here, now handled by theme.js
+  // function toggleTheme() { ... }
+  // const themeToggleButton = document.getElementById('themeToggle');
+  // if (themeToggleButton) { themeToggleButton.addEventListener('click', toggleTheme); }
+  // (function initTheme() { ... })();
 
   document.querySelectorAll(".upload-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -149,3 +138,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   runQuerySearch();
 });
+

@@ -1,24 +1,28 @@
+/* MultipleFiles/studentAccount.css */
+
 /* General Reset */
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: #f9fbff;
+  background-color: var(--primary-bg); /* Adjusted for theme */
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease;
 }
 
 /* Container */
 .container {
   max-width: 900px;
   margin: 40px auto;
-  background-color: #ffffff;
+  background-color: var(--card-bg); /* Adjusted for theme */
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px var(--shadow-color); /* Adjusted for theme */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1 {
   text-align: center;
-  color: #2d2d2d;
+  color: var(--text-color); /* Adjusted for theme */
   margin-bottom: 30px;
 }
 
@@ -27,39 +31,42 @@ h1 {
 .notes-section {
   margin-bottom: 30px;
   padding: 20px;
-  border-left: 6px solid #2a343e;
-  background-color: #f0f7ff;
+  border-left: 6px solid var(--link-color); /* Adjusted for theme */
+  background-color: var(--secondary-bg); /* Adjusted for theme */
   border-radius: 8px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .profile p {
   margin: 10px 0;
   font-size: 16px;
-  color: #333;
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .notes-section h2 {
   margin-bottom: 15px;
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .note-card {
-  background-color: #fff;
-  border: 1px solid #dde6f1;
+  background-color: var(--card-bg); /* Adjusted for theme */
+  border: 1px solid var(--card-border); /* Adjusted for theme */
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 10px var(--shadow-color); /* Adjusted for theme */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .note-card h3 {
-  color: #111417;
+  color: var(--text-color); /* Adjusted for theme */
   margin-bottom: 10px;
 }
 
 .note-card ul {
   padding-left: 20px;
   margin-bottom: 15px;
-  color: #444;
+  color: var(--text-color); /* Adjusted for theme */
 }
 
 .note-card li {
@@ -68,8 +75,8 @@ h1 {
 
 .note-card button {
   padding: 8px 16px;
-  background-color: #1a73e8;
-  color: white;
+  background-color: var(--button-bg); /* Adjusted for theme */
+  color: var(--button-text); /* Adjusted for theme */
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -78,7 +85,7 @@ h1 {
 }
 
 .note-card button:hover {
-  background-color: #0f5ec9;
+  background-color: var(--link-color); /* Adjusted for theme */
 }
 
 .back-btn {
@@ -87,17 +94,18 @@ h1 {
 }
 
 .back-btn button {
-  background-color: #4a4a4a;
-  color: #fff;
+  background-color: var(--button-bg); /* Adjusted for theme */
+  color: var(--button-text); /* Adjusted for theme */
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .back-btn button:hover {
-  background-color: #2e2e2e;
+  background-color: var(--link-color); /* Adjusted for theme */
 }
 
 /* ================= HEADER STYLES =================== */
@@ -106,10 +114,11 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #171d23;
-  color: white;
+  background-color: var(--header-bg); /* Adjusted for theme */
+  color: var(--header-text); /* Adjusted for theme */
   padding: 12px 24px;
   flex-wrap: wrap;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #header-title-box #header-title {
@@ -119,7 +128,7 @@ h1 {
 }
 
 #header-navigation a {
-  color: white;
+  color: var(--header-text); /* Adjusted for theme */
   margin: 0 12px;
   text-decoration: none;
   font-weight: 500;
@@ -131,16 +140,17 @@ h1 {
 
 #header-signup-box p {
   margin: 0;
-  background-color: white;
-  color: #1a73e8;
+  background-color: var(--button-bg); /* Adjusted for theme */
+  color: var(--button-text); /* Adjusted for theme */
   padding: 6px 12px;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #header-signup-box p:hover {
-  background-color: #f1f1f1;
+  background-color: var(--link-color); /* Adjusted for theme */
 }
 
 /* Hamburger Menu */
@@ -161,7 +171,8 @@ h1 {
 .hamburger-line {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: var(--text-color); /* Adjusted for theme */
+  transition: background-color 0.3s ease;
 }
 
 .hover-sidebar {
@@ -169,10 +180,11 @@ h1 {
   position: absolute;
   top: 40px;
   left: 0;
-  background-color: #1a73e8;
+  background-color: var(--secondary-bg); /* Adjusted for theme */
   padding: 10px;
   border-radius: 6px;
   z-index: 10;
+  transition: background-color 0.3s ease;
 }
 
 .hamburger-wrapper:hover .hover-sidebar {
@@ -186,7 +198,7 @@ h1 {
 }
 
 .hover-sidebar li a {
-  color: white;
+  color: var(--text-color); /* Adjusted for theme */
   text-decoration: none;
   display: block;
   margin-bottom: 8px;
@@ -195,3 +207,4 @@ h1 {
 .hover-sidebar li a:hover {
   text-decoration: underline;
 }
+

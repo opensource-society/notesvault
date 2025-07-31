@@ -1,3 +1,5 @@
+/* MultipleFiles/search.css */
+
 body {
     margin: 0;
     padding: 0;
@@ -5,22 +7,25 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f7f2;
+    background-color: var(--primary-bg); /* Adjusted for theme */
+    transition: background-color 0.3s ease;
 }
 
 main.container {
     flex: 1;
     padding: 20px 5vw;
     padding-top: 90px;
+    color: var(--text-color); /* Adjusted for theme */
 }
 
 header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: var(--header-bg); /* Adjusted for theme */
+    border-bottom: 1px solid var(--card-border); /* Adjusted for theme */
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px var(--shadow-color); /* Adjusted for theme */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #header {
@@ -35,7 +40,7 @@ header {
 #header-title {
     font-weight: 600;
     font-size: 1.6rem;
-    color: #163d3b;
+    color: var(--header-text); /* Adjusted for theme */
 }
 
 .nav-menu {
@@ -46,7 +51,7 @@ header {
 .nav-menu a {
     text-decoration: none;
     font-weight: 400;
-    color: #163d3b;
+    color: var(--header-text); /* Adjusted for theme */
     font-size: 1rem;
     position: relative;
 }
@@ -56,7 +61,7 @@ header {
     display: block;
     width: 0;
     height: 2px;
-    background: #f7b86e;
+    background: var(--accent-color); /* Adjusted for theme */
     transition: width 0.3s;
     position: absolute;
     bottom: -5px;
@@ -68,11 +73,12 @@ header {
 }
 
 #header-signup-box p {
-    background-color: #163d3b;
-    color: white;
+    background-color: var(--button-bg); /* Adjusted for theme */
+    color: var(--button-text); /* Adjusted for theme */
     padding: 8px 20px;
     border-radius: 30px;
     font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .filters {
@@ -85,34 +91,41 @@ header {
 select {
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border); /* Adjusted for theme */
     font-family: 'Poppins', sans-serif;
+    background-color: var(--input-bg); /* Adjusted for theme */
+    color: var(--text-color); /* Adjusted for theme */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .note-card {
-    background: white;
+    background: var(--card-bg); /* Adjusted for theme */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px var(--shadow-color); /* Adjusted for theme */
     margin-bottom: 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .note-card:hover{
-    border: 2px darkolivegreen solid;
+    border: 2px var(--accent-color) solid; /* Adjusted for theme */
 }
 
 .note-card h3 {
     margin-top: 0;
-    color:darkgreen
+    color: var(--link-color); /* Adjusted for theme */
+    transition: color 0.3s ease;
 }
 .note-card h3:hover{
     text-decoration: underline;
-    transform: scale(#121212);
-    color: orange;
+    transform: scale(#121212); /* This transform value is incorrect, should be a number or percentage */
+    color: var(--accent-color); /* Adjusted for theme */
 }
 
 .modern-footer {
-    background: linear-gradient(135deg, #163d3b 0%, #1a4441 100%);
-    color: #dff8f8;
+    background: var(--footer-bg); /* Adjusted for theme */
+    color: var(--footer-text); /* Adjusted for theme */
     padding: 30px 5vw;
     text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
 }
+

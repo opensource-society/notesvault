@@ -39,7 +39,7 @@
   </style>
 </head>
 
-<body class="font-jakarta bg-black text-ink">
+<body class="font-jakarta">
 
   <!-- Header -->
   <header class="bg-black shadow p-3 flex justify-between items-center">
@@ -50,8 +50,13 @@
       <a href="about.html" class="text-gray-300  hover:underline">About</a>
       <a href="#" class="text-gray-300  hover:underline">Features</a>
     </nav>
-    <button class="bg-[#163d3b] mx-4 px-4 py-1 bg-[#163d3b] text-white rounded-full text-sm hover:bg-[#0d2f34]"><a
+    <div class="navbar-right flex items-center">
+      <button id="theme-toggle" title="Toggle Dark Mode" class="text-gray-300 hover:text-white">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="bg-[#163d3b] mx-4 px-4 py-1 bg-[#163d3b] text-white rounded-full text-sm hover:bg-[#0d2f34]"><a
             href="signup.html" style="text-decoration: none;color:white;">Sign Up</a></button>
+    </div>
   </header>
 
   <!-- Main Upload Form -->
@@ -180,6 +185,7 @@
       this.reset();
     });
   </script>
+  <script src="../scripts/theme.js"></script>
 
 </body>
 
