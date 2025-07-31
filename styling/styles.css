@@ -78,58 +78,6 @@ body {
   cursor: pointer;
 }
 
-/* ========== Responsive Styles ========== */
-
-@media (max-width: 768px) {
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    position: relative;
-  }
-  .navbar-left .logo {
-    font-size: 1.4rem;
-    margin: 0;
-  }
-  /* Hamburger icon appears */
-  .hamburger-icon {
-    display: block;
-    font-size: 28px;
-    cursor: pointer;
-    background-color: transparent;
-    color: black;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    z-index: 1001;
-  }
-
-  /* Hide center links and sign up button by default */
-  .navbar-center,
-  .signup-btn {
-    display: none;
-  }
-
-  /* Show nav links and sign up button in mobile menu */
-  .navbar-center.show,
-  .signup-btn.show {
-    display: flex;
-    flex-direction: column;
-    background-color: #222;
-    width: 100%;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-top: 60px;
-  }
-  .navbar-center.show a {
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-  }
-}
-
 /* ========== Main Section Layout ========== */
 #main {
   display: flex;
@@ -411,6 +359,168 @@ body {
   color: #444;
   margin-top: 0.5rem;
 }
+
+/*----------------------- Responsive Styles ---------------------------*/
+/* Mobile and tablets up to 768px */
+@media (max-width: 768px) {
+  .navbar {
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-left .logo {
+    font-size: 1.2rem; /* smaller logo text */
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .hamburger-icon {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+  }
+
+  .navbar-center,
+  .signup-btn {
+    display: none;
+  }
+
+  .navbar-center.show,
+  .signup-btn.show {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 60px;
+  }
+
+  .navbar-center.show a {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  #main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-left-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .main-right-box {
+    width: 80vw;
+  }
+
+  .main-right-search-form-input {
+    width: calc(80vw - 130px);
+    max-width: calc(500px - 130px);
+  }
+
+  .About-left-heading {
+    font-size: 28px; /* smaller About heading */
+  }
+}
+
+/* Medium Mobile Devices: max-width 600px */
+@media (max-width: 600px) {
+  .main-heading {
+    font-size: calc(18px + 1.2vw);
+  }
+
+  .main-left-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-left-links .links-text {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .main-right-search {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .main-right-box {
+    width: 90vw;
+  }
+  .main-right-search .main-right-search-form-input {
+    width: calc(90vw - 130px);
+  }
+
+  .search-parameters-div {
+    flex-direction: column;
+  }
+
+  .About {
+    margin: 5vw 2vw;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Small Mobile Devices: max-width 400px */
+@media (max-width: 400px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar-left .logo {
+    font-size: 1rem; /* even smaller logo text */
+  }
+
+  .hamburger-icon {
+    font-size: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .main-heading {
+    font-size: calc(16px + 1vw);
+  }
+
+  .main-right-search .main-right-search-form-input {
+    padding: 8px 25px;
+    font-size: 14px;
+    width: calc(90vw - 110px);
+  }
+
+  .About-left-heading {
+    font-size: 22px; /* smallest About heading */
+  }
+
+  .feature-card {
+    width: 90vw !important;
+  }
+}
+
 
 /* ------------------   Overview Page Styles Section   ---------------------------*/
   #header {
