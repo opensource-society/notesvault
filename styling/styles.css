@@ -58,32 +58,6 @@ body {
   font-size: calc(12px+1vw);
 }
 
-/* Hamburger lines */
-.hamburger-line {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 4px 0;
-  border-radius: 2px;
-}
-
-/* Hamburger button */
-.hamburger-menu {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-/* Wrapper to group button and sidebar */
-.hamburger-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-left: 20px;
-}
 
 .hover-sidebar {
   position: absolute;
@@ -130,15 +104,6 @@ body {
   color: white;
 }
 
-.hamburger-wrapper:hover .hover-sidebar {
-  left: 0;
-}
-
-.hamburger-wrapper {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
 
 /* Navigation Menu Styles */
 #header #header-navigation {
@@ -612,9 +577,7 @@ body {
     min-width: 250px;
     text-align: center;
   }
-  .hamburger-menu {
-    display: flex;
-  }
+  
   .nav-menu {
     display: none;
   }
@@ -635,13 +598,7 @@ body {
     margin-right: 0;
     margin-left: auto;
   }
-  .hamburger-menu {
-    display: flex;
-    order: 3;
-    position: static;
-    margin-right: 5vw;
-    transform: none;
-  }
+  
   #header #header-navigation {
     display: none;
     position: absolute;
@@ -756,11 +713,7 @@ body {
     padding: 8px 10px;
     font-size: 10px;
   }
-  .hamburger-menu {
-    margin-right: 4vw;
-    width: 25px;
-    height: 20px;
-  }
+ 
   .main-heading {
     font-size: 22px;
   }

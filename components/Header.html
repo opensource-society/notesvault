@@ -4,34 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #header-title-box #header-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+
+        /* Navigation Menu */
+        .nav-menu ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #3498db;
+        }
+
+        /* Sign Up Button */
+        #header-signup-box p {
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #header-signup-box p:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger-line {
+            width: 100%;
+            height: 3px;
+            background-color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            #header {
+                padding: 1rem;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: #ffffff;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                padding-top: 80px;
+                z-index: 1000;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                padding: 0 2rem;
+                gap: 1.5rem;
+            }
+
+            /* Hamburger Animation */
+            .hamburger-menu.active .hamburger-line:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .hamburger-menu.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger-menu.active .hamburger-line:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header id="header-import">
         <div id="header">
             <div id="header-title-box">
                 <p id="header-title">NotesVault</p>
             </div>
-            
+
             <!-- Hamburger Menu Button -->
             <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-            
+
             <!-- Navigation Menu -->
             <div id="header-navigation" class="nav-menu">
-                <p>Overview</p>
-                <p>Student Account</p>
-                <p>About</p>
-                <p>Features</p>
+                <ul>
+                    <li><a href="../pages/overview.html">Overview</a></li>
+                    <li><a href="../pages/studentAccount.html">Student Account</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/features.html">Features</a></li>
+                </ul>
             </div>
-            
+
             <div id="header-signup-box">
-                <p>Sign Up</p>
+                <a href="../pages/signup.html">
+                    <p>Sign Up</p>
+                </a>
             </div>
         </div>
     </header>
+
+    <script>
+        function toggleMobileMenu() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('header-navigation');
+            
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Toggle body scroll when menu is open
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('hamburgerMenu').classList.remove('active');
+                document.getElementById('header-navigation').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
 </html>

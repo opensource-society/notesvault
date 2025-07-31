@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Features - NotesVault</title>
   <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../styling/header.css" />
   <style>
     body {
       margin: 0;
@@ -117,7 +118,38 @@
 </head>
 <body>
 
-  <header>
+  <header id="header-import">
+        <div id="header">
+            <div id="header-title-box">
+                <p id="header-title">NotesVault</p>
+            </div>
+
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div id="header-navigation" class="nav-menu">
+                <ul>
+                    <li><a href="../pages/overview.html">Overview</a></li>
+                    <li><a href="../pages/studentAccount.html">Student Account</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/features.html">Features</a></li>
+                </ul>
+            </div>
+
+            <div id="header-signup-box">
+                <a href="../pages/signup.html">
+                    <p>Sign Up</p>
+                </a>
+            </div>
+        </div>
+    </header>
+
+  <div>
     <div class="logo-title">
       <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Logo" />
       <h1>NotesVault Features ✨ </h1>
@@ -125,7 +157,7 @@
     <div class="nav-links">
       <a href="../index.html">🏠 Home</a>
     </div>
-  </header>
+  </div>
 
   <div class="container">
     <div class="feature" id="categories">
@@ -178,5 +210,26 @@
       });
     });
   </script>
+   <script>
+        function toggleMobileMenu() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('header-navigation');
+            
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Toggle body scroll when menu is open
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('hamburgerMenu').classList.remove('active');
+                document.getElementById('header-navigation').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
 </html>

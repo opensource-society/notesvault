@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styling/styles.css"/>
+    <link rel="stylesheet" href="../styling/header.css"/>
     <link rel="stylesheet" href="../styling/overview.css">
     <title>NotesVault Home</title>
     <link rel="icon" href="favicon.png" type="image/x-icon" />
@@ -15,46 +15,37 @@
 ></script>
 </head>
 <body>
-    <header>
+    <header id="header-import">
         <div id="header">
-        <div class="hamburger-wrapper">
-            <!-- Hamburger icon -->
-            <button class="hamburger-menu" title="toggle menu">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
+            <div id="header-title-box">
+                <p id="header-title">NotesVault</p>
+            </div>
+
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
 
-            <!-- Sidebar menu (hidden by default, visible on hover) -->
-            <div class="hover-sidebar">
-            <ul>
-                <li><a href="../index.html">Dashboard</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="overview.html">Overview</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="#">Resources</a></li>
-            </ul>
+            <!-- Navigation Menu -->
+            <div id="header-navigation" class="nav-menu">
+                <ul>
+                    <li><a href="../pages/overview.html">Overview</a></li>
+                    <li><a href="../pages/studentAccount.html">Student Account</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/features.html">Features</a></li>
+                </ul>
+            </div>
+
+            <div id="header-signup-box">
+                <a href="../pages/signup.html">
+                    <p>Sign Up</p>
+                </a>
             </div>
         </div>
-        <div id="header-title-box">
-            <p id="header-title">NotesVault</p>
-        </div>
-
-        
-
-        <!-- Navigation Menu -->
-        <div id="header-navigation" class="nav-menu">
-            <a href="overview.html">Overview</a>
-            <a href="../index.html">Student Account</a>
-            <a href="about.html">About</a>
-            <a href="/">Features</a>
-        </div>
-
-        <div id="header-signup-box">
-           <a href="signup.html"><p>Sign Up</p></a> 
-        </div>
-        </div>
     </header>
+    
 
 
     <div class="main">
@@ -206,5 +197,26 @@
     </footer>
     
     <script src="../scripts/overview_darktheme.js" defer></script>
+        <script>
+        function toggleMobileMenu() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('header-navigation');
+            
+            hamburgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Toggle body scroll when menu is open
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('hamburgerMenu').classList.remove('active');
+                document.getElementById('header-navigation').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
 </html>
