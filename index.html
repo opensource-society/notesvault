@@ -30,6 +30,12 @@
         <a href="pages/features.html">Features</a>
       </div>
 
+    <div class="navbar-right">
+      <a href="pages/signup.html" class="signup-btn"><p id="changed_name">Sign Up</p></a>
+      <div id="hamburger" class="hamburger-icon">☰</div>
+    </div>
+  </header>
+
       <div class="navbar-right">
         <a href="pages/signup.html" class="signup-btn">Sign Up</a>
         <div id="hamburger" class="hamburger-icon">☰</div>
@@ -399,6 +405,27 @@
           </div>
         </div>
       </div>
+
+    </div>
+    <p style="text-align:center; margin-top:30px; font-size:14px; color:#aaa;">
+      © <span id="year"></span> NotesVault. All Rights Reserved.
+    </p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const name = sessionStorage.getItem("name");
+      const name2= localStorage.getItem("name");
+      if (name) {
+        document.getElementById("changed_name").textContent = name;
+  }   else {
+        document.getElementById("changed_name").textContent ="Sign Up";
+}
+  </script>
+  <script src="scripts/script.js" defer></script>
+</body>
+
       <p
         style="
           text-align: center;
@@ -410,6 +437,7 @@
         © <span id="year"></span> NotesVault. All Rights Reserved.
       </p>
     </footer>
+
 
     <!-- JS -->
     <script>

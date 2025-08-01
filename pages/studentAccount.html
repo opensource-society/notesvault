@@ -45,7 +45,7 @@
 
       <!-- Sign Up -->
       <div id="header-signup-box">
-        <a href="../pages/signup.html"><p>Sign Up</p></a>
+        <a href="../pages/signup.html"><p id="changed_name">Sign Up</p></a>
       </div>
     </div>
   </header>
@@ -89,6 +89,15 @@
       <button onclick="location.href='../index.html'">⬅ Back to Home</button>
     </div>
   </div>
+    <script>
+      const name = sessionStorage.getItem("name");
+      const name2= localStorage.getItem("name");
+      if (name) {
+        document.getElementById("changed_name").textContent = name;
+  }   else {
+        document.getElementById("changed_name").textContent ="Sign Up";
+}
+    </script>
 
 </body>
 </html>
