@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: " Thank you for opening your first issue in the Open Source Society project. We're excited to have you here! Please make sure to follow the issue template and provide as much detail as possible so we can assist you quickly.Feel free to check out our contributing guidelines and other open issues. Welcome to the community! 🌱 "
+        pr-message: "Thanks for submitting your first pull request to the Open Source Society project — we really appreciate your contribution! Our maintainers will review your PR soon. In the meantime, make sure you've followed the contribution checklist and linked any relevant issues. Welcome aboard, and keep contributing! 💚"
