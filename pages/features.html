@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Features - NotesVault</title>
   <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
@@ -12,7 +13,6 @@
       background-color: #f5f7fa;
       color: #333;
     }
-
     header {
       background-color: #4CAFEF;
       color: white;
@@ -23,25 +23,21 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       flex-wrap: wrap;
     }
-
     .logo-title {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
     .logo-title img {
       height: 40px;
       width: 40px;
       border-radius: 50%;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
+    nav.nav-links {
+      display: flex;
+      gap: 10px;
     }
-
-    .nav-links a {
+    nav.nav-links a {
       color: white;
       text-decoration: none;
       font-weight: 500;
@@ -50,118 +46,164 @@
       border-radius: 6px;
       transition: background 0.3s ease;
     }
-
-    .nav-links a:hover {
+    nav.nav-links a:hover {
       background-color: rgba(255, 255, 255, 0.4);
     }
-
     .container {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 1rem;
     }
-
     .feature {
       background-color: white;
       margin: 1rem 0;
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
     }
-
-    .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .feature .icon {
+      font-size: 2.2rem;
+      color: #4CAFEF;
+      flex-shrink: 0;
+      margin-top: 4px;
     }
-
+    .feature-content {
+      flex: 1;
+    }
     .feature h2 {
       margin-top: 0;
       color: #4CAFEF;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
     }
-
     .feature p {
       line-height: 1.6;
+      margin: 0;
     }
-
+    .feature.active {
+      background-color: #e3f2fd;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+    }
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem 1rem 1rem 1rem;
       margin-top: 2rem;
       color: #777;
+      background: #f5f7fa;
     }
-
+    .footer-social {
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    .footer-social a {
+      color: #4CAFEF;
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover {
+      color: #333;
+    }
     html {
       scroll-behavior: smooth;
     }
-
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 1rem;
       }
-
       header h1 {
-        font-size: 1.5rem;
-      }
-
-      .feature h2 {
         font-size: 1.2rem;
       }
-
-      .nav-links {
-        margin-top: 10px;
+      .feature h2 {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 0.5rem;
+      }
+      .feature {
+        flex-direction: column;
+        gap: 8px;
+        padding: 1rem;
+      }
+      .logo-title img {
+        height: 32px;
+        width: 32px;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
     <div class="logo-title">
-      <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Logo" />
-      <h1>NotesVault Features ✨ </h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="NotesVault Logo" />
+      <h1>NotesVault Features ✨</h1>
     </div>
-    <div class="nav-links">
+    <nav class="nav-links" aria-label="Main Navigation">
       <a href="../index.html">🏠 Home</a>
-    </div>
+    </nav>
   </header>
 
-  <div class="container">
-    <div class="feature" id="categories">
-      <h2>📂 Organized by Semester & Subject</h2>
-      <p>Effortlessly browse notes and PYQs sorted by semester and subjects. Stay organized throughout your academic journey.</p>
-    </div>
-
-    <div class="feature" id="search">
-      <h2>🔍 Instant Search</h2>
-      <p>Quickly find any note or previous year question using the built-in search bar. Perfect for last-minute revision.</p>
-    </div>
-
-    <div class="feature" id="pinned">
-      <h2>📌 Pin Important Notes</h2>
-      <p>Mark your most important notes and PYQs with a pin so they stay at the top for easy access.</p>
-    </div>
-
-    <div class="feature" id="download">
-      <h2>📥 Download Notes</h2>
-      <p>Save your notes as text files and access them offline anytime.</p>
-    </div>
-
-    <div class="feature" id="darkmode">
-      <h2>🌗 Dark Mode</h2>
-      <p>Switch between light and dark themes with a single click for comfortable reading at night.</p>
-    </div>
-  
-   
-    <div class="feature" id="PYQs">
-      <h2>💬 Upload PYQs or Past year question papers </h2>
-      <p>Add past year questions and papers so that preparation can be easier for other students. </p>
-    </div>
-    </div>
+  <main class="container">
+    <section class="feature" id="categories">
+      <span class="icon"><i class="fas fa-folder-open"></i></span>
+      <div class="feature-content">
+        <h2>Organized by Semester & Subject</h2>
+        <p>Effortlessly browse notes and PYQs sorted by semester and subjects. Stay organized throughout your academic journey.</p>
+      </div>
+    </section>
+    <section class="feature" id="search">
+      <span class="icon"><i class="fas fa-search"></i></span>
+      <div class="feature-content">
+        <h2>Instant Search</h2>
+        <p>Quickly find any note or previous year question using the built-in search bar. Perfect for last-minute revision.</p>
+      </div>
+    </section>
+    <section class="feature" id="pinned">
+      <span class="icon"><i class="fas fa-thumbtack"></i></span>
+      <div class="feature-content">
+        <h2>Pin Important Notes</h2>
+        <p>Mark your most important notes and PYQs with a pin so they stay at the top for easy access.</p>
+      </div>
+    </section>
+    <section class="feature" id="download">
+      <span class="icon"><i class="fas fa-download"></i></span>
+      <div class="feature-content">
+        <h2>Download Notes</h2>
+        <p>Save your notes as text files and access them offline anytime.</p>
+      </div>
+    </section>
+    <section class="feature" id="darkmode">
+      <span class="icon"><i class="fas fa-moon"></i></span>
+      <div class="feature-content">
+        <h2>Dark Mode</h2>
+        <p>Switch between light and dark themes with a single click for comfortable reading at night.</p>
+      </div>
+    </section>
+    <section class="feature" id="PYQs">
+      <span class="icon"><i class="fas fa-file-alt"></i></span>
+      <div class="feature-content">
+        <h2>Upload PYQs or Past Year Question Papers</h2>
+        <p>Add past year questions and papers so that preparation can be easier for other students.</p>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 NotesVault | Made with ❤️ for Students
+    <div class="footer-social">
+      <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    &copy; 2025 NotesVault | Made with <span aria-label="love">❤️</span> for Students
   </footer>
 
   <script>
@@ -171,12 +213,9 @@
       features.forEach(feature => {
         const rect = feature.getBoundingClientRect();
         if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          feature.style.backgroundColor = "#e3f2fd";
+          feature.classList.add('active');
         } else {
-          feature.style.backgroundColor = "white";
+          feature.classList.remove('active');
         }
       });
     });
-  </script>
-</body>
-</html>

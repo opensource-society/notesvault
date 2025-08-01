@@ -18,23 +18,37 @@
 
   <body>
     <!-- Header -->
+    <<!-- ...existing code... -->
     <header class="navbar">
       <div class="navbar-left">
         <div class="logo">NotesVault</div>
       </div>
 
-      <div class="navbar-center" id="heade</div>r-navigation">
+      <nav
+        class="navbar-center"
+        id="header-navigation"
+        aria-label="Main Navigation"
+      >
         <a href="pages/overview.html">Overview</a>
         <a href="pages/studentAccount.html">Student Account</a>
         <a href="pages/about.html">About</a>
         <a href="pages/features.html">Features</a>
-      </div>
+      </nav>
 
       <div class="navbar-right">
         <a href="pages/signup.html" class="signup-btn">Sign Up</a>
-        <div id="hamburger" class="hamburger-icon">☰</div>
+        <button
+          id="hamburger"
+          class="hamburger-icon"
+          aria-label="Open menu"
+          aria-controls="header-navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
       </div>
     </header>
+    <!-- ...existing code... -->
 
     <!-- Main Section -->
     <main id="main">
