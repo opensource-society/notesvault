@@ -274,8 +274,8 @@ body {
   gap: 2rem;
   margin: 5vw;
   max-width: 1200px;
-  /* margin-left: auto;
-  margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Left column  */
@@ -378,7 +378,7 @@ body {
   }
 
   .navbar-left .logo {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* smaller logo text */
     margin: 0;
     display: flex;
     align-items: center;
@@ -407,11 +407,6 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #222;
-    margin: 4vw auto;
-    gap: 30px;
-  }
-  
-  .main-right {
     width: 100%;
     padding: 15px 20px;
     border-radius: 10px;
@@ -484,15 +479,11 @@ body {
   .About {
     margin: 5vw 2vw;
   }
-  
-.card-container {
+
+  .card-container {
     flex-direction: column;
     align-items: center;
-
-  #main {
-    margin: 4vw auto;
   }
-}
 }
 
 /* Small Mobile Devices: max-width 400px */
@@ -502,7 +493,7 @@ body {
   }
 
   .navbar-left .logo {
-    font-size: 1rem;
+    font-size: 1rem; /* even smaller logo text */
   }
 
   .hamburger-icon {
@@ -522,7 +513,7 @@ body {
   }
 
   .About-left-heading {
-    font-size: 22px;
+    font-size: 22px; /* smallest About heading */
   }
 
   .feature-card {
@@ -674,12 +665,6 @@ body {
     transition: font-weight 0.1s, text-decoration 0.1s;
     cursor: pointer;
   }
-    
-@media screen and (max-width: 768px) {
-  body {
-    font-size: 14px;
-    /* padding-top: 8vh; */
-  }
 
   .nav-menu {
     display: flex;
@@ -779,7 +764,6 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-1px);
   }
-}
 
 /* --------------   Overview Page Modern Footer Styles ---------------- */
   .modern-footer {
@@ -1078,4 +1062,5 @@ body {
       gap: 6px;
     }
   }
-/*-------------- Overview Page Styles ends here ------------- */
+/*-------------- Overpage Page Styles ends here ------------- */
+
