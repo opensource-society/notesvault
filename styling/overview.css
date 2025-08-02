@@ -54,6 +54,20 @@
 .get-started-btn:hover {
   background-color: #003c2c;
 }
+
+/* Dark mode styles for hero section */
+[data-theme="dark"] .hero-content {
+  background-color: #2a2a2a;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .hero-content h2 {
+  color: #eda950;
+}
+
+[data-theme="dark"] .hero-content p {
+  color: #dff8f8;
+}
 .footer-heading{
     margin: 15%;
 }
