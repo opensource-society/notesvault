@@ -195,3 +195,19 @@ h1 {
 .hover-sidebar li a:hover {
   text-decoration: underline;
 }
+
+.section, .card, .feature-card, .profile, .notes-section {
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  color: #d1fae5;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+h1, h2, h3 {
+  color: #eda950;
+  background: linear-gradient(135deg, #eda950 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}

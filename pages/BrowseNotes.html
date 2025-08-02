@@ -6,299 +6,10 @@
     <title>Browse Notes - NotesVault</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../styles.css"/>
+    <link rel="stylesheet" href="../styling/browseNotes.css"/>
     <link rel="icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="../styling/overview.css">
 </head>
-<style>
-    /* General Body and Font Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-/* Header Styling (from the provided image) */
-header {
-    background-color: #ffffff;
-    padding: 15px 50px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #333; /* Adjust as per your logo's color */
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #007bff; /* Example hover color */
-}
-
-.sign-up-btn {
-    background-color: #4CAF50; /* A green color for sign-up */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
-
-.sign-up-btn:hover {
-    background-color: #45a049;
-}
-
-/* Browse Notes Page Specific Styles */
-.browse-notes-container {
-    padding: 40px 50px;
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.browse-notes-container h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.notes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    justify-content: center;
-}
-
-.note-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.note-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.note-card h3 {
-    margin-top: 0;
-    color: #007bff; /* Primary color for titles */
-    font-size: 1.3em;
-    margin-bottom: 10px;
-}
-
-.note-card p {
-    margin: 5px 0;
-    color: #666;
-    font-size: 0.95em;
-}
-
-.note-card .actions {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-}
-
-.note-card .view-button,
-.note-card .download-button {
-    flex: 1;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    text-align: center;
-    text-decoration: none; /* For download button which is an <a> */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.note-card .view-button {
-    background-color: #28a745; /* Green for view */
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-.note-card .view-button:hover {
-    background-color: #218838;
-}
-
-.note-card .download-button {
-    background-color: #007bff; /* Blue for download */
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-.note-card .download-button:hover {
-    background-color: #0056b3;
-}
-
-.loading-message, .no-notes-message {
-    grid-column: 1 / -1; /* Span across all columns */
-    text-align: center;
-    font-size: 1.2em;
-    color: #888;
-    padding: 20px;
-}
-.search-bar {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.search-bar input {
-    width: 60%;
-    max-width: 500px;
-    padding: 12px 18px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.search-bar input:focus {
-    border-color: #007bff;
-}
-
-
-/* Modal Styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 30px;
-    border: 1px solid #888;
-    border-radius: 10px;
-    width: 80%; /* Could be more specific, e.g., 600px */
-    max-width: 700px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-}
-
-.close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-}
-
-.modal-content h2 {
-    color: #007bff;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
-
-.modal-content p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-.modal-content strong {
-    color: #555;
-}
-
-.modal-content .download-button {
-    display: inline-flex; /* Use inline-flex for centering icon and text */
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    align-items: center; /* Vertically align icon and text */
-    gap: 8px; /* Space between icon and text */
-}
-
-.modal-content .download-button:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-    }
-
-    nav ul {
-        display: none; /* Hide nav links on small screens, can implement a hamburger menu */
-    }
-
-    .browse-notes-container {
-        padding: 20px;
-    }
-
-    .notes-grid {
-        grid-template-columns: 1fr; /* Single column on small screens */
-    }
-
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-}
-
-</style>
 <body>
     <header>
       <div id="header">
@@ -369,6 +80,65 @@ nav ul li a:hover {
             </a>
         </div>
     </div>
+
+    <!-- Use this footer in all pages -->
+<footer class="custom-footer">
+  <div class="footer-container">
+    <!-- About NotesVault Section -->
+    <div class="footer-section about-section">
+      <h2><strong>NotesVault</strong></h2>
+      <p class="footer-description">
+        A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong> academic notes & PYQs semester-wise.
+        Contribute easily, organize efficiently, and search by tags.
+      </p>
+      <a
+        class="footer-learn-link"
+        href="https://github.com/opensource-society/notesvault"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Learn More →</a>
+    </div>
+
+    <!-- Community -->
+    <div class="footer-section">
+      <h3>Community</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+        <li><a href="https://github.com/opensource-society/notesvault.git" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Social Media</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <!-- Features -->
+    <div class="footer-section">
+      <h3>Features</h3>
+      <ul>
+        <li><a href="upload.html"><i class="fas fa-upload"></i> Easy Upload</a></li>
+        <li><a href="search.html"><i class="fas fa-tags"></i> Tag-based Search</a></li>
+        <li><a href="BrowseNotes.html"><i class="fas fa-folder-open"></i> Organized by Semester</a></li>
+        <li><a href="todolist.html"><i class="fas fa-tasks"></i> Todo List</a></li>
+        <li><a href="studentAccount.html"><i class="fas fa-users"></i> Get Details</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> NotesVault. All rights reserved.
+  </div>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
     <script >
         // your code goes here
