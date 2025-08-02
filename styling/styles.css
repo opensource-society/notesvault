@@ -831,7 +831,6 @@ body {
   );
 }
 
-
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -1558,7 +1557,6 @@ main {
   color: #444;
   margin-top: 0.5rem;
 }
- 
 
 /* ========== Scroll to Top Button ========== */
 #scrollToTopBtn {
@@ -1746,7 +1744,7 @@ main {
 
 .navbar-center {
   display: flex;
-  
+
   flex: 1;
   font-size: 1rem;
 }
@@ -1784,6 +1782,16 @@ main {
   display: none;
   font-size: 24px;
   cursor: pointer;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #e09e45;
 }
 
 @media (max-width: 768px) {
