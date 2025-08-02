@@ -3,8 +3,8 @@
 /* Glassy Button Base */
 .glassy-button {
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -38,8 +38,8 @@
 /* Main Action Buttons */
 .try-box {
   background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 15px !important;
   padding: 12px 24px !important;
@@ -78,8 +78,8 @@
 /* Feature Cards */
 .feature-card {
   background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 20px !important;
   padding: 30px 20px !important;
@@ -131,8 +131,8 @@
 /* Card class for existing cards */
 .card {
   background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 20px !important;
   padding: 30px 20px !important;
@@ -168,8 +168,8 @@
 /* Header Sign Up Button */
 #header-signup-box a {
   background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 12px !important;
   padding: 8px 16px !important;
@@ -204,8 +204,8 @@
 /* Search Box */
 .main-right-search-form-input {
   background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 25px !important;
   padding: 12px 20px !important;
@@ -227,16 +227,16 @@
 /* Search Box Container */
 .Search-box {
   background: rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Main Right Box */
 .main-right-box {
   background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 20px !important;
   padding: 30px !important;
@@ -253,8 +253,8 @@
 /* About Section */
 .About {
   background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 20px !important;
   padding: 30px !important;
@@ -271,8 +271,8 @@
 
 .About-left-link {
   background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 12px !important;
   padding: 10px 20px !important;
@@ -311,16 +311,16 @@
 /* Footer Glassy Effect */
 .custom-footer {
   background: rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Footer Links */
 .footer-learn-link {
   background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 8px !important;
   padding: 6px 12px !important;
@@ -356,8 +356,8 @@
 /* Scroll to Top Button */
 #scrollToTopBtn {
   background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 50% !important;
   width: 50px !important;
@@ -413,8 +413,8 @@
 /* Features Section */
 .features-section {
   background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(5px) !important;
   -webkit-backdrop-filter: blur(5px) !important;
+  backdrop-filter: blur(5px) !important;
   padding: 60px 0 !important;
 }
 
