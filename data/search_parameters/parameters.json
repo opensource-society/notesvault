@@ -274,7 +274,7 @@
                 {
                     "semester": 4,
                     "subjects": [
-                        {"CD401": "C Introduction to DiscreteStructure & Linear Algebra"},
+                        {"CD401": "Introduction to Discrete Structure & Linear Algebra"},
                         {"CD402": "Analysis & Design of Algorithms"},
                         {"CD403": "Software Engineering"},
                         {"CD404": "Introduction to Data Science"},
