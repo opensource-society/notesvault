@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
+
 html, body {
   margin: 0; padding: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -6,70 +8,189 @@ html, body {
   box-sizing: border-box;
 }
 
-header {
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 0;
-}
-nav {
-  max-width: 1200px;
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90vw;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5vw;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 0;
+  }
+
+  .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0px;
+  max-width: 80vw;
   margin: 0 auto;
-  padding: 20px 40px;
+  background-color: white;
+  width: 100%;
+  position: relative;
+}
+
+/* Logo styling */
+.navbar-left .logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: calc(12px + 1vw);
+}
+
+  /* Flex box for left/right header items */
+  #header div {
+    display: flex;
+  }
+
+  /* Ensures text/icons inside header are centered vertically */
+  #header div p {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Left section spacing */
+#header #header-title-box {
+  margin-left: 5vw;
+}
+
+#header-title-box {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
-.logo {
-  font-weight: bold;
-  font-size: 2rem;
-  color: #222;
-  letter-spacing: -1px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-nav ul {
-  display: flex;
-  gap: 36px;
-  margin: 0; padding: 0;
-  list-style: none;
-}
-nav ul li {}
-nav ul a {
-  text-decoration: none;
-  color: #343a40;
-  font-size: 1.07rem;
+
+/* Title style */
+#header #header-title-box #header-title {
   font-weight: 500;
-  letter-spacing: 0;
-  transition: color 0.22s;
-  padding: 2px 0 2px 0;
-  border-bottom: 2px solid transparent;
+  font-style: normal;
+  font-size: calc(12px+1vw);
 }
-nav ul a:hover {
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+
+#header #header-navigation {
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.sign-up-btn {
-  background: #36cd75;
-  color: #fff;
-  font-weight: 600;
-  padding: 10px 28px;
-  border-radius: 22px;
-  text-decoration: none;
-  font-size: 1.07rem;
-  border: none;
+
+#header #header-navigation p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(9px + 0.4vw);
+  transition: font-weight 0.1s, text-decoration 0.1s;
   cursor: pointer;
-  box-shadow: 0 1px 5px rgba(52,150,77,0.08);
-  transition: background 0.20s;
-  white-space: nowrap;
 }
-.sign-up-btn:hover {
-  background: #29b062;
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-menu a::before,
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.nav-menu a::before {
+  background-color: #347034;
+  height: 2px;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.nav-menu a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform: translate3d(200%, 0, 0);
+  transform-origin: 100% 50%;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #017c01;
+  position: absolute;
+}
+
+.nav-menu a span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+
+.nav-menu a:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+.nav-menu a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+.nav-menu a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+#header #header-navigation p:hover {
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+#header #header-signup-box {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#header #header-signup-box p {
+  display: inline-flex;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(9px + 0.4vw);
+  background-color: #163d3b;
+  padding: 8px 30px;
+  color: #dff8f8;
+  border-radius: 30px;
+  vertical-align: middle;
+  align-items: center;
+  max-height: 50px;
+  transition: all 0.3s ease;
+}
+
+#header #header-signup-box p:hover {
+  background-color: #1f5c59;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
 
 
 main.browse-notes-container {
   background: #fff;
   max-width: 1100px;
-  margin: 34px auto 28px auto;
+  margin: 150px auto 28px auto;
   padding: 38px 38px 20px 38px;
   border-radius: 10px;
   box-shadow: 0 6px 30px rgba(52,60,92,0.07);
