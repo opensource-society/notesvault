@@ -1,24 +1,26 @@
+/* MultipleFiles/features.css */
 
 .features-section {
   padding: 4rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #f5f7fa;
+  background-color: var(--primary-bg); /* Adjusted for theme */
   text-align: center;
   border-radius: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .features-heading {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-color); /* Adjusted for theme */
   margin-bottom: 0.5rem;
   font-family: 'Poppins', sans-serif;
 }
 
 .features-subheading {
   font-size: 1.1rem;
-  color: #555;
+  color: var(--text-color); /* Adjusted for theme */
   margin-bottom: 2.5rem;
   font-family: 'Open Sans', sans-serif;
 }
@@ -33,24 +35,24 @@
 
 /* FEATURE CARD DESIGN */
 .feature-card {
-  background-color: #ffffff;
+  background-color: var(--card-bg); /* Adjusted for theme */
   padding: 1.8rem;
   border-radius: 1.25rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 18px var(--shadow-color); /* Adjusted for theme */
   transition: all 0.3s ease-in-out;
   text-align: left;
-  border: 1px solid #e6e6e6;
+  border: 1px solid var(--card-border); /* Adjusted for theme */
 }
 
 .feature-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px var(--shadow-color); /* Adjusted for theme */
 }
 
 /* CARD TITLE */
 .feature-card h2 {
   font-size: 1.25rem;
-  color: #202020;
+  color: var(--text-color); /* Adjusted for theme */
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -58,7 +60,7 @@
 /* CARD TEXT */
 .feature-card p {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--text-color); /* Adjusted for theme */
   line-height: 1.6;
   font-family: 'Open Sans', sans-serif;
 }

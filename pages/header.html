@@ -1,0 +1,51 @@
+<!-- MultipleFiles/Header.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../styling/styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div id="header-title-box">
+                <p id="header-title">NotesVault</p>
+            </div>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburgerMenu" aria-expanded="false" aria-label="Toggle menu">
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+            </button>
+            
+            <!-- Navigation Menu -->
+            <nav id="header-navigation" class="nav-menu">
+                <a href="/overview" class="nav-link">Overview</a>
+                <a href="/account" class="nav-link">Student Account</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/features" class="nav-link">Features</a>
+            </nav>
+            
+            <div id="header-signup-box">
+                <a href="/signup" class="signup-link">Sign Up</a>
+            </div>
+
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle color scheme">
+                <span class="theme-icon" aria-hidden="true">
+                    <i class="fas fa-moon"></i>
+                </span>
+                <span class="sr-only">Toggle dark/light mode</span>
+            </button>
+        </div>
+    </header>
+    <script src="../scripts/theme.js"></script>
+    <script src="../scripts/script.js"></script> 
+</body>
+</html>

@@ -1,21 +1,12 @@
+/* MultipleFiles/login.css */
+
 :root {
-    --notes-orange: #f7b562;
-    --notes-orange-dark: #e09e45;
-    --notes-green-light: #d4edda;
-    --notes-bg-light: #f8f8f8;
-    --gray-100: #f3f4f6;
-    --gray-300: #d1d5db;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --gray-900: #111827;
-    --white: #ffffff;
-    --red-error: #f44336;
-    --green-success: #4caf50;
+    /* Variables are now defined in styles.css and inherited */
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--notes-bg-light);
+    background-color: var(--primary-bg); /* Adjusted for theme */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -23,6 +14,7 @@ body {
     justify-content: center;
     padding: 1rem;
     margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Message Box */
@@ -31,14 +23,14 @@ body {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--green-success);
+    background-color: var(--green-success); /* Keep specific color for success */
     color: var(--white);
     padding: 12px 18px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 10px var(--shadow-color); /* Adjusted for theme */
     z-index: 1000;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out, background-color 0.3s ease;
 }
 
 .message-box.show {
@@ -59,44 +51,45 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: var(--notes-orange);
-    color: var(--white);
+    background-color: var(--accent-color); /* Adjusted for theme */
+    color: var(--button-text); /* Adjusted for theme */
     border-radius: 0.5rem;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
     transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px var(--shadow-color); /* Adjusted for theme */
 }
 
 .home-button:hover {
-    background-color: var(--notes-orange-dark);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-color: var(--link-color); /* Adjusted for theme */
+    box-shadow: 0 3px 6px var(--shadow-color); /* Adjusted for theme */
 }
 
 /* Card Container */
 .card-container {
-    background-color: var(--white);
+    background-color: var(--card-bg); /* Adjusted for theme */
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 25px var(--shadow-color); /* Adjusted for theme */
     width: 100%;
     max-width: 28rem;
-    border: 2px solid var(--notes-orange);
+    border: 2px solid var(--accent-color); /* Adjusted for theme */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Headings & Description */
 .card-container h2 {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--gray-900);
+    color: var(--text-color); /* Adjusted for theme */
     text-align: center;
     margin-bottom: 0.25rem;
 }
 
 .card-container p {
     text-align: center;
-    color: var(--gray-600);
+    color: var(--text-color); /* Adjusted for theme */
     margin-bottom: 1.75rem;
 }
 
@@ -110,7 +103,7 @@ label {
     display: block;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--gray-700);
+    color: var(--text-color); /* Adjusted for theme */
     margin-bottom: 0.3rem;
 }
 
@@ -120,18 +113,19 @@ input[type="password"],
 input[type="text"] {
     width: 100%;
     padding: 0.6rem 1rem;
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--input-border); /* Adjusted for theme */
     border-radius: 0.5rem;
-    background-color: #fff;
+    background-color: var(--input-bg); /* Adjusted for theme */
     font-size: 0.875rem;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 1px 2px var(--shadow-color); /* Adjusted for theme */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-color); /* Adjusted for theme */
 }
 
 input:focus {
-    border-color: var(--notes-orange);
+    border-color: var(--accent-color); /* Adjusted for theme */
     outline: none;
-    box-shadow: 0 0 0 3px rgba(247, 181, 98, 0.3);
+    box-shadow: 0 0 0 3px var(--shadow-color); /* Adjusted for theme */
 }
 
 /* Checkbox + Forgot */
@@ -151,26 +145,28 @@ input[type="checkbox"] {
     width: 1rem;
     height: 1rem;
     border-radius: 0.25rem;
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--input-border); /* Adjusted for theme */
     cursor: pointer;
+    background-color: var(--input-bg); /* Adjusted for theme */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .checkbox-label {
     font-size: 0.875rem;
-    color: var(--gray-900);
+    color: var(--text-color); /* Adjusted for theme */
 }
 
 /* Forgot Password */
 .forgot-password-link a {
     font-size: 0.875rem;
-    color: var(--notes-orange);
+    color: var(--accent-color); /* Adjusted for theme */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .forgot-password-link a:hover {
-    color: var(--notes-orange-dark);
+    color: var(--link-color); /* Adjusted for theme */
 }
 
 /* Submit Button */
@@ -181,20 +177,20 @@ input[type="checkbox"] {
     border-radius: 0.5rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--white);
-    background-color: var(--notes-orange);
+    color: var(--button-text); /* Adjusted for theme */
+    background-color: var(--accent-color); /* Adjusted for theme */
     cursor: pointer;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--notes-orange-dark);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background-color: var(--link-color); /* Adjusted for theme */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Adjusted for theme */
 }
 
 .btn-primary:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(247, 181, 98, 0.4);
+    box-shadow: 0 0 0 4px var(--shadow-color); /* Adjusted for theme */
 }
 
 /* Sign-up Section */
@@ -205,18 +201,18 @@ input[type="checkbox"] {
 
 .signup-link-section p {
     font-size: 0.875rem;
-    color: var(--gray-600);
+    color: var(--text-color); /* Adjusted for theme */
 }
 
 .signup-link-section a {
     font-weight: 500;
-    color: var(--notes-orange);
+    color: var(--accent-color); /* Adjusted for theme */
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .signup-link-section a:hover {
-    color: var(--notes-orange-dark);
+    color: var(--link-color); /* Adjusted for theme */
 }
 
 /* Responsive */
@@ -236,7 +232,7 @@ input[type="checkbox"] {
 
 .spinner {
     border: 2px solid rgba(255, 255, 255, 0.2);
-    border-top: 2px solid white;
+    border-top: 2px solid var(--button-text); /* Adjusted for theme */
     border-radius: 50%;
     width: 16px;
     height: 16px;
@@ -253,3 +249,4 @@ input[type="checkbox"] {
 .hidden {
     display: none;
 }
+
