@@ -1774,17 +1774,41 @@ main {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
+  padding: 10px 20px;
+  border: 2px solid #02aa56ce;
+  transition: all 0.3s ease;
 }
+
+/* Hover effect */
+.login-btn:hover {
+  background-color: #02aa56ce;
+  color: white;
+  transform: scale(1.05); /* Slight zoom */
+  box-shadow: 0 4px 12px rgba(2, 170, 86, 0.3); /* Soft shadow */
+}
+
 
 /* Sign Up Button */
 .signup-btn {
-  padding: 10px 24px;
+  padding: 10px 20px;
   background-color: #02aa56ce;
   color: white;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
 }
+
+/* Hover effect */
+.signup-btn:hover {
+  background-color: white;
+  color: #02aa56ce;
+  border: 2px solid #02aa56ce;
+  transform: scale(1.05); /* Slight zoom */
+  box-shadow: 0 4px 12px rgba(2, 170, 86, 0.3); /* Soft green glow */
+}
+
 
 /* Hamburger hidden on desktop */
 .hamburger-icon {
