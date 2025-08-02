@@ -6,8 +6,7 @@
   <title>Login - NotesVault</title>
   <link rel="stylesheet" href="../styling/login.css"/>
   <link rel="icon" href="favicon.png" type="image/x-icon"/>
-
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4">
   <div id="messageBox" class="message-box"></div>
@@ -28,9 +27,12 @@
         <input type="email" id="email" name="email" required placeholder="you@example.com" />
       </div>
 
-      <div>
+      <div class="password-container">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required placeholder="••••••••" />
+        <div class="password-input-wrapper">
+          <input type="password" id="password" name="password" required placeholder="••••••••" />
+          <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+        </div>
       </div>
 
       <div class="flex-between">
@@ -70,6 +72,29 @@
       setTimeout(() => messageBox.classList.remove('show'), 3000);
     }
 
+    // Password toggle functionality
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+    
+    togglePassword.addEventListener('click', function() {
+      // Ensure icon has proper classes
+      // Toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      
+      // Toggle the eye icon
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+      
+      // Toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      
+      // Toggle the eye icon
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+
     document.getElementById('loginForm').addEventListener('submit', async function (event) {
       event.preventDefault();
 
@@ -93,9 +118,8 @@
         return;
       }
 
-      // Simulated login - replace this with real fetch call in production
       console.log('Login attempt:', { email, password });
-      await new Promise(res => setTimeout(res, 1000)); // Simulate async
+      await new Promise(res => setTimeout(res, 1000)); 
 
       showMessageBox('Login successful! Redirecting...', 'success');
       setTimeout(() => {
