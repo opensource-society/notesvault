@@ -12,62 +12,6 @@
     margin-bottom: 6%;
 
 }
-/* Hero Section */
-.hero {
-  margin-top: 100px;
-  text-align: center;
-  margin-bottom: 5rem;
-}
-
-.hero-content {
-  background-color: #ccf6e4;
-  padding: 3rem 2rem;
-  border-radius: 2rem;
-  display: inline-block;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.hero-content h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  color: #eda950;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.get-started-btn {
-  background-color: #00523c;
-  color: white;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-.get-started-btn:hover {
-  background-color: #003c2c;
-}
-
-/* Dark mode styles for hero section */
-[data-theme="dark"] .hero-content {
-  background-color: #2a2a2a;
-  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.05);
-}
-
-[data-theme="dark"] .hero-content h2 {
-  color: #eda950;
-}
-
-[data-theme="dark"] .hero-content p {
-  color: #dff8f8;
-}
 .footer-heading{
     margin: 15%;
 }
