@@ -1769,6 +1769,13 @@ main {
   gap: 15px;
 }
 
+.login-btn {
+  color: #02aa56ce;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
 /* Sign Up Button */
 .signup-btn {
   padding: 10px 24px;
