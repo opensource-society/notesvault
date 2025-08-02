@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add PYQs - NotesVault</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #1c1c1c;
+      --primary-color: #EBC700;  
+      --secondary-color: #2f4f4f; 
+      --input-bg: #f2f8ef; 
+      --border-color: #ccc;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .home-link {
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
+
+    header h1 {
+      margin: 6px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      padding: 0 500px 0 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      background: #f9fafb;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding : 20px;
+      border: 2px solid var(--border-color);
+     border-radius: 10px;
+      box-shadow: #40df70 0px 0px 10px 0px;
+       transition: all 0.3s ease-in-out;
+    }
+    form :hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+   }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    input[type="file"] {
+      padding: 0.8rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: var(--input-bg);
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      background-color: var(--primary-color);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: opacity 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .preview {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #f1f1f1;
+    }
+
+    .preview h3 {
+      margin-top: 0;
+      color: var(--secondary-color);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 1rem;
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="home-link">← Home</a>
+    <h1>Add Past Year Questions</h1>
+  </header>
+
+  <div class="container">
+    <form id="pyqForm">
+      <div>
+        <label for="subject"> Subject</label> 
+        <input type="text" id="subject" name="subject" placeholder="Enter subject name" required>
+      </div>
+
+      <div>
+        <label for="semester"> Semester</label>
+        <input type="number" id="semester" name="semester" placeholder="Enter semester (e.g., 2)" required>
+      </div>
+
+      <div>
+        <label for="question"> Question Text</label>
+        <textarea id="question" name="question" placeholder="Enter question text here"></textarea>
+      </div>
+
+      <div>
+        <label for="file"> Upload Past Paper (PDF)</label>
+        <input type="file" id="file" name="file" accept=".pdf">
+      </div>
+
+      <button type="submit">Upload PYQ</button>
+    </form>
+
+    <div class="preview" id="preview" style="display:none;">
+      <h3>📌 Preview</h3>
+      <p><strong>Subject:</strong> <span id="p-subject"></span></p>
+      <p><strong>Semester:</strong> <span id="p-semester"></span></p>
+      <p><strong>Question:</strong> <span id="p-question"></span></p>
+      <p><strong>File:</strong> <span id="p-file"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('pyqForm');
+    const preview = document.getElementById('preview');
+    const pSubject = document.getElementById('p-subject');
+    const pSemester = document.getElementById('p-semester');
+    const pQuestion = document.getElementById('p-question');
+    const pFile = document.getElementById('p-file');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const subject = document.getElementById('subject').value;
+      const semester = document.getElementById('semester').value;
+      const question = document.getElementById('question').value;
+      const fileInput = document.getElementById('file');
+      const file = fileInput.files[0] ? fileInput.files[0].name : "No file uploaded";
+
+      // Save to localStorage
+      let pyqs = JSON.parse(localStorage.getItem('pyqs')) || [];
+      pyqs.push({ subject, semester, question, file });
+      localStorage.setItem('pyqs', JSON.stringify(pyqs));
+
+      // Show preview
+      pSubject.textContent = subject;
+      pSemester.textContent = semester;
+      pQuestion.textContent = question ? question : "No text provided";
+      pFile.textContent = file;
+      preview.style.display = "block";
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
