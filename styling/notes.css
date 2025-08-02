@@ -1,7 +1,5 @@
-/* Browse Notes Styles */
-
 .browse-notes-container {
-  padding: 2rem 1rem;
+  padding: 6rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -9,7 +7,7 @@
 .browse-notes-container h1 {
   text-align: left;
   margin-bottom: 1.5rem;
-  color: var(--primary-700);
+  color: var(--primary-500);
 }
 
 /* Search Bar */
@@ -86,7 +84,7 @@
 /* Notes Grid */
 .notes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Changed from auto-fit to auto-fill */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
@@ -100,10 +98,10 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%; /* Ensure full width of grid cell */
-  height: 100%; /* Make all cards same height */
-  min-height: 250px; /* Set a minimum height */
-  box-sizing: border-box; /* Include padding in height calculation */
+  width: 100%; 
+  height: 100%;
+  min-height: 250px; 
+  box-sizing: border-box; 
 }
 
 .note-card:hover {
@@ -112,8 +110,8 @@
 }
 
 .note-card h3 {
-  color: var(--primary-700);
-  margin-bottom: 0.75rem;
+  color: var(--primary-600);
+  margin-bottom: 2rem;
 }
 
 .note-card p {
@@ -122,7 +120,7 @@
   color: var(--text-secondary);
 }
 
-/* Consistent Button Group */
+/* Button */
 .note-card .actions {
   margin-top: 1.25rem;
   display: flex;
@@ -163,6 +161,7 @@
 
 .download-button:hover {
   background-color: var(--primary-600);
+  color: inherit;
 }
 
 /* Modal */
@@ -194,7 +193,7 @@
 
 .modal-content h2 {
   margin-bottom: 1rem;
-  color: var(--primary-700);
+  color: var(--primary-600);
 }
 
 .modal-content p {
@@ -241,7 +240,7 @@
   }
 }
 
-/* Responsive Tweaks */
+/* Responsive Design */
 @media (max-width: 768px) {
   .filters-container {
     flex-direction: column;

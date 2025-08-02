@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NotesVault | JotPad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styling/jotpad.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault | JotPad</title>
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
 
-  <div class="header">JotPad - A Clean, Real Time Note Taking Editor</div>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <div class="editor-wrapper">
-    <div class="editor-container">
-      <div class="note-box empty" contenteditable="true" id="noteArea" spellcheck="true">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/jotpad.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <div class="header">JotPad - A Clean, Real Time Note Taking Editor</div>
+
+    <div class="editor-wrapper">
+      <div class="editor-container">
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="textModeBtn">Text Mode</button>
+          <button class="mode-btn" id="drawModeBtn">Draw Mode</button>
+        </div>
+
+        <div class="drawing-container">
+          <div
+            class="note-box empty"
+            contenteditable="true"
+            id="noteArea"
+            spellcheck="true"
+          ></div>
+          <canvas id="drawingCanvas"></canvas>
+        </div>
+
+        <div class="button-wrapper">
+          <button class="download-btn" onclick="downloadPDF()">
+            Download as PDF
+          </button>
+          <button class="delete-btn" onclick="deleteAll()">Delete All</button>
+          <button
+            class="download-btn"
+            id="saveDrawingBtn"
+            style="display: none"
+          >
+            Save Drawing
+          </button>
+          <button class="delete-btn" id="clearDrawingBtn" style="display: none">
+            Clear Drawing
+          </button>
+        </div>
       </div>
+    </div>
 
-      <div class="button-wrapper">
-  <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
-  <button class="delete-btn" onclick="deleteAll()">Delete All</button>
-</div>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
 
-     </div>
-
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script>
-    async function downloadPDF() {
-      const { jsPDF } = window.jspdf;
-      const content = document.getElementById('noteArea').innerText;
-
-      const doc = new jsPDF();
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(14);
-      doc.text(content, 10, 20, { maxWidth: 180 });
-      doc.save("MyNotes.pdf");
-    }
-
-    const noteArea=document.getElementById("noteArea");
-    noteArea.innerHTML = localStorage.getItem("noteContent") || "";
-    function togglePlaceholder(){
-      if(noteArea.innerText.trim()===""){
-        noteArea.classList.add("empty");
-      }
-      else{
-        noteArea.classList.remove("empty");
-      }
-    }
-    noteArea.addEventListener("input",togglePlaceholder);
-    noteArea.addEventListener("blur",togglePlaceholder);
-    noteArea.addEventListener("focus", togglePlaceholder);
-    togglePlaceholder()
-
-
-function deleteAll() {
-  if (confirm("Are you sure you want to delete all notes?")) {
-    noteArea.innerHTML = "";
-    localStorage.removeItem("noteContent");
-    togglePlaceholder();
-  }
-}
-
-
-  </script>
-
-</body>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/jotpad.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </body>
 </html>

@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NotesVault - NotesVault</title>
+    <title>NotesVault - Browse Notes</title>
 
     <link rel="icon" href="../assets/index/images/favicon.png" />
 
     <link rel="stylesheet" href="../styling/variables.css" />
     <link rel="stylesheet" href="../styling/base.css" />
-    <link rel="stylesheet" href="../styling/browseNotes.css" />
+    <link rel="stylesheet" href="../styling/notes.css" />
 
     <link
       rel="stylesheet"
@@ -22,14 +22,14 @@
     <div id="header-placeholder"></div>
 
     <main class="browse-notes-container">
-      <h1>Browse All Notes</h1>
+      <h1>Browse Notes</h1>
 
       <!-- Search & Filters -->
       <div class="search-bar">
         <input
           type="text"
           id="searchInput"
-          placeholder="Search notes by title, uploader..."
+          placeholder="Search Notes By Title, Uploader..."
         />
       </div>
 
@@ -79,7 +79,7 @@
           <strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span>
         </p>
         <a id="modalDownloadButton" class="download-button" href="#" download>
-          <i class="fas fa-download"></i> Download Note
+          <i class="fas fa-download"></i> &nbsp; Download Note
         </a>
       </div>
     </div>
@@ -207,11 +207,11 @@
             <p><strong>Semester:</strong> ${note.semester}</p>
             <p><strong>Uploaded By:</strong> ${note.uploader}</p>
             <div class="actions">
-                <button class="view-button"><i class="fas fa-eye"></i> View</button>
+                <button class="view-button"><i class="fas fa-eye"></i> &nbsp; View</button>
                 <a class="download-button" href="${
                   note.filePath || '#'
                 }" download="${getDownloadFilename(note)}">
-                    <i class="fas fa-download"></i> Download
+                    <i class="fas fa-download"></i> &nbsp; Download
                 </a>
             </div>
           `
