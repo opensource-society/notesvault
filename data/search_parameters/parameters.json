@@ -22,6 +22,60 @@
                         {"BT204": "Basic Civil Engineering & Mechanics"},
                         {"BT205": "Basic Computer Engineering"}
                     ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"ES301": "Energy & Environmental Engineering"},
+                        {"CSIT302": "Discrete Structure"},
+                        {"CSIT303": "Data Structure"},
+                        {"CSIT304": "Digital Circuits & System"},
+                        {"CSIT305": "Object Oriented Programming & Methodology"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"BT401": "Mathematics- III"},
+                        {"CSIT402": "Analog & Digital Communication"},
+                        {"CSIT403": "Analysis & Design of Algorithm"},
+                        {"CSIT404": "Computer Organization & Architecture"},
+                        {"CSIT405": "Data base Management System"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"CD501": "Theory of Computation"},
+                        {"CD502": "Machine Learning"},
+                        {"CD503": "Departmental Elective"},
+                        {"CD504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"CS601": "Machine Learning"},
+                        {"CS602": "Computer Networks"},
+                        {"CS603": "Departmental Elective"},
+                        {"CS604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"CS701": "Software Architectures"},
+                        {"CS702": "Departmental Elective"},
+                        {"CS703": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"CS801": "Internet of Things"},
+                        {"CS802": "Departmental Elective"},
+                        {"CS803": "Open Elective"}
+                    ]
                 }
             ]
         },
@@ -47,7 +101,62 @@
                         {"BT104": "Basic Electrical & Electronics Engineering"},
                         {"BT105": "Engineering Graphics"}
                     ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"AL301": "Technical Communication"},
+                        {"AL302": "Introduction to Probability and Statistics"},
+                        {"AL303": "Data Structures"},
+                        {"AL304": "Artificial Intelligence"},
+                        {"AL305": "Object Oriented Programming & Methodology"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"AL401": "Introduction to Discrete Structure & Linear Algebra"},
+                        {"AL402": "Analysis & Design of Algorithms"},
+                        {"AL403": "Software Engineering"},
+                        {"AL404": "Computer Organization & Architecture"},
+                        {"AL405": "Machine Learning"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"AL501": "Operating Systems"},
+                        {"AL502": "Database Management System"},
+                        {"AL503": "Departmental Elective"},
+                        {"AL504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"AL601": "Theory of Computation"},
+                        {"AL602": "Computer Networks"},
+                        {"AL603": "Departmental Elective"},
+                        {"AL604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"AL701": "Computer Vision"},
+                        {"AL702": "Departmental Elective"},
+                        {"AL703": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"AL801": "Business Intelligence"},
+                        {"AL802": "Departmental Elective"},
+                        {"AL803": "Open Elective"}
+                    ]
                 }
+                
             ]
         },
         {
@@ -71,6 +180,60 @@
                         {"BT103": "English for Communication"},
                         {"BT104": "Basic Electrical & Electronics Engineering"},
                         {"BT105": "Engineering Graphics"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"IO301": "Technical Communication"},
+                        {"IO302": "Fundamentals of IoT"},
+                        {"IO303": "Data Structures"},
+                        {"IO304": "Electronic Devices"},
+                        {"IO305": "Network Analysis"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"IO401": "Probability, Statistics and Linear Algebra"},
+                        {"IO402": "Privacy and Security in IoT"},
+                        {"IO403": "Operating Systems"},
+                        {"IO404": "Computer Organization & Architecture"},
+                        {"IO405": "Computer Networks"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"IO501": "Embedded System for IoT "},
+                        {"IO502": "Database Management System"},
+                        {"IO503": "Departmental Elective"},
+                        {"IO504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"IO601": "Data Analytics in IOT"},
+                        {"IO602": "Wireless Ad-hoc Network"},
+                        {"IO603": "Departmental Elective"},
+                        {"IO604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"IO701": "IoT Architecture & Protocols"},
+                        {"IO702": "Departmental Elective"},
+                        {"IO703": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"IO801": "Artificial Intelligence"},
+                        {"IO802": "Departmental Elective"},
+                        {"IO803": "Open Elective"}
                     ]
                 }
             ]
@@ -97,7 +260,605 @@
                         {"BT104": "Basic Electrical & Electronics Engineering"},
                         {"BT105": "Engineering Graphics"}
                     ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"CD301": "Technical Communication"},
+                        {"CD302": "Introduction to Probability and Statistic"},
+                        {"CD303": "Data Structures"},
+                        {"CD304": "Database Management Systems"},
+                        {"CD305": "Object Oriented Programming & Methodology"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"CD401": "C Introduction to DiscreteStructure & Linear Algebra"},
+                        {"CD402": "Analysis & Design of Algorithms"},
+                        {"CD403": "Software Engineering"},
+                        {"CD404": "Introduction to Data Science"},
+                        {"CD405": "Operating Systems"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"CD501": "Theory of Computation"},
+                        {"CD502": "Machine Learning"},
+                        {"CD503": "Departmental Elective"},
+                        {"CD504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"CD601": "Deep Learning"},
+                        {"CD602": "Computer Networks"},
+                        {"CD603": "Departmental Elective"},
+                        {"CD604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"CD701": "Data Engineering"},
+                        {"CD702": "Departmental Elective"},
+                        {"CD703": "Open Elective "}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"CD801": "Compiler Design"},
+                        {"CD802": "Departmental Elective"},
+                        {"CD803": "Open Elective "}
+                    ]
                 }
             ]
-        }, "CSBS", "EX", "EE", "EC", "AIR", "ME", "CE"]
+        },
+        {
+            "name": "CSBS",
+            "semesters": [
+                {
+                    "semester": 1,
+                    "subjects":[
+                        {"CB101": "Discrete Mathematics"},
+                        {"CB102": "Introductory Topics in Statistics, Probability and Calculus"},
+                        {"CB103": "Fundamentals of Computer Science"},
+                        {"CB104": "Principles of Electrical Engineering"},
+                        {"CB105": "Fundamentals of Physics"},
+                        {"CB106": "Business Communication and Value Science-I"}
+                    ]
+                },
+                {
+                    "semester": 2,
+                    "subjects":[
+                        {"CB201": "Linear Algebra"},
+                        {"CB202": "Statistical Methods"},
+                        {"CB203": "Data Structures & Algorithms"},
+                        {"CB204": "Principles of Electrical Engineering"},
+                        {"CB205": "Fundamentals of Economics"},
+                        {"CB206": "Business Communication and Value Science-II"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects":[
+                        {"CB301": "Formal Language and Automata Theory"},
+                        {"CB302": "Computer Organization & Architecture"},
+                        {"CB303": "Object Oriented Programming"},
+                        {"CB304": "Computational Statistics"},
+                        {"CB305": "DBMS"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects":[
+                        {"CB401": "Operating Systems"},
+                        {"CB402": "Design And Analysis of Algorithms"},
+                        {"CB403": "Software Engineering"},
+                        {"CB404": "Introduction to Innovation, IP Management & Entrepreneurship"},
+                        {"CB405": "Design Thinking"},
+                        {"CB406": "Operations Research"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects":[
+                        {"CD501": "Theory of Computation"},
+                        {"CD502": "Machine Learning"},
+                        {"CD503": "Departmental Elective"},
+                        {"CD504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects":[
+                        {"CD601": "Deep Learning"},
+                        {"CD602": "Computer Networks"},
+                        {"CD603": "Departmental Elective"},
+                        {"CD604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects":[
+                        {"CD701": "Deep Learning"},
+                        {"CD702": "Computer Networks"},
+                        {"CD703": "Departmental Elective"},
+                        {"CD704": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects":[
+                        {"CD801": "Compiler Design"},
+                        {"CD802": "Departmental Elective"},
+                        {"CD803": "Open Elective"}
+                    ]
+                }
+            ]
+
+        },
+         {  
+            "name": "EX",
+            "semesters": [
+                {
+                    "semester": 1,
+                    "subjects": [
+                        {"BT101": "Engineering Chemistry"},
+                        {"BT102": "Mathematics-I"},
+                        {"BT103": "English for Communication"},
+                        {"BT104": "Basic Electrical & Electronics Engineering"},
+                        {"BT105": "Engineering Graphics"}
+                    ]
+                },
+                {
+                    "semester": 2,
+                    "subjects": [
+                        {"BT201": "Engineering Physics"},
+                        {"BT202": "Mathematics-II"},
+                        {"BT203": "Basic Mechanical Engineering"},
+                        {"BT204": "Basic Civil Engineering & Mechanics"},
+                        {"BT205": "Basic Computer Engineering"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"ES301": "Energy & Environmental Engineering"},
+                        {"EX302": "Signals & Systems"},
+                        {"EX303": "Electrical Measurement & Measuring Instruments"},
+                        {"EX304": "Network Analysis"},
+                        {"EX305": "Analog Electronics"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"BT401": "Mathematics-III"},
+                        {"EX402": "Electrical Machine-I"},
+                        {"EX403": "Digital Electronics & Logic Design(DELD)"},
+                        {"EX404": "Power System-I"},
+                        {"EX405": "Control System"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"EX501": "Electrical Machine-II"},
+                        {"EX502": "Power Electronics"},
+                        {"EX503": "Departmental Elective -I"},
+                        {"EX504": "Open Elective -I"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"EX601": "Power System-II"},
+                        {"EX602": "Microprocessor & Microcontroller"},
+                        {"EX603": "Departmental Elective"},
+                        {"EX604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"EX701": "Power System Protection"},
+                        {"EX702": "Departmental Elective"},
+                        {"EX703": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"EX801": "Electrical Drives"},
+                        {"EX802": "Departmental Elective"},
+                        {"EX803": "Open Elective"}
+                    ]
+                }
+            ]
+        },
+         {  
+            "name": "EE",
+            "semesters": [
+                {
+                    "semester": 1,
+                    "subjects": [
+                        {"BT101": "Engineering Chemistry"},
+                        {"BT102": "Mathematics-I"},
+                        {"BT103": "English for Communication"},
+                        {"BT104": "Basic Electrical & Electronics Engineering"},
+                        {"BT105": "Engineering Graphics"}
+                    ]
+                },
+                {
+                    "semester": 2,
+                    "subjects": [
+                        {"BT201": "Engineering Physics"},
+                        {"BT202": "Mathematics-II"},
+                        {"BT203": "Basic Mechanical Engineering"},
+                        {"BT204": "Basic Civil Engineering & Mechanics"},
+                        {"BT205": "Basic Computer Engineering"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"ES301": "Energy & Environmental Engineering"},
+                        {"ES302": "Electromagnetic Field & Materials"},
+                        {"ES303": "Electrical Measurement & Measuring Instruments"},
+                        {"ES304": "Analog Electronics "},
+                        {"ES305": "Network Analysis"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"BT401": "Mathematics-III"},
+                        {"EE402": "Electrical Machine-I"},
+                        {"EE403": "Digital Electronics & Logic Design (DELD)"},
+                        {"EE404": "Power System-I"},
+                        {"EE405": "Control System"}
+                    ]
+                },
+                 {
+                    "semester": 5,
+                    "subjects": [
+                        {"EE501": "Electrical Machine-II"},
+                        {"EE502": "Power Electronics"},
+                        {"EE503": "Departmental Elective -I"},
+                        {"EE504": "Open Elective -I"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"EE601": "Electrical Machine Design"},
+                        {"EE602": "Power System-II"},
+                        {"EE603": "Departmental Elective"},
+                        {"EE604": "Open Elective -I"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"EE701": "Electrical Drives"},
+                        {"EE702": "Departmental Elective"},
+                        {"EE703": "Open Elective -I"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"EE801": " Power Quality Improvement & Mitigation Technique"},
+                        {"EE802": "Departmental Elective"},
+                        {"EE803": "Open Elective -I"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "EC",
+            "semesters": [
+                {
+                    "semester": 1,
+                    "subjects": [
+                        {"BT201": "Engineering Physics"},
+                        {"BT102": "Mathematics-I"},
+                        {"BT203": "Basic Mechanical Engineering"},
+                        {"BT204": "Basic Civil Engineering & Mechanics"},
+                        {"BT205": "Basic Computer Engineering"}
+                    ]
+                },
+                {
+                    "semester": 2,
+                    "subjects": [
+                        {"BT101": "Engineering Chemistry"},
+                        {"BT202": "Mathematics-II"},
+                        {"BT103": "English for Communication"},
+                        {"BT104": "Basic Electrical & Electronics Engineering"},
+                        {"BT105": "Engineering Graphics"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"BT301": "Mathematics-III"},
+                        {"EC302": "Electronic Measurement & Instrumentation"},
+                        {"EC303": "Digital System Design"},
+                        {"EC304": "Electronic Devices"},
+                        {"EC305": "Network Analysis"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"ES401": "Energy & Environmental Engineering"},
+                        {"ES402": "Signals & Systems"},
+                        {"ES403": "Analog Communication"},
+                        {"ES404": "Control System"},
+                        {"ES405": "Analog Circuits"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"EC501": "Microprocessor & its Application"},
+                        {"EC502": "Digital Communication"},
+                        {"EC503": "Departmental Elective"},
+                        {"EC504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"EC601": "Digital Signal Processing"},
+                        {"EC602": "Antenna & Wave propagation"},
+                        {"EC603": "Departmental Elective"},
+                        {"EC604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester":7,
+                    "subjects": [
+                        {"EC701": "VLSI Design"},
+                        {"EC702": "Departmental Elective"},
+                        {"EC703": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester":8,
+                    "subjects": [
+                        {"EC801": "Optical Fibre Communication "},
+                        {"EC802": "Departmental Elective"},
+                        {"EC803": "Open Elective"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "AIR",
+            "semesters": [
+                {
+                    "semester": 1,
+                    "subjects": [
+                        {"BT201": "Engineering Physics"},
+                        {"BT102": "Mathematics-I"},
+                        {"BT203": "Basic Mechanical Engineering"},
+                        {"BT204": "Basic Civil Engineering & Mechanics"},
+                        {"BT205": "Basic Computer Engineering"}
+                    ]
+                },
+                {
+                    "semester": 2,
+                    "subjects": [
+                        {"BT101": "Engineering Chemistry"},
+                        {"BT202": "Mathematics-II"},
+                        {"BT103": "English for Communication"},
+                        {"BT104": "Basic Electrical & Electronics Engineering"},
+                        {"BT105": "Engineering Graphics"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"BT301": "Mathematics-III"},
+                        {"RA302": "Strength of Materials"},
+                        {"RA303N23": "Data Structures"},
+                        {"RA304N23": "Theory of Machines and Mechanisms"},
+                        {"RA305N23": "Electronic Devices & Circuits"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"RA401": "Introduction to Probability & Statistics"},
+                        {"RA402": "Robotics Engineering"},
+                        {"RA403": "Microcontroller and its application"},
+                        {"RA404": "Introduction to Artificial Intelligence"},
+                        {"RA405": "Object Oriented Programming & Methodology "}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"RA501": "Control Systems"},
+                        {"RA502": "Machine Learning"},
+                        {"RA503": "Departmental Elective"},
+                        {"RA504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"RA601": "Embedded Systems Design "},
+                        {"RA602": "Deep learning"},
+                        {"RA603": "Departmental Elective"},
+                        {"RA604": "Open Elective"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ME",
+            "semesters": [
+                {
+                    "semester": 1,
+                    "subjects": [
+                        {"BT201": "Engineering Physics"},
+                        {"BT102": "Mathematics-I"},
+                        {"BT203": "Basic Mechanical Engineering"},
+                        {"BT204": "Basic Civil Engineering & Mechanics"},
+                        {"BT205": "Basic Computer Engineering"}
+                    ]
+                },
+                {
+                    "semester": 2,
+                    "subjects": [
+                        {"BT101": "Engineering Chemistry"},
+                        {"BT202": "Mathematics-II"},
+                        {"BT103": "English for Communication"},
+                        {"BT104": "Basic Electrical & Electronics Engineering"},
+                        {"BT105": "Engineering Graphics"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"BT301": "Mathematics-III"},
+                        {"ME302": " Thermodynamics"},
+                        {"ME303": "Materials Technology"},
+                        {"ME304": "Strength of Material"},
+                        {"ME305": "Manufacturing Process"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"ES401": "Energy & Environmental Engineering"},
+                        {"ME402": "INSTRUMENTATION & CONTROL"},
+                        {"ME403": "THEORY OF MACHINES"},
+                        {"ME404": "FLUID MECHANICS"},
+                        {"ME405": " MANUFACTURING TECHNOLOGY"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"ES501": "I C Engines"},
+                        {"ME502": "Mechanical Vibration"},
+                        {"ME503": "Departmental Elective"},
+                        {"ME504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"ME601": "Thermal Engineering and Gas Dynamics"},
+                        {"ME602": "Machine Component Design"},
+                        {"ME603": "Departmental Elective"},
+                        {"ME604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"ME701": "Heat and Mass Transfer"},
+                        {"ME702": "Departmental Elective"},
+                        {"ME703": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"ME701": "Refrigeration & Air Conditioning"},
+                        {"ME702": "Departmental Elective"},
+                        {"ME703": "Open Elective"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "CE",
+            "semesters": [
+                {
+                    "semester": 1,
+                    "subjects": [
+                        {"BT201": "Engineering Physics"},
+                        {"BT102": "Mathematics-I"},
+                        {"BT203": "Basic Mechanical Engineering"},
+                        {"BT204": "Basic Civil Engineering & Mechanics"},
+                        {"BT205": "Basic Computer Engineering"}
+                    ]
+                },
+                {
+                    "semester": 2,
+                    "subjects": [
+                        {"BT101": "Engineering Chemistry"},
+                        {"BT202": "Mathematics-II"},
+                        {"BT103": "English for Communication"},
+                        {"BT104": "Basic Electrical & Electronics Engineering"},
+                        {"BT105": "Engineering Graphics"}
+                    ]
+                },
+                {
+                    "semester": 3,
+                    "subjects": [
+                        {"BT301": "Mathematics-III"},
+                        {"CE302": "Construction Materials"},
+                        {"CE303": "Surveying"},
+                        {"CE304": "Building Planning & Architecture"},
+                        {"CE305": "Strength of Materials"}
+                    ]
+                },
+                {
+                    "semester": 4,
+                    "subjects": [
+                        {"ES401": "Energy & Environmental Engineering"},
+                        {"CE402": "Construction Technology"},
+                        {"CE403": "Structural Analysis-I"},
+                        {"CE404": "Transportation Engineering-I"},
+                        {"CE405": "Engineering Geology & Remote Sensing"}
+                    ]
+                },
+                {
+                    "semester": 5,
+                    "subjects": [
+                        {"CM501": "Mass Transfer-I"},
+                        {"CM502": "Heat Transfer"},
+                        {"CM503": "Departmental Elective"},
+                        {"CM504": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 6,
+                    "subjects": [
+                        {"CE601": "Structural Design and Drawing (RCC-I)"},
+                        {"CE602": "Environmental Engineering I"},
+                        {"CE603": "Departmental Elective"},
+                        {"CE604": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 7,
+                    "subjects": [
+                        {"CE701": "Geotechnical Engg"},
+                        {"CE702": "Departmental Elective"},
+                        {"CE703": "Open Elective"}
+                    ]
+                },
+                {
+                    "semester": 8,
+                    "subjects": [
+                        {"CE801": "Design of Steel Structures"},
+                        {"CE802": "Departmental Elective"},
+                        {"CE803": "Open Elective"}
+                    ]
+                }
+            ]
+        }
+       
+    ]
 }
