@@ -1,197 +1,216 @@
-/* General Reset */
-body {
-  font-family: "Segoe UI", sans-serif;
-  background-color: #f9fbff;
+/* Reset and base styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: "Segoe UI", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Top Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: rgb(90, 134, 90);
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  transition: all 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 48px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo span {
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 48px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 700;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #2f855a;
+}
+
+.signup-btn a {
+  padding: 8px 16px;
+  background-color: rgb(88, 150, 88);
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background-color 0.2s;
+  margin-right: 25px;
+}
+.signup-btn a:hover {
+  background-color: rgb(63, 105, 63);
 }
 
 /* Container */
+.parent-container{
+  background-color: #d4e7d4;
+}
 .container {
-  max-width: 900px;
-  margin: 40px auto;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px 60px;
+  background-color: white;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 40px;
 }
 
-h1 {
-  text-align: center;
-  color: #2d2d2d;
-  margin-bottom: 30px;
+/* Profile Section */
+.profile {
+  margin-bottom: 40px;
+}
+.profile h2 {
+  margin-bottom: 10px;
+  color: #2f855a;
 }
 
-/* Profile & Notes */
-.profile,
+/* Notes Section */
 .notes-section {
   margin-bottom: 30px;
-  padding: 20px;
-  border-left: 6px solid #2a343e;
-  background-color: #f0f7ff;
-  border-radius: 8px;
+  margin-top: 30px;
 }
-
-.profile p {
-  margin: 10px 0;
-  font-size: 16px;
-  color: #333;
-}
-
-.notes-section h2 {
-  margin-bottom: 15px;
-}
-
 .note-card {
-  background-color: #fff;
-  border: 1px solid #dde6f1;
+  background-color: #f0fff4;
   padding: 20px;
-  border-radius: 10px;
+  border: 1px solid #c6f6d5;
+  border-radius: 12px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
-
 .note-card h3 {
-  color: #111417;
+  margin-bottom: 10px;
+  color: #2f855a;
+}
+.note-card ul {
+  margin-left: 20px;
   margin-bottom: 10px;
 }
-
-.note-card ul {
-  padding-left: 20px;
-  margin-bottom: 15px;
-  color: #444;
-}
-
-.note-card li {
-  margin-bottom: 8px;
-}
-
 .note-card button {
-  padding: 8px 16px;
-  background-color: #1a73e8;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s ease;
-}
-
-.note-card button:hover {
-  background-color: #0f5ec9;
-}
-
-.back-btn {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.back-btn button {
-  background-color: #4a4a4a;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.back-btn button:hover {
-  background-color: #2e2e2e;
-}
-
-/* ================= HEADER STYLES =================== */
-
-#header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #171d23;
-  color: white;
-  padding: 12px 24px;
-  flex-wrap: wrap;
-}
-
-#header-title-box #header-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-}
-
-#header-navigation a {
-  color: white;
-  margin: 0 12px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-#header-navigation a:hover {
-  text-decoration: underline;
-}
-
-#header-signup-box p {
-  margin: 0;
-  background-color: white;
-  color: #1a73e8;
   padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#header-signup-box p:hover {
-  background-color: #f1f1f1;
-}
-
-/* Hamburger Menu */
-.hamburger-wrapper {
-  position: relative;
-}
-
-.hamburger-menu {
-  background: none;
+  background-color: #48bb78;
   border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 6px;
-}
-
-.hamburger-line {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-}
-
-.hover-sidebar {
-  display: none;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background-color: #1a73e8;
-  padding: 10px;
   border-radius: 6px;
-  z-index: 10;
-}
-
-.hamburger-wrapper:hover .hover-sidebar {
-  display: block;
-}
-
-.hover-sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.hover-sidebar li a {
   color: white;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 8px;
+  cursor: pointer;
+}
+.note-card button:hover {
+  background-color: #38a169;
 }
 
-.hover-sidebar li a:hover {
-  text-decoration: underline;
+/* Back Button */
+.back-btn button {
+  padding: 10px 16px;
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.back-btn button:hover {
+  background-color: #cbd5e0;
+}
+
+/* 🔘 Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* 🌓 Dark Mode Styling */
+#dark-toggle:checked ~ .navbar,
+#dark-toggle:checked ~  .parent-container .container,
+#dark-toggle:checked ~ body {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+#dark-toggle:checked ~ .navbar {
+  background-color: #2d3748;
+}
+
+#dark-toggle:checked ~ .navbar .nav-links a {
+  color: #e2e8f0;
+}
+#dark-toggle:checked ~ .navbar .nav-links a:hover {
+  color: #90cdf4;
+}
+
+#dark-toggle:checked ~ .signup-btn a {
+  background-color: #3182ce;
+}
+#dark-toggle:checked ~ .signup-btn a:hover {
+  background-color: #2c5282;
+}
+
+#dark-toggle:checked ~ .parent-container  {
+  background-color: #2d3748;
+}
+
+#dark-toggle:checked ~ .parent-container .container .note-card {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+#dark-toggle:checked ~ .parent-container .container .note-card h3 {
+  color: #68d391;
+}
+
+#dark-toggle:checked ~ .parent-container .container.back-btn button {
+  background-color: #4a5568;
+  color: #fff;
+}
+#dark-toggle:checked ~ .parent-container .container.back-btn button:hover {
+  background-color: #2d3748;
 }
