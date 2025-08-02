@@ -502,3 +502,123 @@
     justify-content: center;
   }
 } 
+
+
+/* ========== To-do List Page Styles ========== */
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 30px;
+  background: #163d3b;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background: #14524c;
+}
+
+
+/* ========== Custom Footer Styles ========== */
+
+/* Main custom footer container */
+.custom-footer {
+  background-color: #0d0d0d;
+  color: #2e7d32;
+  padding: 40px 20px 10px;
+  font-family: "Segoe UI", sans-serif;
+  border-top: 2px solid #b2d8c5;
+  margin-top: 80px;
+}
+
+/* Flex container for footer sections */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Each section in the footer */
+.footer-section {
+  flex: 1 1 200px;
+}
+
+/* Footer section headings */
+.footer-section h3,
+.footer-section h2 {
+  margin-bottom: 15px;
+  color: #2e7d32;
+}
+
+/* Footer description text */
+.footer-description {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Footer links list */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+.footer-section ul li a {
+  text-decoration: none;
+  color: #2e7d32;
+  transition: color 0.2s;
+  font-size: 15px;
+}
+.footer-section ul li a:hover {
+  color: #1b5e20;
+}
+
+/* "Learn more" style link */
+.footer-learn-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1b5e20;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s;
+}
+.footer-learn-link:hover {
+  border-bottom: 2px solid #1b5e20;
+}
+
+/* Footer bottom copyright/info */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #cde9d9;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

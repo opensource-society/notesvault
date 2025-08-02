@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse Notes - NotesVault</title>
   <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -84,30 +87,32 @@
       font-size: 1rem;
     }
 
-  .notes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  min-height: 300px; /* maintains grid space when filtering */
-  transition: all 0.3s ease;
-}
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      min-height: 300px;
+      /* maintains grid space when filtering */
+      transition: all 0.3s ease;
+    }
 
-.note-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 230px; /* maintain uniform height */
-  transition: all 0.3s ease;
-  opacity: 1;
-}
+    .note-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 230px;
+      /* maintain uniform height */
+      transition: all 0.3s ease;
+      opacity: 1;
+    }
 
-.note-card.hidden {
-  display: none;
-}
+    .note-card.hidden {
+      display: none;
+    }
 
 
     .note-card h3 {
@@ -153,6 +158,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Header -->
@@ -160,11 +166,13 @@
     <p id="header-title">NotesVault</p>
     <nav class="nav-menu">
       <a href="../index.html">Home</a>
-      <a href="search.html">Browse</a>
+      <a href="BrowseNotes.html">Browse</a>
       <a href="upload.html">Upload</a>
     </nav>
     <div id="header-signup-box">
-      <a href="signup.html"><p>Sign Up</p></a>
+      <a href="signup.html">
+        <p>Sign Up</p>
+      </a>
     </div>
   </header>
 
@@ -245,6 +253,7 @@
   </footer>
 
 </body>
+
 </html>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
