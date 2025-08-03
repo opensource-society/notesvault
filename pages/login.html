@@ -6,10 +6,17 @@
   <title>Login - NotesVault</title>
   <link rel="stylesheet" href="../styling/login.css"/>
   <link rel="icon" href="favicon.png" type="image/x-icon"/>
-
+  <link rel="stylesheet" href="../components/header.css"/>
+  <script src="../components/header.js"></script>
   
 </head>
 <body class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4">
+
+  <!-- Header -->
+  <header style="height: 100px;" id="header-holder">
+
+  </header>
+
   <div id="messageBox" class="message-box"></div>
 
   <div class="home-button-container">
@@ -99,7 +106,7 @@
 
       showMessageBox('Login successful! Redirecting...', 'success');
       setTimeout(() => {
-        window.location.href = '../index.html';
+        window.location.href = 'index.html';
       }, 1000);
 
       // Reset button
