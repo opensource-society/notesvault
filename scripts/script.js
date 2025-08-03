@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   typeWriterEffect();
 
   const nav = document.getElementById('header-navigation');
-  const hamburger = document.getElementById('hamburgerMenu');
+  const hamburger = document.getElementById('hamburger');
   if (hamburger) {
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('show');
