@@ -1,17 +1,34 @@
 /* Jotpad */
 
-.header {
+/* Hero Section */
+.jotpad-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
+  padding: 6rem 0 4rem 0;
   text-align: center;
-  padding: 1.25rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
+}
+
+.jotpad-hero h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.jotpad-hero .subtitle {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .editor-wrapper {
-  max-width: 50rem;
-  margin: 0 auto;
+  max-width: 65rem;
+  margin: 2rem auto;
   padding: 1.25rem;
   color: var(--text-primary);
 }
