@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styling/styles.css" />
+    <link rel="stylesheet" href="styling/unified-header.css" />
     <link
       rel="icon"
       href="assets/index/images/favicon.png"
@@ -18,21 +19,68 @@
 
   <body>
     <!-- Header -->
-    <header class="navbar">
-      <div class="navbar-left">
-        <div class="logo">NotesVault</div>
+    <header class="unified-header" id="unified-header">
+      <div class="header-container">
+        <!-- Logo/Brand -->
+        <div class="header-brand">
+          <a href="index.html" class="brand-link">
+            <h1 class="brand-title">NotesVault</h1>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" id="desktop-nav">
+          <a href="pages/overview.html" class="nav-link">Overview</a>
+          <a href="pages/BrowseNotes.html" class="nav-link">Browse Notes</a>
+          <a href="pages/upload.html" class="nav-link">Upload</a>
+          <a href="pages/about.html" class="nav-link">About</a>
+          <a href="pages/features.html" class="nav-link">Features</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="pages/login.html" class="action-btn login-btn">Login</a>
+          <a href="pages/signup.html" class="action-btn signup-btn">Sign Up</a>
+
+          <!-- Hamburger Menu Button -->
+          <button
+            class="hamburger-btn"
+            id="hamburger-btn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
       </div>
 
-      <div class="navbar-center" id="heade</div>r-navigation">
-        <a href="pages/overview.html">Overview</a>
-        <a href="pages/studentAccount.html">Student Account</a>
-        <a href="pages/about.html">About</a>
-        <a href="pages/features.html">Features</a>
-      </div>
+      <!-- Mobile Navigation Overlay -->
+      <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <nav class="mobile-nav" id="mobile-nav">
+          <a href="index.html" class="mobile-nav-link">Home</a>
+          <a href="pages/overview.html" class="mobile-nav-link">Overview</a>
+          <a href="pages/BrowseNotes.html" class="mobile-nav-link"
+            >Browse Notes</a
+          >
+          <a href="pages/upload.html" class="mobile-nav-link">Upload</a>
+          <a href="pages/about.html" class="mobile-nav-link">About</a>
+          <a href="pages/features.html" class="mobile-nav-link">Features</a>
+          <a href="pages/todolist.html" class="mobile-nav-link">Todo List</a>
+          <a href="pages/studentAccount.html" class="mobile-nav-link"
+            >Student Account</a
+          >
 
-      <div class="navbar-right">
-        <a href="pages/signup.html" class="signup-btn">Sign Up</a>
-        <div id="hamburger" class="hamburger-icon">☰</div>
+          <div class="mobile-auth-links">
+            <a href="pages/login.html" class="mobile-nav-link auth-link"
+              >Login</a
+            >
+            <a href="pages/signup.html" class="mobile-nav-link auth-link signup"
+              >Sign Up</a
+            >
+          </div>
+        </nav>
       </div>
     </header>
 
@@ -415,6 +463,7 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="scripts/unified-header.js" defer></script>
     <script src="scripts/script.js" defer></script>
   </body>
 </html>
