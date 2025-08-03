@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - NotesVault</title>
+    <title>NotesVault - Login</title>
 
     <!-- Favicon -->
     <link
@@ -98,60 +98,6 @@
     </div>
 
     <script src="../scripts/script.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // DOM Elements
-        const loginForm = document.getElementById('loginForm')
-        const messageBox = document.getElementById('messageBox')
-        const passwordInput = document.getElementById('password')
-        const passwordToggle = document.querySelector('.password-toggle')
-        const passwordIcon = passwordToggle.querySelector('i')
-
-        // Toggle password visibility
-        passwordToggle.addEventListener('click', function () {
-          const isPassword = passwordInput.type === 'password'
-          passwordInput.type = isPassword ? 'text' : 'password'
-          passwordIcon.className = isPassword
-            ? 'far fa-eye-slash'
-            : 'far fa-eye'
-          passwordToggle.setAttribute(
-            'aria-label',
-            isPassword ? 'Hide password' : 'Show password'
-          )
-        })
-
-        // Floating label effect
-        document.querySelectorAll('.floating-input input').forEach((input) => {
-          input.addEventListener('focus', () => {
-            input.parentNode.classList.add('focused')
-          })
-
-          input.addEventListener('blur', () => {
-            if (!input.value) {
-              input.parentNode.classList.remove('focused')
-            }
-          })
-
-          // Initialize floating labels if values exist (for remember me)
-          if (input.value) {
-            input.parentNode.classList.add('focused')
-          }
-        })
-
-        // Form submission handler
-        loginForm.addEventListener('submit', async function (e) {
-          e.preventDefault()
-
-        })
-
-        // Check for remembered email
-        const rememberedEmail = localStorage.getItem('rememberEmail')
-        if (rememberedEmail) {
-          document.getElementById('email').value = rememberedEmail
-          document.getElementById('remember-me').checked = true
-          document.getElementById('email').parentNode.classList.add('focused')
-        }
-      })
-    </script>
+    <script src="../scripts/login.js"></script>
   </body>
 </html>
