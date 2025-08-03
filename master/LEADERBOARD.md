@@ -30,6 +30,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
 | [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 1 |
 | [@utkarshwrks](https://github.com/utkarshwrks) | 1 | 0 | 0 | 1 |
+| [@Disha19-09](https://github.com/Disha19-09) | 1 | 0 | 0 | 1 |
 | [@Kalika-Jay](https://github.com/Kalika-Jay) | 0 | 0 | 1 | 1 |
 | [@vanshika-ramchandani](https://github.com/vanshika-ramchandani) | 1 | 0 | 0 | 1 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | 1 | 0 | 0 | 1 |
@@ -55,7 +56,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ManiGaneshwari](https://github.com/ManiGaneshwari) | 1 | 0 | 0 | 0 |
 | [@LavanyaC04](https://github.com/LavanyaC04) | 1 | 0 | 0 | 0 |
 | [@Shubham-cyber-prog](https://github.com/Shubham-cyber-prog) | 0 | 1 | 0 | 0 |
-| [@Disha19-09](https://github.com/Disha19-09) | 1 | 0 | 0 | 0 |
 | [@JaganParida](https://github.com/JaganParida) | 1 | 0 | 0 | 0 |
 | [@sabaaa01](https://github.com/sabaaa01) | 1 | 0 | 0 | 0 |
 | [@HemantSharma456](https://github.com/HemantSharma456) | 1 | 0 | 0 | 0 |
