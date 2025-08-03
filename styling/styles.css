@@ -218,8 +218,8 @@ header {
   gap: 2rem;
   margin: 5vw;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 /* Left column  */
@@ -784,4 +784,3 @@ header {
     }
   }
 /*-------------- Overpage Page Styles ends here ------------- */
-
