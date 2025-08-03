@@ -58,7 +58,7 @@
 #header #header-title-box #header-title {
   font-weight: 500;
   font-style: normal;
-  font-size: calc(12px+1vw);
+  font-size: calc(12px + 1vw);
 }
 
 #header #header-navigation {
