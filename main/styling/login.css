@@ -20,8 +20,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 1rem;
     margin: 0;
 }
 
@@ -52,6 +50,7 @@ body {
     margin-bottom: 1.5rem;
     padding: 0 1rem;
     text-align: left;
+    margin-top: 75px;
 }
 
 .home-button {
