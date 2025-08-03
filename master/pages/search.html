@@ -5,16 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse Notes - NotesVault</title>
-  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon">
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="../components/header.css"/>
+  <script src="../components/header.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -24,41 +21,6 @@
     a {
       text-decoration: none;
       color: inherit;
-    }
-
-    /* Header */
-    header {
-      background-color: #eaf1ea;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      border-bottom: 1px solid #ccc;
-    }
-
-    #header-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #164a3e;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-menu a {
-      font-weight: 500;
-      color: #164a3e;
-    }
-
-    #header-signup-box a p {
-      background-color: #163e35;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: 500;
     }
 
     /* Main */
@@ -162,18 +124,8 @@
 <body>
 
   <!-- Header -->
-  <header>
-    <p id="header-title">NotesVault</p>
-    <nav class="nav-menu">
-      <a href="../index.html">Home</a>
-      <a href="BrowseNotes.html">Browse</a>
-      <a href="upload.html">Upload</a>
-    </nav>
-    <div id="header-signup-box">
-      <a href="signup.html">
-        <p>Sign Up</p>
-      </a>
-    </div>
+  <header style="height: 100px;" id="header-holder">
+
   </header>
 
   <!-- Main -->

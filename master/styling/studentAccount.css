@@ -1,9 +1,4 @@
 /* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body, html {
   font-family: "Segoe UI", sans-serif;
@@ -15,17 +10,6 @@ body, html {
   min-height: 100vh;
 }
 
-/* Top Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  color: rgb(90, 134, 90);
-  padding: 1rem 2rem;
-  flex-wrap: wrap;
-  font-size: 16px;
-}
 /* Reset */
 /* Reset and base styles */
 * {
@@ -40,57 +24,6 @@ body {
   background-color: #ffffff;
   color: #111111;
   transition: all 0.3s ease;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 48px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-.logo span {
-  font-weight: 600;
-}
-
-.nav-links {
-  display: flex;
-  gap: 48px;
-}
-.nav-links a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 700;
-  font-size: 20px;
-  transition: color 0.2s;
-}
-.nav-links a:hover {
-  color: #2f855a;
-}
-
-.signup-btn a {
-  padding: 8px 16px;
-  background-color: rgb(88, 150, 88);
-  color: #fff;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  transition: background-color 0.2s;
-  margin-right: 25px;
-}
-.signup-btn a:hover {
-  background-color: rgb(63, 105, 63);
 }
 
 /* Container */

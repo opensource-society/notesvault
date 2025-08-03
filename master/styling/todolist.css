@@ -1,5 +1,9 @@
 /* Todo List Styles - NotesVault Theme */
 
+body {
+  margin: 0px;
+}
+
 /* Main Container */
 .todo-main {
   min-height: 100vh;

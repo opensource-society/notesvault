@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Account - NotesVault</title>
   <link rel="stylesheet" href="../styling/studentAccount.css" />
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="../components/header.css"/>
+  <script src="../components/header.js"></script>
 </head>
 <body>
 
@@ -17,23 +19,9 @@
   </label>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Notes<span>Vault</span></div>
+  <!-- Header -->
+  <header style="height: 100px;" id="header-holder">
 
-    <nav class="nav-links">
-        <a href="../pages/overview.html">Overview</a>
-        <a href="../pages/studentAccount.html">Student Account</a>
-        <a href="../pages/about.html">About</a>
-        <a href="../pages/features.html">Features</a>
-    </nav>
-
-    <div class="signup-btn">
-      <a href="../pages/signup.html">Sign Up</a>
-    </div>
-    <input type="checkbox" id="dark-toggle" hidden />
-    <label for="dark-toggle" class="dark-mode-toggle" title="Toggle Dark Mode">
-      🌙
-    </label>
   </header>
 
   <!-- Main Content -->
@@ -81,11 +69,22 @@
       </section>
 
       <div class="back-btn">
-        <button onclick="location.href='../index.html'">⬅ Back to Home</button>
+        <button onclick="location.href='index.html'">⬅ Back to Home</button>
       </div>
     </main>
   </div>
   
 
 </body>
+<script>
+  // set width of header to 100vw
+  document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+        const headerHolder = document.getElementById('header');
+
+        headerHolder.style.width = "99vw";
+    }, 50);
+  });
+</script>
 </html> 
