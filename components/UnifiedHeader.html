@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - Unified Header Component</title>
+    <link rel="stylesheet" href="../styling/unified-header.css" />
+  </head>
+  <body>
+    <!-- Unified Header Component -->
+    <header class="unified-header" id="unified-header">
+      <div class="header-container">
+        <!-- Logo/Brand -->
+        <div class="header-brand">
+          <a href="../index.html" class="brand-link">
+            <h1 class="brand-title">NotesVault</h1>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" id="desktop-nav">
+          <a href="../pages/overview.html" class="nav-link">Overview</a>
+          <a href="../pages/BrowseNotes.html" class="nav-link">Browse Notes</a>
+          <a href="../pages/upload.html" class="nav-link">Upload</a>
+          <a href="../pages/about.html" class="nav-link">About</a>
+          <a href="../pages/features.html" class="nav-link">Features</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="../pages/login.html" class="action-btn login-btn">Login</a>
+          <a href="../pages/signup.html" class="action-btn signup-btn"
+            >Sign Up</a
+          >
+
+          <!-- Hamburger Menu Button -->
+          <button
+            class="hamburger-btn"
+            id="hamburger-btn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Overlay -->
+      <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <nav class="mobile-nav" id="mobile-nav">
+          <a href="../index.html" class="mobile-nav-link">Home</a>
+          <a href="../pages/overview.html" class="mobile-nav-link">Overview</a>
+          <a href="../pages/BrowseNotes.html" class="mobile-nav-link"
+            >Browse Notes</a
+          >
+          <a href="../pages/upload.html" class="mobile-nav-link">Upload</a>
+          <a href="../pages/about.html" class="mobile-nav-link">About</a>
+          <a href="../pages/features.html" class="mobile-nav-link">Features</a>
+          <a href="../pages/todolist.html" class="mobile-nav-link">Todo List</a>
+          <a href="../pages/studentAccount.html" class="mobile-nav-link"
+            >Student Account</a
+          >
+
+          <div class="mobile-auth-links">
+            <a href="../pages/login.html" class="mobile-nav-link auth-link"
+              >Login</a
+            >
+            <a
+              href="../pages/signup.html"
+              class="mobile-nav-link auth-link signup"
+              >Sign Up</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- JavaScript for Header Functionality -->
+    <script src="../scripts/unified-header.js"></script>
+  </body>
+</html>
