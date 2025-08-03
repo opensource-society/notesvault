@@ -24,7 +24,6 @@
             flex-direction: column; /* Changed to column to allow button at top */
             align-items: center;
             justify-content: center;
-            padding: 1rem; /* Equivalent to p-4 */
             margin: 0;
         }
 
@@ -55,6 +54,7 @@
             margin-bottom: 1.5rem; /* Space between button and card */
             padding-left: 1rem; /* Align with card padding */
             padding-right: 1rem; /* Align with card padding */
+            margin-top: 75px;
         }
 
         .home-button {
