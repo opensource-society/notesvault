@@ -5,112 +5,236 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Features - NotesVault</title>
   <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
+      background: linear-gradient(135deg, #181c2b 0%, #232946 100%);
+      color: #f4f4f4;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .svg-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
     }
 
     header {
-      background-color: #4CAFEF;
-      color: white;
-      padding: 1rem 2rem;
+      background: rgba(35, 41, 70, 0.95);
+      color: #f4a261;
+      padding: 1.5rem 2rem 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 12px rgba(44, 62, 80, 0.18);
       flex-wrap: wrap;
+      border-radius: 0 0 24px 24px;
+      position: relative;
+      z-index: 2;
     }
 
     .logo-title {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 16px;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .logo-title img {
-      height: 40px;
-      width: 40px;
+      height: 48px;
+      width: 48px;
       border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(244,162,97,0.18);
     }
 
     header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     .nav-links a {
-      color: white;
+      color: #f4a261;
       text-decoration: none;
       font-weight: 500;
-      background-color: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background 0.3s ease;
+      background: linear-gradient(90deg, #232946 60%, #181c2b 100%);
+      padding: 0.7rem 1.3rem;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(244,162,97,0.10);
     }
 
     .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.4);
+      background: linear-gradient(90deg, #f4a261 60%, #232946 100%);
+      color: #232946;
+      transform: scale(1.08);
+    }
+
+    .features-header {
+      text-align: center;
+      margin: 3rem 0 2rem 0;
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: #f4a261;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #f4a261, #4cafef);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      animation: fadeInDown 1.2s;
+    }
+
+    .features-intro {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #e0e7ef;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 1.2s;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 1rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
     }
 
     .feature {
-      background-color: white;
-      margin: 1rem 0;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(44, 62, 80, 0.85);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(244,162,97,0.13);
+      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+      margin: 0;
+      min-width: 280px;
+      max-width: 340px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #f4a261;
+      backdrop-filter: blur(6px);
     }
 
     .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-10px) scale(1.04);
+      box-shadow: 0 16px 40px rgba(76,175,239,0.18);
+      background: rgba(244,162,97,0.13);
+    }
+
+    .feature-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #f4a261;
+      background: linear-gradient(135deg, #232946 40%, #4cafef 100%);
+      border-radius: 50%;
+      padding: 0.7rem;
+      box-shadow: 0 2px 8px rgba(244,162,97,0.10);
+      animation: popIn 0.7s;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.7); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .feature h2 {
       margin-top: 0;
-      color: #4CAFEF;
+      color: #f4a261;
+      font-size: 1.35rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.7rem;
     }
 
     .feature p {
       line-height: 1.6;
+      color: #e0e7ef;
+      font-size: 1.08rem;
+      text-align: center;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      color: #777;
+      padding: 2rem 1rem 1rem 1rem;
+      margin-top: 3rem;
+      color: #f4a261;
+      background: linear-gradient(90deg, #232946 60%, #181c2b 100%);
+      font-size: 1.1rem;
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 -2px 12px rgba(244,162,97,0.10);
+      position: relative;
+      z-index: 2;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
+    @media (max-width: 900px) {
+      .container {
+        gap: 1.2rem;
+      }
+      .feature {
+        min-width: 220px;
+        max-width: 100%;
+        padding: 1.5rem 1rem;
+      }
+      .features-header {
+        font-size: 1.5rem;
+      }
+    }
+
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
+        border-radius: 0 0 12px 12px;
       }
-
       header h1 {
-        font-size: 1.5rem;
-      }
-
-      .feature h2 {
         font-size: 1.2rem;
       }
-
+      .feature h2 {
+        font-size: 1rem;
+      }
       .nav-links {
         margin-top: 10px;
+      }
+      .container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+      }
+      .features-header {
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -120,61 +244,78 @@
   <header>
     <div class="logo-title">
       <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Logo" />
-      <h1>NotesVault Features ✨ </h1>
+      <h1>NotesVault Features ✨</h1>
     </div>
     <div class="nav-links">
-      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html"><i class="fas fa-home"></i> Home</a>
     </div>
   </header>
 
+  <!-- Decorative SVG background -->
+  <svg class="svg-bg" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="1200" cy="100" rx="320" ry="80" fill="#4cafef" fill-opacity="0.13"/>
+    <ellipse cx="300" cy="700" rx="260" ry="60" fill="#232946" fill-opacity="0.13"/>
+    <ellipse cx="900" cy="600" rx="180" ry="40" fill="#f4a261" fill-opacity="0.13"/>
+  </svg>
+
+  <div class="features-header">Discover What Makes NotesVault Unique</div>
+  <div class="features-intro">A modern platform designed to simplify your academic life. Explore our standout features below!</div>
+
   <div class="container">
     <div class="feature" id="categories">
-      <h2>📂 Organized by Semester & Subject</h2>
+      <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+      <h2>Organized by Semester & Subject</h2>
       <p>Effortlessly browse notes and PYQs sorted by semester and subjects. Stay organized throughout your academic journey.</p>
     </div>
 
     <div class="feature" id="search">
-      <h2>🔍 Instant Search</h2>
+      <div class="feature-icon"><i class="fas fa-search"></i></div>
+      <h2>Instant Search</h2>
       <p>Quickly find any note or previous year question using the built-in search bar. Perfect for last-minute revision.</p>
     </div>
 
     <div class="feature" id="pinned">
-      <h2>📌 Pin Important Notes</h2>
+      <div class="feature-icon"><i class="fas fa-thumbtack"></i></div>
+      <h2>Pin Important Notes</h2>
       <p>Mark your most important notes and PYQs with a pin so they stay at the top for easy access.</p>
     </div>
 
     <div class="feature" id="download">
-      <h2>📥 Download Notes</h2>
+      <div class="feature-icon"><i class="fas fa-download"></i></div>
+      <h2>Download Notes</h2>
       <p>Save your notes as text files and access them offline anytime.</p>
     </div>
 
     <div class="feature" id="darkmode">
-      <h2>🌗 Dark Mode</h2>
+      <div class="feature-icon"><i class="fas fa-moon"></i></div>
+      <h2>Dark Mode</h2>
       <p>Switch between light and dark themes with a single click for comfortable reading at night.</p>
     </div>
-  
-   
+
     <div class="feature" id="PYQs">
-      <h2>💬 Upload PYQs or Past year question papers </h2>
-      <p>Add past year questions and papers so that preparation can be easier for other students. </p>
+      <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+      <h2>Upload PYQs & Past Papers</h2>
+      <p>Add past year questions and papers so that preparation can be easier for other students.</p>
     </div>
-    </div>
+  </div>
 
   <footer>
-    &copy; 2025 NotesVault | Made with ❤️ for Students
+    &copy; 2025 NotesVault | Made with <span style="color:#e91e63">&#10084;&#65039;</span> for Students
   </footer>
 
   <script>
-    // Highlight feature cards on scroll
+    // Animate feature cards on scroll
     const features = document.querySelectorAll('.feature');
     window.addEventListener('scroll', () => {
       features.forEach(feature => {
         const rect = feature.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          feature.style.backgroundColor = "#e3f2fd";
-        } else {
-          feature.style.backgroundColor = "white";
-        }
+    if (rect.top < window.innerHeight - 80 && rect.bottom > 80) {
+      feature.style.boxShadow = "0 16px 40px rgba(76,175,239,0.18)";
+      feature.style.background = "rgba(244,162,97,0.13)";
+    } else {
+      feature.style.boxShadow = "0 8px 32px rgba(244,162,97,0.13)";
+      feature.style.background = "rgba(44, 62, 80, 0.85)";
+    }
       });
     });
   </script>
