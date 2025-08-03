@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - NotesVault</title>
+  <link rel="stylesheet" href="../styling/login.css"/>
+  <link rel="icon" href="favicon.png" type="image/x-icon"/>
+
+  
+</head>
+<body class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4">
+  <div id="messageBox" class="message-box"></div>
+
+  <div class="home-button-container">
+    <a href="../index.html" class="home-button">
+      &larr; Back to Home
+    </a>
+  </div>
+
+  <div class="card-container">
+    <h2>Welcome Back!</h2>
+    <p>Sign in to your NotesVault account</p>
+
+    <form id="loginForm" class="form-space-y-6">
+      <div>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+
+     <div class="password-container">
+  <input type="password" id="password" name="password" placeholder="••••••••" required />
+  <span id="togglePassword" class="eye-icon">
+    <img id="eyeIcon" src= "../assets/index/images/hide.png" alt="Toggle Password" />
+  </span>
+</div>
+
+
+
+      <div class="flex-between">
+        <div class="flex-center">
+          <input id="remember-me" name="remember-me" type="checkbox" />
+          <label for="remember-me" class="checkbox-label">Remember me</label>
+        </div>
+
+        <div class="forgot-password-link">
+          <a href="#">Forgot your password?</a>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" class="btn-primary" id="loginBtn">
+          <span class="spinner hidden" id="spinner"></span>
+          <span id="btnText">Sign in</span>
+        </button>
+      </div>
+    </form>
+
+    <div class="signup-link-section">
+      <p>
+        Don't have an account?
+        <a href="signup.html">Sign up here</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function showMessageBox(message, type = 'success') {
+      const messageBox = document.getElementById('messageBox');
+      messageBox.textContent = message;
+      messageBox.className = 'message-box show';
+      messageBox.style.backgroundColor =
+        type === 'error' ? 'var(--red-error)' : 'var(--green-success)';
+      setTimeout(() => messageBox.classList.remove('show'), 3000);
+    }
+ 
+  const toggle = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+  const eyeIcon = document.getElementById('eyeIcon');
+
+  toggle.addEventListener('click', () => {
+    const isPasswordVisible = passwordInput.type === 'text';
+
+    passwordInput.type = isPasswordVisible ? 'password' : 'text';
+    eyeIcon.src = isPasswordVisible ? '../assets/index/images/hide.png' : '../assets/index/images/visible.png';
+
+  })
+
+
+    document.getElementById('loginForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      const spinner = document.getElementById('spinner');
+      const btnText = document.getElementById('btnText');
+      const loginBtn = document.getElementById('loginBtn');
+
+      // Show spinner & disable button
+      spinner.classList.remove('hidden');
+      btnText.textContent = 'Signing in...';
+      loginBtn.disabled = true;
+
+      if (email === '' || password === '') {
+        showMessageBox('Please fill in all fields.', 'error');
+        spinner.classList.add('hidden');
+        btnText.textContent = 'Sign in';
+        loginBtn.disabled = false;
+        return;
+      }
+
+      // Simulated login - replace this with real fetch call in production
+      console.log('Login attempt:', { email, password });
+      await new Promise(res => setTimeout(res, 1000)); // Simulate async
+
+      showMessageBox('Login successful! Redirecting...', 'success');
+      setTimeout(() => {
+        window.location.href = '../index.html';
+      }, 1000);
+
+      // Reset button
+      spinner.classList.add('hidden');
+      btnText.textContent = 'Sign in';
+      loginBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>
