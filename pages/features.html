@@ -7,6 +7,66 @@
   <link rel="icon" href="favicon.png" type="image/x-icon" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <style>
+    /* .feature { */
+      /* ...existing code... */
+    /* } */
+
+    .feature-popup {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, 10px);
+      min-width: 220px;
+      background: linear-gradient(135deg, #232946 80%, #4cafef 100%);
+      color: #f4a261;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+      padding: 1rem 1.2rem;
+      font-size: 1rem;
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      font-weight: 500;
+      text-align: center;
+      border: 1px solid #f4a261;
+    }
+
+    .feature:hover .feature-popup {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    /* Floating CTA Button */
+    .cta-btn {
+      position: fixed;
+      right: 32px;
+      bottom: 32px;
+      background: linear-gradient(90deg, #f4a261 60%, #4cafef 100%);
+      color: #232946;
+      border: none;
+      border-radius: 50px;
+      padding: 1rem 2.2rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+      cursor: pointer;
+      z-index: 100;
+      animation: floatBtn 2s infinite alternate;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover {
+      transform: scale(1.08) translateY(-4px);
+      background: linear-gradient(90deg, #4cafef 60%, #f4a261 100%);
+      color: #fff;
+    }
+    @keyframes floatBtn {
+      from { transform: translateY(0); }
+      to { transform: translateY(-12px); }
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -96,7 +156,6 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      /* text-fill-color: transparent; */
       animation: fadeInDown 1.2s;
     }
 
@@ -127,8 +186,8 @@
 
     .feature {
       background: rgba(44, 62, 80, 0.85);
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(244,162,97,0.13);
+      border-radius: 22px;
+      box-shadow: 0 12px 40px 0 rgba(44,62,80,0.25), 0 2px 8px rgba(244,162,97,0.13);
       padding: 2.2rem 1.5rem 1.5rem 1.5rem;
       margin: 0;
       min-width: 280px;
@@ -140,8 +199,51 @@
       transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
       position: relative;
       overflow: hidden;
-      border: 1px solid #f4a261;
-      backdrop-filter: blur(6px);
+      border: none;
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      animation: cardFadeIn 0.8s cubic-bezier(.23,1.01,.32,1) forwards;
+    }
+
+    .feature::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 8px;
+      background: linear-gradient(90deg, #f4a261 0%, #4cafef 100%);
+      border-radius: 22px 22px 0 0;
+      z-index: 2;
+    }
+
+    .feature::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 45%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 100%);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 22px 22px 0 0;
+    }
+
+    @keyframes cardFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .feature.visible {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      animation: none !important;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px) scale(1.04);
+      box-shadow: 0 24px 60px rgba(76,175,239,0.22), 0 2px 8px rgba(244,162,97,0.13);
+      background: rgba(244,162,97,0.13);
     }
 
     .feature:hover {
@@ -266,57 +368,66 @@
       <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
       <h2>Organized by Semester & Subject</h2>
       <p>Effortlessly browse notes and PYQs sorted by semester and subjects. Stay organized throughout your academic journey.</p>
+      <div class="feature-popup">Sort, filter, and find notes for every semester and subject. Stay ahead in your studies with organized resources!</div>
     </div>
 
     <div class="feature" id="search">
       <div class="feature-icon"><i class="fas fa-search"></i></div>
       <h2>Instant Search</h2>
       <p>Quickly find any note or previous year question using the built-in search bar. Perfect for last-minute revision.</p>
+      <div class="feature-popup">Lightning-fast search helps you find notes and PYQs instantly. Never waste time looking for study material again!</div>
     </div>
 
     <div class="feature" id="pinned">
       <div class="feature-icon"><i class="fas fa-thumbtack"></i></div>
       <h2>Pin Important Notes</h2>
       <p>Mark your most important notes and PYQs with a pin so they stay at the top for easy access.</p>
+      <div class="feature-popup">Pin your most valuable notes and questions for quick access during revision or exams. Your favorites, always on top!</div>
     </div>
 
     <div class="feature" id="download">
       <div class="feature-icon"><i class="fas fa-download"></i></div>
       <h2>Download Notes</h2>
       <p>Save your notes as text files and access them offline anytime.</p>
+      <div class="feature-popup">Download notes for offline use. Study anywhere, anytime—even without internet!</div>
     </div>
 
     <div class="feature" id="darkmode">
       <div class="feature-icon"><i class="fas fa-moon"></i></div>
       <h2>Dark Mode</h2>
       <p>Switch between light and dark themes with a single click for comfortable reading at night.</p>
+      <div class="feature-popup">Reduce eye strain and study comfortably at night with our elegant dark mode. One click, instant relief!</div>
     </div>
 
     <div class="feature" id="PYQs">
       <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
       <h2>Upload PYQs & Past Papers</h2>
       <p>Add past year questions and papers so that preparation can be easier for other students.</p>
+      <div class="feature-popup">Share your PYQs and help others prepare better. Contribute to the community and boost your own learning!</div>
     </div>
   </div>
 
   <footer>
+  <button class="cta-btn" onclick="window.location.href='../pages/upload.html'">Try Uploading Your Notes!</button>
     &copy; 2025 NotesVault | Made with <span style="color:#e91e63">&#10084;&#65039;</span> for Students
   </footer>
 
   <script>
-    // Animate feature cards on scroll
+    // Animate feature cards on scroll (entrance + glass effect)
     const features = document.querySelectorAll('.feature');
-    window.addEventListener('scroll', () => {
-      features.forEach(feature => {
+    function animateCardsOnScroll() {
+      features.forEach((feature, idx) => {
         const rect = feature.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 80 && rect.bottom > 80) {
-      feature.style.boxShadow = "0 16px 40px rgba(76,175,239,0.18)";
-      feature.style.background = "rgba(244,162,97,0.13)";
-    } else {
-      feature.style.boxShadow = "0 8px 32px rgba(244,162,97,0.13)";
-      feature.style.background = "rgba(44, 62, 80, 0.85)";
-    }
+        if (rect.top < window.innerHeight - 60 && rect.bottom > 60) {
+          feature.classList.add('visible');
+        } else {
+          feature.classList.remove('visible');
+        }
       });
+    }
+    window.addEventListener('scroll', animateCardsOnScroll);
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(animateCardsOnScroll, 100);
     });
   </script>
 </body>
