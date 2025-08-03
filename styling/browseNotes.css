@@ -1,0 +1,199 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
+
+html, body {
+  margin: 0; padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8fafb;
+  color: #232323;
+  box-sizing: border-box;
+}
+
+
+main.browse-notes-container {
+  background: #fff;
+  max-width: 1100px;
+  margin: 150px auto 28px auto;
+  padding: 38px 38px 20px 38px;
+  border-radius: 10px;
+  box-shadow: 0 6px 30px rgba(52,60,92,0.07);
+}
+main h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #20325b;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.search-bar {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.search-bar input {
+  width: 64%;
+  max-width: 480px;
+  padding: 12px 18px;
+  border: 1.5px solid #e3eef7;
+  border-radius: 8px;
+  background: #f7fafc;
+  font-size: 1.07em;
+  box-shadow: 0 2px 10px rgba(55,83,177,0.02);
+  outline: none;
+  transition: border 0.21s;
+}
+.search-bar input:focus {
+  border: 1.5px solid #36cd75;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 32px;
+}
+
+.note-card {
+  border: 1.5px solid #e9eef3;
+  background: #fafcff;
+  border-radius: 10px;
+  padding: 22px 20px 18px 20px;
+  box-shadow: 0 2px 9px rgba(31,76,99,0.06);
+  transition: transform 0.20s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+}
+.note-card:hover {
+  transform: translateY(-6px) scale(1.028);
+  box-shadow: 0 4px 24px rgba(34,84,109,0.13);
+}
+.note-card h3 {
+  font-size: 1.15em;
+  color: #1073d4;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+.note-card p {
+  font-size: 0.96em;
+  color: #4f596c;
+  margin: 3px 0;
+}
+.note-card .actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+.note-card .view-button,
+.note-card .download-button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.98em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  text-decoration: none;
+}
+.note-card .view-button {
+  background: #28a745;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.18s;
+}
+.note-card .view-button:hover {
+  background: #218838;
+}
+.note-card .download-button {
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.17s;
+}
+.note-card .download-button:hover {
+  background: #0056b3;
+}
+
+.loading-message, .no-notes-message {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 1.16em;
+  color: #98a4b6;
+  padding: 28px 0;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.44);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fdfdfe;
+  margin: auto;
+  padding: 34px 28px 28px 28px;
+  border: 1.5px solid #c9d4e6;
+  border-radius: 12px;
+  width: 92%;
+  max-width: 440px;
+  box-shadow: 0 8px 32px rgba(47,63,109,0.14);
+  position: relative;
+}
+.close-button {
+  color: #aaa;
+  font-size: 31px;
+  font-weight: bold;
+  position: absolute; right: 18px; top: 11px;
+  background: none; border: none; cursor: pointer;
+  transition: color 0.18s;
+}
+.close-button:hover,.close-button:focus {
+  color: #007bff;
+}
+.modal-content h2 {
+  color: #007bff;
+  font-weight: 700;
+  font-size: 1.36em;
+  margin: 0 0 10px 0;
+}
+.modal-content p {
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #232c3a;
+}
+.modal-content strong { color: #4b5871; }
+.modal-content .download-button {
+  display: inline-flex; margin-top: 18px;
+  background: #007bff; color: #fff;
+  border-radius: 5px;
+  padding: 13px 24px;
+  font-size: 1.1em; font-weight: 600;
+  text-decoration: none;
+  align-items: center; gap: 10px;
+  transition: background 0.18s;
+}
+.modal-content .download-button:hover { background: #0056b3; }
+
+@media (max-width: 900px) {
+  nav { flex-direction: column; padding: 18px 4vw; align-items: flex-start;}
+  nav ul { margin-top: 12px; margin-bottom: 6px; gap: 16px; }
+  .sign-up-btn { margin-top: 11px; align-self: flex-end;}
+  main.browse-notes-container { padding: 24px 4vw 13px 4vw; }
+}
+@media (max-width: 600px) {
+  nav { padding: 14px 2vw; }
+  .logo { font-size: 1.37rem;}
+  .sign-up-btn { padding: 8px 16px; font-size: .94rem;}
+  main.browse-notes-container { padding: 10px 2vw 6px 2vw; }
+  .notes-grid { gap: 14px;}
+  .modal-content { padding: 15px 6vw 13px 6vw; max-width: 98vw; }
+  .search-bar input { width: 99%; font-size: .99em;}
+}

@@ -5,90 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Account - NotesVault</title>
   <link rel="stylesheet" href="../styling/studentAccount.css" />
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="../components/header.css"/>
+  <script src="../components/header.js"></script>
 </head>
 <body>
 
+  <!-- Dark Mode Toggle -->
+  <!-- Dark Mode Toggle -->
+  <input type="checkbox" id="dark-toggle" hidden />
+  <label for="dark-toggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+    🌙
+  </label>
+
+  <!-- Navbar -->
   <!-- Header -->
-  <header>
-    <div id="header">
-      <!-- Hamburger Menu -->
-      <div class="hamburger-wrapper">
-        <button class="hamburger-menu" aria-label="Toggle menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-        <div class="hover-sidebar">
-          <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/overview.html">Overview</a></li>
-            <li><a href="../pages/features.html">Features</a></li>
-            <li><a href="#">Resources</a></li>
-          </ul>
-        </div>
-      </div>
+  <header style="height: 100px;" id="header-holder">
 
-      <!-- Title -->
-      <div id="header-title-box">
-        <p id="header-title">📘 NotesVault</p>
-      </div>
-
-      <!-- Navigation Links -->
-      <div id="header-navigation" class="nav-menu">
-        <a href="../pages/overview.html">Overview</a>
-        <a href="../pages/studentAccount.html">Student Account</a>
-        <a href="../pages/about.html">About</a>
-        <a href="../pages/features.html">Features</a>
-      </div>
-
-      <!-- Sign Up -->
-      <div id="header-signup-box">
-        <a href="../pages/signup.html"><p>Sign Up</p></a>
-      </div>
-    </div>
   </header>
 
   <!-- Main Content -->
-  <div class="container">
-    <h1>📚 Student Dashboard - NotesVault</h1>
+  
+  <div class="parent-container">
+    <br>
+    <br>
+    <main class="container">
+      <h1>👨‍🎓 Student Dashboard - NotesVault</h1>
+      <br>
+      <h3> 👋 Hey John! Ready to Learn Today?</h3>
 
-    <section class="profile">
-      <h2>👤 Student Details</h2>
-      <p><strong>Name:</strong> John Doe</p>
-      <p><strong>Email:</strong> johndoe@example.com</p>
-      <p><strong>College:</strong> ABC Institute of Technology</p>
-      <p><strong>Branch:</strong> Computer Science</p>
-      <p><strong>Year:</strong> 3rd Year</p>
-    </section>
+      <section class="notes-section">
 
-    <section class="notes-section">
-      <h2>💾 Saved Notes</h2>
+        <h2>👤 Student Details</h2>
+        <br>
+        <div class="note-card">
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Email:</strong> johndoe@example.com</p>
+          <p><strong>College:</strong> ABC Institute of Technology</p>
+          <p><strong>Branch:</strong> Computer Science</p>
+          <p><strong>Year:</strong> 3rd Year</p>
+        </div>
+        
 
-      <div class="note-card">
-        <h3>Lecture Notes</h3>
-        <ul>
-          <li>DBMS - Normalization.pdf</li>
-          <li>Operating Systems - Deadlock.ppt</li>
-        </ul>
-        <button>➕ Add More</button>
+        <h2>💾 Saved Notes</h2>
+        <br>
+        <div class="note-card">
+          <h3>Lecture Notes</h3>
+          <ul>
+            <li>DBMS - Normalization.pdf</li>
+            <li>Operating Systems - Deadlock.ppt</li>
+          </ul>
+          <button>➕ Add More</button>
+        </div>
+
+        <div class="note-card">
+          <h3>Previous Year Questions (PYQs)</h3>
+          <ul>
+            <li>CS201 - Midterm 2022.pdf</li>
+            <li>CS303 - Final 2021.docx</li>
+          </ul>
+          <button>➕ Add More</button>
+        </div>
+      </section>
+
+      <div class="back-btn">
+        <button onclick="location.href='index.html'">⬅ Back to Home</button>
       </div>
-
-      <div class="note-card">
-        <h3>Previous Year Questions (PYQs)</h3>
-        <ul>
-          <li>CS201 - Midterm 2022.pdf</li>
-          <li>CS303 - Final 2021.docx</li>
-        </ul>
-        <button>➕ Add More</button>
-      </div>
-    </section>
-
-    <div class="back-btn">
-      <button onclick="location.href='../index.html'">⬅ Back to Home</button>
-    </div>
+    </main>
   </div>
+  
 
 </body>
-</html>
+<script>
+  // set width of header to 100vw
+  document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+        const headerHolder = document.getElementById('header');
+
+        headerHolder.style.width = "99vw";
+    }, 50);
+  });
+</script>
+</html> 
