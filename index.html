@@ -16,6 +16,174 @@
     <title>NotesVault Home</title>
   </head>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styling/styles.css" />
+  <link rel="icon" href="assets/index/images/favicon.png" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <title>NotesVault Home</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div id="header-title-box">
+      <p id="header-title">NotesVault</p>
+    </div>
+    <nav id="header-navigation" class="nav-menu">
+      <a href="pages/overview.html">Overview</a>
+      <a href="pages/studentAccount.html">Student Account</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/features.html">Features</a>
+    </nav>
+    <div id="header-signup-box">
+      <a href="pages/signup.html"><button class="signup-btn">Sign Up</button></a>
+      <div id="hamburger" class="hamburger-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search -->
+  <div class="main-right-search section">
+    <form id="search-form" class="main-right-search-form" method="get" action="search.html">
+      <div class="flex justify-evenly w-full items-center gap-20">
+        <input class="main-right-search-form-input" type="text" name="query" autocomplete="off" placeholder="Search" />
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </div>
+      <div id="search-parameters-branch" class="search-parameters-div"></div>
+      <div id="search-parameters-semester" class="search-parameters-div"></div>
+      <div id="search-parameters-subject" class="search-parameters-div"></div>
+      <input type="submit" style="display: none" />
+    </form>
+  </div>
+
+  <!-- Main Section -->
+  <main id="main">
+    <div class="main-left">
+      <p class="main-text welcome">Welcome Back</p>
+      <h1 class="main-heading">Your Go-To Companion for<br />Organized Learning.</h1>
+      <p class="main-text">Keep your study notes and PYQs organized, easy to find,<br />and always just a click away with NotesVault.</p>
+      <div class="main-left-links">
+        <a href="search.html" class="links-text try-box">Browse Notes</a>
+        <a href="upload.html" class="links-text try-box">Upload Notes</a>
+      </div>
+    </div>
+    <div class="main-right">
+      <div class="main-right-box">
+        <div class="main-right-upper-box">
+          <div class="right-text-div">
+            <p class="right-text">Notes Organised by</p>
+            <p class="right-text" id="typeWriterText">Subject</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="About section">
+      <h2 class="About-left-heading">About NotesVault</h2>
+      <p class="About-left-text">A web app to store, browse, and manage notes and PYQs semester-wise.</p>
+      <a class="About-left-link" href="https://github.com/opensource-society/notesvault" target="_blank" rel="noopener noreferrer">Learn More →</a>
+    </section>
+  </main>
+
+  <!-- Features Section -->
+  <section class="features-section section">
+    <div class="card-container" style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:1200px;margin:auto;">
+      <!-- Easy Upload -->
+      <a href="pages/upload.html">
+        <div class="card feature-card">
+          <i class="fas fa-upload"></i>
+          <h5 class="feature-title">Easy Upload</h5>
+          <p class="feature-desc">Add your notes quickly and effortlessly</p>
+        </div>
+      </a>
+      <!-- Sort The Chaos -->
+      <a href="pages/overview.html">
+        <div class="card feature-card">
+          <i class="fas fa-layer-group"></i>
+          <h5 class="feature-title">Sort The Chaos</h5>
+          <p class="feature-desc">Neatly arrange all your notes in one place</p>
+        </div>
+      </a>
+      <!-- Search By Tags -->
+      <a href="pages/search.html">
+        <div class="card feature-card">
+          <i class="fas fa-tags"></i>
+          <h5 class="feature-title">Search By Tags</h5>
+          <p class="feature-desc">Find notes using subject tags</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Use this footer in all pages -->
+  <footer class="custom-footer">
+    <div class="footer-container">
+      <!-- About NotesVault Section -->
+      <div class="footer-section about-section">
+        <h2><strong>NotesVault</strong></h2>
+        <p class="footer-description">
+          A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong> academic notes & PYQs semester-wise.
+          Contribute easily, organize efficiently, and search by tags.
+        </p>
+        <a
+          class="footer-learn-link"
+          href="https://github.com/opensource-society/notesvault"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Learn More →</a>
+      </div>
+
+      <!-- Community -->
+      <div class="footer-section">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+          <li><a href="https://github.com/opensource-society/notesvault.git" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+          <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Social Media</h3>
+        <ul>
+          <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <!-- Features -->
+      <div class="footer-section">
+        <h3>Features</h3>
+        <ul>
+          <li><a href="upload.html"><i class="fas fa-upload"></i> Easy Upload</a></li>
+          <li><a href="search.html"><i class="fas fa-tags"></i> Tag-based Search</a></li>
+          <li><a href="BrowseNotes.html"><i class="fas fa-folder-open"></i> Organized by Semester</a></li>
+          <li><a href="todolist.html"><i class="fas fa-tasks"></i> Todo List</a></li>
+          <li><a href="studentAccount.html"><i class="fas fa-users"></i> Get Details</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> NotesVault. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="scripts/script.js" defer></script>
+</body>
   <body>
     <!-- Header -->
     <header class="navbar">
