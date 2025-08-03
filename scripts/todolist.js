@@ -1,5 +1,3 @@
-// Todo List JavaScript - NotesVault
-
 class TodoList {
     constructor() {
         this.todos = JSON.parse(localStorage.getItem('notesvault-todos')) || [];
@@ -14,15 +12,15 @@ class TodoList {
     }
 
     bindEvents() {
-        // Form submission
+        // Form Submission
         const form = document.getElementById('todoForm');
         form.addEventListener('submit', (e) => this.handleSubmit(e));
 
-        // Clear buttons
+        // Clear Buttons
         document.getElementById('clearCompleted').addEventListener('click', () => this.clearCompleted());
         document.getElementById('clearAll').addEventListener('click', () => this.clearAll());
 
-        // Task input focus
+        // Task Input Focus
         const taskInput = document.getElementById('taskInput');
         taskInput.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.currentEditId) {
@@ -61,7 +59,7 @@ class TodoList {
         this.saveToStorage();
         this.render();
         this.updateStats();
-        this.showNotification('Task added successfully!', 'success');
+        this.showNotification('Task Added Successfully!', 'success');
     }
 
     updateTask(id, text) {
@@ -72,7 +70,7 @@ class TodoList {
             this.saveToStorage();
             this.render();
             this.updateStats();
-            this.showNotification('Task updated successfully!', 'success');
+            this.showNotification('Task Updated Successfully!', 'success');
         }
     }
 
@@ -92,7 +90,7 @@ class TodoList {
             this.saveToStorage();
             this.render();
             this.updateStats();
-            this.showNotification('Task deleted successfully!', 'info');
+            this.showNotification('Task Deleted Successfully!', 'info');
         }
     }
 
@@ -118,7 +116,7 @@ class TodoList {
     clearCompleted() {
         const completedCount = this.todos.filter(todo => todo.completed).length;
         if (completedCount === 0) {
-            this.showNotification('No completed tasks to clear!', 'warning');
+            this.showNotification('No Completed Tasks To Clear!', 'warning');
             return;
         }
 
@@ -133,7 +131,7 @@ class TodoList {
 
     clearAll() {
         if (this.todos.length === 0) {
-            this.showNotification('No tasks to clear!', 'warning');
+            this.showNotification('No Tasks To Clear!', 'warning');
             return;
         }
 
@@ -142,7 +140,7 @@ class TodoList {
             this.saveToStorage();
             this.render();
             this.updateStats();
-            this.showNotification('All tasks cleared!', 'success');
+            this.showNotification('All Tasks Cleared!', 'success');
         }
     }
 
@@ -187,8 +185,8 @@ class TodoList {
         const totalTasks = this.todos.length;
         const completedTasks = this.todos.filter(todo => todo.completed).length;
 
-        document.getElementById('taskCount').textContent = `${totalTasks} task${totalTasks !== 1 ? 's' : ''}`;
-        document.getElementById('completedCount').textContent = `${completedTasks} completed`;
+        document.getElementById('taskCount').textContent = `${totalTasks} Task${totalTasks !== 1 ? 's' : ''}`;
+        document.getElementById('completedCount').textContent = `${completedTasks} Completed`;
     }
 
     updateAddButton() {
@@ -213,7 +211,7 @@ class TodoList {
     }
 
     showNotification(message, type = 'info') {
-        // Create notification element
+        // Create Notification Element
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `
@@ -223,7 +221,7 @@ class TodoList {
             </div>
         `;
 
-        // Add styles
+        // Add Styles
         notification.style.cssText = `
             position: fixed;
             top: 20px;
@@ -240,15 +238,15 @@ class TodoList {
             font-family: 'Poppins', sans-serif;
         `;
 
-        // Add to page
+        // Add To Page
         document.body.appendChild(notification);
 
-        // Animate in
+        // Animate In
         setTimeout(() => {
             notification.style.transform = 'translateX(0)';
         }, 100);
 
-        // Remove after 3 seconds
+        // Remove After 3 Seconds
         setTimeout(() => {
             notification.style.transform = 'translateX(100%)';
             setTimeout(() => {
@@ -280,15 +278,15 @@ class TodoList {
     }
 }
 
-// Initialize todo list when DOM is loaded
+// Initialize To-Do List When DOM Is Loaded
 let todoList;
 document.addEventListener('DOMContentLoaded', () => {
     todoList = new TodoList();
 });
 
-// Add keyboard shortcuts
+// Add Keyboard Shortcuts
 document.addEventListener('keydown', (e) => {
-    // Ctrl/Cmd + Enter to submit form
+    // Ctrl/Cmd + Enter To Submit Form
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
         const form = document.getElementById('todoForm');
         if (form) {
@@ -297,26 +295,3 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Add smooth scrolling for scroll to top button
-document.addEventListener('DOMContentLoaded', () => {
-    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    
-    if (scrollToTopBtn) {
-        // Show/hide button based on scroll position
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.style.display = 'block';
-            } else {
-                scrollToTopBtn.style.display = 'none';
-            }
-        });
-
-        // Smooth scroll to top
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-}); 

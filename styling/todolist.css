@@ -1,45 +1,43 @@
-/* Todo List Styles - NotesVault Theme */
+/* Hero Section */
+.todolist-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
+  padding: 6rem 0 4rem 0;
+  text-align: center;
+}
+
+.todolist-hero h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.todolist-hero .subtitle {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 /* Main Container */
 .todo-main {
   min-height: 100vh;
   padding-top: 100px;
   padding-bottom: 100px;
-  background: linear-gradient(135deg, #f9faf4 0%, #e8f5e8 100%);
-  font-family: "Poppins", sans-serif;
+  background: var(--bg-primary) !important;
 }
 
 .todo-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Header Section */
-.todo-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.todo-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #163d3b;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.todo-title i {
-  color: #B4CFB0;
-}
-
-.todo-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  font-weight: 400;
+  padding: 4rem;
+  border-radius: 2rem;
+  background: var(--bg-secondary);
 }
 
 /* Form Container */
@@ -68,14 +66,14 @@
   border: 2px solid #e1e5e9;
   border-radius: 12px;
   font-size: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease;
   background: #fafbfc;
 }
 
 .task-input:focus {
   outline: none;
-  border-color: #B4CFB0;
+  border-color: #b4cfb0;
   background: white;
   box-shadow: 0 0 0 3px rgba(180, 207, 176, 0.1);
 }
@@ -86,13 +84,13 @@
 
 .add-btn {
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #163d3b 0%, #113946 100%);
+  background: var(--primary-500);
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -126,11 +124,12 @@
   align-items: center;
 }
 
-.task-count, .completed-count {
+.task-count,
+.completed-count {
   font-size: 0.9rem;
   font-weight: 600;
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 8px;
   background: rgba(22, 61, 59, 0.1);
   color: #163d3b;
 }
@@ -145,13 +144,14 @@
   gap: 0.75rem;
 }
 
-.clear-btn, .clear-all-btn {
+.clear-btn,
+.clear-all-btn {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -238,8 +238,8 @@
 }
 
 .todo-checkbox:checked {
-  background: #B4CFB0;
-  border-color: #B4CFB0;
+  background: #b4cfb0;
+  border-color: #b4cfb0;
 }
 
 .todo-checkbox:checked::after {
@@ -268,7 +268,8 @@
   margin-left: 1rem;
 }
 
-.edit-btn, .delete-btn {
+.edit-btn,
+.delete-btn {
   width: 36px;
   height: 36px;
   border: none;
@@ -358,75 +359,75 @@
   animation: slideIn 0.3s ease;
 }
 
-/* Dark Mode Support */
-[data-theme="dark"] .todo-main {
+/* Dark Mode */
+[data-theme='dark'] .todo-main {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 }
 
-[data-theme="dark"] .todo-title {
+[data-theme='dark'] .todo-title {
   color: #dff8f8;
 }
 
-[data-theme="dark"] .todo-subtitle {
+[data-theme='dark'] .todo-subtitle {
   color: #a0a0a0;
 }
 
-[data-theme="dark"] .todo-form-container,
-[data-theme="dark"] .todo-list-container {
+[data-theme='dark'] .todo-form-container,
+[data-theme='dark'] .todo-list-container {
   background: #2a2a2a;
   border-color: rgba(223, 248, 248, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme="dark"] .task-input {
+[data-theme='dark'] .task-input {
   background: #3a3a3a;
   border-color: #4a4a4a;
   color: #dff8f8;
 }
 
-[data-theme="dark"] .task-input:focus {
-  border-color: #B4CFB0;
+[data-theme='dark'] .task-input:focus {
+  border-color: #b4cfb0;
   background: #3a3a3a;
 }
 
-[data-theme="dark"] .task-input::placeholder {
+[data-theme='dark'] .task-input::placeholder {
   color: #808080;
 }
 
-[data-theme="dark"] .task-count,
-[data-theme="dark"] .completed-count {
+[data-theme='dark'] .task-count,
+[data-theme='dark'] .completed-count {
   background: rgba(223, 248, 248, 0.1);
   color: #dff8f8;
 }
 
-[data-theme="dark"] .completed-count {
+[data-theme='dark'] .completed-count {
   background: rgba(180, 207, 176, 0.2);
-  color: #B4CFB0;
+  color: #b4cfb0;
 }
 
-[data-theme="dark"] .todo-item {
+[data-theme='dark'] .todo-item {
   background: #3a3a3a;
   border-color: #4a4a4a;
 }
 
-[data-theme="dark"] .todo-item.completed {
+[data-theme='dark'] .todo-item.completed {
   background: rgba(180, 207, 176, 0.1);
   border-color: rgba(180, 207, 176, 0.2);
 }
 
-[data-theme="dark"] .todo-text {
+[data-theme='dark'] .todo-text {
   color: #dff8f8;
 }
 
-[data-theme="dark"] .todo-item.completed .todo-text {
+[data-theme='dark'] .todo-item.completed .todo-text {
   color: #808080;
 }
 
-[data-theme="dark"] .empty-state {
+[data-theme='dark'] .empty-state {
   color: #808080;
 }
 
-[data-theme="dark"] .empty-state h3 {
+[data-theme='dark'] .empty-state h3 {
   color: #a0a0a0;
 }
 
@@ -435,41 +436,41 @@
   .todo-container {
     padding: 1rem;
   }
-  
+
   .todo-title {
     font-size: 2rem;
   }
-  
+
   .input-group {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .add-btn {
     width: 100%;
     justify-content: center;
   }
-  
+
   .todo-controls {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
   }
-  
+
   .task-stats {
     justify-content: center;
   }
-  
+
   .task-actions {
     justify-content: center;
   }
-  
+
   .todo-item {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
   }
-  
+
   .todo-actions {
     margin-left: 0;
     justify-content: center;
@@ -481,24 +482,24 @@
   .todo-list-container {
     padding: 1.5rem;
   }
-  
+
   .todo-title {
     font-size: 1.75rem;
   }
-  
+
   .task-stats {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .task-actions {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .clear-btn,
   .clear-all-btn {
     width: 100%;
     justify-content: center;
   }
-} 
+}

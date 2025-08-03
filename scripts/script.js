@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     const searchInput = DOM.searchForm?.querySelector("input[type='text']")
     if (searchInput?.value) {
-      window.location.href = `pages/BrowseNotes.html?query=${encodeURIComponent(
+      window.location.href = `pages/notes.html?query=${encodeURIComponent(
         searchInput.value
       )}`
     }
