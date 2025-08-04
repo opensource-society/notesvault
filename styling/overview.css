@@ -78,17 +78,24 @@
 }
 
 .why-heading {
-    font-size: calc(20px + 1vw);
-    color: #eda950;
-    margin-bottom: 40px;
-    text-decoration: underline;
+  font-size: calc(20px + 1vw);
+  margin-bottom: 40px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* Optional: makes underline more visible */
+  text-underline-offset: 4px;     /* Optional: gives space between text and underline */
+  color: orange;
+  /* background: linear-gradient(to right, #eda950, black, #eda950);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
+
 
 .why-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+    box-shadow: #163d3b
 }
 
 .why-card {
@@ -112,6 +119,7 @@
     font-size: 32px;
     /* color: #163d3b; */
     color: orange;
+
     /* margin-bottom: 10px; */
 }
 
