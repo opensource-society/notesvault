@@ -6,11 +6,39 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
+  background-color: var(--bg-color);
   height: 100%;
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
+}
+
+.h2{
+  font-size: 26px; 
+  margin-bottom: 10px; 
+  color: #f4a261;
+}
+
+.h3{
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #f4a261;
+}
+
+p{
+  font-size: 16px; 
+  line-height: 1.5; 
+  color: var(--black);
+}
+
+a{
+  text-decoration: none; 
+  color: var(--black);
+}
+
+hr{
+  height: 5px; 
+  background-color: var(--black);
 }
 
 /* Sticky header */
@@ -58,11 +86,108 @@ body {
   font-size: calc(12px+1vw);
 }
 
+/* Theme Variables */
+:root {
+  --bg-color: #edf1eb;
+  --primary-bg: #ffffff;
+  --secondary-bg: #f5f5f5;
+  --text-color: #333333;
+  --header-bg: #ffffff;
+  --card-bg: #000000;
+  --card-text: #ffffff;
+  --footer-bg: #ffffff;
+  --footer-text: #000000;
+  --button-bg: #f4a261;
+  --button-text: #000000;
+  --white: #ffffff;
+  --black: #000000;
+  --dirty-green: #2b4a2c;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000000;
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --text-color: #ffffff;
+  --header-bg: #1e1e1e;
+  --card-bg: #adadad;
+  --card-text: #ffffff;
+  --footer-bg: #000000;
+  --footer-text: #dddddd;
+  --button-bg: #f4a261;
+  --button-text: #000000;
+  --white: #000000;
+  --black: #ffffff;
+  --dirty-green: #5fa762;
+}
+
+/* Apply the theme variables */
+body {
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+  background-color: var(--header-bg);
+}
+
+.feature-card {
+  border-radius: 20px;
+  background: var(--card-bg) !important;
+  color: var(--card-text) !important;
+}
+
+.feature-card .feature-desc {
+  color: var(--dirty-green) !important;
+}
+
+footer {
+  background: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+  padding: 50px 20px;
+  font-family: sans-serif;
+  margin-top: 50px;
+}
+
+footer p {
+  color: var(--footer-text) !important;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+}
+
+.sun-icon, .moon-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.moon-icon {
+  display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+  display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+  display: block;
+}
+
 /* Hamburger lines */
 .hamburger-line {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background-color: var(--text-color);
   margin: 4px 0;
   border-radius: 2px;
 }
@@ -92,7 +217,7 @@ body {
   width: 300px;
   height: 100vh;
   background: #ffffff;
-  color: black;
+  color: var(--black);
   box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.15);
   transition: left 0.4s ease-in-out;
   border-radius: 20px;
@@ -101,8 +226,8 @@ body {
   display: none;
   flex-direction: column;
   justify-content: flex-start;
-  border: 1px black solid;
-  background-color: #000;
+  border: 1px var(--black) solid;
+  background-color: var(--black);
 }
 
 .hover-sidebar.sidebar-active {
@@ -363,6 +488,10 @@ body {
   font-weight: 500;
   font-style: normal;
   font-size: calc(12px + 0.4vw);
+}
+
+.main-right-upper-box p{
+  color: #000;
 }
 
 .main-right-upper-box .main-right-upper-box-progress {
@@ -1327,7 +1456,7 @@ img,
   }
 }
 
-main {
+/* main */
   button:hover,
   img:hover,
   .card:hover,
@@ -1346,7 +1475,6 @@ main {
     font-weight: bolder;
     font-size: larger;
   }
-}
 
 .feature-cards-container {
   display: flex;
@@ -1360,6 +1488,7 @@ main {
 .feature-card {
   background: #d2e6ce;
   color: #ddd;
+  border-radius: 20px;
   border-radius: 0px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
@@ -1474,12 +1603,12 @@ main {
   justify-content: center;
   gap: 2rem;
   padding: 2rem 2rem;
-  background-color: #0d0d0d;
+  background-color: var(--white);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .feature-card {
   background: #ffffff;
-  border-radius: 0px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
   padding: 2rem;
   max-width: 300px;
@@ -1498,9 +1627,15 @@ main {
 }
 
 .feature-title {
+  color: var(--white);
   font-weight: 600;
   font-size: 1.2rem;
   margin-top: 1rem;
+}
+
+.upload-icon {
+  color: var(--white);
+  transition: color 0.3s ease;
 }
 
 .feature-desc {
@@ -1552,10 +1687,13 @@ main {
   font-size: 1.2rem;
   margin-top: 1rem;
 }
+.feature-title h5{
+  color: var(--black);
+}
 
 .feature-desc {
   font-size: 0.95rem;
-  color: #444;
+  color: var(--black);
   margin-top: 0.5rem;
 }
  
@@ -1602,8 +1740,8 @@ main {
   border-radius: 0px;
   padding: 20px;
   text-align: center;
-  background-color: #ddd;
-  color: #2b4a2c;
+  background-color: var(--white);
+  color: var(--dirty-green);
   font-family: "Poppins", sans-serif;
 }
 .card-body .feature-title {
@@ -1636,6 +1774,16 @@ main {
 
 .footer-section {
   flex: 1 1 200px;
+}
+
+.btn{
+  padding: 10px 20px;
+  background: #f4a261;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .footer-section h3,
@@ -1710,7 +1858,7 @@ main {
 
 .navbar-center a {
   text-decoration: none;
-  color: black;
+  color: var(--black);
 }
 
 .signup-btn {
@@ -1734,7 +1882,8 @@ main {
   padding: 24px 0px;
   max-width: 80vw;
   margin: 0 auto;
-  background-color: white;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
   width: 100%;
   position: relative;
 }
@@ -1746,14 +1895,13 @@ main {
 
 .navbar-center {
   display: flex;
-  
   flex: 1;
   font-size: 1rem;
 }
 
 .navbar-center a {
   text-decoration: none;
-  color: #222;
+  color: var(--black);
   font-weight: 500;
   transition: color 0.2s ease;
   margin: 0 15px;
@@ -1817,14 +1965,14 @@ main {
   .signup-btn.show {
     display: flex;
     flex-direction: column;
-    background-color: #222;
+    /* background-color: #222; */
     width: 100%;
     padding: 15px 20px;
     border-radius: 10px;
     margin-top: 60px;
   }
   .navbar-center.show a {
-    color: white;
+    /* color: white; */
     text-align: center;
     padding: 10px 0;
   }
