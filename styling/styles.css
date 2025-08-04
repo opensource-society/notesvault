@@ -1489,7 +1489,6 @@ img,
   background: #d2e6ce;
   color: #ddd;
   border-radius: 20px;
-  border-radius: 0px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
