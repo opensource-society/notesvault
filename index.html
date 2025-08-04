@@ -32,9 +32,22 @@
 
       <div class="navbar-right">
         <a href="pages/signup.html" class="signup-btn">Sign Up</a>
-        <div id="hamburger" class="hamburger-icon">☰</div>
+<div id="hamburger" class="hamburger-icon" onclick="toggleMenu()">☰</div>
       </div>
     </header>
+
+    <!-- Sidebar Menu (Mobile Nav) -->
+<div class="sidebar" id="sidebarMenu">
+  <a href="pages/overview.html">Overview</a>
+  <a href="pages/studentAccount.html">Student Account</a>
+  <a href="pages/about.html">About</a>
+  <a href="pages/features.html">Features</a>
+  <a href="pages/signup.html">Sign Up</a>
+</div>
+
+<!-- Overlay for closing menu -->
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
 
     <!-- Main Section -->
     <main id="main">
@@ -47,6 +60,25 @@
           Keep your study notes and PYQs organized, easy to find,<br />and
           always just a click away with NotesVault.
         </p>
+
+<!-- Metrics Section -->
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-number">500+</div>
+    <div class="metric-label">Notes Uploaded</div>
+  </div>
+  <div class="metric">
+    <div class="metric-number">1K+</div>
+    <div class="metric-label">Active Users</div>
+  </div>
+  <div class="metric">
+    <div class="metric-number">120+</div>
+    <div class="metric-label">Subjects Covered</div>
+  </div>
+</div>
+<!-- End Metrics Section -->
+
+
         <div class="main-left-links">
           <a
             href="search.html"
