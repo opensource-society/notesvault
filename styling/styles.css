@@ -1632,7 +1632,7 @@ img,
   margin-top: 1rem;
 }
 
-.upload-icon {
+.svg-icon {
   color: var(--white);
   transition: color 0.3s ease;
 }
