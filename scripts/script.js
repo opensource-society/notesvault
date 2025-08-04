@@ -99,6 +99,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Hamburger menu functionality for mobile
+  const hamburgerIcon = document.querySelector('.hamburger-icon');
+  if (hamburgerIcon) {
+    hamburgerIcon.addEventListener('click', function() {
+      document.querySelector('.navbar-center').classList.toggle('show');
+      document.querySelector('.navbar-right').classList.toggle('show');
+    });
+  }
+
   function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme') || 'light';
