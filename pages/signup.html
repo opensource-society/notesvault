@@ -1,120 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - NotesVault</title>
-  <link rel="stylesheet" href="../styling/signup.css" />
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - Sign Up</title>
 
-</head>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
 
-<body class="bg-notes-bg-light">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <div id="messageBox" class="message-box"></div>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/signup.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+  </head>
 
-  <div class="home-button-container">
-    <a href="../index.html" class="home-button">
-      &larr; Back to Home
+  <body class="signup-page">
+    <!-- Back Button -->
+    <a href="../index.html" class="floating-back-btn">
+      <i class="fas fa-chevron-left"></i>
+      <span>Home</span>
     </a>
-  </div>
 
-  <div class="card-container">
-    <h2>Create Your Account</h2>
-    <p>Join NotesVault today!</p>
+    <!-- Animated Message Box -->
+    <div id="messageBox" class="message-box"></div>
 
-    <form id="signupForm" class="form-space-y-6">
-      <div>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required placeholder="John Doe" />
+    <!-- Signup Card -->
+    <div class="signup-card">
+      <div class="signup-header">
+        <div class="logo-preview">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h2>Create Your Account</h2>
+        <p>Join NotesVault Today!</p>
       </div>
 
-      <div>
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com" />
-      </div>
+      <form id="signupForm" class="signup-form">
+        <div class="form-group floating-input">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder=" "
+            autocomplete="name"
+          />
+          <label for="name">Full Name</label>
+          <div class="input-border"></div>
+        </div>
 
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required placeholder="••••••••" />
-      </div>
+        <div class="form-group floating-input">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder=" "
+            autocomplete="email"
+          />
+          <label for="email">Email address</label>
+          <div class="input-border"></div>
+        </div>
 
-      <div>
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" required placeholder="••••••••" />
-      </div>
+        <div class="form-group floating-input">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder=" "
+            autocomplete="new-password"
+            minlength="6"
+          />
+          <label for="password">Password</label>
+          <div class="input-border"></div>
+          <button type="button" class="password-toggle">
+            <i class="far fa-eye"></i>
+          </button>
+        </div>
 
-      <div>
-        <button type="submit" class="btn-primary" id="signupBtn">
-          <span id="btnText">Sign up</span>
-          <span class="spinner" id="spinner"></span>
+        <div class="form-group floating-input">
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+            placeholder=" "
+            autocomplete="new-password"
+            minlength="6"
+          />
+          <label for="confirm-password">Confirm Password</label>
+          <div class="input-border"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="signupBtn">
+          <span class="spinner hidden" id="spinner"></span>
+          <span id="btnText">Sign Up</span>
+          <i class="fas fa-arrow-right btn-icon"></i>
         </button>
+      </form>
+
+      <div class="signin-link">
+        <p>Already have an account? <a href="login.html">Sign in here</a></p>
       </div>
-    </form>
-
-    <div class="signin-link-section">
-      <p>
-        Already have an account?
-        <a href="login.html">Sign in here</a>
-      </p>
     </div>
-  </div>
 
-  <script>
-    function showMessageBox(message, type = 'success') {
-      const messageBox = document.getElementById('messageBox');
-      messageBox.textContent = message;
-      messageBox.className = 'message-box show';
-      messageBox.style.backgroundColor = (type === 'error') ? 'var(--red-error)' : 'var(--green-success)';
+    <script src="../scripts/script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // DOM Elements
+        const signupForm = document.getElementById('signupForm')
+        const messageBox = document.getElementById('messageBox')
+        const passwordInput = document.getElementById('password')
+        const confirmPasswordInput = document.getElementById('confirm-password')
+        const passwordToggle = document.querySelector('.password-toggle')
+        const passwordIcon = passwordToggle.querySelector('i')
+        const signupBtn = document.getElementById('signupBtn')
+        const spinner = document.getElementById('spinner')
+        const btnText = document.getElementById('btnText')
 
-      setTimeout(() => {
-        messageBox.classList.remove('show');
-      }, 3000);
-    }
+        // Constants
+        const MIN_PASSWORD_LENGTH = 6
+        const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
-      event.preventDefault();
+        // Toggle Password Visibility
+        passwordToggle.addEventListener('click', function () {
+          const isPassword = passwordInput.type === 'password'
+          passwordInput.type = isPassword ? 'text' : 'password'
+          passwordIcon.className = isPassword
+            ? 'far fa-eye-slash'
+            : 'far fa-eye'
+          passwordToggle.setAttribute(
+            'aria-label',
+            isPassword ? 'Hide password' : 'Show password'
+          )
+        })
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
+        // Floating Label Effect
+        document.querySelectorAll('.floating-input input').forEach((input) => {
+          input.addEventListener('focus', () => {
+            input.parentNode.classList.add('focused')
+          })
 
-      const btn = document.getElementById('signupBtn');
-      const btnText = document.getElementById('btnText');
-      const spinner = document.getElementById('spinner');
+          input.addEventListener('blur', () => {
+            if (!input.value) {
+              input.parentNode.classList.remove('focused')
+            }
+          })
+        })
 
-      
-      btn.classList.add('btn-disabled');
-      spinner.style.display = 'inline-block';
-      btnText.textContent = 'Signing up...';
+        // Password Strength Validation
+        passwordInput.addEventListener('input', function () {
+          validatePasswordStrength()
+        })
 
-      if (!name || !email || !password || !confirmPassword) {
-        showMessageBox('Please fill in all fields.', 'error');
-        resetButton();
-        return;
-      }
+        function validatePasswordStrength() {
+          // Add Password Strength Validation Logic While Implemneting User Authentication
+        }
 
-      if (password !== confirmPassword) {
-        showMessageBox('Passwords do not match.', 'error');
-        resetButton();
-        return;
-      }
+        // Show Message
+        function showMessage(text, type) {
+          messageBox.textContent = text
+          messageBox.className = `message-box ${type} show`
 
-      
-      console.log('Sign up attempt:', { name, email, password });
+          setTimeout(() => {
+            messageBox.classList.remove('show')
+          }, 3000)
+        }
 
-      setTimeout(() => {
-        showMessageBox('Sign up successful! You can now log in.', 'success');
-        window.location.href = 'login.html';
-      }, 1500);
+        // Set Loading State
+        function setLoadingState(isLoading) {
+          if (isLoading) {
+            spinner.classList.remove('hidden')
+            btnText.textContent = 'Signing up...'
+            signupBtn.disabled = true
+          } else {
+            spinner.classList.add('hidden')
+            btnText.textContent = 'Sign up'
+            signupBtn.disabled = false
+          }
+        }
 
-      function resetButton() {
-        btn.classList.remove('btn-disabled');
-        spinner.style.display = 'none';
-        btnText.textContent = 'Sign up';
-      }
-    });
-  </script>
-</body>
+        // Form Validation
+        function validateForm(name, email, password, confirmPassword) {
+          if (!name || !email || !password || !confirmPassword) {
+            showMessage('Please fill in all fields', 'error')
+            return false
+          }
+
+          if (!EMAIL_REGEX.test(email)) {
+            showMessage('Please enter a valid email address', 'error')
+            return false
+          }
+
+          if (password.length < MIN_PASSWORD_LENGTH) {
+            showMessage(
+              `Password must be at least ${MIN_PASSWORD_LENGTH} characters`,
+              'error'
+            )
+            return false
+          }
+
+          if (password !== confirmPassword) {
+            showMessage('Passwords do not match', 'error')
+            return false
+          }
+
+          return true
+        }
+
+        // Form Submission
+        signupForm.addEventListener('submit', async function (e) {
+          e.preventDefault()
+
+          const name = document.getElementById('name').value.trim()
+          const email = document.getElementById('email').value.trim()
+          const password = document.getElementById('password').value
+          const confirmPassword =
+            document.getElementById('confirm-password').value
+
+          // Validate Form
+          if (!validateForm(name, email, password, confirmPassword)) return
+
+          // Set Loading State
+          setLoadingState(true)
+
+          try {
+            // Simulate API Call - Replace With Actual Fetch In Production
+            await new Promise((resolve) => setTimeout(resolve, 1500))
+
+            // Show Success Message
+            showMessage(
+              'Account created successfully! Redirecting to login...',
+              'success'
+            )
+
+            // Redirect After Delay
+            setTimeout(() => {
+              window.location.href = 'login.html'
+            }, 2000)
+          } catch (error) {
+            console.error('Signup error:', error)
+            showMessage('Signup failed. Please try again.', 'error')
+          } finally {
+            setLoadingState(false)
+          }
+        })
+      })
+    </script>
+  </body>
 </html>
