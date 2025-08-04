@@ -19,7 +19,9 @@
     text-align: center;
     font-size: calc(18px + 0.4vw);
     margin-bottom: 30px;
+    /* color: #4bac4b */
 }
+
 
 .features-grid {
     display: grid;
@@ -76,26 +78,36 @@
 }
 
 .why-heading {
-    font-size: calc(20px + 1vw);
-    color: #eda950;
-    margin-bottom: 40px;
+  font-size: calc(20px + 1vw);
+  margin-bottom: 40px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* Optional: makes underline more visible */
+  text-underline-offset: 4px;     /* Optional: gives space between text and underline */
+  color: orange;
+  /* background: linear-gradient(to right, #eda950, black, #eda950);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
+
 
 .why-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+    box-shadow: #163d3b
 }
 
 .why-card {
-    background-color: #ffffff;
-    border: 2px solid #eda950;
+    /* background-color: #ffffff; */
+    /* border: 2px solid yellow; */
+    border:2px solid rgb(253, 193, 81);
     border-radius: 15px;
     padding: 25px;
     width: 280px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
+    /* transform: scale(1.0); */
 }
 
 .why-card:hover {
@@ -105,15 +117,18 @@
 
 .why-card i {
     font-size: 32px;
-    color: #163d3b;
-    margin-bottom: 15px;
+    /* color: #163d3b; */
+    color: orange;
+
+    /* margin-bottom: 10px; */
 }
 
 .why-card h5 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: orange;
+    /* color: orange; */
+    text-decoration: underline;
 }
 
 .why-card p {
