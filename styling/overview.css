@@ -19,7 +19,9 @@
     text-align: center;
     font-size: calc(18px + 0.4vw);
     margin-bottom: 30px;
+    /* color: #4bac4b */
 }
+
 
 .features-grid {
     display: grid;
@@ -79,6 +81,7 @@
     font-size: calc(20px + 1vw);
     color: #eda950;
     margin-bottom: 40px;
+    text-decoration: underline;
 }
 
 .why-cards {
@@ -89,13 +92,15 @@
 }
 
 .why-card {
-    background-color: #ffffff;
-    border: 2px solid #eda950;
+    /* background-color: #ffffff; */
+    /* border: 2px solid yellow; */
+    border:2px solid rgb(253, 193, 81);
     border-radius: 15px;
     padding: 25px;
     width: 280px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
+    /* transform: scale(1.0); */
 }
 
 .why-card:hover {
@@ -105,15 +110,17 @@
 
 .why-card i {
     font-size: 32px;
-    color: #163d3b;
-    margin-bottom: 15px;
+    /* color: #163d3b; */
+    color: orange;
+    /* margin-bottom: 10px; */
 }
 
 .why-card h5 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: orange;
+    /* color: orange; */
+    text-decoration: underline;
 }
 
 .why-card p {
