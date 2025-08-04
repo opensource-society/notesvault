@@ -28,17 +28,17 @@ html, body {
 p{
   font-size: 16px; 
   line-height: 1.5; 
-  color: var(--black);
+  color: var(--toggle-two);
 }
 
 a{
   text-decoration: none; 
-  color: var(--black);
+  color: var(--toggle-two);
 }
 
 hr{
   height: 5px; 
-  background-color: var(--black);
+  background-color: var(--toggle-two);
 }
 
 /* Sticky header */
@@ -99,8 +99,8 @@ hr{
   --footer-text: #000000;
   --button-bg: #f4a261;
   --button-text: #000000;
-  --white: #ffffff;
-  --black: #000000;
+  --toggle-one: #ffffff;
+  --toggle-two: #000000;
   --dirty-green: #2b4a2c;
 }
 
@@ -116,8 +116,8 @@ hr{
   --footer-text: #dddddd;
   --button-bg: #f4a261;
   --button-text: #000000;
-  --white: #000000;
-  --black: #ffffff;
+  --toggle-one: #000000;
+  --toggle-two: #ffffff;
   --dirty-green: #5fa762;
 }
 
@@ -217,7 +217,7 @@ footer p {
   width: 300px;
   height: 100vh;
   background: #ffffff;
-  color: var(--black);
+  color: var(--toggle-two);
   box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.15);
   transition: left 0.4s ease-in-out;
   border-radius: 20px;
@@ -226,8 +226,8 @@ footer p {
   display: none;
   flex-direction: column;
   justify-content: flex-start;
-  border: 1px var(--black) solid;
-  background-color: var(--black);
+  border: 1px var(--toggle-two) solid;
+  background-color: var(--toggle-two);
 }
 
 .hover-sidebar.sidebar-active {
@@ -1602,7 +1602,7 @@ img,
   justify-content: center;
   gap: 2rem;
   padding: 2rem 2rem;
-  background-color: var(--white);
+  background-color: var(--toggle-one);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -1626,14 +1626,14 @@ img,
 }
 
 .feature-title {
-  color: var(--white);
+  color: var(--toggle-one);
   font-weight: 600;
   font-size: 1.2rem;
   margin-top: 1rem;
 }
 
 .svg-icon {
-  color: var(--white);
+  color: var(--toggle-one);
   transition: color 0.3s ease;
 }
 
@@ -1687,12 +1687,12 @@ img,
   margin-top: 1rem;
 }
 .feature-title h5{
-  color: var(--black);
+  color: var(--toggle-two);
 }
 
 .feature-desc {
   font-size: 0.95rem;
-  color: var(--black);
+  color: var(--toggle-two);
   margin-top: 0.5rem;
 }
  
@@ -1739,7 +1739,7 @@ img,
   border-radius: 0px;
   padding: 20px;
   text-align: center;
-  background-color: var(--white);
+  background-color: var(--toggle-one);
   color: var(--dirty-green);
   font-family: "Poppins", sans-serif;
 }
@@ -1857,7 +1857,7 @@ img,
 
 .navbar-center a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--toggle-two);
 }
 
 .signup-btn {
@@ -1900,7 +1900,7 @@ img,
 
 .navbar-center a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--toggle-two);
   font-weight: 500;
   transition: color 0.2s ease;
   margin: 0 15px;
