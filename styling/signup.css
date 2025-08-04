@@ -110,7 +110,7 @@
 /* Input Fields */
 .floating-input {
   position: relative;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0rem;
 }
 
 .floating-input input {

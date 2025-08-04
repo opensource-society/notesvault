@@ -87,18 +87,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // Validate Form Inputs
   function validateForm(email, password) {
     if (!email || !password) {
-      showMessage('Please fill in all fields', 'error')
+      showMessage('Please Fill In All Fields', 'error')
       return false
     }
 
     if (!EMAIL_REGEX.test(email)) {
-      showMessage('Please enter a valid email address', 'error')
+      showMessage('Please Enter a Valid Email Address', 'error')
       return false
     }
 
     if (password.length < MIN_PASSWORD_LENGTH) {
       showMessage(
-        `Password must be at least ${MIN_PASSWORD_LENGTH} characters`,
+        `Password Must Be At Least ${MIN_PASSWORD_LENGTH} Characters`,
         'error'
       )
       return false
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Show Success Message
-      showMessage('Login successful! Redirecting...', 'success')
+      showMessage('Login Successful! Redirecting...', 'success')
 
       // Redirect After Delay
       setTimeout(() => {
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 1500)
     } catch (error) {
       console.error('Login error:', error)
-      showMessage('Login failed. Please try again.', 'error')
+      showMessage('Login Failed. Please Try Again...', 'error')
     } finally {
       setLoadingState(false)
     }

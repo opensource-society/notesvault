@@ -193,25 +193,25 @@
         // Form Validation
         function validateForm(name, email, password, confirmPassword) {
           if (!name || !email || !password || !confirmPassword) {
-            showMessage('Please fill in all fields', 'error')
+            showMessage('Please Fill In All Fields', 'error')
             return false
           }
 
           if (!EMAIL_REGEX.test(email)) {
-            showMessage('Please enter a valid email address', 'error')
+            showMessage('Please Enter a Valid Email Address', 'error')
             return false
           }
 
           if (password.length < MIN_PASSWORD_LENGTH) {
             showMessage(
-              `Password must be at least ${MIN_PASSWORD_LENGTH} characters`,
+              `Password Must Be At Least ${MIN_PASSWORD_LENGTH} Characters`,
               'error'
             )
             return false
           }
 
           if (password !== confirmPassword) {
-            showMessage('Passwords do not match', 'error')
+            showMessage('Passwords Do Not Match', 'error')
             return false
           }
 
@@ -240,7 +240,7 @@
 
             // Show Success Message
             showMessage(
-              'Account created successfully! Redirecting to login...',
+              'Account Created Successfully! Redirecting To Login...',
               'success'
             )
 
@@ -250,7 +250,7 @@
             }, 2000)
           } catch (error) {
             console.error('Signup error:', error)
-            showMessage('Signup failed. Please try again.', 'error')
+            showMessage('Signup Failed. Please Try Again...', 'error')
           } finally {
             setLoadingState(false)
           }
