@@ -9,23 +9,12 @@
   <link rel="stylesheet" href="../components/header.css"/>
   <script src="../components/header.js"></script>
 </head>
-<body>
+<body class="light-mode">
 
-  <!-- Dark Mode Toggle -->
-  <!-- Dark Mode Toggle -->
-  <input type="checkbox" id="dark-toggle" hidden />
-  <label for="dark-toggle" class="dark-mode-toggle" title="Toggle Dark Mode">
-    🌙
-  </label>
-
-  <!-- Navbar -->
   <!-- Header -->
-  <header style="height: 100px;" id="header-holder">
-
-  </header>
+  <header style="height: 100px;" id="header-holder"></header>
 
   <!-- Main Content -->
-  
   <div class="parent-container">
     <br>
     <br>
@@ -35,7 +24,6 @@
       <h3> 👋 Hey John! Ready to Learn Today?</h3>
 
       <section class="notes-section">
-
         <h2>👤 Student Details</h2>
         <br>
         <div class="note-card">
@@ -46,7 +34,6 @@
           <p><strong>Year:</strong> 3rd Year</p>
         </div>
         
-
         <h2>💾 Saved Notes</h2>
         <br>
         <div class="note-card">
@@ -73,18 +60,48 @@
       </div>
     </main>
   </div>
-  
 
-</body>
-<script>
-  // set width of header to 100vw
-  document.addEventListener('DOMContentLoaded', () => {
+  <script>
+    // Theme initialization and toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const body = document.body;
+      
+      // Check for saved theme preference or default to light mode
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      
+      // Apply the theme
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+      } else {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
+      }
+      
+      // Theme toggle functionality (if you have a toggle button)
+      const themeToggleBtn = document.getElementById('theme-toggle') || document.querySelector('.theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+          if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+          } else {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      }
 
-    setTimeout(() => {
+      // Set header width
+      setTimeout(() => {
         const headerHolder = document.getElementById('header');
-
-        headerHolder.style.width = "99vw";
-    }, 50);
-  });
-</script>
-</html> 
+        if (headerHolder) {
+          headerHolder.style.width = "99vw";
+        }
+      }, 50);
+    });
+  </script>
+</body>
+</html>

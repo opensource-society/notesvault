@@ -1,150 +1,308 @@
-/* Reset and base styles */
-
-body, html {
-  font-family: "Segoe UI", sans-serif;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
+/* Base styles with theme support */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
   min-height: 100vh;
 }
 
-/* Reset */
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Light mode (default) */
+body.light-mode {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
 }
 
-/* Base Styles */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
-  color: #111111;
+/* Dark mode */
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #ffffff;
+}
+
+/* Parent container */
+.parent-container {
+  min-height: 100vh;
+  padding: 20px;
   transition: all 0.3s ease;
 }
 
-/* Container */
-.parent-container{
-  background-color: #d4e7d4;
-}
+/* Main container - Updated for light/dark mode */
 .container {
-  padding: 40px 60px;
-  background-color: white;
-  height: 100%;
-  width: 50%;
-  align-items: center;
+  max-width: 900px;
   margin: 0 auto;
-  border-radius: 40px;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* Profile Section */
-.profile {
-  margin-bottom: 40px;
-}
-.profile h2 {
-  margin-bottom: 10px;
-  color: #2f855a;
+body.light-mode .container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
 }
 
-/* Notes Section */
+body.dark-mode .container {
+  background: rgba(45, 45, 45, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Headings - Updated for light/dark mode */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+body.light-mode h1 {
+  color: #4a5568;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode h1 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+body.light-mode h2 {
+  color: #2d3748;
+}
+
+body.dark-mode h2 {
+  color: #4da6ff;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+body.light-mode h3 {
+  color: #718096;
+}
+
+body.dark-mode h3 {
+  color: #b0b0b0;
+}
+
+/* Notes section */
 .notes-section {
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin: 2rem 0;
 }
+
+/* Note cards - Updated for light/dark mode */
 .note-card {
-  background-color: #f0fff4;
-  padding: 20px;
-  border: 1px solid #c6f6d5;
+  padding: 1.5rem;
+  margin: 1rem 0;
   border-radius: 12px;
-  margin-bottom: 20px;
+  border: 1px solid;
+  transition: all 0.3s ease;
 }
+
+body.light-mode .note-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .note-card {
+  background: #3d3d3d;
+  border-color: #555555;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+}
+
+body.light-mode .note-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode .note-card:hover {
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Note card headings - Updated for light/dark mode */
 .note-card h3 {
-  margin-bottom: 10px;
-  color: #2f855a;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: left;
+  transition: color 0.3s ease;
 }
+
+body.light-mode .note-card h3 {
+  color: #2d3748;
+}
+
+body.dark-mode .note-card h3 {
+  color: #ffffff;
+}
+
+/* Paragraphs - Updated for light/dark mode */
+.note-card p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .note-card p {
+  color: #4a5568;
+}
+
+body.dark-mode .note-card p {
+  color: #e0e0e0;
+}
+
+/* Strong text - Updated for light/dark mode */
+.note-card strong {
+  transition: color 0.3s ease;
+}
+
+body.light-mode .note-card strong {
+  color: #2d3748;
+}
+
+body.dark-mode .note-card strong {
+  color: #ffffff;
+}
+
+/* Lists - Updated for light/dark mode */
 .note-card ul {
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-.note-card button {
-  padding: 6px 12px;
-  background-color: #48bb78;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-}
-.note-card button:hover {
-  background-color: #38a169;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
 }
 
-/* Back Button */
+.note-card li {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .note-card li {
+  color: #4a5568;
+}
+
+body.dark-mode .note-card li {
+  color: #e0e0e0;
+}
+
+/* Buttons - Updated for light/dark mode */
+.note-card button,
 .back-btn button {
-  padding: 10px 16px;
-  background-color: #e2e8f0;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
 }
+
+body.light-mode .note-card button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+body.dark-mode .note-card button {
+  background: linear-gradient(135deg, #4da6ff 0%, #0d6efd 100%);
+  color: white;
+}
+
+.note-card button:hover,
 .back-btn button:hover {
-  background-color: #cbd5e0;
+  transform: translateY(-2px);
 }
 
-/* 🔘 Dark Mode Toggle Button */
-.dark-mode-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 999;
+body.light-mode .note-card button:hover {
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* 🌓 Dark Mode Styling */
-#dark-toggle:checked ~ .navbar,
-#dark-toggle:checked ~  .parent-container .container,
-#dark-toggle:checked ~ body {
-  background-color: #1a202c;
-  color: #e2e8f0;
+body.dark-mode .note-card button:hover {
+  box-shadow: 0 5px 15px rgba(77, 166, 255, 0.4);
 }
 
-#dark-toggle:checked ~ .navbar {
-  background-color: #2d3748;
+/* Back button - Updated for light/dark mode */
+.back-btn {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-#dark-toggle:checked ~ .navbar .nav-links a {
-  color: #e2e8f0;
-}
-#dark-toggle:checked ~ .navbar .nav-links a:hover {
-  color: #90cdf4;
+body.light-mode .back-btn button {
+  background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+  color: white;
 }
 
-#dark-toggle:checked ~ .signup-btn a {
-  background-color: #3182ce;
-}
-#dark-toggle:checked ~ .signup-btn a:hover {
-  background-color: #2c5282;
+body.dark-mode .back-btn button {
+  background: linear-gradient(135deg, #555555 0%, #3d3d3d 100%);
+  color: white;
 }
 
-#dark-toggle:checked ~ .parent-container  {
-  background-color: #2d3748;
+body.light-mode .back-btn button:hover {
+  box-shadow: 0 5px 15px rgba(113, 128, 150, 0.4);
 }
 
-#dark-toggle:checked ~ .parent-container .container .note-card {
-  background-color: #2d3748;
-  border-color: #4a5568;
-}
-#dark-toggle:checked ~ .parent-container .container .note-card h3 {
-  color: #68d391;
+body.dark-mode .back-btn button:hover {
+  box-shadow: 0 5px 15px rgba(85, 85, 85, 0.4);
 }
 
-#dark-toggle:checked ~ .parent-container .container .back-btn button {
-  background-color: #4a5568;
-  color: #fff;
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  .note-card {
+    padding: 1rem;
+  }
 }
-#dark-toggle:checked ~ .parent-container .container.back-btn button:hover {
-  background-color: #2d3748;
+
+@media (max-width: 480px) {
+  .parent-container {
+    padding: 10px;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  .note-card button,
+  .back-btn button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }

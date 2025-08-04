@@ -1,0 +1,36 @@
+/* darkMode.css */
+
+/* Light Theme */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-color: #f1f1f1;
+}
+
+/* Dark Theme */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-color: #1e1e1e;
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Example usage */
+.card {
+  background-color: var(--card-color);
+}
+
+/* Optional: style for the button */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 5px;
+}

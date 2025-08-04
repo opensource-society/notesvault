@@ -1,40 +1,93 @@
-.heading1{
+/* Base body and html styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-sizing: border-box;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* Theme base styles */
+body,
+body.light-mode {
+    background-color: #f8fafb;
+    color: #232323;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Heading styles - Updated for light/dark mode */
+.heading1 {
     text-align: center;
     margin-top: 7%;
     font-size: calc(14px+8vw);
-
+    transition: color 0.3s ease;
 }
-.content{
+
+body.light-mode .heading1 {
+    color: #232323;
+}
+
+body.dark-mode .heading1 {
+    color: #006af5;
+}
+
+/* Content section - Updated for light/dark mode */
+.content {
     padding-left: 10%;
     padding-right: 10%;
     text-align: center;
-    color: rgb(90, 134, 90);
     margin-bottom: 6%;
-
+    transition: color 0.3s ease;
 }
-.footer-heading{
+
+body.light-mode .content {
+    color: rgb(90, 134, 90);
+}
+
+body.dark-mode .content {
+    color: #0f63d8;
+}
+
+/* Footer heading */
+.footer-heading {
     margin: 15%;
 }
+
+/* Features section - Updated for light/dark mode */
 .features-heading {
     text-align: center;
     font-size: calc(18px + 0.4vw);
     margin-bottom: 30px;
+    transition: color 0.3s ease;
 }
 
+body.light-mode .features-heading {
+    color: #232323;
+}
+
+body.dark-mode .features-heading {
+    color: #1272df;
+}
+
+/* Features grid */
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     padding: 0 50px;
     margin-bottom: 5%;
     text-align: center;
-    display: flex;
-
 }
 
+/* Feature boxes - Updated for light/dark mode */
 .box-feature {
-    /* background-color: #e4f5e9; */
-    border: 2px solid #163d3b;
+    border: 2px solid;
     border-radius: 15px;
     padding: 20px;
     text-align: center;
@@ -43,44 +96,96 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 220px;
+    max-width: 300px;
+}
+
+body.light-mode .box-feature {
     background-color: white;
+    border-color: #163d3b;
+    color: #232323;
+}
+
+body.dark-mode .box-feature {
+    background-color: #2a2a2a;
+    border-color: #dff8f8;
+    color: #dff8f8;
 }
 
 .box-feature:hover {
     transform: translateY(-9px);
+}
+
+body.light-mode .box-feature:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+body.dark-mode .box-feature:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Feature icons */
 .box-feature i {
     font-size: 30px;
     color: #eda950;
     margin-bottom: 12px;
 }
 
+/* Feature titles - Updated for light/dark mode */
 .feature-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
+body.light-mode .feature-title {
+    color: #232323;
+}
+
+body.dark-mode .feature-title {
+    color: #dff8f8;
+}
+
+/* Feature descriptions - Updated for light/dark mode */
 .feature-desc {
     font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .feature-desc {
     color: #444;
 }
 
-.why {
-    /* background-color: #f5fdf7; */
-    padding: 60px 30px;
-    text-align: center;
+body.dark-mode .feature-desc {
+    color: #b0b0b0;
 }
 
+/* Why section - Updated for light/dark mode */
+.why {
+    padding: 60px 30px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode .why {
+    background-color: #f5fdf7;
+}
+
+body.dark-mode .why {
+    background-color: rgba(42, 42, 42, 0.5); /* Changed from transparent */
+}
+
+/* Why heading */
 .why-heading {
     font-size: calc(20px + 1vw);
     color: #eda950;
     margin-bottom: 40px;
 }
 
+/* Why cards container */
 .why-cards {
     display: flex;
     flex-wrap: wrap;
@@ -88,117 +193,258 @@
     gap: 25px;
 }
 
+/* Why cards - Updated for light/dark mode */
 .why-card {
-    background-color: #ffffff;
     border: 2px solid #eda950;
     border-radius: 15px;
     padding: 25px;
     width: 280px;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .why-card {
+    background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    color: #232323;
+}
+
+body.dark-mode .why-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #dff8f8;
 }
 
 .why-card:hover {
     transform: translateY(-8px);
+}
+
+body.light-mode .why-card:hover {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
 
-.why-card i {
-    font-size: 32px;
-    color: #163d3b;
-    margin-bottom: 15px;
+body.dark-mode .why-card:hover {
+    box-shadow: 0 8px 18px rgba(255, 255, 255, 0.1);
 }
 
+/* Why card icons - Updated for light/dark mode */
+.why-card i {
+    font-size: 32px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .why-card i {
+    color: #163d3b;
+}
+
+body.dark-mode .why-card i {
+    color: #4da6ff;
+}
+
+/* Why card headings - Updated for light/dark mode */
 .why-card h5 {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .why-card h5 {
     color: orange;
 }
 
+body.dark-mode .why-card h5 {
+    color: #dff8f8;
+}
+
+/* Why card paragraphs - Updated for light/dark mode */
 .why-card p {
     font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .why-card p {
     color: #555;
 }
+
+body.dark-mode .why-card p {
+    color: #b0b0b0;
+}
+
+/* Notes vault section - Updated for light/dark mode */
 .notesvault-section {
-  padding: 30px;
-  font-family: 'Segoe UI', sans-serif;
+    padding: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease;
 }
 
+body.dark-mode .notesvault-section {
+    background-color: #1a1a1a;
+}
+
+/* Section containers - Updated for light/dark mode */
 .section {
-  margin-bottom: 40px;
-  background-color: #f5f9f5;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
 }
 
+body.light-mode .section {
+    background-color: #f5f9f5;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .section {
+    background-color: #2d2d2d;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Section headings - Updated for light/dark mode */
 .section h2 {
-  color: #4bac4b;
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
 }
 
+body.light-mode .section h2 {
+    color: #4bac4b;
+}
+
+body.dark-mode .section h2 {
+    color: #4da6ff;
+}
+
+/* Section lists - Updated for light/dark mode */
 .section ul {
-  padding-left: 20px;
+    padding-left: 20px;
 }
 
 .section ul li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
 }
 
+body.light-mode .section ul li {
+    color: #232323;
+}
+
+body.dark-mode .section ul li {
+    color: #e0e0e0;
+}
+
+/* Blockquotes - Updated for light/dark mode */
 blockquote {
-  background-color: #e6f4ea;
-  padding: 10px 15px;
-  border-left: 5px solid #4CAF50;
-  font-style: italic;
-  margin: 15px 0;
+    padding: 10px 15px;
+    border-left: 5px solid;
+    font-style: italic;
+    margin: 15px 0;
+    transition: all 0.3s ease;
 }
 
-.linktogithub{
+body.light-mode blockquote {
+    background-color: #e6f4ea;
+    border-left-color: #4CAF50;
+    color: #232323;
+}
+
+body.dark-mode blockquote {
+    background-color: #2d4a3d;
+    border-left-color: #4da6ff;
+    color: #e0e0e0;
+}
+
+/* Link styles */
+.linktogithub {
     text-decoration: none;
 }
 
-/* Dark Mode Styles */
-[data-theme="dark"] .box-feature {
-    background-color: #2a2a2a;
-    border-color: #dff8f8;
-    color: #dff8f8;
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .features-grid {
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .box-feature {
+        width: 100%;
+        max-width: 400px;
+        min-width: auto;
+    }
+    
+    .why-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .why-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .content {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .why {
+        padding: 40px 20px;
+    }
 }
 
-[data-theme="dark"] .feature-title {
-    color: #dff8f8;
+@media (max-width: 480px) {
+    .heading1 {
+        margin-top: 10%;
+        font-size: calc(12px + 6vw);
+    }
+    
+    .features-grid {
+        padding: 0 10px;
+    }
+    
+    .box-feature {
+        min-height: 180px;
+        padding: 15px;
+    }
+    
+    .why-card {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .notesvault-section {
+        padding: 20px 15px;
+    }
+    
+    .section {
+        padding: 15px;
+    }
+    
+    .content {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    
+    .why {
+        padding: 30px 15px;
+    }
 }
 
-[data-theme="dark"] .feature-desc {
-    color: #b0b0b0;
-}
-
-[data-theme="dark"] .why-card {
-    background-color: #2a2a2a;
-    border-color: #eda950;
-    color: #dff8f8;
-}
-
-[data-theme="dark"] .why-card h5 {
-    color: #dff8f8;
-}
-
-[data-theme="dark"] .why-card p {
-    color: #b0b0b0;
-}
-
-[data-theme="dark"] .heading1 {
-    color: #dff8f8;
-}
-
-[data-theme="dark"] .content {
-    color: #a0c4a0;
-}
-
-[data-theme="dark"] .features-heading {
-    color: #dff8f8;
-}
-
-[data-theme="dark"] .why-heading {
-    color: #eda950;
+@media (max-width: 320px) {
+    .why-card {
+        padding: 15px;
+    }
+    
+    .box-feature {
+        padding: 12px;
+        min-height: 160px;
+    }
+    
+    .features-grid {
+        gap: 15px;
+    }
+    
+    .why-cards {
+        gap: 15px;
+    }
 }

@@ -1,29 +1,55 @@
-
+/* Features section - Updated for light/dark mode */
 .features-section {
   padding: 4rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #f5f7fa;
   text-align: center;
   border-radius: 1rem;
+  transition: all 0.3s ease;
 }
 
+body.light-mode .features-section {
+  background-color: #f5f7fa;
+}
+
+body.dark-mode .features-section {
+  background-color: #2d2d2d;
+}
+
+/* Features heading - Updated for light/dark mode */
 .features-heading {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
   margin-bottom: 0.5rem;
   font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease;
 }
 
+body.light-mode .features-heading {
+  color: #1a1a1a;
+}
+
+body.dark-mode .features-heading {
+  color: #ffffff;
+}
+
+/* Features subheading - Updated for light/dark mode */
 .features-subheading {
   font-size: 1.1rem;
-  color: #555;
   margin-bottom: 2.5rem;
   font-family: 'Open Sans', sans-serif;
+  transition: color 0.3s ease;
 }
 
-/* GRID FOR FEATURE CARDS */
+body.light-mode .features-subheading {
+  color: #555;
+}
+
+body.dark-mode .features-subheading {
+  color: #ffffff;
+}
+
+/* Grid for feature cards */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -31,35 +57,135 @@
   padding: 0 1rem;
 }
 
-/* FEATURE CARD DESIGN */
+/* Feature card design - Updated for light/dark mode */
 .feature-card {
-  background-color: #ffffff;
   padding: 1.8rem;
   border-radius: 1.25rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
   text-align: left;
-  border: 1px solid #e6e6e6;
+  border: 1px solid;
+}
+
+body.light-mode .feature-card {
+  background-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  border-color: #e6e6e6;
+}
+
+body.dark-mode .feature-card {
+  background-color: #3d3d3d;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  border-color: #555555;
 }
 
 .feature-card:hover {
   transform: translateY(-6px);
+}
+
+body.light-mode .feature-card:hover {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* CARD TITLE */
+body.dark-mode .feature-card:hover {
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.1);
+}
+
+/* Card title - Updated for light/dark mode */
 .feature-card h2 {
   font-size: 1.25rem;
-  color: #202020;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-/* CARD TEXT */
+body.light-mode .feature-card h2 {
+  color: #202020;
+}
+
+body.dark-mode .feature-card h2 {
+  color: #ffffff;
+}
+
+/* Card text - Updated for light/dark mode */
 .feature-card p {
   font-size: 0.95rem;
-  color: #555;
   line-height: 1.6;
   font-family: 'Open Sans', sans-serif;
+  transition: color 0.3s ease;
 }
 
+body.light-mode .feature-card p {
+  color: #555;
+}
+
+body.dark-mode .feature-card p {
+  color: #b0b0b0;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .features-section {
+    padding: 3rem 1rem;
+  }
+  
+  .features-heading {
+    font-size: 2rem;
+  }
+  
+  .features-subheading {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-section {
+    padding: 2rem 0.75rem;
+    border-radius: 0.75rem;
+  }
+  
+  .features-heading {
+    font-size: 1.75rem;
+  }
+  
+  .features-subheading {
+    font-size: 0.95rem;
+  }
+  
+  .feature-card {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+  
+  .feature-card h2 {
+    font-size: 1.1rem;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .features-section {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .features-grid {
+    gap: 1rem;
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+}
