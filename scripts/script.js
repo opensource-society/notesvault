@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     createDropdown(searchSubjectContainer, "selectSubject", "Select Subject", subjectNames);
   }
 
-  fetch("data/search_parameters/parameters.json")
+  fetch("../data/search_parameters/parameters.json")
     .then(res => res.json())
     .then(data => {
       allData = data;
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   typeWriterEffect();
 
   const nav = document.getElementById('header-navigation');
-  const hamburger = document.getElementById('hamburgerMenu');
+  const hamburger = document.getElementById('hamburger');
   if (hamburger) {
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('show');

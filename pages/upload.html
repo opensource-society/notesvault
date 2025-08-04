@@ -7,7 +7,6 @@
   <title>Upload Notes</title>
   <meta name="description" content="Upload your study notes to NotesVault.">
   <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="../styling/styles.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
     rel="stylesheet" />
@@ -37,21 +36,15 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
   </style>
+  <link rel="stylesheet" href="../components/header.css"/>
+  <script src="../components/header.js"></script>
 </head>
 
 <body class="font-jakarta bg-black text-ink">
 
   <!-- Header -->
-  <header class="bg-black shadow p-3 flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-ink text-white">NotesVault</h1>
-    <nav class="hidden md:flex space-x-6 text-sm text-gray-600">
-      <a href="overview.html" class="text-gray-300 hover:underline">Overview</a>
-      <a href="../index.html" class="text-gray-300 hover:underline">Student Account</a>
-      <a href="about.html" class="text-gray-300  hover:underline">About</a>
-      <a href="#" class="text-gray-300  hover:underline">Features</a>
-    </nav>
-    <button class="bg-[#163d3b] mx-4 px-4 py-1 bg-[#163d3b] text-white rounded-full text-sm hover:bg-[#0d2f34]"><a
-            href="signup.html" style="text-decoration: none;color:white;">Sign Up</a></button>
+  <header style="height: 100px;" id="header-holder">
+
   </header>
 
   <!-- Main Upload Form -->
@@ -182,5 +175,17 @@
   </script>
 
 </body>
+
+<script>
+  // set width of header to 100vw
+  document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+        const headerHolder = document.getElementById('header');
+
+        headerHolder.style.width = "99vw";
+    }, 50);
+  });
+</script>
 
 </html>

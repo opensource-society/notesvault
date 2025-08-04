@@ -1,19 +1,4 @@
 /* Base Styles */
-body {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-}
-
-#header {
-    background-color: black;
-    color: white;
-}
-
 #header a {
     color: white;
 }
@@ -24,8 +9,8 @@ body {
     font-size: 19px;
     margin-left: 7px;
     /* font-weight: bold; */
-
 }
+
 ul {
   list-style-type: none;
   padding: 0;  
