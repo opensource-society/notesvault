@@ -1893,6 +1893,23 @@ main {
     z-index: 1001;
     border-radius: 0;
     padding: 0;
+    /* Fix: ensure visibility */
+    visibility: visible;
+    opacity: 1;
+  }
+  .navbar-right {
+    /* Fix: hide by default on mobile */
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+  }
+  .navbar-right.show {
+    /* Fix: show with transition */
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
   }
   .get-started-btn {
     display: inline-block;
