@@ -23,7 +23,7 @@
         <div class="logo">NotesVault</div>
       </div>
 
-      <div class="navbar-center" id="heade</div>r-navigation">
+      <div class="navbar-center" id="header-navigation">
         <a href="pages/overview.html">Overview</a>
         <a href="pages/studentAccount.html">Student Account</a>
         <a href="pages/about.html">About</a>
@@ -31,10 +31,10 @@
       </div>
 
       <div class="navbar-right">
-        <a href="pages/login.html" class="login-btn">Login</a>
-        <a href="pages/signup.html" class="signup-btn">Sign Up</a>
-        <div id="hamburger" class="hamburger-icon">☰</div>
+        <a href="pages/signup.html" class="get-started-btn">Get Started</a>
       </div>
+
+      <div id="hamburger" class="hamburger-icon">☰</div>
     </header>
 
     <!-- Main Section -->
@@ -415,7 +415,12 @@
     <!-- JS -->
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+      document.querySelector('.hamburger-icon').onclick = function() {
+      document.querySelector('.navbar-center').classList.toggle('show');
+      document.querySelector('.navbar-right').classList.toggle('show');};
     </script>
+    
     <script src="scripts/script.js" defer></script>
+    
   </body>
 </html>

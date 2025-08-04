@@ -1763,52 +1763,70 @@ main {
   color: #007bff;
 }
 
-.navbar-right {
+/* .navbar-right {
   display: flex;
   align-items: center;
   gap: 15px;
-}
+} */
 
 .login-btn {
   color: #02aa56ce;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 10px 20px;
-  border: 2px solid #02aa56ce;
-  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 /* Hover effect */
 .login-btn:hover {
-  background-color: #02aa56ce;
-  color: white;
-  transform: scale(1.05); /* Slight zoom */
-  box-shadow: 0 4px 12px rgba(2, 170, 86, 0.3); /* Soft shadow */
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(2, 170, 86, 0.3);
 }
 
-
-/* Sign Up Button */
 .signup-btn {
+  position: relativ0e;
   padding: 10px 20px;
-  background-color: #02aa56ce;
-  color: white;
+  background-color: transparent;
+  color: #02aa56ce;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  border: 2px solid #02aa56ce;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
 }
 
 /* Hover effect */
 .signup-btn:hover {
-  background-color: white;
-  color: #02aa56ce;
-  border: 2px solid #02aa56ce;
-  transform: scale(1.05); /* Slight zoom */
-  box-shadow: 0 4px 12px rgba(2, 170, 86, 0.3); /* Soft green glow */
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(2, 170, 86, 0.3);
 }
 
+.get-started-btn {
+  display: inline-block;
+  background: #02aa56;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 28px;
+  margin: 0 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(2,170,86,0.15);
+  max-width: 220px;
+  cursor: pointer;
+}
+
+.get-started-btn:hover {
+  background: #02994d;
+  transform: scale(1.05);
+}
 
 /* Hamburger hidden on desktop */
 .hamburger-icon {
@@ -1837,26 +1855,63 @@ main {
     color: black;
     position: absolute;
     right: 20px;
-    /* top: 15px; */
     z-index: 1001;
   }
   .navbar-center,
+  .navbar-right,
+  .login-btn,
   .signup-btn {
     display: none;
   }
-  .navbar-center.show,
-  .signup-btn.show {
+  .navbar-center.show {
     display: flex;
     flex-direction: column;
     background-color: #222;
     width: 100%;
-    padding: 15px 20px;
+    position: absolute;
+    top: 60px;
+    left: 0;
     border-radius: 10px;
-    margin-top: 60px;
+    padding: 15px 20px;
+    z-index: 1000;
   }
   .navbar-center.show a {
     color: white;
     text-align: center;
     padding: 10px 0;
+    font-size: 1.1rem;
+  }
+  .navbar-right.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1001;
+    border-radius: 0;
+    padding: 0;
+  }
+  .get-started-btn {
+    display: inline-block;
+    background: #02aa56;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 18px;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(2,170,86,0.15);
+    max-width: 200px;
+  }
+  .get-started-btn:hover {
+    background: #02994d;
+    transform: scale(1.05);
   }
 }
