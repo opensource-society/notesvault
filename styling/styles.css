@@ -49,6 +49,7 @@ body {
 #header-title-box {
   display: flex;
   align-items: center;
+  color: #0d0d0d;
 }
 
 /* Title style */
@@ -168,7 +169,7 @@ body {
   overflow: hidden;
   position: relative;
   display: inline-block;
-  color: #000000;
+  color: #0cb82c;
   font-weight: 700;
   font-style: normal;
   font-family: "Poppins", sans-serif;
@@ -269,29 +270,30 @@ body {
 
 #main {
   display: flex;
-  margin: 5% auto;
-  max-width: 80vw;
+  /*margin: 5% auto;*/
+  /*max-width: 80vw;*/
   /* padding-block: 30px; */
   justify-content: space-between;
   align-items: center;
 }
 
-#main .welcome {
+/* #main .welcome {
   font-weight: 600;
-  font-size: calc(7px + 0.4vw);
-  background-color: #f8e1ca;
+  font-size: calc(20px + 0.9vw);
+  /*background-color: #f8e1ca;*/
   color: #eda950;
   width: fit-content;
-  padding: 0px 15px;
+  /*padding: 0px 15px;*/
   border-radius: 15px;
-}
+} */
 
 .main-text {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-style: italic;
+  color: #6b6eb9;
   font-size: calc(9px + 0.4vw);
-  margin: 10px 0px;
+  /*margin: 10px 0px;*/
 }
 
 .main-heading {
@@ -324,7 +326,7 @@ body {
 }
 
 .main-left-links .features-box {
-  background-color: #f7b86e;
+  /*background-color: #f7b86e;*/
   color: #544c1e;
 }
 
@@ -1769,6 +1771,16 @@ main {
   gap: 15px;
 }
 
+/* Login Button */
+.login-btn {
+  padding: 10px 24px;
+  background-color: #02aa56ce;
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
 /* Sign Up Button */
 .signup-btn {
   padding: 10px 24px;
@@ -1810,10 +1822,12 @@ main {
     z-index: 1001;
   }
   .navbar-center,
+  .login-btn,
   .signup-btn {
     display: none;
   }
   .navbar-center.show,
+  .login-btn.show,
   .signup-btn.show {
     display: flex;
     flex-direction: column;

@@ -31,7 +31,10 @@
       </div>
 
       <div class="navbar-right">
+        <a href="pages/login.html" class="login-btn">Login</a>
         <a href="pages/signup.html" class="signup-btn">Sign Up</a>
+
+        <!-- <button id ="themeToggle" class="toggle-btn">Toggle</button>*/ -->
         <div id="hamburger" class="hamburger-icon">☰</div>
       </div>
     </header>
@@ -39,7 +42,7 @@
     <!-- Main Section -->
     <main id="main">
       <div class="main-left">
-        <p class="main-text welcome">Welcome Back</p>
+        
         <h1 class="main-heading">
           Your Go-To Companion for<br />Organized Learning.
         </h1>
@@ -257,6 +260,7 @@
     </section>
 
     <!-- Footer -->
+     <button id="scrollToTopBtn" aria-label="Scroll to top">↑ CLICK</button>
     <footer
       style="
         background: #111;
@@ -409,9 +413,62 @@
       >
         © <span id="year"></span> NotesVault. All Rights Reserved.
       </p>
+      
     </footer>
 
+    <!--CSS-->
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Scroll to Top Button Styling */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  display: none; /* Hidden initially */
+  z-index: 999;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
+</style></style>
     <!-- JS -->
+  <script>  
+  const scrollBtn = document.getElementById("scrollToTopBtn");
+
+// Show button when user scrolls down 200px
+window.addEventListener("scroll", () => {
+  if (document.documentElement.scrollTop > 200) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+});
+
+// Smooth scroll to top on click
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
