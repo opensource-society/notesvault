@@ -82,6 +82,13 @@ header {
     margin-bottom: 30px;
 }
 
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+
 select {
     padding: 10px;
     border-radius: 8px;
@@ -95,9 +102,14 @@ select {
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
 }
 .note-card:hover{
     border: 2px darkolivegreen solid;
+    transform: scale(1.02);
 }
 
 .note-card h3 {
@@ -116,3 +128,27 @@ select {
     padding: 30px 5vw;
     text-align: center;
 }
+.search-bar {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.7rem 1rem;
+  margin: 1rem 0 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.no-results {
+  display: none;
+  font-style: italic;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
