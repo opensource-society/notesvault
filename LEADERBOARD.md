@@ -44,7 +44,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 1 |
 | [@Milu723](https://github.com/Milu723) | 1 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 1 | 0 | 0 | 1 |
-| [@Aripilli-Bhavana](https://github.com/Aripilli-Bhavana) | 1 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 1 | 0 | 0 | 1 |
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
@@ -53,6 +52,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
+| [@Aripilli-Bhavana](https://github.com/Aripilli-Bhavana) | 1 | 0 | 0 | 0 |
 
 ---
 
