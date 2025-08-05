@@ -174,3 +174,24 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
 }
+.theme-btn {
+    margin-left: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+}
+
+.dark-mode {
+    background-color: #121212 !important;
+    color: #fff !important;
+}
+
+.dark-mode a {
+    color: #fff !important;
+}
+
+.dark-mode #header {
+    background-color: #1e1e1e !important;
+}
