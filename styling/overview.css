@@ -188,11 +188,11 @@ blockquote {
 }
 
 [data-theme="dark"] .heading1 {
-    color: #dff8f8;
+    color: #3a5957;
 }
 
 [data-theme="dark"] .content {
-    color: #a0c4a0;
+    color: #000;
 }
 
 [data-theme="dark"] .features-heading {
