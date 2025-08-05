@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const branch = card.querySelector("p:nth-of-type(1)").textContent.split(":")[1]?.toLowerCase().trim() || "";
       const semester = card.querySelector("p:nth-of-type(2)").textContent.split(":")[1]?.trim() || "";
       const subject = card.querySelector("p:nth-of-type(3)").textContent.split(":")[1]?.toLowerCase().trim() || "";
-      const title = card.querySelector("h3").textContent.toLowerCase();
+      const title = card.querySelector("h3").textContent.toLowerCase().trim();
 
       const matchesBranch = !selectedBranch || branch.includes(selectedBranch);
-      const matchesSemester = !selectedSemester || semester === selectedSemester;
+      const matchesSemester = !selectedSemester || semester.includes(selectedSemester);
       const matchesSubject = !selectedSubject || subject.includes(selectedSubject);
       const matchesKeyword = !keyword || title.includes(keyword) || subject.includes(keyword);
 
