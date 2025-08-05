@@ -66,6 +66,10 @@
   margin-top: 2rem;
 }
 
+.btn:hover {
+  color: inherit;
+}
+
 .btn i {
   margin-right: 0.5rem;
 }

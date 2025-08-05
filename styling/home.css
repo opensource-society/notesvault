@@ -124,6 +124,7 @@
 
 .btn-primary:hover {
   background: var(--primary-600);
+  color: inherit;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 140, 45, 0.3);
 }
@@ -136,7 +137,12 @@
 
 .btn-secondary:hover {
   background: rgba(var(--primary-500), 0.05);
+  color: inherit;
   transform: translateY(-2px);
+}
+
+.btn i {
+  margin-right: 0.5rem;
 }
 
 /* Search Card */
