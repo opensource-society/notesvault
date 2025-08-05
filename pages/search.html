@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Notes - NotesVault</title>
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../components/header.css"/>
+  <link rel="stylesheet" href="../styling/search.css">
+  <script src="../components/header.js"></script>
+  <style>
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7f3;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Main */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    select {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      min-height: 300px;
+      /* maintains grid space when filtering */
+      transition: all 0.3s ease;
+    }
+
+    .note-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 230px;
+      /* maintain uniform height */
+      transition: all 0.3s ease;
+      opacity: 1;
+    }
+
+    .note-card.hidden {
+      display: none;
+    }
+
+
+    .note-card h3 {
+      color: #007f00;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-card p {
+      font-size: 0.9rem;
+      margin: 0.2rem 0;
+    }
+
+    .note-card a {
+      color: #1a5bd3;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .bookmark-btn {
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f5f5f5;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .stars {
+      margin-top: 0.5rem;
+      color: #000;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #eaf1ea;
+      padding: 1rem;
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header style="height: 100px;" id="header-holder">
+
+  </header>
+
+  <!-- Main -->
+  <main class="container">
+    <h1>Browse Notes</h1>
+
+  <input
+  type="text"
+  id="keyword-search"
+  placeholder="Search by title or subject..."
+  class="search-bar"
+  aria-label="Keyword search"
+/>
+  <p id="no-results" class="no-results">No matching notes found.</p>
+
+    <div class="filters">
+      <select id="branch-filter">
+        <option value="">All Branches</option>
+        <option value="CSE">CSE</option>
+        <option value="CSE AIML">CSE AIML</option>
+        <option value="CSE DS">CSE DS</option>
+        <option value="ECE">ECE</option>
+        <option value="Electrical">Electrical</option>
+        <option value="Mechanical">Mechanical</option>
+        <option value="Civil">Civil</option>
+        <option value="Chemical">Chemical</option>
+        <option value="Aerospace">Aerospace</option>
+        <option value="Metallurgy">Metallurgy</option>
+      </select>
+
+      <select id="semester-filter">
+        <option value="">All Semesters</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+
+      <select id="subject-filter">
+        <option value="">All Subjects</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="OS">OS</option>
+        <option value="DBMS">DBMS</option>
+        <option value="CN">CN</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Physics">Physics</option>
+        <option value="Communication System">Communication System</option>
+        <option value="OOPs">OOPs</option>
+        <option value="Data Structures & Algorithms">Data Structures & Algorithms</option>
+        <option value="Web Development">Web Development</option>
+      </select>
+    </div>
+
+    <!-- Note Cards -->
+    <div class="notes-grid">
+      <div class="note-card">
+        <h3>Mathematics I</h3>
+        <p><strong>Branch:</strong> CSE</p>
+        <p><strong>Semester:</strong> 1</p>
+        <p><strong>Subject:</strong> Mathematics</p>
+        <a href="#">Download</a>
+        <button class="bookmark-btn">☆ Bookmark</button>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="note-card">
+        <h3>Operating System Notes</h3>
+        <p><strong>Branch:</strong> CSE</p>
+        <p><strong>Semester:</strong> 2</p>
+        <p><strong>Subject:</strong> OS</p>
+        <a href="#">Download</a>
+        <button class="bookmark-btn">☆ Bookmark</button>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="note-card">
+        <h3>DBMS Concepts</h3>
+        <p><strong>Branch:</strong> CSE</p>
+        <p><strong>Semester:</strong> 2</p>
+        <p><strong>Subject:</strong> DBMS</p>
+        <a href="#">Download</a>
+        <button class="bookmark-btn">☆ Bookmark</button>
+        <div class="stars">★★★★☆</div>
+      </div>
+
+      <div class="note-card">
+        <h3>Engineering Physics</h3>
+        <p><strong>Branch:</strong> CSE</p>
+        <p><strong>Semester:</strong> 1</p>
+        <p><strong>Subject:</strong> Physics</p>
+        <a href="#">Download</a>
+        <button class="bookmark-btn">☆ Bookmark</button>
+        <div class="stars">★★★★☆</div>
+      </div>
+
+      <div class="note-card">
+  <h3>Computer Networks Notes</h3>
+  <p><strong>Branch:</strong> CSE AIML</p>
+  <p><strong>Semester:</strong> 3</p>
+  <p><strong>Subject:</strong> CN</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★★☆</div>
+</div>
+
+<div class="note-card">
+  <h3>Chemistry Fundamentals</h3>
+  <p><strong>Branch:</strong> Chemical</p>
+  <p><strong>Semester:</strong> 1</p>
+  <p><strong>Subject:</strong> Chemistry</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★☆☆</div>
+</div>
+
+<div class="note-card">
+  <h3>Communication System</h3>
+  <p><strong>Branch:</strong> ECE</p>
+  <p><strong>Semester:</strong> 5</p>
+  <p><strong>Subject:</strong> Communication System</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★★☆</div>
+</div>
+
+<div class="note-card">
+  <h3>OOPs with Java</h3>
+  <p><strong>Branch:</strong> CSE DS</p>
+  <p><strong>Semester:</strong> 4</p>
+  <p><strong>Subject:</strong> OOPs</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★★★</div>
+</div>
+
+<div class="note-card">
+  <h3>DSA Explained</h3>
+  <p><strong>Branch:</strong> CSE</p>
+  <p><strong>Semester:</strong> 3</p>
+  <p><strong>Subject:</strong> Data Structures & Algorithms</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★★★</div>
+</div>
+
+<div class="note-card">
+  <h3>Web Dev</h3>
+  <p><strong>Branch:</strong> CSE</p>
+  <p><strong>Semester:</strong> 6</p>
+  <p><strong>Subject:</strong> Web Development</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★★★</div>
+</div>
+
+<div class="note-card">
+  <h3> Mathematics</h3>
+  <p><strong>Branch:</strong> Mechanical</p>
+  <p><strong>Semester:</strong> 2</p>
+  <p><strong>Subject:</strong> Mathematics</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★☆☆</div>
+</div>
+
+<div class="note-card">
+  <h3>Aerodynamics – II</h3>
+  <p><strong>Branch:</strong> Aerospace</p>
+  <p><strong>Semester:</strong> 5</p>
+  <p><strong>Subject:</strong> DBMS</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★★☆</div>
+</div>
+
+<div class="note-card">
+  <h3>Electrical Physics</h3>
+  <p><strong>Branch:</strong> Electrical</p>
+  <p><strong>Semester:</strong> 1</p>
+  <p><strong>Subject:</strong> Physics</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★☆☆</div>
+</div>
+
+<div class="note-card">
+  <h3>Metallurgy</h3>
+  <p><strong>Branch:</strong> Metallurgy</p>
+  <p><strong>Semester:</strong> 4</p>
+  <p><strong>Subject:</strong> OS</p>
+  <a href="#">Download</a>
+  <button class="bookmark-btn">☆ Bookmark</button>
+  <div class="stars">★★★☆☆</div>
+</div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 NotesVault - GSSoC Contribution</p>
+  </footer>
+
+<script src="../scripts/search.js"></script>
+</body>
+
+</html>
