@@ -11,7 +11,7 @@
     body {
       margin: auto;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
+      background-color: #f4f7f2;
       color: #333;
     }
 
@@ -50,22 +50,24 @@
     }
 
     .feature {
-      background-color: white;
+      background-color: rgb(255, 255, 255);
       margin: 1rem 0;
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid green;
     }
 
     .feature:hover {
       transform: translateY(-5px);
+      transform: scale(1.1);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .feature h2 {
       margin-top: 0;
-      color: #4CAFEF;
+      color: green;
     }
 
     .feature p {
@@ -154,7 +156,7 @@
       features.forEach(feature => {
         const rect = feature.getBoundingClientRect();
         if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          feature.style.backgroundColor = "#e3f2fd";
+          feature.style.backgroundColor = "rgb(203, 232, 193)";
         } else {
           feature.style.backgroundColor = "white";
         }
