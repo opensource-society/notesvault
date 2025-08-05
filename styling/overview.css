@@ -386,6 +386,14 @@
   .hero h1 {
     font-size: 2.5rem;
   }
+
+  .benefits-content h2 {
+    margin-bottom: 4rem;
+  }
+
+  .benefit-item h3, p {
+    text-align: left;
+  }
   
   .cta-buttons {
     flex-direction: column;
@@ -403,10 +411,18 @@
   }
   
   .hero {
-    padding: 3rem 0;
+    padding: 6rem 0;
   }
   
   .features-grid {
     grid-template-columns: 1fr;
+  }
+
+  .benefits-content h2 {
+    margin-bottom: 4rem;
+  }
+
+  .benefit-item h3, p {
+    text-align: left;
   }
 }

@@ -3,92 +3,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Account - NotesVault</title>
+  <title>NotesVault - Student Dashboard</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styling/variables.css" />
+  <link rel="stylesheet" href="../styling/base.css" />
   <link rel="stylesheet" href="../styling/dashboard.css" />
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
 </head>
 <body>
-
   <!-- Header -->
-  <header>
-    <div id="header">
-      <!-- Hamburger Menu -->
-      <div class="hamburger-wrapper">
-        <button class="hamburger-menu" aria-label="Toggle menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-        <div class="hover-sidebar">
-          <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/overview.html">Overview</a></li>
-            <li><a href="../pages/features.html">Features</a></li>
-            <li><a href="#">Resources</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Title -->
-      <div id="header-title-box">
-        <p id="header-title">📘 NotesVault</p>
-      </div>
-
-      <!-- Navigation Links -->
-      <div id="header-navigation" class="nav-menu">
-        <a href="../pages/overview.html">Overview</a>
-        <a href="../pages/studentAccount.html">Student Account</a>
-        <a href="../pages/about.html">About</a>
-        <a href="../pages/features.html">Features</a>
-      </div>
-
-      <!-- Sign Up -->
-      <div id="header-signup-box">
-        <a href="../pages/signup.html"><p>Sign Up</p></a>
-      </div>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <!-- Main Content -->
-  <div class="container">
-    <h1>📚 Student Dashboard - NotesVault</h1>
+  <main class="dashboard-container">
+    <div class="dashboard-grid">
 
-    <section class="profile">
-      <h2>👤 Student Details</h2>
-      <p><strong>Name:</strong> John Doe</p>
-      <p><strong>Email:</strong> johndoe@example.com</p>
-      <p><strong>College:</strong> ABC Institute of Technology</p>
-      <p><strong>Branch:</strong> Computer Science</p>
-      <p><strong>Year:</strong> 3rd Year</p>
-    </section>
+      <!-- Profile Card -->
+      <section class="profile-card">
+        <div class="profile-header">
+          <div class="avatar"><i class="fas fa-user-graduate"></i></div>
+          <div class="profile-info">
+            <h2>Pranav K</h2>
+            <p class="email">pranavk@gmail.com</p>
+            <p class="institution">University of Mumbai</p>
+          </div>
+        </div>
+        <div class="profile-details">
+          <div class="detail-item"><i class="fas fa-graduation-cap"></i><div><span>Branch</span><p>Computer Science</p></div></div>
+          <div class="detail-item"><i class="fas fa-calendar-alt"></i><div><span>Year</span><p>2nd Year</p></div></div>
+          <div class="detail-item"><i class="fas fa-id-card"></i><div><span>Student ID</span><p>CS2024-049</p></div></div>
+        </div>
+        <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
+      </section>
 
-    <section class="notes-section">
-      <h2>💾 Saved Notes</h2>
+      <!-- Stats Section -->
+      <section class="stats-card">
+        <h3><i class="fas fa-chart-line"></i> Your Stats</h3>
+        <div class="stats-grid">
+          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Notes</div></div>
+          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">PYQs</div></div>
+          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Subjects</div></div>
+          <div class="stat-item"><div class="stat-value">0%</div><div class="stat-label">Completion</div></div>
+        </div>
+      </section>
 
-      <div class="note-card">
-        <h3>Lecture Notes</h3>
-        <ul>
-          <li>DBMS - Normalization.pdf</li>
-          <li>Operating Systems - Deadlock.ppt</li>
-        </ul>
-        <button>➕ Add More</button>
+      <!-- Notes Section -->
+      <section class="notes-section">
+        <div class="section-header">
+          <h2><i class="fas fa-book"></i> Your Notes</h2>
+          <div class="section-actions">
+            <button class="btn-primary" id="upload-note-btn"><i class="fas fa-cloud-upload-alt"></i> Upload Notes</button>
+            <div class="search-box"><input type="text" placeholder="Search notes..." /><i class="fas fa-search"></i></div>
+          </div>
+        </div>
+
+        <div class="notes-grid">
+          <!-- Note Card 1 -->
+          <div class="note-card">
+            <div class="note-header">
+              <i class="fas fa-file-pdf note-icon"></i>
+              <div class="note-actions">
+                <button class="icon-btn"><i class="fas fa-download"></i></button>
+                <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
+                <button class="icon-btn"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+            <div class="note-body">
+              <h3>DBMS - Normalization</h3>
+              <p class="note-meta">Computer Science • 2.4 MB</p>
+              <p class="note-description">Complete notes on database normalization forms with examples.</p>
+            </div>
+            <div class="note-footer">
+              <span class="note-date">Uploaded: 15 May 2023</span>
+              <div class="note-tags"><span class="tag">DB</span><span class="tag">Theory</span></div>
+            </div>
+          </div>
+
+          <!-- Note Card 2 -->
+          <div class="note-card">
+            <div class="note-header">
+              <i class="fas fa-file-powerpoint note-icon"></i>
+              <div class="note-actions">
+                <button class="icon-btn"><i class="fas fa-download"></i></button>
+                <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
+                <button class="icon-btn"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+            <div class="note-body">
+              <h3>OS - Deadlock</h3>
+              <p class="note-meta">Operating Systems • 5.1 MB</p>
+              <p class="note-description">Presentation on deadlock conditions and prevention algorithms.</p>
+            </div>
+            <div class="note-footer">
+              <span class="note-date">Uploaded: 2 Apr 2023</span>
+              <div class="note-tags"><span class="tag">OS</span><span class="tag">Slides</span></div>
+            </div>
+          </div>
+
+          <!-- Add New Note -->
+          <div class="add-note-card">
+            <button class="add-note-btn"><i class="fas fa-plus-circle"></i><span>Add New Notes</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PYQs Section -->
+      <section class="pyqs-section">
+        <div class="section-header">
+          <h2><i class="fas fa-file-alt"></i> Previous Year Questions</h2>
+          <div class="section-actions">
+            <button class="btn-outline"><i class="fas fa-filter"></i> Filter</button>
+          </div>
+        </div>
+
+        <div class="pyqs-table-container">
+          <table class="pyqs-table">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Exam</th>
+                <th>Year</th>
+                <th>File Type</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Computer Networks</td>
+                <td>Midterm</td>
+                <td>2022</td>
+                <td><span class="file-badge pdf">PDF</span></td>
+                <td>
+                  <button class="table-action-btn"><i class="fas fa-download"></i></button>
+                  <button class="table-action-btn"><i class="fas fa-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Data Structures</td>
+                <td>Final</td>
+                <td>2021</td>
+                <td><span class="file-badge doc">DOC</span></td>
+                <td>
+                  <button class="table-action-btn"><i class="fas fa-download"></i></button>
+                  <button class="table-action-btn"><i class="fas fa-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Algorithms</td>
+                <td>Quiz</td>
+                <td>2023</td>
+                <td><span class="file-badge pdf">PDF</span></td>
+                <td>
+                  <button class="table-action-btn"><i class="fas fa-download"></i></button>
+                  <button class="table-action-btn"><i class="fas fa-eye"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Upload Modal -->
+  <div class="modal" id="upload-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Upload New Notes</h3>
+        <button class="close-modal">&times;</button>
       </div>
-
-      <div class="note-card">
-        <h3>Previous Year Questions (PYQs)</h3>
-        <ul>
-          <li>CS201 - Midterm 2022.pdf</li>
-          <li>CS303 - Final 2021.docx</li>
-        </ul>
-        <button>➕ Add More</button>
+      <div class="modal-body">
+        <form id="upload-form">
+          <div class="form-group">
+            <label for="note-title">Title</label>
+            <input type="text" id="note-title" placeholder="Enter note title" />
+          </div>
+          <div class="form-group">
+            <label for="note-subject">Subject</label>
+            <select id="note-subject">
+              <option value="">Select subject</option>
+              <option value="dbms">Database Management</option>
+              <option value="os">Operating Systems</option>
+              <option value="ds">Data Structures</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="note-file">File</label>
+            <div class="file-upload">
+              <input type="file" id="note-file" accept=".pdf,.doc,.docx,.ppt,.pptx" />
+              <label for="note-file" class="file-upload-label">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Choose file or drag here</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="note-tags">Tags (comma separated)</label>
+            <input type="text" id="note-tags" placeholder="e.g., theory, practical, slides" />
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-outline close-modal">Cancel</button>
+            <button type="submit" class="btn-primary">Upload</button>
+          </div>
+        </form>
       </div>
-    </section>
-
-    <div class="back-btn">
-      <button onclick="location.href='../index.html'">⬅ Back to Home</button>
     </div>
   </div>
 
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript -->
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/dashboard.js"></script>
 </body>
 </html>
