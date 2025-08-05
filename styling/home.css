@@ -85,14 +85,15 @@
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
 }
 
-.hero h1 span {
-  color: var(--primary-500);
+.text-accent {
+  color: var(--accent-400);
 }
 
 .subtext {
   font-size: 1.15rem;
   line-height: 1.7;
   margin-bottom: 2.25rem;
+  text-transform: capitalize;
   color: var(--text-secondary);
   opacity: 0.9;
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
@@ -238,23 +239,12 @@
   position: relative;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--primary-500);
-  border-radius: 2px;
-}
-
 .section-subtitle {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 3rem;
-  font-size: 1.1rem;
+  margin: 1.5rem auto 3rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
   color: var(--text-secondary);
   opacity: 0.9;
 }
