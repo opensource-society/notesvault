@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalNoteUploadDate = document.getElementById('modalNoteUploadDate');
   const modalDownloadButton = document.getElementById('modalDownloadButton');
   const searchInput = document.getElementById('searchInput');
+  const branchFilter = document.getElementById('branchFilter');
+  const semesterFilter = document.getElementById('semesterFilter');
+  const sortFilter = document.getElementById('sortFilter');
 
 
   const dummyNotes = [
@@ -115,6 +118,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Function to populate filter options (example)
+  function populateFilters() {
+    const branches = [...new Set(allNotes.map(note => note.branch))];
+    branches.forEach(branch => {
+      const option = document.createElement('option');
+      option.value = branch;
+      option.textContent = branch;
+      branchFilter.appendChild(option);
+    });
+
+    const semesters = [...new Set(allNotes.map(note => note.semester))];
+      semesters.forEach(semester => {
+        const option = document.createElement('option');
+        option.value = semester;
+        option.textContent = semester;
+        semesterFilter.appendChild(option);
+      });
+  }
+
+  function sortNotes(notes) {
+    const sortValue = sortFilter.value;
+    if (sortValue === 'oldest') {
+      notes.sort((a, b) => new Date(a.uploadDate) - new Date(b.uploadDate));
+    } else {
+      notes.sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate)); // Newest first
+    }
+  }
+
+  // Event listeners for filters
+  branchFilter.addEventListener('change', applyFilters);
+  semesterFilter.addEventListener('change', applyFilters);
+  sortFilter.addEventListener('change', applyFilters);
+
+  function applyFilters() {
+    const branchValue = branchFilter.value.toLowerCase();
+    const semesterValue = semesterFilter.value.toLowerCase();
+
+    const filteredNotes = allNotes.filter(note => {
+      const branchMatch = branchValue === '' || note.branch.toLowerCase().includes(branchValue);
+      const semesterMatch = semesterValue === '' || note.semester.toLowerCase().includes(semesterValue);
+      return branchMatch && semesterMatch;
+    });
+
+    sortNotes(filteredNotes);
+    displayNotes(filteredNotes);
+  }
 
   searchInput.addEventListener('input', () => {
     const q = searchInput.value.toLowerCase().trim();
@@ -126,21 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
     displayNotes(filtered);
   });
 
-
-  function openNoteDetailModal(note) {
-    modalNoteTitle.textContent = note.title;
-    modalNoteBranch.textContent = note.branch;
-    modalNoteSemester.textContent = note.semester;
-    modalNoteDescription.textContent = note.description;
-    modalNoteUploader.textContent = note.uploader;
-    modalNoteUploadDate.textContent = new Date(note.uploadDate).toLocaleDateString();
-    modalDownloadButton.href = note.filePath;
-    modalDownloadButton.setAttribute('download', `${note.title.replace(/\s/g, '_')}.pdf`);
-    noteDetailModal.style.display = 'flex';
-  }
-  function closeNoteDetailModal() { noteDetailModal.style.display = 'none'; }
-  closeModalButton.onclick = closeNoteDetailModal;
-  window.onclick = (event) => { if (event.target === noteDetailModal) closeNoteDetailModal(); };
-
+  // Initial population of filters and notes
+  populateFilters();
   fetchNotes();
 });
+
+

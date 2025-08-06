@@ -149,3 +149,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   runQuerySearch();
 });
+
