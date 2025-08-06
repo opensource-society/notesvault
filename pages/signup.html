@@ -124,5 +124,104 @@
       }
     });
   </script>
+
+  <script type="module">
+     // Import the functions you need from the SDKs you need
+          import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+          import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+          import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
+          // ✅ Firebase Config
+          const firebaseConfig = {
+            apiKey: "YOUR_API_KEY", // Replace with your actual API key
+            authDomain: "YOUR_AUTH_DOMAIN", // Replace with your actual auth domain
+            databaseURL: "YOUR_DATABASE_URL", // Replace with your database url
+            projectId: "YOUR_PROJECT_ID", // Replace with your actual project ID
+            storageBucket: "YOUR_STORAGE_BUCKET", // Replace with your actual storage bucket
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // Replace with your actual messaging sender ID
+            appId: "YOUR_APP_ID", // Replace with your actual app ID
+            measurementId: "YOUR_MEASUREMENT_ID" // Replace with your actual measurement ID if needed
+          };
+
+         // ✅ Initialize Firebase
+              const app = initializeApp(firebaseConfig);
+              const auth = getAuth(app);
+              const db = getFirestore(app);
+
+              // Message Utility
+                function showMessage(message, divId = "signUpMessage") {
+                const messageDiv = document.getElementById(divId);
+                if (!messageDiv) return alert(message); 
+                messageDiv.style.display = "block";
+                messageDiv.innerText = message;
+                messageDiv.style.opacity = 1;
+                setTimeout(() => {
+                messageDiv.style.opacity = 0;
+                }, 4000);
+              }
+
+              // Signup Button Logic (Matches your style)
+              const signUpBtn = document.getElementById("signupBtn");
+
+              signUpBtn.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                const fullName = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+
+                if (!fullName || !email || !password || !confirmPassword) {
+                  showMessage("All fields are required.");
+                  return;
+                }
+
+                if (password !== confirmPassword) {
+                  showMessage("Passwords do not match.");
+                  return;
+                }
+
+                // Split full name
+                const nameParts = fullName.split(" ");
+                const firstName = nameParts[0];
+                const lastName = nameParts.slice(1).join(" ") || "";
+
+                createUserWithEmailAndPassword(auth, email, password)
+                  .then((userCredential) => {
+                    const user = userCredential.user;
+
+                    const userData = {
+                      email: email,
+                      firstName: firstName,
+                      lastName: lastName,
+                      createdAt: new Date()
+                    };
+
+                    const userDocRef = doc(db, "users", user.uid);
+                    setDoc(userDocRef, userData)
+                      .then(() => {
+                        showMessage("Account Created Successfully", "signUpMessage");
+                      
+                        window.location.href = "login.html";
+                      })
+                      .catch((error) => {
+                        console.error("Error writing document:", error);
+                        showMessage("Account created, but data write failed.");
+                      });
+                  })
+                  .catch((error) => {
+                    const errorCode = error.code;
+                    if (errorCode === "auth/email-already-in-use") {
+                      showMessage("Email Address Already Exists !!!", "signUpMessage");
+                    } else if (errorCode === "auth/weak-password") {
+                      showMessage("Password should be at least 6 characters.", "signUpMessage");
+                    } else {
+                      showMessage("Unable to create user: " + error.message, "signUpMessage");
+                    }
+                  });
+              });
+
+    </script>
 </body>
 </html>
