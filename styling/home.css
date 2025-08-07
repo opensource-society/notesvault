@@ -1,3 +1,5 @@
+/* Home Page (CSS) */
+
 /* Hero Section */
 .hero {
   padding: 8rem 0;
@@ -228,7 +230,6 @@
   stroke: var(--primary-500);
 }
 
-
 /* Features Section */
 .features {
   position: relative;
@@ -309,7 +310,6 @@
   line-height: 1.6;
 }
 
-
 /* Responsive Design */
 @media (max-width: 1200px) {
   .hero .container {
@@ -385,7 +385,6 @@
     padding: 1rem 1rem 1rem 3rem;
   }
 }
-
 
 /* Animations */
 @keyframes fadeInUp {

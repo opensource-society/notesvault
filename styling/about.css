@@ -1,10 +1,16 @@
+/* About (CSS) */
+
 .about-page {
   padding-bottom: 4rem;
 }
 
 /* Hero Section */
 .about-hero {
-  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
   color: var(--white);
   padding: 8rem 0 6rem 0;
   position: relative;
@@ -59,7 +65,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-
 /* Introduction Section */
 .about-intro {
   padding: 5rem 0;
@@ -110,7 +115,6 @@
   color: var(--primary-500);
   font-size: 1.25rem;
 }
-
 
 /* Mission & Vision Section */
 .mission-vision {
@@ -176,9 +180,8 @@
 }
 
 .mv-card p {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
-
 
 /* Problem/Solution Section */
 .problem-solution {
@@ -249,7 +252,6 @@
   margin-bottom: 1rem;
 }
 
-
 /* Tech Stack Section */
 .tech-stack {
   padding: 5rem 0;
@@ -313,7 +315,6 @@
   color: var(--text-secondary);
   font-size: 0.85rem;
 }
-
 
 /* Open Source Section */
 .opensource {
@@ -389,14 +390,13 @@
 }
 
 .github-cta a:hover {
-    background-color: none !important;
-    color: inherit !important;
+  background-color: none !important;
+  color: inherit !important;
 }
 
 .btn i {
   margin-right: 0.5rem;
 }
-
 
 /* Responsive Design */
 @media (max-width: 992px) {
@@ -404,7 +404,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .hero-stats {
     gap: 2rem;
   }
@@ -414,15 +414,15 @@
   .about-hero h1 {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.1rem;
   }
-  
+
   .stat-number {
     font-size: 2rem;
   }
-  
+
   .section-header h2 {
     font-size: 2rem;
   }
@@ -437,11 +437,11 @@
   .opensource {
     padding: 6rem 0;
   }
-  
+
   .about-hero h1 {
     font-size: 2rem;
   }
-  
+
   .hero-stats {
     gap: 1.5rem;
   }
@@ -449,20 +449,20 @@
   .student-quote {
     font-size: 1rem;
   }
-  
+
   .stat-item {
     min-width: 100px;
   }
-  
+
   .feature-pill {
     padding: 0.75rem 1rem;
     font-size: 0.82rem;
   }
-  
+
   .github-cta {
     flex-direction: column;
   }
-  
+
   .github-cta .btn {
     width: 100%;
   }

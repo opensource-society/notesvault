@@ -1,7 +1,13 @@
+/* Overview (CSS) */
+
 /* Hero Section */
 .hero {
   padding: 8rem 0;
-  background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+  background: linear-gradient(
+    to bottom,
+    var(--bg-primary),
+    var(--bg-secondary)
+  );
   position: relative;
   overflow: hidden;
 }
@@ -74,7 +80,6 @@
   margin-right: 0.5rem;
 }
 
-
 /* Features Section */
 .features {
   padding: 6rem 0;
@@ -145,7 +150,6 @@
   color: var(--text-secondary);
 }
 
-
 /* Benefits Section */
 .benefits {
   padding: 6rem 0;
@@ -212,7 +216,6 @@
 .benefit-item p {
   font-size: 1rem;
 }
-
 
 /* Testimonials Section */
 .testimonials {
@@ -289,14 +292,16 @@
   color: var(--text-secondary);
 }
 
-
 /* CTA Section */
 .cta {
   padding: 6rem 0;
-  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
   color: white;
   text-align: center;
-  
 }
 
 .cta h2 {
@@ -316,7 +321,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
 }
@@ -342,7 +347,6 @@
   border-color: white;
 }
 
-
 /* Animations */
 @keyframes float {
   0% {
@@ -356,7 +360,6 @@
   }
 }
 
-
 /* Responsive Design */
 @media (max-width: 992px) {
   .hero .container,
@@ -364,15 +367,15 @@
     flex-direction: column;
     text-align: center;
   }
-  
+
   .hero-content {
     max-width: 100%;
   }
-  
+
   .cta-buttons {
     justify-content: center;
   }
-  
+
   .benefits-image {
     order: -1;
   }
@@ -382,11 +385,11 @@
   h1 {
     font-size: 2.25rem;
   }
-  
+
   h2 {
     font-size: 1.75rem;
   }
-  
+
   .hero h1 {
     font-size: 2.5rem;
   }
@@ -395,15 +398,16 @@
     margin-bottom: 4rem;
   }
 
-  .benefit-item h3, p {
+  .benefit-item h3,
+  p {
     text-align: left;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .btn {
     width: 100%;
   }
@@ -413,11 +417,11 @@
   .section {
     padding: 3rem 0;
   }
-  
+
   .hero {
     padding: 6rem 0;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
   }
@@ -426,7 +430,8 @@
     margin-bottom: 4rem;
   }
 
-  .benefit-item h3, p {
+  .benefit-item h3,
+  p {
     text-align: left;
   }
 }

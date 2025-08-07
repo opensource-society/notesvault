@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
+// JotPad (JavaScript)
+
+ocument.addEventListener('DOMContentLoaded', function () {
   const noteArea = document.getElementById('noteArea')
   noteArea.innerHTML = localStorage.getItem('noteContent') || ''
 
@@ -62,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function stopDrawing() {
     isDrawing = false
-    // Save Canvas 
+    // Save Canvas
     localStorage.setItem('canvasData', canvas.toDataURL())
   }
 

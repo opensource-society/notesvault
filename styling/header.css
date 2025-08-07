@@ -1,4 +1,5 @@
-/* NavBar */
+/* Header (CSS) */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -19,7 +20,7 @@
   padding: 0;
 }
 
-[data-theme="dark"] .navbar.scrolled {
+[data-theme='dark'] .navbar.scrolled {
   background-color: rgba(10, 10, 10, 0.98);
 }
 
@@ -42,7 +43,7 @@
   font-weight: 700;
   color: var(--primary-400) !important;
   text-decoration: none;
-  transition: none !important; 
+  transition: none !important;
 }
 
 .navbar-logo:hover {
@@ -112,8 +113,7 @@
   gap: 1rem;
 }
 
-
-/* THEME TOGGLE  */
+/* Theme Toggle */
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -137,7 +137,7 @@
   transform: scale(1.05);
 }
 
-[data-theme="dark"] .theme-toggle {
+[data-theme='dark'] .theme-toggle {
   background-color: var(--gray-700);
 }
 
@@ -166,16 +166,16 @@
   opacity: 0;
 }
 
-[data-theme="dark"] .theme-icon {
+[data-theme='dark'] .theme-icon {
   background-color: var(--gray-900);
 }
 
-[data-theme="dark"] .theme-icon.sun {
+[data-theme='dark'] .theme-icon.sun {
   opacity: 0;
   left: 1.75rem;
 }
 
-[data-theme="dark"] .theme-icon.moon {
+[data-theme='dark'] .theme-icon.moon {
   opacity: 1;
   right: 1.75rem;
 }
@@ -186,12 +186,11 @@
   stroke: var(--gray-600);
 }
 
-[data-theme="dark"] .theme-toggle svg {
+[data-theme='dark'] .theme-toggle svg {
   stroke: var(--gray-300);
 }
 
-
-/* HAMBURGER MENU */
+/* Hamburger Menu*/
 .menu-toggle {
   display: none;
   position: relative;
@@ -256,8 +255,7 @@
   transform: none;
 }
 
-
-/* MOBILE MENU */
+/* Mobile Menu */
 .mobile-nav {
   position: fixed;
   top: 0;
@@ -374,17 +372,17 @@
   visibility: visible;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Design */
 @media (max-width: 992px) {
   .navbar-nav,
   .auth-buttons {
     display: none;
   }
-  
+
   .menu-toggle {
     display: flex;
   }
-  
+
   .navbar-container {
     padding: 0 1.5rem;
   }
@@ -403,15 +401,15 @@
     width: 90%;
     padding: 5rem 1.5rem 2rem;
   }
-  
+
   .mobile-nav-link {
     font-size: 1.25rem;
   }
-  
+
   .navbar-logo {
     font-size: 1.3rem;
   }
-  
+
   .navbar-logo img {
     height: 2rem;
   }

@@ -1,3 +1,5 @@
+// Main (JavaScript)
+
 document.addEventListener('DOMContentLoaded', () => {
   // Global DOM Elements
   const DOM = {
@@ -17,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year']
   let allData = { branches: [] }
 
-  // =============== Helper Functions =============== //
-
+  // Helper Functions //
   const createDropdown = (container, id, placeholder, options) => {
     if (!container) return null
 
@@ -34,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return container.firstElementChild
   }
 
-  // =============== Search Function =============== //
-
+  // Search Function //
   const updateSemesters = () => {
     const branchSelect = document.getElementById('selectBranch')
     if (!branchSelect?.value) return
@@ -92,8 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // =============== Typewriter Effect =============== //
-
+  // Typewriter Effect //
   const typeWriter = (wordIndex = 0, charIndex = 0, isDeleting = false) => {
     if (!DOM.typewriterElement) return
 
@@ -126,8 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     )
   }
 
-  // =============== Theme Toggle =============== //
-
+  // Theme Toggle //
   const getPreferredTheme = () => {
     const stored = localStorage.getItem('theme')
     return (
@@ -156,8 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
   }
 
-  // =============== Mobile Menu Navigation =============== //
-
+  // Mobile Menu Navigation //
   const toggleMobileMenu = () => {
     const menuToggle = document.querySelector('.menu-toggle')
     const mobileNav = document.querySelector('.mobile-nav')
@@ -183,8 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     )
   }
 
-  // =============== Back to Top Button =============== //
-
+  // Back to Top Button //
   const setupBackToTop = () => {
     if (!DOM.backToTop) return
     window.addEventListener('scroll', () => {
@@ -196,8 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  // =============== Load Components (Header & Footer) =============== //
-
+  // Load Components (Header & Footer) //
   const loadComponents = async () => {
     try {
       const [header, footer] = await Promise.all([
@@ -212,17 +207,19 @@ document.addEventListener('DOMContentLoaded', () => {
       setupThemeToggle()
       setupMobileMenu()
 
-      // =============== Set Active Nav Link =============== //
+      // Set Active Nav Link //
       const currentPath = window.location.pathname.split('/').pop()
 
-      document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((link) => {
-        const linkPath = link.getAttribute('href')?.split('/').pop()
-        if (linkPath === currentPath) {
-          link.classList.add('active')
-        }
-      })
+      document
+        .querySelectorAll('.nav-link, .mobile-nav-link')
+        .forEach((link) => {
+          const linkPath = link.getAttribute('href')?.split('/').pop()
+          if (linkPath === currentPath) {
+            link.classList.add('active')
+          }
+        })
 
-      // =============== Set Active Footer Link =============== //
+      // Set Active Footer Link //
       document.querySelectorAll('.footer-link').forEach((link) => {
         const linkPath = link.getAttribute('href')?.split('/').pop()
         if (linkPath === currentPath) {
@@ -234,8 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // =============== Init =============== //
-
+  // Init //
   const init = async () => {
     if (DOM.typewriterElement) typeWriter()
     if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch)

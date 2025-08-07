@@ -1,3 +1,5 @@
+// Upload Notes (JavaScript)
+
 document.addEventListener('DOMContentLoaded', function () {
   let branchData
   const branchSelect = document.getElementById('branch')

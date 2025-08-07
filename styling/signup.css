@@ -1,6 +1,12 @@
+/* Sign Up (CSS) */
+
 /* Base Layout */
 .signup-page {
-  background: linear-gradient(135deg, var(--primary-100) 0%, var(--bg-primary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-100) 0%,
+    var(--bg-primary) 100%
+  );
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -226,13 +232,18 @@
 }
 
 .btn-primary::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.8s ease;
 }
 
@@ -316,22 +327,24 @@
 }
 
 .message-box::before {
-  font-family: "Font Awesome 6 Free";
+  font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   font-size: 1.1rem;
 }
 
 .message-box.success::before {
-  content: "\f058";
+  content: '\f058';
 }
 
 .message-box.error::before {
-  content: "\f06a";
+  content: '\f06a';
 }
 
 /* Spinner */
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .spinner {
@@ -352,27 +365,27 @@
   .signup-card {
     padding: 2.5rem 1.75rem;
   }
-  
+
   .floating-back-btn {
     top: 1.25rem;
     left: 1.25rem;
     padding: 0.75rem;
   }
-  
+
   .floating-back-btn span {
     display: none;
   }
-  
+
   .signup-header h2 {
     font-size: 1.65rem;
   }
-  
+
   .logo-preview {
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
   }
-  
+
   .btn-primary {
     padding: 1.1rem;
   }

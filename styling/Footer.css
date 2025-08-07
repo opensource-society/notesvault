@@ -1,4 +1,5 @@
-/* Footer */
+/* Footer (CSS) */
+
 .footer {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -31,7 +32,7 @@
   font-weight: 700;
   color: var(--primary-400) !important;
   text-decoration: none;
-  transition: none !important; 
+  transition: none !important;
 }
 
 .footer-logo:hover {
@@ -110,7 +111,6 @@
   color: var(--primary-500);
   transform: translateX(5px);
 }
-
 
 /* Community Section */
 .footer-community {
@@ -209,9 +209,15 @@
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Back To Top Button */
@@ -248,15 +254,15 @@
 }
 
 /* Dark Mode Adjustments */
-[data-theme="dark"] .footer {
+[data-theme='dark'] .footer {
   background-color: var(--gray-900);
 }
 
-[data-theme="dark"] .oss-badge {
+[data-theme='dark'] .oss-badge {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-[data-theme="dark"] .social-link {
+[data-theme='dark'] .social-link {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -266,11 +272,11 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .footer-description {
     max-width: 100%;
   }
-  
+
   .footer-bottom {
     margin-top: 2rem;
   }
@@ -281,7 +287,7 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .divider {
     display: none;
   }

@@ -1,3 +1,5 @@
+// Sign Up (JavaScript)
+
 document.addEventListener('DOMContentLoaded', function () {
   // DOM Elements
   const signupForm = document.getElementById('signupForm')
