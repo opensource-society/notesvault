@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../components/header.css"/>
   <script src="../components/header.js"></script>
 </head>
-<body>
+<body
 
     <!-- Header -->
     <header style="height: 100px;" id="header-holder">
@@ -21,7 +21,21 @@
   <main class="browse-notes-container">
     <h1>Browse All Notes</h1>
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search notes by title, branch, or semester..."/>
+      <label for="searchInput">Search Notes:</label>
+      <input type="text" id="searchInput" placeholder="Search notes by title, branch, or semester..." aria-label="Search notes"/>
+    </div>
+    <!-- Add filtering options -->
+    <div class="filters">
+      <select id="branchFilter" aria-label="Filter by branch">
+        <option value="">All Branches</option>
+      </select>
+      <select id="semesterFilter" aria-label="Filter by semester">
+        <option value="">All Semesters</option>
+      </select>
+      <select id="sortFilter" aria-label="Sort by">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
     </div>
     <div class="notes-grid" id="notesGrid">
       <div class="loading-message" id="loadingMessage">Loading notes...</div>
