@@ -1,88 +1,180 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900");
 
 html, body {
-  margin: 0; padding: 0;
+  margin: 0; 
+  padding: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f8fafb;
-  color: #232323;
   box-sizing: border-box;
 }
 
+/* Light mode (default) */
+body.light-mode {
+  background: #f8fafb;
+  color: #232323;
+}
 
+/* Dark mode */
+body.dark-mode {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Main container - Updated for light/dark mode */
 main.browse-notes-container {
-  background: #fff;
   max-width: 1100px;
   margin: 150px auto 28px auto;
   padding: 38px 38px 20px 38px;
   border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+body.light-mode main.browse-notes-container {
+  background: #fff;
   box-shadow: 0 6px 30px rgba(52,60,92,0.07);
 }
+
+body.dark-mode main.browse-notes-container {
+  background: #2d2d2d;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.3);
+}
+
+/* Main heading - Updated for light/dark mode */
 main h1 {
   font-weight: 700;
   font-size: 2rem;
-  color: #20325b;
   text-align: center;
   margin-bottom: 24px;
+  transition: color 0.3s ease;
 }
+
+body.light-mode main h1 {
+  color: #20325b;
+}
+
+body.dark-mode main h1 {
+  color: #4da6ff;
+}
+
+/* Search bar - Updated for light/dark mode */
 .search-bar {
   text-align: center;
   margin-bottom: 30px;
 }
+
 .search-bar input {
   width: 64%;
   max-width: 480px;
   padding: 12px 18px;
-  border: 1.5px solid #e3eef7;
+  border: 1.5px solid;
   border-radius: 8px;
-  background: #f7fafc;
   font-size: 1.07em;
-  box-shadow: 0 2px 10px rgba(55,83,177,0.02);
   outline: none;
-  transition: border 0.21s;
-}
-.search-bar input:focus {
-  border: 1.5px solid #36cd75;
+  transition: all 0.3s ease;
 }
 
+body.light-mode .search-bar input {
+  border-color: #e3eef7;
+  background: #f7fafc;
+  color: #232323;
+  box-shadow: 0 2px 10px rgba(55,83,177,0.02);
+}
+
+body.dark-mode .search-bar input {
+  border-color: #555555;
+  background: #333333;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+}
+
+.search-bar input:focus {
+  border-color: #36cd75;
+}
+
+body.dark-mode .search-bar input:focus {
+  border-color: #4da6ff;
+}
+
+/* Notes grid */
 .notes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 32px;
 }
 
+/* Note cards - Updated for light/dark mode */
 .note-card {
-  border: 1.5px solid #e9eef3;
-  background: #fafcff;
+  border: 1.5px solid;
   border-radius: 10px;
   padding: 22px 20px 18px 20px;
-  box-shadow: 0 2px 9px rgba(31,76,99,0.06);
-  transition: transform 0.20s, box-shadow 0.2s;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   min-height: 180px;
 }
+
+body.light-mode .note-card {
+  border-color: #e9eef3;
+  background: #fafcff;
+  box-shadow: 0 2px 9px rgba(31,76,99,0.06);
+}
+
+body.dark-mode .note-card {
+  border-color: #444444;
+  background: #3d3d3d;
+  box-shadow: 0 2px 9px rgba(0,0,0,0.2);
+}
+
 .note-card:hover {
   transform: translateY(-6px) scale(1.028);
+}
+
+body.light-mode .note-card:hover {
   box-shadow: 0 4px 24px rgba(34,84,109,0.13);
 }
+
+body.dark-mode .note-card:hover {
+  box-shadow: 0 4px 24px rgba(255,255,255,0.1);
+}
+
+/* Note card title - Updated for light/dark mode */
 .note-card h3 {
   font-size: 1.15em;
-  color: #1073d4;
   font-weight: 700;
   margin: 0 0 8px 0;
   letter-spacing: -0.5px;
+  transition: color 0.3s ease;
 }
+
+body.light-mode .note-card h3 {
+  color: #1073d4;
+}
+
+body.dark-mode .note-card h3 {
+  color: #4da6ff;
+}
+
+/* Note card paragraph - Updated for light/dark mode */
 .note-card p {
   font-size: 0.96em;
-  color: #4f596c;
   margin: 3px 0;
+  transition: color 0.3s ease;
 }
+
+body.light-mode .note-card p {
+  color: #4f596c;
+}
+
+body.dark-mode .note-card p {
+  color: #b0b0b0;
+}
+
+/* Note card actions */
 .note-card .actions {
   margin-top: 15px;
   display: flex;
   gap: 10px;
 }
+
 .note-card .view-button,
 .note-card .download-button {
   flex: 1;
@@ -96,104 +188,289 @@ main h1 {
   justify-content: center;
   gap: 7px;
   text-decoration: none;
-}
-.note-card .view-button {
-  background: #28a745;
-  color: #fff;
   font-weight: 600;
-  transition: background 0.18s;
+  transition: all 0.3s ease;
 }
+
+/* View button - Updated for light/dark mode */
+.note-card .view-button {
+  color: #fff;
+}
+
+body.light-mode .note-card .view-button {
+  background: #28a745;
+}
+
+body.dark-mode .note-card .view-button {
+  background: #20c997;
+}
+
 .note-card .view-button:hover {
+  transform: translateY(-1px);
+}
+
+body.light-mode .note-card .view-button:hover {
   background: #218838;
 }
-.note-card .download-button {
-  background: #007bff;
-  color: #fff;
-  font-weight: 600;
-  transition: background 0.17s;
+
+body.dark-mode .note-card .view-button:hover {
+  background: #1aa085;
 }
+
+/* Download button - Updated for light/dark mode */
+.note-card .download-button {
+  color: #fff;
+}
+
+body.light-mode .note-card .download-button {
+  background: #007bff;
+}
+
+body.dark-mode .note-card .download-button {
+  background: #0d6efd;
+}
+
 .note-card .download-button:hover {
+  transform: translateY(-1px);
+}
+
+body.light-mode .note-card .download-button:hover {
   background: #0056b3;
 }
 
+body.dark-mode .note-card .download-button:hover {
+  background: #0b5ed7;
+}
+
+/* Loading and no notes messages - Updated for light/dark mode */
 .loading-message, .no-notes-message {
   grid-column: 1/-1;
   text-align: center;
   font-size: 1.16em;
-  color: #98a4b6;
   padding: 28px 0;
+  transition: color 0.3s ease;
 }
 
+body.light-mode .loading-message,
+body.light-mode .no-notes-message {
+  color: #98a4b6;
+}
 
+body.dark-mode .loading-message,
+body.dark-mode .no-notes-message {
+  color: #6c757d;
+}
+
+/* Modal - Updated for light/dark mode */
 .modal {
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 0; top: 0;
-  width: 100vw; height: 100vh;
+  left: 0; 
+  top: 0;
+  width: 100vw; 
+  height: 100vh;
   overflow: auto;
-  background: rgba(0,0,0,0.44);
   justify-content: center;
   align-items: center;
+  transition: background 0.3s ease;
 }
+
+body.light-mode .modal {
+  background: rgba(0,0,0,0.44);
+}
+
+body.dark-mode .modal {
+  background: rgba(0,0,0,0.7);
+}
+
+/* Modal content - Updated for light/dark mode */
 .modal-content {
-  background: #fdfdfe;
   margin: auto;
   padding: 34px 28px 28px 28px;
-  border: 1.5px solid #c9d4e6;
+  border: 1.5px solid;
   border-radius: 12px;
   width: 92%;
   max-width: 440px;
-  box-shadow: 0 8px 32px rgba(47,63,109,0.14);
   position: relative;
+  transition: all 0.3s ease;
 }
+
+body.light-mode .modal-content {
+  background: #fdfdfe;
+  border-color: #c9d4e6;
+  box-shadow: 0 8px 32px rgba(47,63,109,0.14);
+}
+
+body.dark-mode .modal-content {
+  background: #2d2d2d;
+  border-color: #555555;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* Modal close button - Updated for light/dark mode */
 .close-button {
-  color: #aaa;
   font-size: 31px;
   font-weight: bold;
-  position: absolute; right: 18px; top: 11px;
-  background: none; border: none; cursor: pointer;
-  transition: color 0.18s;
+  position: absolute; 
+  right: 18px; 
+  top: 11px;
+  background: none; 
+  border: none; 
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
-.close-button:hover,.close-button:focus {
+
+body.light-mode .close-button {
+  color: #aaa;
+}
+
+body.dark-mode .close-button {
+  color: #ccc;
+}
+
+.close-button:hover,
+.close-button:focus {
   color: #007bff;
 }
+
+body.dark-mode .close-button:hover,
+body.dark-mode .close-button:focus {
+  color: #4da6ff;
+}
+
+/* Modal heading - Updated for light/dark mode */
 .modal-content h2 {
-  color: #007bff;
   font-weight: 700;
   font-size: 1.36em;
   margin: 0 0 10px 0;
+  transition: color 0.3s ease;
 }
+
+body.light-mode .modal-content h2 {
+  color: #007bff;
+}
+
+body.dark-mode .modal-content h2 {
+  color: #4da6ff;
+}
+
+/* Modal paragraph - Updated for light/dark mode */
 .modal-content p {
   margin-bottom: 8px;
   font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .modal-content p {
   color: #232c3a;
 }
-.modal-content strong { color: #4b5871; }
+
+body.dark-mode .modal-content p {
+  color: #e0e0e0;
+}
+
+/* Modal strong text - Updated for light/dark mode */
+.modal-content strong {
+  transition: color 0.3s ease;
+}
+
+body.light-mode .modal-content strong {
+  color: #4b5871;
+}
+
+body.dark-mode .modal-content strong {
+  color: #ffffff;
+}
+
+/* Modal download button - Updated for light/dark mode */
 .modal-content .download-button {
-  display: inline-flex; margin-top: 18px;
-  background: #007bff; color: #fff;
+  display: inline-flex; 
+  margin-top: 18px;
+  color: #fff;
   border-radius: 5px;
   padding: 13px 24px;
-  font-size: 1.1em; font-weight: 600;
+  font-size: 1.1em; 
+  font-weight: 600;
   text-decoration: none;
-  align-items: center; gap: 10px;
-  transition: background 0.18s;
+  align-items: center; 
+  gap: 10px;
+  transition: all 0.3s ease;
 }
-.modal-content .download-button:hover { background: #0056b3; }
 
-@media (max-width: 900px) {
-  nav { flex-direction: column; padding: 18px 4vw; align-items: flex-start;}
-  nav ul { margin-top: 12px; margin-bottom: 6px; gap: 16px; }
-  .sign-up-btn { margin-top: 11px; align-self: flex-end;}
-  main.browse-notes-container { padding: 24px 4vw 13px 4vw; }
+body.light-mode .modal-content .download-button {
+  background: #007bff;
 }
+
+body.dark-mode .modal-content .download-button {
+  background: #0d6efd;
+}
+
+.modal-content .download-button:hover {
+  transform: translateY(-1px);
+}
+
+body.light-mode .modal-content .download-button:hover {
+  background: #0056b3;
+}
+
+body.dark-mode .modal-content .download-button:hover {
+  background: #0b5ed7;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  nav { 
+    flex-direction: column; 
+    padding: 18px 4vw; 
+    align-items: flex-start;
+  }
+  
+  nav ul { 
+    margin-top: 12px; 
+    margin-bottom: 6px; 
+    gap: 16px; 
+  }
+  
+  .sign-up-btn { 
+    margin-top: 11px; 
+    align-self: flex-end;
+  }
+  
+  main.browse-notes-container { 
+    padding: 24px 4vw 13px 4vw; 
+  }
+}
+
 @media (max-width: 600px) {
-  nav { padding: 14px 2vw; }
-  .logo { font-size: 1.37rem;}
-  .sign-up-btn { padding: 8px 16px; font-size: .94rem;}
-  main.browse-notes-container { padding: 10px 2vw 6px 2vw; }
-  .notes-grid { gap: 14px;}
-  .modal-content { padding: 15px 6vw 13px 6vw; max-width: 98vw; }
-  .search-bar input { width: 99%; font-size: .99em;}
+  nav { 
+    padding: 14px 2vw; 
+  }
+  
+  .logo { 
+    font-size: 1.37rem;
+  }
+  
+  .sign-up-btn { 
+    padding: 8px 16px; 
+    font-size: .94rem;
+  }
+  
+  main.browse-notes-container { 
+    padding: 10px 2vw 6px 2vw; 
+  }
+  
+  .notes-grid { 
+    gap: 14px;
+  }
+  
+  .modal-content { 
+    padding: 15px 6vw 13px 6vw; 
+    max-width: 98vw; 
+  }
+  
+  .search-bar input { 
+    width: 99%; 
+    font-size: .99em;
+  }
 }
