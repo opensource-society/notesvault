@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Server Test - NotesVault</title>
+    <link rel="stylesheet" href="components/header.css"/>
+    <script src="scripts/auth.js"></script>
+    <script src="components/header.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        button { margin: 5px; padding: 10px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .logged-in { background-color: #d4edda; color: #155724; }
+        .logged-out { background-color: #f8d7da; color: #721c24; }
+        .error { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Live Server Test Page</h1>
+    
+    <!-- Header -->
+    <header style="height: 100px;" id="header-holder"></header>
+    
+    <div class="test-section">
+        <h3>Current Status</h3>
+        <div id="status" class="status"></div>
+        <div id="userInfo"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Actions</h3>
+        <button onclick="testRegister()">Test Register</button>
+        <button onclick="testLogin()">Test Login</button>
+        <button onclick="testLogout()">Test Logout</button>
+        <button onclick="refreshHeader()">Refresh Header</button>
+        <button onclick="debugAuth()">Debug Auth</button>
+        <button onclick="clearStorage()">Clear Storage</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>Navigation</h3>
+        <a href="pages/index.html">Go to Main Page</a><br>
+        <a href="pages/login.html">Go to Login Page</a><br>
+        <a href="pages/signup.html">Go to Signup Page</a><br>
+        <a href="test-profile.html">Go to Profile Test</a>
+    </div>
+
+    <script>
+        function updateStatus() {
+            const statusDiv = document.getElementById('status');
+            const userInfoDiv = document.getElementById('userInfo');
+            
+            try {
+                if (auth.isLoggedIn()) {
+                    const user = auth.getCurrentUser();
+                    statusDiv.className = 'status logged-in';
+                    statusDiv.textContent = '✅ Logged In - Profile button should be visible';
+                    userInfoDiv.innerHTML = `
+                        <strong>Current User:</strong><br>
+                        Name: ${user.name}<br>
+                        Email: ${user.email}<br>
+                        ID: ${user.id}
+                    `;
+                } else {
+                    statusDiv.className = 'status logged-out';
+                    statusDiv.textContent = '❌ Not Logged In - Sign Up button should be visible';
+                    userInfoDiv.innerHTML = '';
+                }
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = '❌ Error: ' + error.message;
+                userInfoDiv.innerHTML = '';
+            }
+        }
+        
+        function testRegister() {
+            try {
+                const result = auth.register('Test User', 'test@example.com', 'password123');
+                alert(result.success ? 'Registration successful!' : 'Registration failed: ' + result.message);
+                setTimeout(updateStatus, 100);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        function testLogin() {
+            try {
+                const result = auth.login('test@example.com', 'password123');
+                alert(result.success ? 'Login successful!' : 'Login failed: ' + result.message);
+                setTimeout(updateStatus, 100);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        function testLogout() {
+            try {
+                const result = auth.logout();
+                alert('Logout successful!');
+                setTimeout(updateStatus, 100);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        function clearStorage() {
+            try {
+                localStorage.removeItem('notesvault-users');
+                localStorage.removeItem('notesvault-current-user');
+                alert('Storage cleared!');
+                setTimeout(updateStatus, 100);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        // Update status on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(updateStatus, 1000); // Wait for header to load
+        });
+        
+        // Update status every 2 seconds to monitor changes
+        setInterval(updateStatus, 2000);
+    </script>
+</body>
+</html>
