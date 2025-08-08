@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NotesVault | JotPad</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styling/jotpad.css">
+  <link rel="stylesheet" href="../styling/jotpad.css">
+  <link rel="stylesheet" href="../components/header.css"/>
+  <script src="../components/header.js"></script>
 </head>
+
 <body>
+
+  <!-- Header -->
+  <header style="height: 100px;" id="header-holder">
+
+  </header>
 
   <div class="header">JotPad - A Clean, Real Time Note Taking Editor</div>
 
@@ -18,11 +27,11 @@
       </div>
 
       <div class="button-wrapper">
-  <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
-  <button class="delete-btn" onclick="deleteAll()">Delete All</button>
-</div>
+        <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
+        <button class="delete-btn" onclick="deleteAll()">Delete All</button>
+      </div>
 
-     </div>
+    </div>
 
   </div>
 
@@ -39,32 +48,33 @@
       doc.save("MyNotes.pdf");
     }
 
-    const noteArea=document.getElementById("noteArea");
+    const noteArea = document.getElementById("noteArea");
     noteArea.innerHTML = localStorage.getItem("noteContent") || "";
-    function togglePlaceholder(){
-      if(noteArea.innerText.trim()===""){
+    function togglePlaceholder() {
+      if (noteArea.innerText.trim() === "") {
         noteArea.classList.add("empty");
       }
-      else{
+      else {
         noteArea.classList.remove("empty");
       }
     }
-    noteArea.addEventListener("input",togglePlaceholder);
-    noteArea.addEventListener("blur",togglePlaceholder);
+    noteArea.addEventListener("input", togglePlaceholder);
+    noteArea.addEventListener("blur", togglePlaceholder);
     noteArea.addEventListener("focus", togglePlaceholder);
-    togglePlaceholder()
-
-
-function deleteAll() {
-  if (confirm("Are you sure you want to delete all notes?")) {
-    noteArea.innerHTML = "";
-    localStorage.removeItem("noteContent");
     togglePlaceholder();
-  }
-}
+
+
+    function deleteAll() {
+      if (confirm("Are you sure you want to delete all notes?")) {
+        noteArea.innerHTML = "";
+        localStorage.removeItem("noteContent");
+        togglePlaceholder();
+      }
+    }
 
 
   </script>
 
 </body>
+
 </html>
