@@ -471,17 +471,29 @@ body {
   background-color: #a5c9a0d0;
   color: #2e2e2e;
 }
+.a{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.h{
+width: 25rem;
+
+}
 
 .About {
   font-family: "Poppins", sans-serif;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: flex-start;
+  gap: 1rem;
   margin: 5vw;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  padding: 2rem;
+    line-height: 2.5;
 }
 
 .About-left-box {
@@ -491,19 +503,18 @@ body {
 
 .About-left-heading {
   font-weight: 500;
-  font-size: 50px;
+  font-size: 19px;
   align-items: center;
   letter-spacing: 0.1px;
 }
 
 .About-left-text {
   font-weight: 200;
-  font-size: calc(15px + 0.4vw);
+  font-size: calc(10px + 0.4vw);
 }
-
 .About-left-link {
   font-weight: 500;
-  font-size: calc(12px + 0.4vw);
+  font-size: calc(10px + 0.4vw);
   color: #6b6eb9;
   cursor: pointer;
 }
@@ -1484,30 +1495,33 @@ main {
   padding: 2rem;
   max-width: 300px;
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease !important;
 }
+
 
 .feature-card:hover {
   transform: translateY(-5px);
-  background: #b3cbbd;
+  background: #cad6c7 !important;
   border-radius: 20px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.514);
   padding: 2rem;
+  height: 210px ;
   max-width: 300px;
   text-align: center;
 }
 
 .feature-title {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 1rem;
 }
 
 .feature-desc {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: #444;
   margin-top: 0.5rem;
 }
+
 
 /* ========== Custom Footer ========== */
 .footer-container {
