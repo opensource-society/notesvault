@@ -19,12 +19,40 @@
       src="https://js.sentry-cdn.com/8994bf86fecf7733832520db1565ab1f.min.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="styling/themes.css">
+    <script src="../scripts/theme.js" defer></script>
   </head>
   <body>
     <!-- Header -->
     <header style="height: 100px;" id="header-holder">
+<nav>
+    <div id="header">
+        <div class="navbar-left">
+            <div class="logo nav-menu"><a href="index.html">NotesVault</a></div>
+        </div>
 
+        <!-- Navigation Menu -->
+        <nav id="header-navigation" class="nav-menu">
+            <a href="../pages/overview.html">Overview</a>
+            <a href="studentAccount.html">Student Account</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <select id="theme-selector">
+                <option value="light">🌞 Light</option>
+                <option value="dark">🌙 Dark</option>
+                <option value="sepia">📜 Sepia</option>
+                <option value="contrast">⚡ High Contrast</option>
+            </select>
+
+        </nav>
+
+        <div id="header-signup-box">
+            <p onclick="window.location.href='../pages/signup.html'">Sign Up</p>
+        </div>
+    </div>
+</nav>
     </header>
+
 
     <div class="main_content">
       <!-- Hero Section -->

@@ -1,0 +1,80 @@
+/* Light Theme */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --header-footer-bg: #f5f5f5;
+    --card-bg: #ffffff;
+    --link-color: #007BFF;
+    --button-bg: #007BFF;
+    --button-text: #ffffff;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-footer-bg: #1e1e1e;
+    --card-bg: #1c1c1c;
+    --link-color: #66ccff;
+    --button-bg: #ff4081;
+    --button-text: #ffffff;
+}
+
+/* Sepia Theme */
+[data-theme="sepia"] {
+    --bg-color: #f4ecd8;
+    --text-color: #5b4636;
+    --header-footer-bg: #e6d3b3;
+    --card-bg: #f2e2c4;
+    --link-color: #8b4513;
+    --button-bg: #d2691e;
+    --button-text: #ffffff;
+}
+
+/* High Contrast Theme */
+[data-theme="contrast"] {
+    --bg-color: #000000;
+    --text-color: #ffff00;
+    --header-footer-bg: #000000;
+    --card-bg: #000000;
+    --link-color: #00ffff;
+    --button-bg: #ff00ff;
+    --button-text: #000000;
+}
+
+/* Apply styles globally */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+    color: var(--link-color);
+}
+
+#header, footer {
+    background-color: var(--header-footer-bg);
+    color: var(--text-color);
+    padding: 1rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem;
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
