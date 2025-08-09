@@ -1,0 +1,301 @@
+/* Browse Notes (CSS) */
+
+/* Hero Section */
+.notes-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
+  padding: 6rem 0 4rem 0;
+  text-align: center;
+}
+
+.notes-hero h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.notes-hero .subtitle {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.browse-notes-container {
+  padding: 6rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.browse-notes-container h2 {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: var(--accent-400);
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.search-bar input {
+  padding: 0.6rem 1rem;
+  width: 100%;
+  max-width: 500px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+/* Filters */
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+.filter-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.filter-group select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.reset-filters {
+  background-color: var(--gray-200);
+  color: var(--gray-900);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  height: 38px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reset-filters:hover {
+  background-color: var(--gray-300);
+}
+
+/* Notes Grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.note-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  box-sizing: border-box;
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 140, 45, 0.15);
+}
+
+.note-card h3 {
+  color: var(--primary-600);
+  margin-bottom: 2rem;
+}
+
+.note-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+/* Button */
+.note-card .actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.view-button,
+.download-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  min-width: 110px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.view-button {
+  background-color: var(--accent-500);
+  color: white;
+}
+
+.view-button:hover {
+  background-color: var(--accent-400);
+}
+
+.download-button {
+  background-color: var(--primary-500);
+  color: white;
+}
+
+.download-button:hover {
+  background-color: var(--primary-600);
+  color: inherit;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: fadeInUp 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-600);
+}
+
+.modal-content p {
+  margin-bottom: 0.75rem;
+}
+
+.modal-content .download-button {
+  margin-top: 1rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: var(--error);
+}
+
+/* Loading / No Notes */
+.loading-message,
+.no-notes-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  grid-column: 1 / -1;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .note-card .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-button,
+  .download-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .filters-container {
+    align-items: center;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+}

@@ -1,234 +1,222 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+/* Upload Notes (CSS) */
 
-/* CSS Variables for Upload Page Theme */
-:root {
-  --color-base: #f9faf4;
-  --color-ink: #161A30;
-  --color-primary: #113946;
-  --color-primary-hover: #0d2f34;
-  --color-accent: #B4CFB0;
-  --color-white: #ffffff;
-  --color-gray-300: #d1d5db;
-  --color-gray-500: #6b7280;
-  --color-gray-700: #374151;
-  --color-red-500: #ef4444;
-  --color-green-600: #16a34a;
-  --color-indigo-500: #6366f1;
+/* Hero Section */
+.upload-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
+  padding: 6rem 0 4rem 0;
+  text-align: center;
 }
 
-/* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--color-base);
-  color: var(--color-ink);
-  line-height: 1.5;
-}
-
-/* Header Styles */
-header {
-  background-color: var(--color-white);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  padding: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  font-size: 1.5rem;
+.upload-hero h1 {
+  font-size: 2.75rem;
   font-weight: 700;
-  color: var(--color-ink);
+  color: var(--white);
+  margin-bottom: 1rem;
 }
 
-nav {
-  display: none;
-  gap: 1.5rem;
-  font-size: 0.875rem;
-}
-
-nav a {
-  color: var(--color-ink);
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.signup-btn {
-  padding: 0.25rem 1rem;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.signup-btn:hover {
-  background-color: var(--color-primary-hover);
-}
-
-/* Main Content Styles */
-main {
-  max-width: 768px;
-  margin: 3rem auto 0;
-  padding: 1.5rem;
-  background-color: var(--color-white);
-  border-radius: 0.75rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-main h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-/* Form Styles */
-.form-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.upload-container {
+.upload-hero .subtitle {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: var(--white);
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 190px;
+}
+
+/* Main Container */
+.upload-notes-container {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.upload-container {
+  max-width: 600px;
+  margin: 4rem auto;
   padding: 2rem;
-  
-  background: white;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  border: 2px green solid;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-label {
+/* Form Elements */
+.upload-form label {
   display: block;
-  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
-  margin-bottom: 0.25rem;
+  color: var(--text-primary);
 }
 
-.required {
-  color: var(--color-red-500);
-}
-
-.form-input,
-.form-select {
-  margin-top: 0.25rem;
+.upload-form select,
+.upload-form input[type='text'],
+.upload-form input[type='file'],
+.upload-form textarea {
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-gray-300);
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s ease;
 }
 
-.form-input:focus,
-.form-select:focus {
+.upload-form select:focus,
+.upload-form input:focus,
+.upload-form textarea:focus {
+  border-color: var(--primary-400);
   outline: none;
-  border-color: var(--color-indigo-500);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.form-input::placeholder {
-  color: var(--color-gray-500);
+/* File Drop Zone */
+.drop-zone {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.file-input {
-  display: block;
+.drop-zone:hover {
+  border-color: var(--primary-400);
+  background-color: var(--bg-secondary);
+}
+
+.drop-zone.active {
+  border-color: var(--primary-500);
+  background-color: var(--primary-100);
+}
+
+#preview {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Status Messages */
+.status-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.status-error {
+  background-color: var(--error);
+  color: var(--white);
+}
+
+.status-info {
+  background-color: var(--info);
+  color: var(--white);
+}
+
+/* Custom Input Container */
+.custom-input-container {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  align-items: stretch;
   width: 100%;
-  border: 1px solid var(--color-gray-300);
-  border-radius: 0.375rem;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  font-size: 0.875rem;
-  padding: 0.5rem;
 }
 
-.file-input:focus {
-  outline: none;
-  border-color: var(--color-indigo-500);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+.custom-input-container input[type='text'] {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  min-width: 0;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Multiple Inputs (Subject Section) */
+.custom-input-container.multiple-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.75rem;
+}
+
+/* Add Button */
+.confirm-btn {
+  background-color: var(--primary-500);
+  color: var(--white);
+  padding: 0.7rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.confirm-btn:hover {
+  background-color: var(--primary-600);
 }
 
 /* Submit Button */
 .submit-btn {
+  background-color: var(--primary-500);
+  color: var(--white);
   width: 100%;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: 0.5rem;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  font-weight: 500;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .submit-btn:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--primary-600);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Message Styles */
-.message {
-  margin-top: 1rem;
-  color: var(--color-green-600);
-  font-weight: 500;
+.submit-btn:active {
+  background-color: var(--primary-700);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  font-size: 0.875rem;
-  margin-top: 2.5rem;
-  color: var(--color-gray-500);
+.submit-btn:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* Responsive Design */
-@media (min-width: 768px) {
-  nav {
-    display: flex;
-  }
-  
-  main {
-    padding: 2rem;
-  }
-}
-
 @media (max-width: 640px) {
-  header {
-    padding: 1rem;
+  .upload-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
   }
-  
-  header h1 {
-    font-size: 1.25rem;
+
+  .custom-input-container {
+    flex-direction: column;
   }
-  
-  .signup-btn {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
+
+  .custom-input-container.multiple-inputs {
+    grid-template-columns: 1fr;
   }
-  
-  main {
-    margin: 1.5rem auto 0;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-  }
-  
-  main h2 {
-    font-size: 1.25rem;
+
+  .confirm-btn {
+    width: 100%;
+    padding: 0.75rem;
+    height: auto;
   }
 }

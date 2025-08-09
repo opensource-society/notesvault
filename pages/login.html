@@ -1,119 +1,106 @@
+<!-- Login (HTML) -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - NotesVault</title>
-  <link rel="stylesheet" href="../styling/login.css"/>
-  <link rel="icon" href="favicon.png" type="image/x-icon"/>
-  <link rel="stylesheet" href="../components/header.css"/>
-  <script src="../components/header.js"></script>
-  
-</head>
-<body class="bg-notes-bg-light min-h-screen flex items-center justify-center p-4">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - Login</title>
 
-  <!-- Header -->
-  <header style="height: 100px;" id="header-holder">
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
 
-  </header>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <div id="messageBox" class="message-box"></div>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/login.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+  </head>
 
-  <div class="home-button-container">
-    <a href="../index.html" class="home-button">
-      &larr; Back to Home
+  <body class="login-page">
+    <!-- Back Button -->
+    <a href="../index.html" class="floating-back-btn">
+      <i class="fas fa-chevron-left"></i>
+      <span>Home</span>
     </a>
-  </div>
 
-  <div class="card-container">
-    <h2>Welcome Back!</h2>
-    <p>Sign in to your NotesVault account</p>
+    <!-- Animated Message Box -->
+    <div id="messageBox" class="message-box"></div>
 
-    <form id="loginForm" class="form-space-y-6">
-      <div>
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+    <!-- Login Card -->
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo-preview">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h2>Welcome Back!</h2>
+        <p>Sign in to continue to NotesVault</p>
       </div>
 
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required placeholder="••••••••" />
-      </div>
-
-      <div class="flex-between">
-        <div class="flex-center">
-          <input id="remember-me" name="remember-me" type="checkbox" />
-          <label for="remember-me" class="checkbox-label">Remember me</label>
+      <form id="loginForm" class="login-form">
+        <div class="form-group floating-input">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder=" "
+            autocomplete="username"
+          />
+          <label for="email">Email address</label>
+          <div class="input-border"></div>
         </div>
 
-        <div class="forgot-password-link">
-          <a href="#">Forgot your password?</a>
+        <div class="form-group floating-input">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder=" "
+            autocomplete="current-password"
+          />
+          <label for="password">Password</label>
+          <div class="input-border"></div>
+          <button type="button" class="password-toggle">
+            <i class="far fa-eye"></i>
+          </button>
         </div>
-      </div>
 
-      <div>
-        <button type="submit" class="btn-primary" id="loginBtn">
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember-me" name="remember-me" />
+            <span class="checkmark"></span>
+            Remember me
+          </label>
+          <a href="forgot-password.html" class="forgot-password"
+            >Forgot password?</a
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="loginBtn">
           <span class="spinner hidden" id="spinner"></span>
           <span id="btnText">Sign in</span>
+          <i class="fas fa-arrow-right btn-icon"></i>
         </button>
+      </form>
+
+      <div class="signup-link">
+        <p>New to NotesVault? <a href="signup.html">Create an account</a></p>
       </div>
-    </form>
-
-    <div class="signup-link-section">
-      <p>
-        Don't have an account?
-        <a href="signup.html">Sign up here</a>
-      </p>
     </div>
-  </div>
 
-  <script>
-    function showMessageBox(message, type = 'success') {
-      const messageBox = document.getElementById('messageBox');
-      messageBox.textContent = message;
-      messageBox.className = 'message-box show';
-      messageBox.style.backgroundColor =
-        type === 'error' ? 'var(--red-error)' : 'var(--green-success)';
-      setTimeout(() => messageBox.classList.remove('show'), 3000);
-    }
-
-    document.getElementById('loginForm').addEventListener('submit', async function (event) {
-      event.preventDefault();
-
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-
-      const spinner = document.getElementById('spinner');
-      const btnText = document.getElementById('btnText');
-      const loginBtn = document.getElementById('loginBtn');
-
-      // Show spinner & disable button
-      spinner.classList.remove('hidden');
-      btnText.textContent = 'Signing in...';
-      loginBtn.disabled = true;
-
-      if (email === '' || password === '') {
-        showMessageBox('Please fill in all fields.', 'error');
-        spinner.classList.add('hidden');
-        btnText.textContent = 'Sign in';
-        loginBtn.disabled = false;
-        return;
-      }
-
-      // Simulated login - replace this with real fetch call in production
-      console.log('Login attempt:', { email, password });
-      await new Promise(res => setTimeout(res, 1000)); // Simulate async
-
-      showMessageBox('Login successful! Redirecting...', 'success');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 1000);
-
-      // Reset button
-      spinner.classList.add('hidden');
-      btnText.textContent = 'Sign in';
-      loginBtn.disabled = false;
-    });
-  </script>
-</body>
+    <!-- JavaScript -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/login.js"></script>
+  </body>
 </html>
