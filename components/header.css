@@ -174,3 +174,83 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
 }
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-dropdown p {
+  display: inline-flex;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(9px + 0.4vw);
+  background-color: #163d3b;
+  padding: 15px 30px;
+  color: #dff8f8;
+  border-radius: 30px;
+  vertical-align: middle;
+  align-items: center;
+  max-height: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0;
+}
+
+.profile-dropdown p:hover {
+  background-color: #1f5c59;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.profile-dropdown-content {
+  display: none !important;
+  position: absolute;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1001;
+  margin-top: 5px;
+  border: 1px solid #e0e0e0;
+  top: 100%;
+}
+
+.profile-dropdown-content.show {
+  display: block !important;
+}
+
+.profile-dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.profile-dropdown-content a:hover {
+  background-color: #f5f5f5;
+  color: #163d3b;
+}
+
+.profile-dropdown-content a:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.profile-dropdown-content a:last-child {
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.profile-dropdown-content i {
+  width: 16px;
+  text-align: center;
+}

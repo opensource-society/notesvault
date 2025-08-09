@@ -67,6 +67,7 @@
     </div>
   </div>
 
+  <script src="../scripts/auth.js"></script>
   <script>
     function showMessageBox(message, type = 'success') {
       const messageBox = document.getElementById('messageBox');
@@ -100,19 +101,21 @@
         return;
       }
 
-      // Simulated login - replace this with real fetch call in production
-      console.log('Login attempt:', { email, password });
-      await new Promise(res => setTimeout(res, 1000)); // Simulate async
-
-      showMessageBox('Login successful! Redirecting...', 'success');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 1000);
-
-      // Reset button
-      spinner.classList.add('hidden');
-      btnText.textContent = 'Sign in';
-      loginBtn.disabled = false;
+      // Use actual authentication
+      const result = auth.login(email, password);
+      
+      if (result.success) {
+        showMessageBox('Login successful! Redirecting...', 'success');
+        // Force header refresh on the target page
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1000);
+      } else {
+        showMessageBox(result.message, 'error');
+        spinner.classList.add('hidden');
+        btnText.textContent = 'Sign in';
+        loginBtn.disabled = false;
+      }
     });
   </script>
 </body>
