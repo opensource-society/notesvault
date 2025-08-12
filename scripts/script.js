@@ -149,3 +149,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   runQuerySearch();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('../components/header.html')
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById('header-holder').innerHTML = data;
+
+        // Add Dark Mode Toggle Logic
+        const toggleBtn = document.getElementById("theme-toggle");
+
+        // Apply saved theme on load
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+            toggleBtn.textContent = "☀️";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleBtn.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleBtn.textContent = "🌙";
+            }
+        });
+    });
+});
+
