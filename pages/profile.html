@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - NotesVault</title>
+  <title>Edit Profile - NotesVault</title>
   <link rel="stylesheet" href="../styling/signup.css" />
   <link rel="icon" href="favicon.png" type="image/x-icon"/>
   <link rel="stylesheet" href="../components/header.css"/>
   <script src="../components/header.js"></script>
-
+  <script src="../scripts/auth.js"></script>
 </head>
 
 <body class="bg-notes-bg-light">
 
-
   <!-- Header -->
   <header style="height: 100px;" id="header-holder">
-
   </header>
 
   <div id="messageBox" class="message-box"></div>
@@ -28,10 +26,10 @@
   </div>
 
   <div class="card-container">
-    <h2>Create Your Account</h2>
-    <p>Join NotesVault today!</p>
+    <h2>Edit Your Profile</h2>
+    <p>Update your account information</p>
 
-    <form id="signupForm" class="form-space-y-6">
+    <form id="profileForm" class="form-space-y-6">
       <div>
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required placeholder="John Doe" />
@@ -43,33 +41,35 @@
       </div>
 
       <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required placeholder="••••••••" />
+        <label for="new-password">New Password (leave blank to keep current)</label>
+        <input type="password" id="new-password" name="new-password" placeholder="••••••••" />
       </div>
 
       <div>
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" required placeholder="••••••••" />
+        <label for="confirm-password">Confirm New Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" />
       </div>
 
       <div>
-        <button type="submit" class="btn-primary" id="signupBtn">
-          <span id="btnText">Sign up</span>
+        <button type="submit" class="btn-primary" id="updateBtn">
+          <span id="btnText">Update Profile</span>
           <span class="spinner" id="spinner"></span>
         </button>
       </div>
     </form>
-
-    <div class="signin-link-section">
-      <p>
-        Already have an account?
-        <a href="login.html">Sign in here</a>
-      </p>
-    </div>
   </div>
 
-  <script src="../scripts/auth.js"></script>
   <script>
+    // Check if user is logged in
+    if (!auth.isLoggedIn()) {
+      window.location.href = 'login.html';
+    }
+
+    // Load current user data
+    const currentUser = auth.getCurrentUser();
+    document.getElementById('name').value = currentUser.name;
+    document.getElementById('email').value = currentUser.email;
+
     function showMessageBox(message, type = 'success') {
       const messageBox = document.getElementById('messageBox');
       messageBox.textContent = message;
@@ -81,51 +81,57 @@
       }, 3000);
     }
 
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
+    document.getElementById('profileForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+      const newPassword = document.getElementById('new-password').value;
       const confirmPassword = document.getElementById('confirm-password').value;
 
-      const btn = document.getElementById('signupBtn');
+      const btn = document.getElementById('updateBtn');
       const btnText = document.getElementById('btnText');
       const spinner = document.getElementById('spinner');
 
-      
       btn.classList.add('btn-disabled');
       spinner.style.display = 'inline-block';
-      btnText.textContent = 'Signing up...';
+      btnText.textContent = 'Updating...';
 
-      if (!name || !email || !password || !confirmPassword) {
-        showMessageBox('Please fill in all fields.', 'error');
+      if (!name || !email) {
+        showMessageBox('Please fill in all required fields.', 'error');
         resetButton();
         return;
       }
 
-      if (password !== confirmPassword) {
-        showMessageBox('Passwords do not match.', 'error');
+      if (newPassword && newPassword !== confirmPassword) {
+        showMessageBox('New passwords do not match.', 'error');
         resetButton();
         return;
       }
 
-      // Use actual authentication
-      const result = auth.register(name, email, password);
+      // Prepare updates
+      const updates = { name, email };
+      if (newPassword) {
+        updates.password = newPassword;
+      }
+
+      // Update profile
+      const result = auth.updateProfile(updates);
       
       if (result.success) {
-        showMessageBox(result.message, 'success');
+        showMessageBox('Profile updated successfully!', 'success');
         setTimeout(() => {
-          window.location.href = 'login.html';
+          window.location.href = 'index.html';
         }, 1500);
       } else {
         showMessageBox(result.message, 'error');
+        resetButton();
       }
 
       function resetButton() {
         btn.classList.remove('btn-disabled');
         spinner.style.display = 'none';
-        btnText.textContent = 'Sign up';
+        btnText.textContent = 'Update Profile';
       }
     });
   </script>
