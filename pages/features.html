@@ -6,102 +6,164 @@
   <title>Features - NotesVault</title>
   <link rel="icon" href="favicon.png" type="image/x-icon"/>
   <link rel="stylesheet" href="../components/header.css"/>
+  <link rel="stylesheet" href="../styling/features.css"/>
+  
   <script src="../components/header.js"></script>
   <style>
-    body {
-      margin: auto;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
+  body {
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  /* Light mode (default) */
+  body,
+  body.light-mode {
+    background-color: #f5f7fa;
+    color: #333;
+  }
+
+  /* Dark mode */
+  body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-title img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  /* Feature cards - Updated for light/dark mode */
+  .feature {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid;
+  }
+
+  body.light-mode .feature {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-color: #e6e6e6;
+    color: #333;
+  }
+
+  body.dark-mode .feature {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-color: #555555;
+    color: #ffffff;
+  }
+
+  .feature:hover {
+    transform: translateY(-5px);
+  }
+
+  body.light-mode .feature:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  body.dark-mode .feature:hover {
+    box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+  }
+
+  /* Feature headings - Updated for light/dark mode */
+  .feature h2 {
+    margin-top: 0;
+    transition: color 0.3s ease;
+  }
+
+  body.light-mode .feature h2 {
+    color: #4CAFEF;
+  }
+
+  body.dark-mode .feature h2 {
+    color: #4da6ff;
+  }
+
+  /* Feature paragraphs - Updated for light/dark mode */
+  .feature p {
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+
+  body.light-mode .feature p {
+    color: #333;
+  }
+
+  body.dark-mode .feature p {
+    color: #b0b0b0;
+  }
+
+  /* Footer - Updated for light/dark mode */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  body.light-mode footer {
+    color: #777;
+  }
+
+  body.dark-mode footer {
+    color: #888;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-title img {
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-    }
-
-
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      background-color: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-
-    .feature {
-      background-color: white;
-      margin: 1rem 0;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    header h1 {
+      font-size: 1.5rem;
     }
 
     .feature h2 {
-      margin-top: 0;
-      color: #4CAFEF;
+      font-size: 1.2rem;
     }
 
-    .feature p {
-      line-height: 1.6;
+    .nav-links {
+      margin-top: 10px;
     }
+  }
+</style>
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      color: #777;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      .feature h2 {
-        font-size: 1.2rem;
-      }
-
-      .nav-links {
-        margin-top: 10px;
-      }
-    }
-  </style>
 </head>
 <body>
 
