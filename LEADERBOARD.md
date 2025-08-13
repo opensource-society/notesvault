@@ -19,14 +19,15 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
+| [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 1 | 1 | 2 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
-| [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 1 | 1 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
 | [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 1 |
 | [@Disha19-09](https://github.com/Disha19-09) | 0 | 0 | 1 | 1 |
+| [@utkarshwrks](https://github.com/utkarshwrks) | 1 | 0 | 0 | 1 |
 | [@Kalika-Jay](https://github.com/Kalika-Jay) | 0 | 0 | 1 | 1 |
 | [@vanshika-ramchandani](https://github.com/vanshika-ramchandani) | 1 | 0 | 0 | 1 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | 1 | 0 | 0 | 1 |
@@ -51,7 +52,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
-| [@utkarshwrks](https://github.com/utkarshwrks) | 1 | 0 | 0 | 0 |
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
 
 ---
