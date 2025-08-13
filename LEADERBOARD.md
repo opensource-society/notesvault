@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2025-08-05*
+*Last updated: 2025-08-13*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -19,6 +19,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
+| [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 1 | 1 | 2 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
@@ -32,7 +33,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | 1 | 0 | 0 | 1 |
 | [@dhruv-git-sys](https://github.com/dhruv-git-sys) | 1 | 0 | 0 | 1 |
 | [@ud-ai](https://github.com/ud-ai) | 1 | 0 | 0 | 1 |
-| [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 1 | 0 | 1 |
 | [@neelima-singh07](https://github.com/neelima-singh07) | 1 | 0 | 0 | 1 |
 | [@HayatZarine](https://github.com/HayatZarine) | 1 | 0 | 0 | 1 |
 | [@AkshitBhandariCodes](https://github.com/AkshitBhandariCodes) | 1 | 0 | 0 | 1 |
@@ -42,7 +42,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@unnati-078](https://github.com/unnati-078) | 1 | 0 | 0 | 1 |
 | [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 1 |
 | [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 1 |
-| [@Milu723](https://github.com/Milu723) | 1 | 0 | 0 | 1 |
+| [@Milan0407](https://github.com/Milan0407) | 1 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 1 | 0 | 0 | 1 |
 | [@Aripilli-Bhavana](https://github.com/Aripilli-Bhavana) | 1 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 1 | 0 | 0 | 1 |
