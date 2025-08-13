@@ -48,5 +48,16 @@
     "uploader": "David Lee",
     "uploadDate": "2023-07-10",
     "filePath": "http://example.com/notes/calculus1.pdf"
-  }
+  },
+{
+  "_id": "note6",
+  "title": "Operating Systems Fundamentals",
+  "branch": "Computer Science",
+  "semester": "4th",
+  "description": "Processes, threads, CPU scheduling, memory management, file systems, and concurrency basics.",
+  "uploader": "Palak Sharma",
+  "uploadDate": "2025-08-13",
+  "filePath": "http://example.com/notes/os_fundamentals.pdf"
+}
+
 ]
