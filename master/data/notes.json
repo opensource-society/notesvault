@@ -1,86 +1,52 @@
 [
   {
-    "title": "Mathematics I",
-    "branch": "CSE",
-    "semester": "1",
-    "subject": "Maths",
-    "link": "https://example.com/notes/maths1.pdf"
+    "_id": "note1",
+    "title": "Data Structures & Algorithms Basics",
+    "branch": "Computer Science",
+    "semester": "3rd",
+    "description": "Comprehensive notes on fundamental data structures (arrays, linked lists, trees, graphs) and common algorithms (sorting, searching).",
+    "uploader": "Alice Smith",
+    "uploadDate": "2023-03-15",
+    "filePath": "http://example.com/notes/dsa_basics.pdf"
   },
   {
-    "title": "Operating System Notes",
-    "branch": "CSE",
-    "semester": "2",
-    "subject": "OS",
-    "link": "https://example.com/notes/os.pdf"
+    "_id": "note2",
+    "title": "Digital Electronics Principles",
+    "branch": "Electronics Engineering",
+    "semester": "4th",
+    "description": "Detailed notes covering logic gates, Boolean algebra, combinational and sequential circuits.",
+    "uploader": "Bob Johnson",
+    "uploadDate": "2023-04-20",
+    "filePath": "http://example.com/notes/digital_electronics.pdf"
   },
   {
-    "title": "DBMS Concepts",
-    "branch": "CSE",
-    "semester": "2",
-    "subject": "DBMS",
-    "link": "https://example.com/notes/dbms.pdf"
+    "_id": "note3",
+    "title": "Thermodynamics for Mechanical Engineers",
+    "branch": "Mechanical Engineering",
+    "semester": "5th",
+    "description": "Concepts of thermodynamics, laws, cycles, and their applications in various systems.",
+    "uploader": "Charlie Brown",
+    "uploadDate": "2023-05-10",
+    "filePath": "http://example.com/notes/thermodynamics.pdf"
   },
   {
-    "title": "Intro to AI",
-    "branch": "CSE AIML",
-    "semester": "1",
-    "subject": "AI",
-    "link": "https://example.com/notes/ai.pdf"
+    "_id": "note4",
+    "title": "Object-Oriented Programming with Java",
+    "branch": "Information Technology",
+    "semester": "3rd",
+    "description": "Introduction to OOP principles using Java: classes, objects, inheritance, polymorphism, abstraction, and encapsulation.",
+    "uploader": "Alice Smith",
+    "uploadDate": "2023-06-01",
+    "filePath": "http://example.com/notes/oop_java.pdf"
   },
   {
-    "title": "Machine Learning Basics",
-    "branch": "CSE AIML",
-    "semester": "2",
-    "subject": "ML",
-    "link": "https://example.com/notes/ml.pdf"
-  },
-  {
-    "title": "Python for AIML",
-    "branch": "CSE AIML",
-    "semester": "2",
-    "subject": "Python",
-    "link": "https://example.com/notes/python_aiml.pdf"
-  },
-  {
-    "title": "IoT Fundamentals",
-    "branch": "CSE IOT",
-    "semester": "1",
-    "subject": "IoT Fundamentals",
-    "link": "https://example.com/notes/iot_fundamentals.pdf"
-  },
-  {
-    "title": "Sensor Technologies",
-    "branch": "CSE IOT",
-    "semester": "2",
-    "subject": "Sensors",
-    "link": "https://example.com/notes/sensors.pdf"
-  },
-  {
-    "title": "Microcontroller Guide",
-    "branch": "CSE IOT",
-    "semester": "2",
-    "subject": "Microcontrollers",
-    "link": "https://example.com/notes/microcontrollers.pdf"
-  },
-  {
-    "title": "Data Science Intro",
-    "branch": "CSE DS",
-    "semester": "1",
-    "subject": "Data Science Basics",
-    "link": "https://example.com/notes/ds_basics.pdf"
-  },
-  {
-    "title": "Statistics Notes",
-    "branch": "CSE DS",
-    "semester": "2",
-    "subject": "Statistics",
-    "link": "https://example.com/notes/statistics.pdf"
-  },
-  {
-    "title": "Python for Data Science",
-    "branch": "CSE DS",
-    "semester": "2",
-    "subject": "Python for DS",
-    "link": "https://example.com/notes/python_ds.pdf"
+    "_id": "note5",
+    "title": "Calculus I - Differentiation",
+    "branch": "Mathematics",
+    "semester": "1st",
+    "description": "Basic concepts of differentiation, limits, continuity, and applications.",
+    "uploader": "David Lee",
+    "uploadDate": "2023-07-10",
+    "filePath": "http://example.com/notes/calculus1.pdf"
   }
 ]
