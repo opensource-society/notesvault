@@ -786,7 +786,89 @@ header {
     }
   }
 /*-------------- Overpage Page Styles ends here ------------- */
-/* Global responsive container */
+/* =============================
+   RESPONSIVENESS & ALIGNMENT FIXES
+   ============================= */
+
+/* General container alignment */
+.container,
+.dashboard,
+.features,
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Dashboard cards alignment */
+.dashboard .card,
+.student-details,
+.saved-notes {
+  flex: 1 1 300px;
+  max-width: 400px;
+  min-width: 250px;
+  margin: 0 auto;
+}
+
+/* Navigation bar fix */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Feature icons section */
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Tablet view adjustments */
+@media (max-width: 1024px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .features {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+ .features {
+    grid-template-columns: 1fr;
+ }
+
+
+}/* Global responsive container */
 .container, .main, .wrapper {
   max-width: 1200px;
   width: 100%;
