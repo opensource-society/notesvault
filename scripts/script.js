@@ -196,8 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadComponents = async () => {
     try {
       const [header, footer] = await Promise.all([
-        fetch('./components/header.html').then((res) => res.text()),
-        fetch('./components/footer.html').then((res) => res.text()),
+        fetch('/components/header.html').then((res) => res.text()),
+        fetch('/components/footer.html').then((res) => res.text()),
       ])
 
       document.getElementById('header-placeholder').innerHTML = header
