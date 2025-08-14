@@ -1,420 +1,148 @@
+<!-- Home Page (HTML) -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styling/styles.css" />
+    <meta
+      name="description"
+      content="NotesVault - Organize your academic notes and PYQs semester-wise"
+    />
+    <title>NotesVault - Your Organized Learning Companion</title>
+
+    <!-- Favicon -->
     <link
       rel="icon"
-      href="assets/index/images/favicon.png"
+      href="../assets/index/images/favicon.png"
       type="image/x-icon"
     />
+
+    <!-- Font Awesome -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <title>NotesVault Home</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/home.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
   </head>
 
   <body>
     <!-- Header -->
-    <header class="navbar">
-      <div class="navbar-left">
-        <div class="logo">NotesVault</div>
-      </div>
+    <div id="header-placeholder"></div>
 
-      <div class="navbar-center" id="heade</div>r-navigation">
-        <a href="pages/overview.html">Overview</a>
-        <a href="pages/studentAccount.html">Student Account</a>
-        <a href="pages/about.html">About</a>
-        <a href="pages/features.html">Features</a>
-      </div>
-
-      <div class="navbar-right">
-        <a href="pages/signup.html" class="signup-btn">Sign Up</a>
-        <div id="hamburger" class="hamburger-icon">☰</div>
-      </div>
-    </header>
-
-    <!-- Main Section -->
-    <main id="main">
-      <div class="main-left">
-        <p class="main-text welcome">Welcome Back</p>
-        <h1 class="main-heading">
-          Your Go-To Companion for<br />Organized Learning.
-        </h1>
-        <p class="main-text">
-          Keep your study notes and PYQs organized, easy to find,<br />and
-          always just a click away with NotesVault.
-        </p>
-        <div class="main-left-links">
-          <a
-            href="search.html"
-            class="links-text try-box"
-            style="color: black; text-decoration: none"
-            >Browse Notes</a
-          >
-          <a
-            href="upload.html"
-            class="links-text try-box"
-            style="color: black; text-decoration: none"
-            >Upload Notes</a
-          >
-        </div>
-      </div>
-
-      <div class="main-right">
-        <div class="main-right-box">
-          <div class="main-right-upper-box">
-            <div class="right-text-div">
-              <p class="right-text">Notes Organised by</p>
-              <p class="right-text" id="typeWriterText">Subject</p>
+    <!-- Main Content -->
+    <main id="main-content">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <p class="welcome-text">Welcome Back</p>
+            <h1>Your Organized <span class="text-accent">Learning Companion...</span></h1>
+            <p class="subtext">
+              Keep your study notes and PYQs organized, easy to find, and always
+              just a click away with NotesVault!
+            </p>
+            <div class="cta-buttons">
+              <a href="pages/notes.html" class="btn btn-secondary"><i class="fas fa-search"></i>Browse Notes</a>
+              <a href="pages/upload.html" class="btn btn-primary"><i class="fas fa-upload"></i>Upload Notes</a>
             </div>
-            <!--</nav> Search -->
-            <div class="Search-box bg-black h-[100px]">
-              <div class="main-right-search">
-                <form
-                  id="search-form"
-                  class="main-right-search-form"
-                  method="get"
-                  action="search.html"
+          </div>
+          <div class="search-card">
+            <div class="search-header">
+              <p>Notes Organized by <span id="typewriter">Subject</span></p>
+            </div>
+            <form
+              action="pages/notes.html"
+              method="get"
+              class="search-form"
+            >
+              <div class="search-input">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
                 >
-                  <div class="flex justify-evenly w-full items-center gap-20">
-                    <input
-                      class="main-right-search-form-input"
-                      type="text"
-                      name="query"
-                      autocomplete="off"
-                      placeholder="Search"
-                    />
-                    <svg
-                      class="search-icon"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <circle cx="11" cy="11" r="8"></circle>
-                      <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                  </div>
-
-                  <div
-                    id="search-parameters-branch"
-                    class="search-parameters-div"
-                  ></div>
-                  <div
-                    id="search-parameters-semester"
-                    class="search-parameters-div"
-                  ></div>
-                  <div
-                    id="search-parameters-subject"
-                    class="search-parameters-div"
-                  ></div>
-                  <input type="submit" style="display: none" />
-                </form>
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input
+                  type="text"
+                  name="query"
+                  placeholder="Search"
+                  aria-label="Search notes"
+                />
               </div>
+              <input type="submit" hidden />
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features">
+        <div class="container">
+          <h2 class="section-title">Key Features</h2>
+          <p class="section-subtitle">
+            Powerful tools to organize your academic journey!
+          </p>
+
+          <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card" data-feature="upload">
+              <div class="feature-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <h3>Easy Upload</h3>
+              <p>
+                Add your notes quickly and effortlessly with drag & drop
+                functionality
+              </p>
+              <div class="feature-hover-effect"></div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card" data-feature="organize">
+              <div class="feature-icon">
+                <i class="fas fa-folder-tree"></i>
+              </div>
+              <h3>Sort The Chaos</h3>
+              <p>Neatly arrange all your notes with smart categorization</p>
+              <div class="feature-hover-effect"></div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card" data-feature="search">
+              <div class="feature-icon">
+                <i class="fas fa-tags"></i>
+              </div>
+              <h3>Search By Tags</h3>
+              <p>Find notes instantly using subject tags and keywords</p>
+              <div class="feature-hover-effect"></div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card" data-feature="sync">
+              <div class="feature-icon">
+                <i class="fas fa-sync-alt"></i>
+              </div>
+              <h3>Cross-Device Sync</h3>
+              <p>Access your notes from any device, anywhere</p>
+              <div class="feature-hover-effect"></div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
-    <!-- Features Section -->
-    <section
-      class="features-section"
-      style="padding: 60px 0; background: white"
-    >
-      <section class="About">
-        <p class="About-left-heading">About NotesVault</p>
-        <p class="About-left-text">
-          A web app to store, browse, and manage notes and PYQs semester-wise.
-        </p>
-        <p
-          class="About-left-link"
-          onclick='window.open("https://github.com/opensource-society/notesvault", "_blank", "noopener,noreferrer")'
-        >
-          Learn More →
-        </p>
-      </section>
-      <div
-        class="card-container"
-        style="
-          display: flex;
-          justify-content: center;
-          gap: 40px;
-          flex-wrap: wrap;
-          max-width: 1200px;
-          margin: auto;
-        "
-      >
-        <!-- Easy Upload -->
-        <a href="pages/upload.html" style="text-decoration: none">
-          <div
-            class="card feature-card"
-            style="
-              width: 300px;
-              height: 230px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              text-align: center;
-              background: black;
-              border-radius: 12px;
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-              padding: 20px;
-            "
-          >
-            <i
-              class="fas fa-upload"
-              style="font-size: 50px; color: white; margin-bottom: 10px"
-            ></i>
-            <h5
-              class="feature-title"
-              style="font-size: 22px; margin: 8px 0; color: white"
-            >
-              Easy Upload
-            </h5>
-            <p class="feature-desc" style="font-size: 16px; color: #ddd">
-              Add your notes quickly and effortlessly
-            </p>
-          </div>
-        </a>
-
-        <!-- Sort The Chaos -->
-        <a href="pages/overview.html" style="text-decoration: none">
-          <div
-            class="card feature-card"
-            style="
-              width: 300px;
-              height: 230px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              text-align: center;
-              background: black;
-              border-radius: 12px;
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-              padding: 20px;
-            "
-          >
-            <i
-              class="fas fa-layer-group"
-              style="font-size: 50px; color: white; margin-bottom: 10px"
-            ></i>
-            <h5
-              class="feature-title"
-              style="font-size: 22px; margin: 8px 0; color: white"
-            >
-              Sort The Chaos
-            </h5>
-            <p class="feature-desc" style="font-size: 16px; color: #ddd">
-              Neatly arrange all your notes in one place
-            </p>
-          </div>
-        </a>
-
-        <!-- Search By Tags -->
-        <a href="pages/search.html" style="text-decoration: none">
-          <div
-            class="card feature-card"
-            style="
-              width: 300px;
-              height: 230px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              text-align: center;
-              background: black;
-              border-radius: 12px;
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-              padding: 20px;
-            "
-          >
-            <i
-              class="fas fa-tags"
-              style="font-size: 50px; color: white; margin-bottom: 10px"
-            ></i>
-            <h5
-              class="feature-title"
-              style="font-size: 22px; margin: 8px 0; color: white"
-            >
-              Search By Tags
-            </h5>
-            <p class="feature-desc" style="font-size: 16px; color: #ddd">
-              Find notes using subject tags
-            </p>
-          </div>
-        </a>
-      </div>
-    </section>
-
     <!-- Footer -->
-    <footer
-      style="
-        background: #111;
-        color: white;
-        padding: 50px 20px;
-        font-family: sans-serif;
-        margin-top: 50px;
-      "
-    >
-      <div
-        style="
-          max-width: 1200px;
-          margin: auto;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          gap: 40px;
-        "
-      >
-        <div style="flex: 1; min-width: 250px">
-          <h2 style="font-size: 26px; margin-bottom: 10px; color: #f4a261">
-            📚 NotesVault
-          </h2>
-          <p style="font-size: 16px; line-height: 1.5; color: #ddd">
-            Your smart companion to <b>store</b>, <b>browse</b>, and
-            <b>manage</b> academic notes & PYQs semester-wise.
-          </p>
-          <a
-            href="pages/about.html"
-            style="
-              text-decoration: none;
-              margin-top: 12px;
-              display: inline-block;
-            "
-          >
-            <button
-              style="
-                padding: 10px 20px;
-                background: #f4a261;
-                color: black;
-                border: none;
-                border-radius: 6px;
-                font-size: 16px;
-                cursor: pointer;
-              "
-            >
-              📄 Get Details
-            </button>
-          </a>
-        </div>
+    <div id="footer-placeholder"></div>
 
-        <div style="flex: 1; min-width: 220px">
-          <h3 style="font-size: 22px; margin-bottom: 15px; color: #f4a261">
-            ✨ Features
-          </h3>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              font-size: 18px;
-              line-height: 2;
-            "
-          >
-            <li>
-              <a
-                href="pages/upload.html"
-                style="text-decoration: none; color: white"
-                ><i
-                  class="fas fa-upload"
-                  style="color: #4caf50; margin-right: 10px"
-                ></i>
-                Easy Upload</a
-              >
-            </li>
-            <li>
-              <a
-                href="pages/search.html"
-                style="text-decoration: none; color: white"
-                ><i
-                  class="fas fa-tags"
-                  style="color: #ff9800; margin-right: 10px"
-                ></i>
-                Tag-based Search</a
-              >
-            </li>
-            <li>
-              <a
-                href="pages/overview.html"
-                style="text-decoration: none; color: white"
-                ><i
-                  class="fas fa-folder-open"
-                  style="color: #03a9f4; margin-right: 10px"
-                ></i>
-                Organized by Semester</a
-              >
-            </li>
-            <li>
-              <a
-                href="pages/todolist.html"
-                style="text-decoration: none; color: white"
-                ><i
-                  class="fas fa-tasks"
-                  style="color: #e91e63; margin-right: 10px"
-                ></i>
-                To‑Do List</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div style="flex: 1; min-width: 220px">
-          <h3 style="font-size: 22px; margin-bottom: 15px; color: #f4a261">
-            🌐 Connect With Us
-          </h3>
-          <div style="display: flex; gap: 15px; margin-top: 10px">
-            <a
-              href="https://github.com/"
-              target="_blank"
-              style="color: white; font-size: 28px"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://linkedin.com/"
-              target="_blank"
-              style="color: #0077b5; font-size: 28px"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              style="color: #e1306c; font-size: 28px"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              style="color: #1da1f2; font-size: 28px"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <p
-        style="
-          text-align: center;
-          margin-top: 30px;
-          font-size: 14px;
-          color: #aaa;
-        "
-      >
-        © <span id="year"></span> NotesVault. All Rights Reserved.
-      </p>
-    </footer>
-
-    <!-- JS -->
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <!-- JavaScript -->
     <script src="scripts/script.js" defer></script>
   </body>
 </html>
