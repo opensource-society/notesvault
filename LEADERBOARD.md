@@ -7,8 +7,8 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
 | [@Peehu1308](https://github.com/Peehu1308) | 5 | 3 | 0 | 8 |
+| [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 8 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 1 | 0 | 9 |
-| [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 6 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
