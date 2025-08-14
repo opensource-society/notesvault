@@ -786,6 +786,58 @@ header {
     }
   }
 /*-------------- Overpage Page Styles ends here ------------- */
+/* Global responsive container */
+.container, .main, .wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* Responsive images and media */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal scrolling */
+body {
+  overflow-x: hidden;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, .text-block {
+  word-wrap: break-word;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 250px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .navbar, .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card, .feature-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  .navbar .nav-item {
+    padding: 10px 0;
+  }
+}
+
 /* ------------------ */
 /* Responsive design fixes */
 /* ------------------ */
