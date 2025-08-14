@@ -810,6 +810,6 @@ header {
 /* Small phone screens (≤480px) */
 @media (max-width: 480px) {
   .container {
-    padding: 10px;
-  }
+    padding: 10px;
+  }
 }
