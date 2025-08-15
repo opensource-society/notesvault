@@ -1,6 +1,6 @@
 // JotPad (JavaScript)
 
-ocument.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const noteArea = document.getElementById('noteArea')
   noteArea.innerHTML = localStorage.getItem('noteContent') || ''
 
