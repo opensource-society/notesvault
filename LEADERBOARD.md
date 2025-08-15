@@ -2,13 +2,13 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2025-08-14*
+*Last updated: 2025-08-15*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
 | [@Peehu1308](https://github.com/Peehu1308) | 5 | 3 | 0 | 8 |
+| [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 8 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 1 | 0 | 9 |
-| [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 6 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
@@ -52,6 +52,8 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
+| [@AbhishekSharma-9](https://github.com/AbhishekSharma-9) | 0 | 1 | 0 | 0 |
+| [@priyanshu5ingh](https://github.com/priyanshu5ingh) | 0 | 1 | 0 | 0 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
 
