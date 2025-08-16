@@ -24,6 +24,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
+| [@Yug210705](https://github.com/Yug210705) | 1 | 0 | 0 | 1 |
 | [@priyanshu5ingh](https://github.com/priyanshu5ingh) | 1 | 1 | 0 | 0 |
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
 | [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 1 |
