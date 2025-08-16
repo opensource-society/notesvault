@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2025-08-15*
+*Last updated: 2025-08-16*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -23,7 +23,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
-| [@Shalini22-ui](https://github.com/Shalini22-ui) | 1 | 1 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@priyanshu5ingh](https://github.com/priyanshu5ingh) | 1 | 1 | 0 | 0 |
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
@@ -34,12 +33,15 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@vanshika-ramchandani](https://github.com/vanshika-ramchandani) | 1 | 0 | 0 | 1 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | 1 | 0 | 0 | 1 |
 | [@dhruv-git-sys](https://github.com/dhruv-git-sys) | 1 | 0 | 0 | 1 |
+| [@ParulAgrawal-bot](https://github.com/ParulAgrawal-bot) | 1 | 0 | 0 | 1 |
 | [@ud-ai](https://github.com/ud-ai) | 1 | 0 | 0 | 1 |
+| [@diiviikk5](https://github.com/diiviikk5) | 1 | 0 | 0 | 1 |
 | [@neelima-singh07](https://github.com/neelima-singh07) | 1 | 0 | 0 | 1 |
 | [@HayatZarine](https://github.com/HayatZarine) | 1 | 0 | 0 | 1 |
 | [@AkshitBhandariCodes](https://github.com/AkshitBhandariCodes) | 1 | 0 | 0 | 1 |
 | [@Mehuli15](https://github.com/Mehuli15) | 1 | 0 | 0 | 1 |
 | [@shoaib2000857](https://github.com/shoaib2000857) | 1 | 0 | 0 | 1 |
+| [@Shalini22-ui](https://github.com/Shalini22-ui) | 1 | 0 | 0 | 1 |
 | [@unnati-078](https://github.com/unnati-078) | 1 | 0 | 0 | 1 |
 | [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 1 |
 | [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 1 |
@@ -56,8 +58,8 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Niyatikansal31](https://github.com/Niyatikansal31) | 0 | 1 | 0 | 0 |
 | [@AbhishekSharma-9](https://github.com/AbhishekSharma-9) | 0 | 1 | 0 | 0 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
-| [@coder561858](https://github.com/coder561858) | 1 | 0 | 0 | 0 |
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
+| [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
 
 ---
 
