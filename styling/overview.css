@@ -1,6 +1,11 @@
 /* Overview (CSS) */
 
 /* Hero Section */
+
+#header-placeholder{
+  transition: all 0.3s ease;
+}
+
 .hero {
   padding: 8rem 0;
   background: linear-gradient(
