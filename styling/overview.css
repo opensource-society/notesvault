@@ -40,20 +40,54 @@
 }
 
 .welcome-badge {
-  display: inline-block;
+   display: inline-flex;
   background-color: var(--primary-500);
-  color: white;
-  padding: 0.5rem 1rem;
+  color: var(--white);
+  padding: 0.5rem 1.25rem 0.5rem 1rem;
   border-radius: 2rem;
-  font-size: 0.875rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.75rem;
+/* animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.6s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+  background: var(--primary-600);
 }
 
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+}
+
+/* animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .text-accent {
@@ -64,21 +98,77 @@
   font-size: 1.125rem;
   margin-bottom: 2rem;
   color: var(--text-secondary);
+  opacity: 0.9;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
 }
 
 .cta-buttons {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
 }
 
-.btn:hover {
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--primary-500);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(0, 140, 45, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--primary-600);
   color: inherit;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 140, 45, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--primary-500);
+  border: 1px solid var(--primary-500);
+}
+
+.btn-secondary:hover {
+  background: rgba(var(--primary-500), 0.05);
+  color: inherit;
+  transform: translateY(-2px);
 }
 
 .btn i {
   margin-right: 0.5rem;
 }
+
+.hero-image{
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  width: 100%;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+}
+
+.hero-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Features Section */
 .features {
@@ -348,6 +438,9 @@
 }
 
 /* Animations */
+
+
+
 @keyframes float {
   0% {
     transform: translateY(0px);
