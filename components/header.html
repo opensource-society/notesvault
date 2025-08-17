@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../styling/variables.css" />
     <link rel="stylesheet" href="../styling/base.css" />
     <link rel="stylesheet" href="../styling/header.css" />
+    <link rel="stylesheet" href="../styling/streakCounter.css" />
 
   </head>
 
@@ -52,6 +53,12 @@
         </nav>
 
         <div class="navbar-actions">
+          <!-- [StudyStreak] Study Streak Counter -->
+          <div class="streak-counter" id="streak-counter">
+            <span class="streak-icon">🔥</span>
+            <span class="streak-text">Study Streak: 0 days</span>
+          </div>
+
           <!-- Theme Toggle Button -->
           <button class="theme-toggle" aria-label="Toggle dark mode">
             <span class="theme-icon sun">
@@ -146,6 +153,12 @@
         </ul>
 
         <div class="mobile-actions">
+          <!-- [StudyStreak] Mobile Study Streak Counter -->
+          <div class="streak-counter mobile-streak-counter" id="mobile-streak-counter">
+            <span class="streak-icon">🔥</span>
+            <span class="streak-text">Study Streak: 0 days</span>
+          </div>
+
           <!-- Mobile Theme Toggle -->
           <button
             class="theme-toggle mobile-theme-toggle"
@@ -205,5 +218,7 @@
 
     <!-- JavaScript -->
     <script src="../scripts/script.js" defer></script>
+    <script src="../scripts/streakCounter.js" defer></script>
+    <script src="../scripts/streakIntegration.js" defer></script>
   </body>
 </html>
