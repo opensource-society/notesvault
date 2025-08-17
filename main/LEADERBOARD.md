@@ -26,6 +26,8 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 1 | 0 | 0 | 1 |
+| [@Sagar1610Codes](https://github.com/Sagar1610Codes) | 1 | 0 | 0 | 1 |
+| [@harshgupta9129](https://github.com/harshgupta9129) | 1 | 0 | 0 | 1 |
 | [@priyanshu5ingh](https://github.com/priyanshu5ingh) | 1 | 1 | 0 | 0 |
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
 | [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 1 |
@@ -56,6 +58,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
+| [@dhupikarajput](https://github.com/dhupikarajput) | 1 | 0 | 0 | 0 |
 | [@Niyatikansal31](https://github.com/Niyatikansal31) | 0 | 1 | 0 | 0 |
 | [@Anushka-045](https://github.com/Anushka-045) | 1 | 0 | 0 | 0 |
 | [@AbhishekSharma-9](https://github.com/AbhishekSharma-9) | 0 | 1 | 0 | 0 |
