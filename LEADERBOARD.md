@@ -22,6 +22,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
+| [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 1 | 0 | 0 | 1 |
@@ -52,7 +53,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 1 | 0 | 0 | 1 |
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
-| [@JeevithaR3](https://github.com/JeevithaR3) | 0 | 1 | 0 | 1 |
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
