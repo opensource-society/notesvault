@@ -57,6 +57,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
 | [@Niyatikansal31](https://github.com/Niyatikansal31) | 0 | 1 | 0 | 0 |
+| [@Anushka-045](https://github.com/Anushka-045) | 1 | 0 | 0 | 0 |
 | [@AbhishekSharma-9](https://github.com/AbhishekSharma-9) | 0 | 1 | 0 | 0 |
 | [@zoxilsi](https://github.com/zoxilsi) | 0 | 1 | 0 | 0 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
