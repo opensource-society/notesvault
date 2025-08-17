@@ -59,6 +59,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Niyatikansal31](https://github.com/Niyatikansal31) | 0 | 1 | 0 | 0 |
 | [@AbhishekSharma-9](https://github.com/AbhishekSharma-9) | 0 | 1 | 0 | 0 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
+| [@shrvtiprasad](https://github.com/shrvtiprasad) | 1 | 0 | 0 | 0 |
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
