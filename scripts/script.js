@@ -1,151 +1,269 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let allData = {};
+// Main (JavaScript)
 
-  const searchBranchContainer = document.getElementById("search-parameters-branch");
-  const searchSemesterContainer = document.getElementById("search-parameters-semester");
-  const searchSubjectContainer = document.getElementById("search-parameters-subject");
-
-  function createDropdown(container, id, defaultText, options) {
-    container.innerHTML = '';
-    const select = document.createElement("select");
-    select.id = id;
-    select.className = "search-parameters-select";
-    const defaultOption = document.createElement("option");
-    defaultOption.disabled = true;
-    defaultOption.selected = true;
-    defaultOption.innerHTML = defaultText;
-    select.appendChild(defaultOption);
-    options.forEach(opt => {
-      const option = document.createElement("option");
-      option.value = opt;
-      option.innerHTML = opt;
-      select.appendChild(option);
-    });
-    container.appendChild(select);
-    return select;
+document.addEventListener('DOMContentLoaded', () => {
+  // Global DOM Elements
+  const DOM = {
+    searchBranchContainer: document.getElementById('search-parameters-branch'),
+    searchSemesterContainer: document.getElementById(
+      'search-parameters-semester'
+    ),
+    searchSubjectContainer: document.getElementById(
+      'search-parameters-subject'
+    ),
+    typewriterElement: document.getElementById('typewriter'),
+    searchForm: document.querySelector('.search-form'),
+    yearElement: document.getElementById('year'),
+    backToTop: document.querySelector('.back-to-top'),
   }
 
-  function updateSemesters() {
-    const selectedBranch = document.getElementById("selectBranch").value;
-    searchSemesterContainer.innerHTML = '';
-    searchSubjectContainer.innerHTML = '';
-    const branchData = allData.branches.find(b => b.name === selectedBranch);
-    const semesterNames = branchData?.semesters?.map(sem => sem.semester) || [];
-    const semesterSelect = createDropdown(searchSemesterContainer, "selectSemester", "Select Semester", semesterNames);
-    semesterSelect.addEventListener("change", updateSubjects);
+  const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year']
+  let allData = { branches: [] }
+
+  // Helper Functions //
+  const createDropdown = (container, id, placeholder, options) => {
+    if (!container) return null
+
+    container.innerHTML = `
+      <select id="${id}" class="search-parameters-select" aria-label="${placeholder}">
+        <option value="" disabled selected>${placeholder}</option>
+        ${options
+          .map((opt) => `<option value="${opt}">${opt}</option>`)
+          .join('')}
+      </select>
+    `
+
+    return container.firstElementChild
   }
 
-  function updateSubjects() {
-    const selectedBranch = document.getElementById("selectBranch").value;
-    const selectedSemester = document.getElementById("selectSemester").value;
-    searchSubjectContainer.innerHTML = '';
-    const branchData = allData.branches.find(b => b.name === selectedBranch);
-    const semesterData = branchData?.semesters?.find(sem => sem.semester == selectedSemester);
-    const subjectNames = semesterData?.subjects?.map(sub => Object.values(sub)[0]) || [];
-    createDropdown(searchSubjectContainer, "selectSubject", "Select Subject", subjectNames);
+  // Search Function //
+  const updateSemesters = () => {
+    const branchSelect = document.getElementById('selectBranch')
+    if (!branchSelect?.value) return
+
+    DOM.searchSemesterContainer.innerHTML = ''
+    DOM.searchSubjectContainer.innerHTML = ''
+
+    const branchData = allData.branches.find(
+      (b) => b.name === branchSelect.value
+    )
+    if (!branchData?.semesters) return
+
+    const semesterSelect = createDropdown(
+      DOM.searchSemesterContainer,
+      'selectSemester',
+      'Select Semester',
+      branchData.semesters.map((sem) => sem.semester)
+    )
+
+    semesterSelect?.addEventListener('change', updateSubjects)
   }
 
-  fetch("data/search_parameters/parameters.json")
-    .then(res => res.json())
-    .then(data => {
-      allData = data;
-      const branchNames = allData.branches.filter(b => b.name && b.name.trim() !== "").map(b => b.name);
-      const branchSelect = createDropdown(searchBranchContainer, "selectBranch", "Select Branch", branchNames);
-      branchSelect.addEventListener("change", updateSemesters);
-    })
-    .catch(error => console.error("Error fetching parameters:", error));
+  const updateSubjects = () => {
+    const branchSelect = document.getElementById('selectBranch')
+    const semesterSelect = document.getElementById('selectSemester')
+    if (!branchSelect?.value || !semesterSelect?.value) return
 
-  const words = ["Branch", "Semester", "Subject", "Year"];
-  let currentWordIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
+    DOM.searchSubjectContainer.innerHTML = ''
 
-  function typeWriterEffect() {
-    const currentWord = words[currentWordIndex];
-    const typewriterElement = document.getElementById('typeWriterText');
-    if (!typewriterElement) return;
-    if (isDeleting) {
-      typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-      charIndex--;
-    } else {
-      typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-      charIndex++;
+    const branchData = allData.branches.find(
+      (b) => b.name === branchSelect.value
+    )
+    const semesterData = branchData?.semesters?.find(
+      (sem) => sem.semester === semesterSelect.value
+    )
+
+    if (semesterData?.subjects) {
+      createDropdown(
+        DOM.searchSubjectContainer,
+        'selectSubject',
+        'Select Subject',
+        semesterData.subjects.map((sub) => Object.values(sub)[0])
+      )
     }
-    let typeSpeed = isDeleting ? 75 : 150;
-    if (!isDeleting && charIndex === currentWord.length) {
-      typeSpeed = 2000;
-      isDeleting = true;
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    const searchInput = DOM.searchForm?.querySelector("input[type='text']")
+    if (searchInput?.value) {
+      window.location.href = `pages/notes.html?query=${encodeURIComponent(
+        searchInput.value
+      )}`
+    }
+  }
+
+  // Typewriter Effect //
+  const typeWriter = (wordIndex = 0, charIndex = 0, isDeleting = false) => {
+    if (!DOM.typewriterElement) return
+
+    const word = TYPEWRITER_WORDS[wordIndex % TYPEWRITER_WORDS.length]
+    DOM.typewriterElement.textContent = word.substring(
+      0,
+      isDeleting ? charIndex - 1 : charIndex + 1
+    )
+
+    let delay
+    if (!isDeleting && charIndex === word.length) {
+      delay = 2000
+      isDeleting = true
     } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      currentWordIndex = (currentWordIndex + 1) % words.length;
-      typeSpeed = 500;
+      delay = 500
+      isDeleting = false
+      wordIndex++
+    } else {
+      delay = isDeleting ? 75 : 150
     }
-    setTimeout(typeWriterEffect, typeSpeed);
-  }
-  typeWriterEffect();
 
-  const nav = document.getElementById('header-navigation');
-  const hamburger = document.getElementById('hamburgerMenu');
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('show');
-      hamburger.classList.toggle('active');
-    });
+    setTimeout(
+      () =>
+        typeWriter(
+          wordIndex,
+          isDeleting ? charIndex - 1 : charIndex + 1,
+          isDeleting
+        ),
+      delay
+    )
   }
-  document.addEventListener('click', function (event) {
-    if (nav && hamburger && !nav.contains(event.target) && !hamburger.contains(event.target)) {
-      nav.classList.remove('show');
-      hamburger.classList.remove('active');
+
+  // Theme Toggle //
+  const getPreferredTheme = () => {
+    const stored = localStorage.getItem('theme')
+    return (
+      stored ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light')
+    )
+  }
+
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }
+
+  const setupThemeToggle = () => {
+    setTheme(getPreferredTheme())
+    document
+      .querySelectorAll('.theme-toggle, .mobile-theme-toggle')
+      .forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          const current =
+            document.documentElement.getAttribute('data-theme') || 'light'
+          setTheme(current === 'dark' ? 'light' : 'dark')
+        })
+      })
+  }
+
+  // Mobile Menu Navigation //
+  const toggleMobileMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle')
+    const mobileNav = document.querySelector('.mobile-nav')
+    const overlay = document.querySelector('.overlay')
+
+    menuToggle?.classList.toggle('active')
+    mobileNav?.classList.toggle('active')
+    overlay?.classList.toggle('active')
+    document.body.style.overflow = mobileNav?.classList.contains('active')
+      ? 'hidden'
+      : ''
+  }
+
+  const setupMobileMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle')
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link')
+    const overlay = document.querySelector('.overlay')
+
+    menuToggle?.addEventListener('click', toggleMobileMenu)
+    overlay?.addEventListener('click', toggleMobileMenu)
+    mobileNavLinks.forEach((link) =>
+      link.addEventListener('click', toggleMobileMenu)
+    )
+  }
+
+  // Back to Top Button //
+  const setupBackToTop = () => {
+    if (!DOM.backToTop) return
+    window.addEventListener('scroll', () => {
+      DOM.backToTop.classList.toggle('visible', window.scrollY > 300)
+    })
+
+    DOM.backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+  }
+
+  // Load Components (Header & Footer) //
+  const loadComponents = async () => {
+    try {
+      const [header, footer] = await Promise.all([
+        fetch('../components/header.html').then((res) => res.text()),
+        fetch('../components/footer.html').then((res) => res.text()),
+      ])
+
+      document.getElementById('header-placeholder').innerHTML = header
+      document.getElementById('footer-placeholder').innerHTML = footer
+
+      // Re-initialize Header-Based Features
+      setupThemeToggle()
+      setupMobileMenu()
+
+      // Set Active Nav Link //
+      const currentPath = window.location.pathname.split('/').pop()
+
+      document
+        .querySelectorAll('.nav-link, .mobile-nav-link')
+        .forEach((link) => {
+          const linkPath = link.getAttribute('href')?.split('/').pop()
+          if (linkPath === currentPath) {
+            link.classList.add('active')
+          }
+        })
+
+      // Set Active Footer Link //
+      document.querySelectorAll('.footer-link').forEach((link) => {
+        const linkPath = link.getAttribute('href')?.split('/').pop()
+        if (linkPath === currentPath) {
+          link.classList.add('active')
+        }
+      })
+    } catch (error) {
+      console.error('Error loading header/footer:', error)
     }
-  });
-
-  function toggleTheme() {
-    const html = document.documentElement;
-    const currentTheme = html.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
   }
 
-  const themeToggleButton = document.getElementById('themeToggle');
-  if (themeToggleButton) {
-    themeToggleButton.addEventListener('click', toggleTheme);
-  }
+  // Init //
+  const init = async () => {
+    if (DOM.typewriterElement) typeWriter()
+    if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch)
 
-  (function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
-  })();
+    if (DOM.yearElement) DOM.yearElement.textContent = new Date().getFullYear()
 
-  document.querySelectorAll(".upload-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      window.location.href = "upload.html";
-    });
-  });
+    // Load Search Data
+    try {
+      const response = await fetch('data/search_parameters/parameters.json')
+      allData.branches = (await response.json()).branches.filter((b) =>
+        b.name?.trim()
+      )
 
-  function runQuerySearch() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get("query")?.trim().toLowerCase();
-    if (query) {
-      const notes = document.querySelectorAll(".note-card");
-      let matchFound = false;
-      notes.forEach((note) => {
-        const content = note.textContent.toLowerCase();
-        const show = content.includes(query);
-        note.style.display = show ? "block" : "none";
-        if (show) matchFound = true;
-      });
-      if (!matchFound) {
-        const msg = document.createElement("p");
-        msg.textContent = `No notes found for "${query}"`;
-        msg.style.color = "red";
-        msg.style.fontWeight = "bold";
-        msg.style.marginTop = "20px";
-        document.getElementById("notes-container").appendChild(msg);
-      }
+      const branchSelect = createDropdown(
+        DOM.searchBranchContainer,
+        'selectBranch',
+        'Select Branch',
+        allData.branches.map((b) => b.name)
+      )
+
+      branchSelect?.addEventListener('change', updateSemesters)
+    } catch (error) {
+      console.error('Error loading search parameters:', error)
     }
+
+    // Load Header & Footer
+    await loadComponents()
+
+    // Load Back To Top Button
+    DOM.backToTop = document.querySelector('.back-to-top')
+    setupBackToTop()
   }
 
-  runQuerySearch();
-});
+  init()
+})
