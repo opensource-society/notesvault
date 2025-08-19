@@ -1,154 +1,106 @@
+<!-- To-Do List (HTML) -->
+
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - To-Do List</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Todo List - NotesVault</title>
-  <meta name="description" content="Manage your tasks efficiently with NotesVault Todo List.">
-  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="../styling/todolist.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-  <script src="../scripts/todolist.js" defer></script>
-  <link rel="stylesheet" href="../components/header.css"/>
-  <script src="../components/header.js"></script>
-</head>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
 
-<body>
-  <!-- Header -->
-  <header style="height: 100px;" id="header-holder">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  </header>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/variables.css" />
+    <link rel="stylesheet" href="../styling/todolist.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+  </head>
 
-  <!-- Main Content -->
-  <main class="todo-main">
-    <div class="todo-container">
-      <div class="todo-header">
-        <h1 class="todo-title">
-          <i class="fas fa-tasks"></i>
-          Todo List
-        </h1>
-        <p class="todo-subtitle">Manage your tasks efficiently and stay organized</p>
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="todolist-hero">
+      <div class="container">
+        <h1>To-Do List</h1>
+        <p class="subtitle">
+          Manage your tasks efficiently & stay organized!
+        </p>
       </div>
+    </section>
 
-      <!-- Add Task Form -->
-      <div class="todo-form-container">
-        <form id="todoForm" class="todo-form">
-          <div class="input-group">
-            <input 
-              type="text" 
-              id="taskInput" 
-              placeholder="Enter your task here..." 
-              class="task-input"
-              required
-            />
-            <button type="submit" class="add-btn">
-              <i class="fas fa-plus"></i>
-              Add Task
+    <!-- Main Content -->
+    <main class="todo-main">
+      <div class="todo-container">
+        <!-- Add Task Form -->
+        <div class="todo-form-container">
+          <form id="todoForm" class="todo-form">
+            <div class="input-group">
+              <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task here..."
+                class="task-input"
+                required
+              />
+              <button type="submit" class="add-btn">
+                <i class="fas fa-plus"></i>
+                Add Task
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Task Controls -->
+        <div class="todo-controls">
+          <div class="task-stats">
+            <span id="taskCount" class="task-count">0 Tasks</span>
+            <span id="completedCount" class="completed-count">0 Completed</span>
+          </div>
+          <div class="task-actions">
+            <button id="clearCompleted" class="clear-btn">
+              <i class="fas fa-trash"></i>
+              Clear Completed
+            </button>
+            <button id="clearAll" class="clear-all-btn">
+              <i class="fas fa-trash-alt"></i>
+              Clear All
             </button>
           </div>
-        </form>
-      </div>
-
-      <!-- Task Controls -->
-      <div class="todo-controls">
-        <div class="task-stats">
-          <span id="taskCount" class="task-count">0 tasks</span>
-          <span id="completedCount" class="completed-count">0 completed</span>
         </div>
-        <div class="task-actions">
-          <button id="clearCompleted" class="clear-btn">
-            <i class="fas fa-trash"></i>
-            Clear Completed
-          </button>
-          <button id="clearAll" class="clear-all-btn">
-            <i class="fas fa-trash-alt"></i>
-            Clear All
-          </button>
+
+        <!-- Task List -->
+        <div class="todo-list-container">
+          <ul id="todoList" class="todo-list">
+            <!-- Task List (Dynamic) -->
+          </ul>
+
+          <!-- Empty State -->
+          <div id="emptyState" class="empty-state">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>No tasks yet</h3>
+            <p>Add your first task to get started!</p>
+          </div>
         </div>
       </div>
+    </main>
 
-      <!-- Task List -->
-      <div class="todo-list-container">
-        <ul id="todoList" class="todo-list">
-          <!-- Tasks will be dynamically added here -->
-        </ul>
-        
-        <!-- Empty State -->
-        <div id="emptyState" class="empty-state">
-          <i class="fas fa-clipboard-list"></i>
-          <h3>No tasks yet</h3>
-          <p>Add your first task to get started!</p>
-        </div>
-      </div>
-    </div>
-  </main>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
 
-  <!-- Footer -->
-  <footer class="custom-footer">
-    <div class="footer-container">
-      <!-- About NotesVault Section -->
-      <div class="footer-section about-section">
-        <h2><strong>NotesVault</strong></h2>
-        <p class="footer-description">
-          A web platform to <strong>store</strong>, <strong>browse</strong>, and <strong>manage</strong> academic notes & PYQs semester-wise.
-          Contribute easily, organize efficiently, and search by tags.
-        </p>
-        <a
-          class="footer-learn-link"
-          href="https://github.com/opensource-society/notesvault"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Learn More →</a>
-      </div>
-
-      <!-- Community -->
-      <div class="footer-section">
-        <h3>Community</h3>
-        <ul>
-          <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-          <li><a href="https://github.com/opensource-society/notesvault.git" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-          <li><a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
-        </ul>
-      </div>
-
-      <!-- Social Media -->
-      <div class="footer-section">
-        <h3>Social Media</h3>
-        <ul>
-          <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-          <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-          <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-        </ul>
-      </div>
-
-      <!-- Features -->
-      <div class="footer-section">
-        <h3>Features</h3>
-        <ul>
-          <li><a href="upload.html"><i class="fas fa-upload"></i> Easy Upload</a></li>
-          <li><a href="search.html"><i class="fas fa-tags"></i> Tag-based Search</a></li>
-          <li><a href="BrowseNotes.html"><i class="fas fa-folder-open"></i> Organized by Semester</a></li>
-          <li><a href="todolist.html"><i class="fas fa-tasks"></i> Todo List</a></li>
-          <li><a href="studentAccount.html"><i class="fas fa-users"></i> Get Details</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      &copy; <span id="year"></span> NotesVault. All rights reserved.
-    </div>
-  </footer>
-
-  <!-- Scroll to Top Button -->
-  <button id="scrollToTopBtn" title="Go to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <script>
-    // Add current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-
-</html> 
+    <!-- JavaScript -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/todolist.js"></script>
+  </body>
+</html>

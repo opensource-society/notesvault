@@ -1,165 +1,140 @@
+<!-- Features (HTML) -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Features - NotesVault</title>
-  <link rel="icon" href="favicon.png" type="image/x-icon"/>
-  <link rel="stylesheet" href="../components/header.css"/>
-  <script src="../components/header.js"></script>
-  <style>
-    body {
-      margin: auto;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - Features</title>
+    <meta
+      name="description"
+      content="Explore NotesVault's powerful features including note uploading, browsing, Jotpad, and To-Do list"
+    />
 
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
 
-    .logo-title img {
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-    }
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/features.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+  </head>
 
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      background-color: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
+    <main class="features-page">
+      <section class="features-hero">
+        <div class="container">
+          <h1>Powerful Features</h1>
+          <p class="subtitle">
+            Everything you need to organize your academic life!
+          </p>
+        </div>
+      </section>
 
-    .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-    }
+      <section class="features-grid-section">
+        <div class="container">
+          <div class="features-grid">
+            <!-- Upload Notes Feature -->
+            <article class="feature-card" id="upload-feature">
+              <div class="feature-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <div class="feature-content">
+                <h2>Upload Notes</h2>
+                <p>
+                  Share your study materials with the community in just a few
+                  clicks. Supports multiple file formats.
+                </p>
+                <a
+                  href="upload.html"
+                  class="btn btn-primary"
+                >
+                  Try It Now &nbsp; <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
 
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
+            <!-- Browse Notes Feature -->
+            <article class="feature-card" id="browse-feature">
+              <div class="feature-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="feature-content">
+                <h2>Browse Notes</h2>
+                <p>
+                  Find exactly what you need with our powerful search and
+                  filtering system. Organized by subject and semester.
+                </p>
+                <a
+                  href="notes.html"
+                  class="btn btn-primary"
+                >
+                  Browse Notes &nbsp; <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
 
-    .feature {
-      background-color: white;
-      margin: 1rem 0;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+            <!-- Jotpad Feature -->
+            <article class="feature-card" id="jotpad-feature">
+              <div class="feature-icon">
+                <i class="fas fa-edit"></i>
+              </div>
+              <div class="feature-content">
+                <h2>Jotpad</h2>
+                <p>
+                  Quickly jot down ideas, formulas, or reminders without leaving
+                  the app. Auto-saves your work.
+                </p>
+                <a
+                  href="jotpad.html"
+                  class="btn btn-primary"
+                >
+                  Start Writing &nbsp; <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
 
-    .feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
+            <!-- To-Do List Feature -->
+            <article class="feature-card" id="todo-feature">
+              <div class="feature-icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <div class="feature-content">
+                <h2>To-Do List</h2>
+                <p>
+                  Organize your study schedule, assignment deadlines, revision
+                  plans, and daily academic tasks all in one place.
+                </p>
+                <a
+                  href="todolist.html"
+                  class="btn btn-primary"
+                >
+                  Get Organized &nbsp; <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    .feature h2 {
-      margin-top: 0;
-      color: #4CAFEF;
-    }
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
 
-    .feature p {
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      color: #777;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      .feature h2 {
-        font-size: 1.2rem;
-      }
-
-      .nav-links {
-        margin-top: 10px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header style="height: 100px;" id="header-holder">
-
-  </header>
-
-  <div class="container">
-    <div class="feature" id="categories">
-      <h2>📂 Organized by Semester & Subject</h2>
-      <p>Effortlessly browse notes and PYQs sorted by semester and subjects. Stay organized throughout your academic journey.</p>
-    </div>
-
-    <div class="feature" id="search">
-      <h2>🔍 Instant Search</h2>
-      <p>Quickly find any note or previous year question using the built-in search bar. Perfect for last-minute revision.</p>
-    </div>
-
-    <div class="feature" id="pinned">
-      <h2>📌 Pin Important Notes</h2>
-      <p>Mark your most important notes and PYQs with a pin so they stay at the top for easy access.</p>
-    </div>
-
-    <div class="feature" id="download">
-      <h2>📥 Download Notes</h2>
-      <p>Save your notes as text files and access them offline anytime.</p>
-    </div>
-
-    <div class="feature" id="darkmode">
-      <h2>🌗 Dark Mode</h2>
-      <p>Switch between light and dark themes with a single click for comfortable reading at night.</p>
-    </div>
-  
-   
-    <div class="feature" id="PYQs">
-      <h2>💬 Upload PYQs or Past year question papers </h2>
-      <p>Add past year questions and papers so that preparation can be easier for other students. </p>
-    </div>
-    </div>
-
-  <footer>
-    &copy; 2025 NotesVault | Made with ❤️ for Students
-  </footer>
-
-  <script>
-    // Highlight feature cards on scroll
-    const features = document.querySelectorAll('.feature');
-    window.addEventListener('scroll', () => {
-      features.forEach(feature => {
-        const rect = feature.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-          feature.style.backgroundColor = "#e3f2fd";
-        } else {
-          feature.style.backgroundColor = "white";
-        }
-      });
-    });
-  </script>
-</body>
+    <!-- JavaScript -->
+    <script src="../scripts/script.js"></script>
+  </body>
 </html>
