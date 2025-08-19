@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesVault - Contact Us</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/home.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+
+    <style>
+        /* ===== CONTACT PAGE ===== */
+        .contact-section {
+            padding: 60px 20px;
+            /* background: #fff; */
+        }
+
+        .contact-section .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--primary-color, #198754);
+            /* uses your green */
+            margin-bottom: 10px;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            /* color: #555; */
+            margin-bottom: 40px;
+        }
+
+        /* Grid Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            /* background: #f9f9f9; */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            /* color: #222; */
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1rem;
+            /* color: #444; */
+        }
+
+        .contact-info i {
+            color: var(--primary-color, #198754);
+            margin-right: 10px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            /* background: #f9f9f9; */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color, #198754);
+            box-shadow: 0 0 5px rgba(25, 135, 84, 0.3);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            background: var(--primary-color, #008c2d);
+            /* color: #fff; */
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #146c43;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <main id="main-content">
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <h1 class="contact-title">Get in Touch</h1>
+                <p class="contact-subtitle">
+                    Have questions, feedback, or suggestions? We’d love to hear from you!
+                </p>
+
+                <div class="contact-grid">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <p><i class="fas fa-envelope"></i> support@notesvault.com</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required />
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script src="../scripts/script.js" defer></script>
+    <script>
+        // Contact form handling
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector(".contact-form");
+
+            if (form) {
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    // Get values
+                    const name = form.querySelector("input[type='text']").value.trim();
+                    const email = form.querySelector("input[type='email']").value.trim();
+                    const message = form.querySelector("textarea").value.trim();
+
+                    if (!name || !email || !message) {
+                        alert("Please fill in all fields.");
+                        return;
+                    }
+
+                    // Simple email check
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert("Please enter a valid email address.");
+                        return;
+                    }
+
+                    // Success message (replace with API later)
+                    alert("Thank you! Your message has been sent successfully.");
+                    form.reset();
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>
