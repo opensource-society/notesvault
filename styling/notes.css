@@ -192,6 +192,27 @@
   color: inherit;
 }
 
+.bookmark-btn {
+  background: transparent; 
+  border: none;      
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+
+.bookmark-btn .fa-star.far {
+  color: var(--text-secondary);
+}
+
+.bookmark-btn .fa-star.fas {
+  color: var(--accent-500);
+}
+
+.bookmark-btn:hover .fa-star {
+  color: var(--accent-400);
+}
+
 /* Modal */
 .modal {
   position: fixed;
