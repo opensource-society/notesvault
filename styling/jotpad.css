@@ -155,6 +155,55 @@
   align-items: center;
   gap: 0.5rem;
   background-color: var(--bg-secondary);
+  flex-wrap: wrap;
+}
+
+/* Drawing Tools Styles */
+.drawing-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  margin-right: auto;
+}
+
+.tool-btn {
+  padding: 0.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.25rem;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.tool-btn:hover {
+  background-color: var(--primary-100);
+  border-color: var(--primary-500);
+}
+
+.tool-btn.active {
+  background-color: var(--primary-500);
+  color: var(--white);
+  border-color: var(--primary-700);
+}
+
+.brush-slider {
+  accent-color: var(--primary-500);
+}
+
+.drawing-tools label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .download-btn,
