@@ -101,15 +101,30 @@
 .footer-link {
   color: var(--text-secondary);
   text-decoration: none;
-  transition: all 0.3s ease;
   display: inline-block;
   padding: 0.25rem 0;
   font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-500);
+  transition: width 0.3s ease;
 }
 
 .footer-link:hover {
   color: var(--primary-500);
-  transform: translateX(5px);
+  transform: translateX(2px);
+}
+
+.footer-link:hover::after {
+  width: 100%;
 }
 
 /* Community Section */
@@ -124,10 +139,18 @@
   align-items: center;
   gap: 0.5rem;
   background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 140, 45, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.oss-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 15px rgba(0, 140, 45, 0.15);
 }
 
 .community-text {
@@ -151,13 +174,15 @@
   border-radius: 50%;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 140, 45, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .social-link:hover {
   background-color: var(--primary-500);
   color: white;
   transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 140, 45, 0.15);
 }
 
 /* Footer Bottom */
