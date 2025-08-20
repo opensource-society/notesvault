@@ -1,4 +1,17 @@
 /* Header (CSS) */
+#dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text-color);
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+  color: var(--accent-color);
+}
 
 .navbar {
   position: fixed;

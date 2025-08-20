@@ -1,3 +1,25 @@
+
+// Dark Mode Toggle
+const toggleBtn = document.getElementById("dark-mode-toggle");
+const body = document.body;
+
+// Load saved theme from localStorage
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+  toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+}
+
+toggleBtn?.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    localStorage.setItem("theme", "light");
+    toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+});
 // Main (JavaScript)
 
 document.addEventListener('DOMContentLoaded', () => {

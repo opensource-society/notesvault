@@ -64,3 +64,24 @@
   --card-bg: var(--gray-800);
   --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+/* Default Light Mode */
+:root {
+  --background-light: #f9f9f9;
+  --card-bg: #fff;
+  --text-color: #222;
+  --accent-color: #0077ff;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --background-light: #121212;
+  --card-bg: #1e1e1e;
+  --text-color: #f5f5f5;
+  --accent-color: #66aaff;
+  --shadow-sm: 0 2px 6px rgba(255,255,255,0.05);
+  --shadow-md: 0 4px 12px rgba(255,255,255,0.1);
+  background: var(--background-light);
+  color: var(--text-color);
+}
