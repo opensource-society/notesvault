@@ -253,6 +253,15 @@ document.addEventListener('DOMContentLoaded', () => {
       )
 
       branchSelect?.addEventListener('change', updateSemesters)
+      // Add static semester options for Browse Notes page
+      const allSemesters = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
+      createDropdown(
+        DOM.searchSemesterContainer,
+        'selectSemester',
+        'Select Semester',
+        allSemesters
+)
+
     } catch (error) {
       console.error('Error loading search parameters:', error)
     }
