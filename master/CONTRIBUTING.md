@@ -28,7 +28,7 @@ This project is in its early stage — so **you’re welcome to help build it fr
    git commit -m "Add: my feature"
    git push origin my-feature
    ```
-6. **Open a Pull Request** on the main repository
+6. **Open a Pull Request** on the main repository. Your PR must targer `master` branch!
 
 ---
 
