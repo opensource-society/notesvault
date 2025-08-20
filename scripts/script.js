@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <select id="${id}" class="search-parameters-select" aria-label="${placeholder}">
         <option value="" disabled selected>${placeholder}</option>
         ${options
-        .map((opt) => `<option value="${opt}">${opt}</option>`)
-        .join('')}
+          .map((opt) => `<option value="${opt}">${opt}</option>`)
+          .join('')}
       </select>
     `
 
