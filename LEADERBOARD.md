@@ -25,6 +25,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
+| [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 1 | 0 | 0 | 1 |
 | [@Sagar1610Codes](https://github.com/Sagar1610Codes) | 1 | 0 | 0 | 1 |
 | [@harshgupta9129](https://github.com/harshgupta9129) | 1 | 0 | 0 | 1 |
@@ -53,7 +54,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Milan0407](https://github.com/Milan0407) | 1 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 1 | 0 | 0 | 1 |
 | [@Aripilli-Bhavana](https://github.com/Aripilli-Bhavana) | 1 | 0 | 0 | 1 |
-| [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 1 | 0 | 0 | 1 |
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
