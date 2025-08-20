@@ -85,6 +85,59 @@
   color: var(--text-secondary);
 }
 
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.note-meta label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.note-meta select,
+.note-meta input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  appearance: none;
+   width: 200px; 
+  min-width: 150px; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+.note-meta select:focus,
+.note-meta input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.note-meta select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 20 20'%3E%3Cpolygon fill='%23666' points='0,0 20,0 10,10'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.65rem;
+}
+
+.note-meta select option {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.note-meta input::placeholder {
+  color: var(--text-secondary);
+}
+
 #drawingCanvas {
   position: absolute;
   top: 0;
@@ -99,6 +152,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0.625rem;
+  align-items: center;
+  gap: 0.5rem;
   background-color: var(--bg-secondary);
 }
 
