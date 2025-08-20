@@ -48,7 +48,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const theme = document.documentElement.getAttribute('data-theme')
 
-    ctx.strokeStyle = theme === 'dark' ? '#ffffff' : '#000000'
+    // Use selectedColor from highlight palette if chosen, otherwise fallback
+    if (highlightEnabled) {
+    ctx.strokeStyle = selectedColor;
+  } else {
+    // Default based on theme
+    ctx.strokeStyle =
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "#ffffff"
+        : "#000000";
+  }
     ctx.lineWidth = 2
     ctx.lineJoin = 'round'
     ctx.lineCap = 'round'
@@ -187,55 +196,158 @@ document.addEventListener('DOMContentLoaded', function () {
   togglePlaceholder()
 })
 
-// Download PDF
-async function downloadPDF() {
-  const { jsPDF } = window.jspdf
-  const content = document.getElementById('noteArea').innerHTML
-  const doc = new jsPDF()
-  doc.setFont('helvetica', 'normal')
-  doc.setFontSize(14)
+const highlightToggleBtn = document.getElementById('highlightToggleBtn');
+const highlightPalette = document.getElementById('highlightPalette');
+// Highlight Colors Circular Palette
+const highlightColors = ['yellow', 'lightgreen', 'lightblue', 'pink', 'orange'];
+let selectedColor = highlightColors[0];
+let highlightEnabled = false;
 
-  const tempDiv = document.createElement('div')
-  tempDiv.innerHTML = content
+// Create color swatches
+highlightColors.forEach((color, i) => {
+  const swatch = document.createElement('div');
+  swatch.className = 'color-swatch';
+  swatch.style.backgroundColor = color;
+  if (i === 0) swatch.classList.add('active-selected');
+  highlightPalette.appendChild(swatch);
 
-  let textContent = ''
-  const walker = document.createTreeWalker(
-    tempDiv,
-    NodeFilter.SHOW_TEXT,
-    null,
-    false
-  )
-  let node
-  while ((node = walker.nextNode())) {
-    textContent += node.nodeValue + '\n'
+  // Swatch click: select color
+  swatch.addEventListener('click', () => {
+    selectedColor = color;
+    highlightPalette.querySelectorAll('.color-swatch')
+      .forEach(s => s.classList.remove('active-selected'));
+    swatch.classList.add('active-selected');
+  });
+});
+
+// Highlight toggle button click
+highlightToggleBtn.addEventListener('click', (e) => {
+   e.stopPropagation(); 
+  const swatches = highlightPalette.querySelectorAll('.color-swatch');
+  const btnRect = highlightToggleBtn.getBoundingClientRect();
+
+  highlightEnabled = !highlightEnabled;
+  highlightToggleBtn.classList.toggle('active', highlightEnabled);
+  const selection = window.getSelection();
+  
+  if (!highlightEnabled && !selection.isCollapsed) {
+   applyHighlight();
   }
+  if (highlightEnabled) {
+    // Open palette
+    highlightPalette.classList.add('active');
+    highlightPalette.style.display = 'flex';
+    
+    const centerX = btnRect.left + btnRect.width / 2 + window.scrollX;
+    const centerY = btnRect.top + btnRect.height / 2 + window.scrollY;
+    highlightPalette.style.left = `${centerX - 60}px`;
+    highlightPalette.style.top = `${centerY - 60}px`;
 
-  const images = tempDiv.getElementsByTagName('img')
-  let yPosition = 20
-  const textLines = doc.splitTextToSize(textContent, 180)
-  doc.text(textLines, 10, yPosition)
-  yPosition += textLines.length * 7
+    // Semicircle layout
+    const radius = 50;
+    const arcStart = Math.PI;
+    const arcEnd = 2 * Math.PI;
+    const angleStep = (arcEnd - arcStart) / (swatches.length - 1);
 
-  for (let i = 0; i < images.length; i++) {
-    if (yPosition > 250) {
-      doc.addPage()
-      yPosition = 20
-    }
+    swatches.forEach((swatch, i) => {
+      const angle = arcStart + i * angleStep;
+      const x = 60 + radius * Math.cos(angle) - 14;
+      const y = 60 + radius * Math.sin(angle) - 14;
+      setTimeout(() => {
+        swatch.style.left = `${x}px`;
+        swatch.style.top = `${y}px`;
+        swatch.style.transform = 'scale(1)';
+      }, i * 50);
+    });
 
-    try {
-      const imgData = await getImageData(images[i].src)
-      const imgProps = doc.getImageProperties(imgData)
-      const width = 180
-      const height = (imgProps.height * width) / imgProps.width
-      doc.addImage(imgData, 'PNG', 10, yPosition, width, height)
-      yPosition += height + 10
-    } catch (error) {
-      console.error('Error adding image to PDF:', error)
-    }
+  } else {
+    // Close palette
+    highlightPalette.classList.remove('active');
+    highlightEnabled = false;
+
+    swatches.forEach((swatch, i) => {
+      const angle = 0; 
+      setTimeout(() => {
+        swatch.style.left = '60px';
+        swatch.style.top = '60px';
+        swatch.style.transform = 'scale(0)'; 
+      }, i * 50);
+    });
+
+    setTimeout(() => {
+       highlightPalette.classList.remove('active');
+      highlightPalette.style.display = 'none';
+      highlightPalette.style.pointerEvents = 'none';
+    }, swatches.length * 50 + 200);
   }
+});
 
-  doc.save('My_Notes.pdf')
+function applyHighlight(color) {
+  const selection = window.getSelection();
+  if (selection.isCollapsed) return;
+
+  const range = selection.getRangeAt(0);
+  const fragment = document.createDocumentFragment();
+
+  // Get all nodes in the selection
+  const contents = range.cloneContents();
+  const nodes = Array.from(contents.childNodes);
+
+  nodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      // Plain text -> highlight
+      if (highlightEnabled) {
+        const span = document.createElement('span');
+        span.style.backgroundColor = color;
+        span.textContent = node.textContent;
+        fragment.appendChild(span);
+      } else {
+        fragment.appendChild(document.createTextNode(node.textContent));
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      if (node.tagName === 'SPAN' && node.style.backgroundColor) {
+        // Already highlighted -> remove highlight
+        fragment.appendChild(document.createTextNode(node.textContent));
+      } else {
+        // Keep other elements as-is
+        fragment.appendChild(node.cloneNode(true));
+      }
+    }
+  });
+
+  range.deleteContents();
+  range.insertNode(fragment);
+  selection.removeAllRanges();
+  saveNoteContent();
 }
+// Mouseup listener
+noteArea.addEventListener('mouseup', () => {
+  const selection = window.getSelection();
+  if (selection.isCollapsed) return;
+
+  applyHighlight(selectedColor);
+});
+
+async function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF("p", "mm", "a4");
+
+  const noteArea = document.getElementById("noteArea");
+
+  const canvas = await html2canvas(noteArea, {
+    backgroundColor: "#ffffff", 
+    scale: 2                    
+  });
+
+  const imgData = canvas.toDataURL("image/png");
+  const imgProps = doc.getImageProperties(imgData);
+  const pdfWidth = doc.internal.pageSize.getWidth();
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+  doc.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+  doc.save("My_Notes.pdf");
+}
+
 
 function getImageData(url) {
   return new Promise((resolve, reject) => {
