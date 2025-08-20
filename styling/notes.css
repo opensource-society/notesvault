@@ -192,6 +192,33 @@
   color: inherit;
 }
 
+.note-card {
+  position: relative;
+}
+
+.bookmark-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--gray-400);
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.bookmark-btn:hover {
+  color: var(--accent-500);
+  transform: scale(1.15);
+}
+
+.bookmark-btn.bookmarked .fa-star {
+  color: var(--warning);
+}
+
 /* Modal */
 .modal {
   position: fixed;

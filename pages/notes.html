@@ -108,121 +108,124 @@
     <script src="../scripts/script.js"></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         // DOM Elements
-        const notesGrid = document.getElementById('notesGrid')
-        const loadingMessage = document.getElementById('loadingMessage')
-        const noNotesMessage = document.getElementById('noNotesMessage')
-        const searchInput = document.getElementById('searchInput')
-        const branchFilter = document.getElementById('branchFilter')
-        const semesterFilter = document.getElementById('semesterFilter')
-        const resetFiltersBtn = document.getElementById('resetFilters')
-        const noteDetailModal = document.getElementById('noteDetailModal')
-        const closeModalButton = noteDetailModal.querySelector('.close-button')
+        const notesGrid = document.getElementById("notesGrid");
+        const loadingMessage = document.getElementById("loadingMessage");
+        const noNotesMessage = document.getElementById("noNotesMessage");
+        const searchInput = document.getElementById("searchInput");
+        const branchFilter = document.getElementById("branchFilter");
+        const semesterFilter = document.getElementById("semesterFilter");
+        const resetFiltersBtn = document.getElementById("resetFilters");
+        const noteDetailModal = document.getElementById("noteDetailModal");
+        const closeModalButton = noteDetailModal.querySelector(".close-button");
 
         // Modal Elements
         const modalElements = {
-          title: document.getElementById('modalNoteTitle'),
-          branch: document.getElementById('modalNoteBranch'),
-          semester: document.getElementById('modalNoteSemester'),
-          description: document.getElementById('modalNoteDescription'),
-          uploader: document.getElementById('modalNoteUploader'),
-          uploadDate: document.getElementById('modalNoteUploadDate'),
-          downloadButton: document.getElementById('modalDownloadButton'),
-        }
+          title: document.getElementById("modalNoteTitle"),
+          branch: document.getElementById("modalNoteBranch"),
+          semester: document.getElementById("modalNoteSemester"),
+          description: document.getElementById("modalNoteDescription"),
+          uploader: document.getElementById("modalNoteUploader"),
+          uploadDate: document.getElementById("modalNoteUploadDate"),
+          downloadButton: document.getElementById("modalDownloadButton"),
+        };
 
-        let allNotes = []
-        let branches = new Set()
-        let semesters = new Set()
+        let allNotes = [];
+        let branches = new Set();
+        let semesters = new Set();
 
         // Initialize Page
         async function init() {
-          await fetchNotes()
-          populateFilters()
-          setupEventListeners()
+          await fetchNotes();
+          populateFilters();
+          setupEventListeners();
         }
 
         // Fetch Notes From JSON File
         async function fetchNotes() {
-          loadingMessage.style.display = 'block'
-          noNotesMessage.style.display = 'none'
-          notesGrid.innerHTML = ''
+          loadingMessage.style.display = "block";
+          noNotesMessage.style.display = "none";
+          notesGrid.innerHTML = "";
 
           try {
-            const response = await fetch('../data/notes.json')
-            if (!response.ok) throw new Error('Network response was not ok')
+            const response = await fetch("../data/notes.json");
+            if (!response.ok) throw new Error("Network response was not ok");
 
-            allNotes = await response.json()
+            allNotes = await response.json();
 
             //  Notes Filter
             allNotes.forEach((note) => {
-              branches.add(note.branch)
-              semesters.add(note.semester)
-            })
+              branches.add(note.branch);
+              semesters.add(note.semester);
+            });
 
-            displayNotes(allNotes)
+            displayNotes(allNotes);
           } catch (error) {
-            console.error('Error fetching notes:', error)
-            showErrorMessage('Failed to load notes. Please try again later.')
+            console.error("Error fetching notes:", error);
+            showErrorMessage("Failed to load notes. Please try again later.");
           } finally {
-            loadingMessage.style.display = 'none'
+            loadingMessage.style.display = "none";
           }
         }
 
         // Filter Dropdown
         function populateFilters() {
           // Clear Existing Filter (Default - All)
-          while (branchFilter.options.length > 1) branchFilter.remove(1)
-          while (semesterFilter.options.length > 1) semesterFilter.remove(1)
+          while (branchFilter.options.length > 1) branchFilter.remove(1);
+          while (semesterFilter.options.length > 1) semesterFilter.remove(1);
 
           // Add Branches
-          const sortedBranches = Array.from(branches).sort()
+          const sortedBranches = Array.from(branches).sort();
           sortedBranches.forEach((branch) => {
-            const option = document.createElement('option')
-            option.value = branch
-            option.textContent = branch
-            branchFilter.appendChild(option)
-          })
+            const option = document.createElement("option");
+            option.value = branch;
+            option.textContent = branch;
+            branchFilter.appendChild(option);
+          });
 
           // Add Semesters
           const sortedSemesters = Array.from(semesters).sort((a, b) => {
             // Extract Numbers From Semester String For Proper Sorting
-            const numA = parseInt(a)
-            const numB = parseInt(b)
-            return numA - numB
-          })
+            const numA = parseInt(a);
+            const numB = parseInt(b);
+            return numA - numB;
+          });
           sortedSemesters.forEach((semester) => {
-            const option = document.createElement('option')
-            option.value = semester
-            option.textContent = semester
-            semesterFilter.appendChild(option)
-          })
+            const option = document.createElement("option");
+            option.value = semester;
+            option.textContent = semester;
+            semesterFilter.appendChild(option);
+          });
         }
 
         // Display Notes (Grid Layout)
         function displayNotes(notes) {
-          notesGrid.innerHTML = ''
+          notesGrid.innerHTML = "";
 
           if (notes.length === 0) {
-            noNotesMessage.style.display = 'block'
-            return
+            noNotesMessage.style.display = "block";
+            return;
           }
 
-          noNotesMessage.style.display = 'none'
+          noNotesMessage.style.display = "none";
 
           notes.forEach((note) => {
-            const noteCard = createNoteCard(note)
-            notesGrid.appendChild(noteCard)
-          })
+            const noteCard = createNoteCard(note);
+            notesGrid.appendChild(noteCard);
+          });
         }
 
         // Create Note Card Element
         function createNoteCard(note) {
-          const noteCard = document.createElement('div')
-          noteCard.classList.add('note-card')
-          noteCard.setAttribute('data-note-id', note._id)
+          const noteCard = document.createElement("div");
+          noteCard.classList.add("note-card");
+          noteCard.setAttribute("data-note-id", note._id);
 
           noteCard.innerHTML = `
+            <button class="bookmark-btn">
+              <i class="far fa-star"></i>
+            </button>
             <h3>${note.title}</h3>
             <p><strong>Branch:</strong> ${note.branch}</p>
             <p><strong>Semester:</strong> ${note.semester}</p>
@@ -230,130 +233,140 @@
             <div class="actions">
                 <button class="view-button"><i class="fas fa-eye"></i> &nbsp; View</button>
                 <a class="download-button" href="${
-                  note.filePath || '#'
+                  note.filePath || "#"
                 }" download="${getDownloadFilename(note)}">
                     <i class="fas fa-download"></i> &nbsp; Download
                 </a>
             </div>
-          `
+          `;
 
           // Event listener ("View" Button)
           noteCard
-            .querySelector('.view-button')
-            .addEventListener('click', () => openNoteDetailModal(note))
-          return noteCard
+            .querySelector(".view-button")
+            .addEventListener("click", () => openNoteDetailModal(note));
+
+          const bookmarkBtn = noteCard.querySelector(".bookmark-btn");
+          bookmarkBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const starIcon = bookmarkBtn.querySelector("i");
+            starIcon.classList.toggle("far");
+            starIcon.classList.toggle("fas");
+            bookmarkBtn.classList.toggle("bookmarked");
+          });
+
+          return noteCard;
         }
 
         // Generate Download Filename
         function getDownloadFilename(note) {
-          return `${note.title.replace(/\s/g, '_')}.pdf`
+          return `${note.title.replace(/\s/g, "_")}.pdf`;
         }
 
         // Open Note Modal
         function openNoteDetailModal(note) {
-          modalElements.title.textContent = note.title
-          modalElements.branch.textContent = note.branch
-          modalElements.semester.textContent = note.semester
+          modalElements.title.textContent = note.title;
+          modalElements.branch.textContent = note.branch;
+          modalElements.semester.textContent = note.semester;
           modalElements.description.textContent =
-            note.description || 'No description available'
-          modalElements.uploader.textContent = note.uploader
+            note.description || "No description available";
+          modalElements.uploader.textContent = note.uploader;
           modalElements.uploadDate.textContent = note.uploadDate
             ? new Date(note.uploadDate).toLocaleDateString()
-            : 'Unknown date'
+            : "Unknown date";
 
           if (note.filePath) {
-            modalElements.downloadButton.href = note.filePath
+            modalElements.downloadButton.href = note.filePath;
             modalElements.downloadButton.setAttribute(
-              'download',
+              "download",
               getDownloadFilename(note)
-            )
-            modalElements.downloadButton.style.display = 'inline-flex'
+            );
+            modalElements.downloadButton.style.display = "inline-flex";
           } else {
-            modalElements.downloadButton.style.display = 'none'
+            modalElements.downloadButton.style.display = "none";
           }
 
-          noteDetailModal.style.display = 'flex'
-          document.body.style.overflow = 'hidden' // No Scrolling (Modal Open)
+          noteDetailModal.style.display = "flex";
+          document.body.style.overflow = "hidden"; // No Scrolling (Modal Open)
         }
 
         // Close Note Modal
         function closeNoteDetailModal() {
-          noteDetailModal.style.display = 'none'
-          document.body.style.overflow = 'auto' // Enable Scrolling (Modal Close)
+          noteDetailModal.style.display = "none";
+          document.body.style.overflow = "auto"; // Enable Scrolling (Modal Close)
         }
 
         // Show Error Message
         function showErrorMessage(message) {
-          const errorElement = document.createElement('p')
-          errorElement.className = 'error-message'
-          errorElement.textContent = message
-          notesGrid.appendChild(errorElement)
+          const errorElement = document.createElement("p");
+          errorElement.className = "error-message";
+          errorElement.textContent = message;
+          notesGrid.appendChild(errorElement);
         }
 
         // Filter Notes Based On All Active Filters
         function filterNotes() {
-          const searchQuery = searchInput.value.toLowerCase().trim()
-          const selectedBranch = branchFilter.value
-          const selectedSemester = semesterFilter.value
+          const searchQuery = searchInput.value.toLowerCase().trim();
+          const selectedBranch = branchFilter.value;
+          const selectedSemester = semesterFilter.value;
 
           const filteredNotes = allNotes.filter((note) => {
             // Text Search (Title & Uploader)
             const matchesSearch =
-              searchQuery === '' ||
+              searchQuery === "" ||
               note.title.toLowerCase().includes(searchQuery) ||
               (note.uploader &&
-                note.uploader.toLowerCase().includes(searchQuery))
+                note.uploader.toLowerCase().includes(searchQuery));
 
             // Branch Filter
             const matchesBranch =
-              selectedBranch === '' || note.branch === selectedBranch
+              selectedBranch === "" || note.branch === selectedBranch;
 
             // Semester Filter
             const matchesSemester =
-              selectedSemester === '' || note.semester === selectedSemester
+              selectedSemester === "" || note.semester === selectedSemester;
 
-            return matchesSearch && matchesBranch && matchesSemester
-          })
+            return matchesSearch && matchesBranch && matchesSemester;
+          });
 
-          displayNotes(filteredNotes)
+          displayNotes(filteredNotes);
         }
 
         // Reset All Filters
         function resetAllFilters() {
-          searchInput.value = ''
-          branchFilter.value = ''
-          semesterFilter.value = ''
-          filterNotes()
+          searchInput.value = "";
+          branchFilter.value = "";
+          semesterFilter.value = "";
+          filterNotes();
         }
 
         // Setup Event Listeners
         function setupEventListeners() {
           // Search Input
-          searchInput.addEventListener('input', filterNotes)
+          searchInput.addEventListener("input", filterNotes);
 
           // Filter Dropdown
-          branchFilter.addEventListener('change', filterNotes)
-          semesterFilter.addEventListener('change', filterNotes)
+          branchFilter.addEventListener("change", filterNotes);
+          semesterFilter.addEventListener("change", filterNotes);
 
           // Reset Filters Button
-          resetFiltersBtn.addEventListener('click', resetAllFilters)
+          resetFiltersBtn.addEventListener("click", resetAllFilters);
 
           // Modal Close Button
-          closeModalButton.addEventListener('click', closeNoteDetailModal)
+          closeModalButton.addEventListener("click", closeNoteDetailModal);
 
           // Close Modal When Clicking Outside Or Pressing Escape
-          window.addEventListener('click', (e) => {
-            if (e.target === noteDetailModal) closeNoteDetailModal()
-          })
+          window.addEventListener("click", (e) => {
+            if (e.target === noteDetailModal) closeNoteDetailModal();
+          });
 
-          window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeNoteDetailModal()
-          })
+          window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeNoteDetailModal();
+          });
         }
 
         // Initialize The Page
-        init()
-      })
+        init();
+      });
     </script>
   </body>
 </html>
