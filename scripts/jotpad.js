@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ? "#ffffff"
         : "#000000";
   }
+
     ctx.lineWidth = 2
     ctx.lineJoin = 'round'
     ctx.lineCap = 'round'
@@ -195,7 +196,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   togglePlaceholder()
 })
-
 const highlightToggleBtn = document.getElementById('highlightToggleBtn');
 const highlightPalette = document.getElementById('highlightPalette');
 // Highlight Colors Circular Palette
@@ -333,13 +333,29 @@ async function downloadPDF() {
   const doc = new jsPDF("p", "mm", "a4");
 
   const noteArea = document.getElementById("noteArea");
+  const drawingCanvas = document.getElementById("drawingCanvas");
 
-  const canvas = await html2canvas(noteArea, {
-    backgroundColor: "#ffffff", 
-    scale: 2                    
+  const noteCanvas = await html2canvas(noteArea, {
+    backgroundColor: "#ffffff",
+    scale: 2
   });
 
-  const imgData = canvas.toDataURL("image/png");
+  const combinedCanvas = document.createElement("canvas");
+  combinedCanvas.width = noteCanvas.width;
+  combinedCanvas.height = noteCanvas.height;
+  const ctx = combinedCanvas.getContext("2d");
+
+  ctx.drawImage(noteCanvas, 0, 0);
+
+  ctx.drawImage(
+    drawingCanvas,
+    0,
+    0,
+    combinedCanvas.width,
+    combinedCanvas.height
+  );
+
+  const imgData = combinedCanvas.toDataURL("image/png");
   const imgProps = doc.getImageProperties(imgData);
   const pdfWidth = doc.internal.pageSize.getWidth();
   const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
