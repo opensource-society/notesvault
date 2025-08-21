@@ -555,3 +555,7 @@
     transform: translateY(-0.42rem) rotate(-45deg);
   }
 }
+.mobile-nav {
+  top: 0rem;
+  width: 75%;
+}
