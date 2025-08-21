@@ -377,6 +377,23 @@
   transition: left 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
 
+.mobile-theme-toggle .toggle-thumb .icon-sun,
+.mobile-theme-toggle .toggle-thumb .icon-moon {
+  position: absolute;
+}
+
+.mobile-theme-toggle .toggle-thumb .icon-moon {
+  display: none;
+}
+
+[data-theme='dark'] .mobile-theme-toggle .toggle-thumb .icon-sun {
+  display: none;
+}
+
+[data-theme='dark'] .mobile-theme-toggle .toggle-thumb .icon-moon {
+  display: block;
+}
+
 [data-theme='dark'] .mobile-theme-toggle .toggle-thumb {
   left: 28px;
   background-color: var(--gray-900);
