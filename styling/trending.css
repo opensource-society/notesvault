@@ -1,0 +1,26 @@
+
+.trending {
+  padding: 4rem 2rem;
+  background: var(--background-light);
+  text-align: center;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.trending-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trending-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}

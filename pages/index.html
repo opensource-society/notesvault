@@ -28,11 +28,17 @@
     <link rel="stylesheet" href="../styling/home.css" />
     <link rel="stylesheet" href="../styling/base.css" />
     <link rel="stylesheet" href="../styling/variables.css" />
+    <link rel="stylesheet" href="../styling/trending.css"/>
   </head>
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <div id="header-placeholder">
+      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+    </div>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -137,6 +143,44 @@
           </div>
         </div>
       </section>
+      <!-- Trending Notes Section -->
+<section class="trending">
+  <div class="container">
+    <h2 class="section-title">Trending Notes</h2>
+    <p class="section-subtitle">Most viewed & searched subjects by students</p>
+
+    <div class="trending-grid">
+      <!-- Subject 1 -->
+      <div class="trending-card">
+        <h3>Data Structures</h3>
+        <p>Most downloaded notes this week</p>
+        <a href="notes.html?subject=DSA" class="btn btn-secondary">View Notes</a>
+      </div>
+
+      <!-- Subject 2 -->
+      <div class="trending-card">
+        <h3>Operating Systems</h3>
+        <p>Frequently asked in exams</p>
+        <a href="notes.html?subject=OS" class="btn btn-secondary">View Notes</a>
+      </div>
+
+      <!-- Subject 3 -->
+      <div class="trending-card">
+        <h3>DBMS</h3>
+        <p>Top-rated by students</p>
+        <a href="notes.html?subject=DBMS" class="btn btn-secondary">View Notes</a>
+      </div>
+
+      <!-- Subject 4 -->
+      <div class="trending-card">
+        <h3>Computer Networks</h3>
+        <p>Hot subject this semester</p>
+        <a href="notes.html?subject=CN" class="btn btn-secondary">View Notes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
     </main>
 
     <!-- Footer -->
