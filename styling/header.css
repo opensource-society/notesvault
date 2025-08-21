@@ -258,9 +258,9 @@
 /* Mobile Menu */
 .mobile-nav {
   position: fixed;
-  top: 0.75rem;
+  top: 0rem;
   right: -100%;
-  width: 85%;
+  width: 75%;
   max-width: 380px;
   height: auto;
   max-height: 90vh;
