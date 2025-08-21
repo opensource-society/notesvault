@@ -156,13 +156,16 @@
                     <!-- Contact Form -->
                     <form class="contact-form">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required />
+                            <label for="name">Name</label>
+                            <input type="text" id="name"  name="name" placeholder="Your Name" required />
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required />
+                            <label for="email">Email</label>
+                            <input type="email" id ="email" name ="email"placeholder="Your Email" required />
                         </div>
                         <div class="form-group">
-                            <textarea rows="5" placeholder="Your Message" required></textarea>
+                            <label for="message">Message</label>
+                            <textarea rows="5" id="message"name="message"placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
