@@ -261,7 +261,7 @@
   top: 0rem;
   right: -100%;
   width: 75%;
-  max-width: 380px;
+  max-width: 310px;
   height: auto;
   max-height: 90vh;
   background-color: var(--bg-primary);
@@ -554,8 +554,4 @@
   .menu-toggle.active span:nth-child(3) {
     transform: translateY(-0.42rem) rotate(-45deg);
   }
-}
-.mobile-nav {
-  top: 0rem;
-  width: 75%;
 }
