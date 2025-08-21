@@ -258,17 +258,17 @@
 /* Mobile Menu */
 .mobile-nav {
   position: fixed;
-  top: 0;
+  top: 0.75rem;
   right: -100%;
   width: 85%;
   max-width: 380px;
   height: auto;
   max-height: 90vh;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-left: 1px solid var(--glass-border);
+  background-color: var(--bg-primary);
+  box-shadow: -8px 12px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
   z-index: 1000;
   transition: right 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   padding: 5rem 1.5rem 1.5rem;
@@ -280,11 +280,9 @@
 
 /* Dark theme translucency */
 [data-theme='dark'] .mobile-nav {
-  background-color: rgba(17, 24, 39, 0.1);
-  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-left: 1px solid var(--glass-border);
+  background-color: var(--bg-primary);
+  box-shadow: -8px 12px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-color);
 }
 
 .mobile-nav.active {
@@ -344,13 +342,45 @@
 }
 
 .mobile-theme-toggle {
-  width: 100%;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  position: relative;
+  width: 56px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  align-self: center;
+  cursor: pointer;
+}
+
+.mobile-theme-toggle .toggle-track {
+  position: absolute;
+  inset: 0;
   background-color: var(--bg-secondary);
-  font-weight: 500;
-  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.mobile-theme-toggle .toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  background-color: var(--white);
+  color: var(--gray-600);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: left 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+[data-theme='dark'] .mobile-theme-toggle .toggle-thumb {
+  left: 28px;
+  background-color: var(--gray-900);
+  color: var(--gray-300);
 }
 
 .mobile-auth-buttons {
@@ -367,17 +397,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.5) 30%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
+  background: rgba(0, 0, 0, 0.5);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.4s ease;
-  backdrop-filter: blur(2px);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .overlay.active {
@@ -405,12 +429,9 @@
     padding: 0 1.5rem;
   }
 
-  /* Keep theme toggle visible and align it next to hamburger */
-  .navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-left: auto;
+  /* Hide desktop theme toggle on mobile; use mobile menu button instead */
+  .navbar-actions .theme-toggle {
+    display: none;
   }
 
   /* Shorter hamburger bar length on mobile/tablet */
@@ -444,6 +465,14 @@
 
   .menu-toggle.active span:nth-child(3) {
     transform: translateY(-0.42rem) rotate(-45deg);
+  }
+
+  /* Position the X button slightly down inside the menu panel */
+  .menu-toggle.active {
+    position: fixed;
+    top: 1.25rem;
+    right: 1rem;
+    z-index: 1002;
   }
 }
 
