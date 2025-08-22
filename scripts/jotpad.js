@@ -196,14 +196,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
   togglePlaceholder()
 })
+
 const highlightToggleBtn = document.getElementById('highlightToggleBtn');
 const highlightPalette = document.getElementById('highlightPalette');
+
 // Highlight Colors Circular Palette
 const highlightColors = ['yellow', 'lightgreen', 'lightblue', 'pink', 'orange'];
 let selectedColor = highlightColors[0];
 let highlightEnabled = false;
 
-// Create color swatches
+// --- Helper Functions ---
+function insertNodeAtRange(node, range) {
+  const container = range.startContainer;
+  if (container.nodeType === 3) {
+    container.parentNode.insertBefore(node, container.nextSibling);
+  } else {
+    range.insertNode(node);
+  }
+}
+
+function setCaretAfterNode(node) {
+  const selection = window.getSelection();
+  const range = document.createRange();
+  range.setStartAfter(node);
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
+}
+
+function splitSpanAtCaret() {
+  const selection = window.getSelection();
+  if (!selection.rangeCount) return;
+
+  const range = selection.getRangeAt(0);
+  const container = range.startContainer;
+  const offset = range.startOffset;
+
+  let parentSpan = container.nodeType === 3 ? container.parentNode : container.closest('span');
+  if (!parentSpan || parentSpan.tagName !== 'SPAN') return;
+
+  const text = container.textContent;
+
+  // Caret at start → move before span
+  if (offset === 0) {
+    const newRange = document.createRange();
+    newRange.setStartBefore(parentSpan);
+    newRange.collapse(true);
+    selection.removeAllRanges();
+    selection.addRange(newRange);
+    return;
+  }
+
+  // Caret at end → move after span
+  if (offset >= text.length) {
+    const newRange = document.createRange();
+    newRange.setStartAfter(parentSpan);
+    newRange.collapse(true);
+    selection.removeAllRanges();
+    selection.addRange(newRange);
+    return;
+  }
+
+  // Mid-span → split into two spans
+  const spanStyle = parentSpan.style.cssText;
+
+  const beforeSpan = document.createElement('span');
+  beforeSpan.style.cssText = spanStyle;
+  beforeSpan.textContent = text.slice(0, offset);
+
+  const afterSpan = document.createElement('span');
+  afterSpan.style.cssText = spanStyle;
+  afterSpan.textContent = text.slice(offset);
+
+  parentSpan.parentNode.insertBefore(beforeSpan, parentSpan);
+  parentSpan.parentNode.insertBefore(afterSpan, parentSpan.nextSibling);
+  parentSpan.remove();
+
+  setCaretAfterNode(beforeSpan.nextSibling); // move caret to after split
+}
+
+// --- Create color swatches ---
 highlightColors.forEach((color, i) => {
   const swatch = document.createElement('div');
   swatch.className = 'color-swatch';
@@ -211,121 +283,133 @@ highlightColors.forEach((color, i) => {
   if (i === 0) swatch.classList.add('active-selected');
   highlightPalette.appendChild(swatch);
 
-  // Swatch click: select color
   swatch.addEventListener('click', () => {
     selectedColor = color;
-    highlightPalette.querySelectorAll('.color-swatch')
-      .forEach(s => s.classList.remove('active-selected'));
+    highlightPalette.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active-selected'));
     swatch.classList.add('active-selected');
   });
 });
 
-// Highlight toggle button click
+// --- Toggle button click ---
 highlightToggleBtn.addEventListener('click', (e) => {
-   e.stopPropagation(); 
-  const swatches = highlightPalette.querySelectorAll('.color-swatch');
-  const btnRect = highlightToggleBtn.getBoundingClientRect();
-
+  e.stopPropagation();
   highlightEnabled = !highlightEnabled;
   highlightToggleBtn.classList.toggle('active', highlightEnabled);
-  const selection = window.getSelection();
-  
-  if (!highlightEnabled && !selection.isCollapsed) {
-   applyHighlight();
-  }
+
+  const swatches = highlightPalette.querySelectorAll('.color-swatch');
+
   if (highlightEnabled) {
-    // Open palette
     highlightPalette.classList.add('active');
     highlightPalette.style.display = 'flex';
-    
+    const btnRect = highlightToggleBtn.getBoundingClientRect();
     const centerX = btnRect.left + btnRect.width / 2 + window.scrollX;
     const centerY = btnRect.top + btnRect.height / 2 + window.scrollY;
     highlightPalette.style.left = `${centerX - 60}px`;
     highlightPalette.style.top = `${centerY - 60}px`;
 
-    // Semicircle layout
     const radius = 50;
     const arcStart = Math.PI;
     const arcEnd = 2 * Math.PI;
     const angleStep = (arcEnd - arcStart) / (swatches.length - 1);
-
     swatches.forEach((swatch, i) => {
       const angle = arcStart + i * angleStep;
       const x = 60 + radius * Math.cos(angle) - 14;
       const y = 60 + radius * Math.sin(angle) - 14;
+      swatch.style.transition = 'all 0.3s ease';
       setTimeout(() => {
         swatch.style.left = `${x}px`;
         swatch.style.top = `${y}px`;
         swatch.style.transform = 'scale(1)';
       }, i * 50);
     });
-
   } else {
-    // Close palette
-    highlightPalette.classList.remove('active');
-    highlightEnabled = false;
-
     swatches.forEach((swatch, i) => {
-      const angle = 0; 
+      swatch.style.transition = 'all 0.2s ease';
       setTimeout(() => {
         swatch.style.left = '60px';
         swatch.style.top = '60px';
-        swatch.style.transform = 'scale(0)'; 
-      }, i * 50);
+        swatch.style.transform = 'scale(0)';
+      }, i * 30);
     });
 
     setTimeout(() => {
-       highlightPalette.classList.remove('active');
       highlightPalette.style.display = 'none';
-      highlightPalette.style.pointerEvents = 'none';
-    }, swatches.length * 50 + 200);
+      highlightPalette.classList.remove('active');
+    }, swatches.length * 30 + 150);
   }
 });
 
+// --- Apply highlight to selection ---
 function applyHighlight(color) {
   const selection = window.getSelection();
   if (selection.isCollapsed) return;
 
   const range = selection.getRangeAt(0);
-  const fragment = document.createDocumentFragment();
-
-  // Get all nodes in the selection
-  const contents = range.cloneContents();
-  const nodes = Array.from(contents.childNodes);
-
-  nodes.forEach(node => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      // Plain text -> highlight
-      if (highlightEnabled) {
-        const span = document.createElement('span');
-        span.style.backgroundColor = color;
-        span.textContent = node.textContent;
-        fragment.appendChild(span);
-      } else {
-        fragment.appendChild(document.createTextNode(node.textContent));
-      }
-    } else if (node.nodeType === Node.ELEMENT_NODE) {
-      if (node.tagName === 'SPAN' && node.style.backgroundColor) {
-        // Already highlighted -> remove highlight
-        fragment.appendChild(document.createTextNode(node.textContent));
-      } else {
-        // Keep other elements as-is
-        fragment.appendChild(node.cloneNode(true));
-      }
-    }
-  });
-
+  const span = document.createElement('span');
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  span.style.color = isDarkMode ? 'white' : 'black';
+  span.style.backgroundColor = color;
+  span.textContent = range.toString();
   range.deleteContents();
-  range.insertNode(fragment);
-  selection.removeAllRanges();
+  range.insertNode(span);
+
+  setCaretAfterNode(span);
   saveNoteContent();
 }
-// Mouseup listener
-noteArea.addEventListener('mouseup', () => {
-  const selection = window.getSelection();
-  if (selection.isCollapsed) return;
 
-  applyHighlight(selectedColor);
+// --- Mouseup listener ---
+noteArea.addEventListener('mouseup', () => {
+  if (!highlightEnabled) return;
+  const selection = window.getSelection();
+  if (!selection.isCollapsed) applyHighlight(selectedColor);
+});
+
+// --- Handle typing and input ---
+noteArea.addEventListener('beforeinput', (e) => {
+  const selection = window.getSelection();
+  if (!selection.rangeCount) return;
+
+  // Remove placeholder if present
+  if (noteArea.classList.contains('empty')) {
+    noteArea.innerHTML = '';
+    noteArea.classList.remove('empty');
+  }
+
+  const range = selection.getRangeAt(0);
+
+  // Handle Enter
+  if (e.inputType === "insertParagraph") {
+    e.preventDefault();
+    const br = document.createElement('br');
+    insertNodeAtRange(br, range);
+    setCaretAfterNode(br);
+    saveNoteContent();
+    return;
+  }
+
+  // Only handle text insertion
+  if (e.inputType !== "insertText") return;
+  e.preventDefault();
+  const text = e.data;
+
+  splitSpanAtCaret();
+
+  const rangeAfterSplit = selection.getRangeAt(0);
+  if (highlightEnabled) {
+    const span = document.createElement('span');
+    span.style.backgroundColor = selectedColor;
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    span.style.color = isDarkMode ? 'white' : 'black';
+    span.textContent = text;
+    insertNodeAtRange(span, rangeAfterSplit);
+    setCaretAfterNode(span);
+  } else {
+    const textNode = document.createTextNode(text);
+    insertNodeAtRange(textNode, rangeAfterSplit);
+    setCaretAfterNode(textNode);
+  }
+
+  saveNoteContent();
 });
 
 async function downloadPDF() {
