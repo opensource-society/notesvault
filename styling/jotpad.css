@@ -1,3 +1,4 @@
+
 /* JotPad (CSS) */
 
 /* Hero Section */
@@ -83,6 +84,7 @@
 .note-box.empty::before {
   content: 'Start typing here...';
   color: var(--text-secondary);
+  pointer-events: none;
 }
 
 .note-meta {
@@ -136,6 +138,10 @@
 
 .note-meta input::placeholder {
   color: var(--text-secondary);
+}
+
+#noteArea{
+   white-space: pre-wrap;
 }
 
 #drawingCanvas {
