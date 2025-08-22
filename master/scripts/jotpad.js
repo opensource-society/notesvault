@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
   let lastX = 0
   let lastY = 0
 
+  // Drawing tool variables
+  let currentTool = 'pen'
+  let brushSize = 2
+
   // Canvas Size
   function resizeCanvas() {
     const noteBox = document.querySelector('.note-box')
@@ -48,18 +52,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const theme = document.documentElement.getAttribute('data-theme')
 
-    // Use selectedColor from highlight palette if chosen, otherwise fallback
-    if (highlightEnabled) {
-    ctx.strokeStyle = selectedColor;
-  } else {
-    // Default based on theme
-    ctx.strokeStyle =
-      document.documentElement.getAttribute("data-theme") === "dark"
-        ? "#ffffff"
-        : "#000000";
-  }
+    // Set drawing properties based on current tool
+    if (currentTool === 'eraser') {
+      ctx.globalCompositeOperation = 'destination-out'
+      ctx.lineWidth = brushSize * 3 // Make eraser bigger
+    } else {
+      ctx.globalCompositeOperation = 'source-over'
+      ctx.strokeStyle = theme === 'dark' ? '#ffffff' : '#000000'
+      ctx.lineWidth = brushSize
+    }
 
-    ctx.lineWidth = 2
     ctx.lineJoin = 'round'
     ctx.lineCap = 'round'
 
@@ -91,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     canvas.style.pointerEvents = 'none'
     saveDrawingBtn.style.display = 'none'
     clearDrawingBtn.style.display = 'none'
+    document.getElementById('drawingTools').style.display = 'none'
     noteArea.focus()
   }
 
@@ -101,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     canvas.style.pointerEvents = 'auto'
     saveDrawingBtn.style.display = 'inline-block'
     clearDrawingBtn.style.display = 'inline-block'
+    document.getElementById('drawingTools').style.display = 'flex'
   }
 
   textModeBtn.addEventListener('click', activateTextMode)
@@ -171,6 +175,31 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.removeItem('canvasData')
     saveNoteContent()
   })
+
+  // Drawing Tools Functions
+  function setTool(tool) {
+    currentTool = tool
+    
+    // Update button states
+    document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'))
+    document.getElementById(tool + 'Tool').classList.add('active')
+    
+    // Set cursor style based on tool
+    if (tool === 'eraser') {
+      canvas.style.cursor = 'crosshair'
+    } else {
+      canvas.style.cursor = 'default'
+    }
+  }
+
+  function setBrushSize(size) {
+    brushSize = parseInt(size)
+  }
+
+  // Drawing Tools Event Listeners
+  document.getElementById('penTool').addEventListener('click', () => setTool('pen'))
+  document.getElementById('eraserTool').addEventListener('click', () => setTool('eraser'))
+  document.getElementById('brushSize').addEventListener('input', (e) => setBrushSize(e.target.value))
 
   // Handle Note Content
   function togglePlaceholder() {
