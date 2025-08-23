@@ -2,9 +2,9 @@
 
 .login-page {
   background: linear-gradient(
-    to bottom,
-    var(--bg-primary),
-    var(--bg-secondary)
+    135deg,
+    var(--primary-100) 0%,
+    var(--bg-primary) 100%
   );
   min-height: 100vh;
   display: flex;
@@ -40,7 +40,7 @@
 }
 
 .floating-back-btn:hover {
-  background: var(--primary-100);
+  background: var(--primary-50);
   transform: translateX(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
@@ -56,7 +56,7 @@
 
 /* Login Card */
 .login-card {
-  background: var(--card-bg);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: 16px;
@@ -127,7 +127,7 @@
   padding: 1.25rem 1rem 0.75rem;
   border: none;
   border-radius: 8px;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   color: var(--text-primary);
   font-size: 1rem;
   transition: var(--transition-base);
