@@ -292,7 +292,7 @@
 
 @media (max-width: 600px) {
   .filters-container {
-    align-items: center;
+    align-items: left;
   }
 
   .modal-content {
