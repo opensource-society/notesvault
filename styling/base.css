@@ -74,8 +74,8 @@ a:hover {
 
 .btn-primary:hover {
   background-color: var(--primary-600);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 140, 45, 0.2);
+  color: var(--white) !important; 
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -87,6 +87,8 @@ a:hover {
 
 .btn-secondary:hover {
   border-color: var(--gray-300);
+  color: inherit;
+  transform: translateY(-2px);
 }
 
 /* Utility Classes */
