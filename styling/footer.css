@@ -291,6 +291,13 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+
+[data-theme='dark'] .social-link:hover {
+  background-color: var(--primary-500);/*green clr*/
+  color: white;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .footer-container {
@@ -316,4 +323,11 @@
   .divider {
     display: none;
   }
+}
+.footer-link[href*="contact"] {
+  font-weight: 500;
+  color: var(--primary-500);
+}
+.footer-link[href*="contact"]:hover {
+  text-decoration: underline;
 }
