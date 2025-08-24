@@ -324,3 +324,10 @@
     display: none;
   }
 }
+.footer-link[href*="contact"] {
+  font-weight: 500;
+  color: var(--primary-500);
+}
+.footer-link[href*="contact"]:hover {
+  text-decoration: underline;
+}
