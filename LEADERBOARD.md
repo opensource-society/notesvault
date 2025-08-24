@@ -2,7 +2,13 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
+add-contact-us-footer
 *Last updated: 2025-08-23*
+
+
+
+*Last updated: 2025-08-22*
+master
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -70,6 +76,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
+
 
 ---
 
