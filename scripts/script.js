@@ -263,6 +263,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Back To Top Button
     DOM.backToTop = document.querySelector('.back-to-top')
     setupBackToTop()
+
+    // Number Animation for About Page
+    if (document.querySelector('.about-page')) {
+      const stats = document.querySelectorAll('.stat-number[data-count]');
+
+      stats.forEach(stat => {
+        const target = parseInt(stat.dataset.count);
+        let current = 0;
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 10);
+
+        const updateCount = () => {
+          current += increment;
+          if (current < target) {
+            stat.textContent = Math.ceil(current) + '+';
+            requestAnimationFrame(updateCount);
+          } else {
+            stat.textContent = target + '+';
+          }
+        };
+        updateCount();
+      });
+    }
   }
 
   init()
