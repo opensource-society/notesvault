@@ -439,7 +439,6 @@
   box-shadow: 0 8px 25px rgba(0, 140, 45, 0.15);
 }
 
-/* Container for icon and text - horizontal layout */
 .add-note-content {
   display: flex !important;
   align-items: center !important;
@@ -447,11 +446,10 @@
   gap: 1rem !important;
 }
 
-/* Green circle for + icon - FORCED STYLING */
 .add-note-icon {
   width: 3.5rem !important;
   height: 3.5rem !important;
-  background-color: #008c2c !important; /* Force green color */
+  background-color: #008c2c !important; 
   border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
@@ -465,10 +463,8 @@
   font-size: 1.5rem !important;
   color: white !important;
   font-weight: bold !important;
-  /* Remove absolute positioning - let flexbox handle centering */
 }
 
-/* "Add New Notes" text styling */
 .add-note-content span {
   font-size: 1.375rem !important;
   font-weight: 700 !important;
