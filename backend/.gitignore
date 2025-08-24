@@ -1,0 +1,16 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+.env
+
+# Flask-related
+instance/
+*.db
+
+# OS junk
+.DS_Store
+Thumbs.db
