@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Streak Counter Test</title>
+    <link rel="stylesheet" href="styling/streakCounter.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .streak-display {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔥 Study Streak Counter Test Page</h1>
+        
+        <div class="info-box">
+            <h3>How the Study Streak Counter Works:</h3>
+            <ul>
+                <li><strong>Same Day Activity:</strong> Streak remains unchanged</li>
+                <li><strong>Next Calendar Day:</strong> Streak increments by 1</li>
+                <li><strong>More than 1 Day Gap:</strong> Streak resets to 1</li>
+                <li>Data is stored in localStorage with keys: "streakCount" and "lastActivityDate"</li>
+            </ul>
+        </div>
+
+        <!-- [StudyStreak] Streak Counter Display -->
+        <div class="test-section">
+            <h3>Current Streak Display:</h3>
+            <div class="streak-counter" id="test-streak-counter">
+                <span class="streak-icon">🔥</span>
+                <span class="streak-text">Study Streak: 0 days</span>
+            </div>
+        </div>
+
+        <!-- [StudyStreak] Test Controls -->
+        <div class="test-section">
+            <h3>Test Controls:</h3>
+            <button class="test-button" onclick="simulateNoteView()">Simulate Note View</button>
+            <button class="test-button" onclick="simulateNoteUpload()">Simulate Note Upload</button>
+            <button class="test-button" onclick="resetStreak()">Reset Streak</button>
+            <button class="test-button" onclick="showStreakData()">Show Streak Data</button>
+        </div>
+
+        <!-- [StudyStreak] Streak Information -->
+        <div class="test-section">
+            <h3>Streak Information:</h3>
+            <div id="streak-info" class="streak-display">
+                Click "Show Streak Data" to see current streak information
+            </div>
+        </div>
+
+        <!-- [StudyStreak] Local Storage Info -->
+        <div class="test-section">
+            <h3>Local Storage Data:</h3>
+            <div id="localstorage-info" class="streak-display">
+                Click "Show Streak Data" to see localStorage contents
+            </div>
+        </div>
+    </div>
+
+    <!-- [StudyStreak] Load Streak Counter Scripts -->
+    <script src="scripts/streakCounter.js"></script>
+    <script src="scripts/streakIntegration.js"></script>
+
+    <script>
+        // [StudyStreak] Test functions for demonstrating streak functionality
+        
+        // [StudyStreak] Simulate note viewing activity
+        function simulateNoteView() {
+            if (window.streakIntegration) {
+                const newStreak = window.streakIntegration.triggerStreakUpdate()
+                updateTestDisplay()
+                console.log(`[StudyStreak] Note view simulated. New streak: ${newStreak} days`)
+            } else {
+                console.error('[StudyStreak] Streak integration not available')
+            }
+        }
+
+        // [StudyStreak] Simulate note uploading activity
+        function simulateNoteUpload() {
+            if (window.streakIntegration) {
+                const newStreak = window.streakIntegration.triggerStreakUpdate()
+                updateTestDisplay()
+                console.log(`[StudyStreak] Note upload simulated. New streak: ${newStreak} days`)
+            } else {
+                console.error('[StudyStreak] Streak integration not available')
+            }
+        }
+
+        // [StudyStreak] Reset streak to 0
+        function resetStreak() {
+            if (window.streakIntegration) {
+                const newStreak = window.streakIntegration.resetStreak()
+                updateTestDisplay()
+                console.log(`[StudyStreak] Streak reset. New streak: ${newStreak} days`)
+            } else {
+                console.error('[StudyStreak] Streak integration not available')
+            }
+        }
+
+        // [StudyStreak] Show current streak data
+        function showStreakData() {
+            updateTestDisplay()
+        }
+
+        // [StudyStreak] Update test page display
+        function updateTestDisplay() {
+            if (!window.streakIntegration) return
+
+            const currentStreak = window.streakIntegration.getCurrentStreak()
+            const streakCounter = document.getElementById('test-streak-counter')
+            
+            // [StudyStreak] Update test streak counter display
+            if (streakCounter) {
+                const textElement = streakCounter.querySelector('.streak-text')
+                if (textElement) {
+                    textElement.textContent = `Study Streak: ${currentStreak} days`
+                }
+            }
+
+            // [StudyStreak] Update streak info
+            const streakInfo = document.getElementById('streak-info')
+            if (streakInfo) {
+                streakInfo.innerHTML = `
+                    <strong>Current Streak:</strong> ${currentStreak} days<br>
+                    <strong>Last Activity:</strong> ${localStorage.getItem('lastActivityDate') || 'None'}<br>
+                    <strong>Current Date:</strong> ${new Date().toISOString().split('T')[0]}
+                `
+            }
+
+            // [StudyStreak] Update localStorage info
+            const localStorageInfo = document.getElementById('localstorage-info')
+            if (localStorageInfo) {
+                localStorageInfo.innerHTML = `
+                    <strong>streakCount:</strong> ${localStorage.getItem('streakCount') || 'Not set'}<br>
+                    <strong>lastActivityDate:</strong> ${localStorage.getItem('lastActivityDate') || 'Not set'}<br>
+                    <strong>All localStorage keys:</strong> ${Object.keys(localStorage).join(', ')}
+                `
+            }
+        }
+
+        // [StudyStreak] Initialize test page when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // [StudyStreak] Wait for streak integration to initialize
+            setTimeout(() => {
+                if (window.streakIntegration) {
+                    window.streakIntegration.init()
+                    updateTestDisplay()
+                    console.log('[StudyStreak] Test page initialized successfully')
+                } else {
+                    console.error('[StudyStreak] Failed to initialize streak integration')
+                }
+            }, 500)
+        })
+    </script>
+</body>
+</html>
