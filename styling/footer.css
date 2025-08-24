@@ -210,6 +210,7 @@
 .footer-link {
   color: var(--footer-text);
   text-decoration: none;
+
   transition: color 0.18s ease;
   padding: 0.14rem 0;
   display: inline-flex;
@@ -230,6 +231,32 @@
 
 .footer-link:hover {
   color: var(--primary-color);
+
+  display: inline-block;
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-500);
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-500);
+  transform: translateX(2px);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+
 }
 
 .footer-link:hover::before {
@@ -249,6 +276,7 @@
 .footer-community .oss-badge {
   display: inline-flex;
   align-items: center;
+
   gap: 0.6rem;
   background: var(--primary-color);
   padding: 0.65rem 1.2rem;
@@ -265,6 +293,22 @@
   transform: translateY(-4px) scale(1.02);
   background: linear-gradient(90deg, #2f8a2f 0%, #246b24 100%);
   box-shadow: 0 18px 40px rgba(43, 122, 43, 0.14), 0 2px 8px rgba(0,0,0,0.06) inset;
+
+  gap: 0.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 140, 45, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.oss-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 15px rgba(0, 140, 45, 0.15);
+
 }
 
 .community-text {
@@ -286,6 +330,7 @@
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 50%;
+
   background: rgba(43,122,43,0.08);
   color: var(--primary-color);
   font-size: 1rem;
@@ -324,6 +369,19 @@
 .footer-community .social-link:hover::after {
   transform: translate(-50%, -50%) scale(1.6);
   opacity: 1;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid rgba(0, 140, 45, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.social-link:hover {
+  background-color: var(--primary-500);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 140, 45, 0.15);
+
 }
 
 .footer-bottom {
