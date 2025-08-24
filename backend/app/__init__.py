@@ -8,4 +8,4 @@ def create_app():
     # register blueprints
     app.register_blueprint(main)
 
-    return app
+    return app 

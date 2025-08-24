@@ -11,6 +11,6 @@ venv/
 instance/
 *.db
 
-# OS junk
+# OS junk 
 .DS_Store
 Thumbs.db

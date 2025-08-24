@@ -4,4 +4,4 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def home():
-    return jsonify({"message": "Flask backend is running!"})
+    return jsonify({"message": "Flask backend is running!"}) 
