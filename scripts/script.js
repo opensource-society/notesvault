@@ -267,3 +267,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   init()
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+  const statsSection = document.querySelector('.about-hero');
+  const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+  let animationStarted = false;
+
+  const startCountingAnimation = () => {
+    statNumbers.forEach(statNumber => {
+      const target = parseInt(statNumber.dataset.count);
+      let current = 0;
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 10);
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          statNumber.textContent = Math.ceil(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          statNumber.textContent = `${target}+`;
+        }
+      };
+
+      updateCounter();
+    });
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animationStarted) {
+        startCountingAnimation();
+        animationStarted = true;
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.5 // Trigger when 50% of the section is visible
+  });
+
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+});
