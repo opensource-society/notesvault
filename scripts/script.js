@@ -159,13 +159,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle')
     const mobileNav = document.querySelector('.mobile-nav')
     const overlay = document.querySelector('.overlay')
+    const backToTop  = document.querySelector('.back-to-top');
 
     menuToggle?.classList.toggle('active')
     mobileNav?.classList.toggle('active')
     overlay?.classList.toggle('active')
-    document.body.style.overflow = mobileNav?.classList.contains('active')
-      ? 'hidden'
-      : ''
+
+    const isOpen = mobileNav?.classList.contains('active');      // ✅ define it
+    document.body.style.overflow = isOpen ? 'hidden' : '';       // lock/unlock scroll
+    document.body.classList.toggle('drawer-open', isOpen);       // ✅ add/remove class
+
+    // hide the back-to-top while drawer is open
+    if (backToTop && isOpen) backToTop.classList.remove('visible');
+    
   }
 
   const setupMobileMenu = () => {
@@ -184,7 +190,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const setupBackToTop = () => {
     if (!DOM.backToTop) return
     window.addEventListener('scroll', () => {
-      DOM.backToTop.classList.toggle('visible', window.scrollY > 300)
+      const footer = document.querySelector('footer')
+      const backToTop = document.querySelector('.back-to-top')
+
+      if (!footer || !backToTop) return
+
+      const footerRect = footer.getBoundingClientRect()
+      const isFooterVisible = footerRect.top < window.innerHeight
+
+      // Show/hide button based on scroll position AND footer visibility
+      if (window.scrollY > 300 && !isFooterVisible) {
+        backToTop.classList.add('visible')
+      } else {
+        backToTop.classList.remove('visible')
+      }
     })
 
     DOM.backToTop.addEventListener('click', () => {
