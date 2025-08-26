@@ -88,6 +88,39 @@ We welcome all kinds of contributions, especially from beginners! Since the proj
 See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
 
 ---
+## 🚀 Live Demo
+
+You can try the project live here: [NotesVault Live](https://<Ashraf912005>.github.io/notesvault/)
+
+---
+## 🖼️ Screenshots
+
+Here are some preview screenshots of the application:
+
+![Home Page](assets/screenshots/home.png)
+![Notes Page](assets/screenshots/notes.png)
+---
+## 📦 Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript  
+- **Backend (optional future scope)**: Node.js / Express  
+- **Database (future scope)**: MongoDB / Firebase  
+- **Other Tools**: Git, GitHub Pages, JSON
+---
+## 📌 Roadmap
+
+- [ ] Add backend integration for resource uploads  
+- [ ] Implement full authentication system with JWT  
+- [ ] Support for video lectures  
+- [ ] Create mobile app version  
+- [ ] AI-based smart search for resources
+---
+## 🙌 Acknowledgements
+
+- Inspired by [RGPV Online](https://www.rgpvonline.com/)  
+- Thanks to all contributors and open-source community  
+- Icons and assets from [Flaticon](https://www.flaticon.com/) & [Unsplash](https://unsplash.com/)  
+---
 
 ## 📄 License
 
