@@ -11,6 +11,27 @@ jobs:
     if: github.event_name == 'issues'
     runs-on: ubuntu-latest
     steps:
+      - name: Ensure 'gssoc2025' label exists
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const labelName = 'gssoc2025';
+            const labels = await github.rest.issues.listLabelsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            const exists = labels.data.some(label => label.name === labelName);
+            if (!exists) {
+              await github.rest.issues.createLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: labelName,
+                color: '0e8a16', // green
+                description: 'GSSoC 2025 contribution'
+              });
+            }
+
       - name: Add 'gssoc2025' label
         uses: actions-ecosystem/action-add-labels@v1
         with:
@@ -33,10 +54,10 @@ jobs:
 
             **Contributor Guidelines**
             1. Make sure your issue is clear and descriptive.
-            2. If you are reporting a bug, please include steps to reproduce it.
-            3. If suggesting a feature, explain why it would be beneficial.
-            4. Be respectful and constructive in your comments.
-            5. Review our [Contributing Guide](https://github.com/opensource-society/notesvault/blob/main/CONTRIBUTING.md) for more details.
+            2. If reporting a bug, include steps to reproduce it.
+            3. If suggesting a feature, explain why it’s useful.
+            4. Be respectful and constructive.
+            5. Read our [Contributing Guide](https://github.com/opensource-society/notesvault/blob/main/CONTRIBUTING.md)
 
             Good luck contributing to NotesVault! 🚀
             `;
@@ -57,15 +78,15 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const guidelines = `
-            👋 Hi @${{ github.event.pull_request.user.login }}! Thanks for opening this pull request.
+            👋 Hi @${{ github.event.pull_request.user.login }}! Thanks for your pull request.
 
             **Contributor Guidelines**
-            1. Please make sure your PR description is clear and links to related issues if applicable.
-            2. Ensure your code follows our style guide and passes all tests.
-            3. Be respectful and constructive in your comments and reviews.
-            4. Review our [Contributing Guide](https://github.com/opensource-society/notesvault/blob/main/CONTRIBUTING.md) for more details.
+            1. Link to related issues if any.
+            2. Follow the code style and test requirements.
+            3. Be respectful and constructive.
+            4. Read our [Contributing Guide](https://github.com/opensource-society/notesvault/blob/main/CONTRIBUTING.md)
 
-            Good luck contributing to NotesVault! 🚀
+            All the best! 🚀
             `;
             await github.rest.issues.createComment({
               issue_number: context.payload.pull_request.number,
