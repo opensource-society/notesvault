@@ -157,7 +157,12 @@
 
 .mv-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 10px 25px green;
+  background-color: black;
+  color: white;
+}
+.mv-card:hover p{
+  color: white;
 }
 
 .mv-icon {
@@ -238,7 +243,7 @@
   color: white;
 
 }
-.solution-card p:hover{
+.solution-card:hover p{
   color: rgba(240, 248, 255, 0.904);
 }
 
