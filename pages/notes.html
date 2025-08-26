@@ -146,7 +146,12 @@
         async function fetchNotes() {
           loadingMessage.style.display = 'block'
           noNotesMessage.style.display = 'none'
-          notesGrid.innerHTML = ''
+          
+          // Clear existing content except messages
+          const noteCards = notesGrid.querySelectorAll('.note-card')
+          const errorMessages = notesGrid.querySelectorAll('.error-message')
+          noteCards.forEach(card => card.remove())
+          errorMessages.forEach(error => error.remove())
 
           try {
             const response = await fetch('../data/notes.json')
@@ -201,7 +206,11 @@
 
         // Display Notes (Grid Layout)
         function displayNotes(notes) {
-          notesGrid.innerHTML = ''
+          // Clear only note cards and error messages, keep the loading and no-notes messages
+          const noteCards = notesGrid.querySelectorAll('.note-card')
+          const errorMessages = notesGrid.querySelectorAll('.error-message')
+          noteCards.forEach(card => card.remove())
+          errorMessages.forEach(error => error.remove())
 
           if (notes.length === 0) {
             noNotesMessage.style.display = 'block'
@@ -301,8 +310,7 @@
             const matchesSearch =
               searchQuery === '' ||
               note.title.toLowerCase().includes(searchQuery) ||
-              (note.uploader &&
-                note.uploader.toLowerCase().includes(searchQuery))
+              (note.uploader && note.uploader.toLowerCase().includes(searchQuery))
 
             // Branch Filter
             const matchesBranch =
