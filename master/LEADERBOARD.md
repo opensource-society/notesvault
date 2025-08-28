@@ -2,9 +2,8 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-add-contact-us-footer
-*Last updated: 2025-08-23*
 
+*Last updated: 2025-08-24*
 
 
 *Last updated: 2025-08-22*
