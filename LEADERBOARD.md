@@ -34,6 +34,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
 | [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 1 |
 | [@Disha19-09](https://github.com/Disha19-09) | 0 | 0 | 1 | 1 |
+| [@Snehadas2005](https://github.com/Snehadas2005) | 0 | 1 | 0 | 1 |
 | [@utkarshwrks](https://github.com/utkarshwrks) | 1 | 0 | 0 | 1 |
 | [@Kalika-Jay](https://github.com/Kalika-Jay) | 0 | 0 | 1 | 1 |
 | [@vanshika-ramchandani](https://github.com/vanshika-ramchandani) | 1 | 0 | 0 | 1 |
