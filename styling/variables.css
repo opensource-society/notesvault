@@ -1,22 +1,22 @@
 /* Color Palette - NoteVault */
 
 :root {
-  /* Primary Colors */
-  --primary-50: #e6f4ea;
-  --primary-100: #cce8d5;
-  --primary-200: #99d1ab;
-  --primary-300: #66ba81;
-  --primary-400: #33a357;
-  --primary-500: #008c2d; /* Base Primary */
-  --primary-600: #007025;
-  --primary-700: #00541d;
-  --primary-800: #003814;
-  --primary-900: #001c0a;
+  /* Primary Colors (Purple) */
+  --primary-50: #f5f3ff;
+  --primary-100: #ede9fe;
+  --primary-200: #ddd6fe;
+  --primary-300: #c4b5fd;
+  --primary-400: #a78bfa;
+  --primary-500: #8b5cf6; /* Base Primary */
+  --primary-600: #7c3aed;
+  --primary-700: #6d28d9;
+  --primary-800: #5b21b6;
+  --primary-900: #4c1d95;
 
-  /* Accent Colors */
-  --accent-300: #f7b86e;
-  --accent-400: #f5a647;
-  --accent-500: #f38f20; /* Base Accent */
+  /* Accent Colors (Teal) */
+  --accent-300: #5eead4;
+  --accent-400: #2dd4bf;
+  --accent-500: #14b8a6; /* Base Accent */
 
   /* Neutral Colors */
   --white: #ffffff;
@@ -33,8 +33,8 @@
   --black: #000000;
 
   /* Semantic Colors */
-  --success: #10b981;
-  --warning: #f59e0b;
+  --success: #22c55e;
+  --warning: #eab308;
   --error: #ef4444;
   --info: #3b82f6;
 
@@ -45,13 +45,13 @@
   --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   /* Theme Variables (Light Mode) */
-  --bg-primary: var(--white);
-  --bg-secondary: var(--gray-50);
-  --text-primary: var(--gray-900);
-  --text-secondary: var(--gray-600);
-  --border-color: var(--gray-200);
-  --card-bg: var(--white);
-  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --bg-primary: #f5f3ff;              /* Lavender background instead of pure white */
+  --bg-secondary: #ede9fe;            /* Light purple secondary */
+  --text-primary: var(--gray-900);    /* Dark text */
+  --text-secondary: var(--gray-600);  /* Muted text */
+  --border-color: var(--primary-200); /* Subtle lavender borders */
+  --card-bg: #ffffff;                 /* Cards stay white for contrast */
+  --card-shadow: 0 2px 8px rgba(124, 58, 237, 0.15); /* Soft purple shadow */
 }
 
 /* Theme Variables (Dark Mode) */
