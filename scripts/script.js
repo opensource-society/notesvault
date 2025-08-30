@@ -34,6 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return container.firstElementChild
   }
+     
+     const updateWelcomeUI = () => {
+     const user = localStorage.getItem('nv_user');                      // truthy = logged in
+     const userName = (localStorage.getItem('nv_user_name') || '').trim();
+     const welcomeText = document.querySelector('.welcome-text');
+     const primaryCTA = document.querySelector('.cta-buttons .btn.btn-primary'); // Upload/Sign Up button
+
+    // If elements aren't present on this page, do nothing
+      if (!welcomeText || !primaryCTA) return;
+
+    if (user) {
+    // logged in
+    welcomeText.textContent = userName ? `Welcome back, ${userName}` : 'Welcome back';
+    primaryCTA.setAttribute('href', 'upload.html');
+    primaryCTA.innerHTML = '<i class="fas fa-upload"></i>Upload Notes';
+  } else {
+    // logged out
+    welcomeText.textContent = 'Welcome to NotesVault';
+    primaryCTA.setAttribute('href', 'signup.html');
+    primaryCTA.innerHTML = '<i class="fas fa-user-plus"></i>Sign Up';
+  }
+};
 
   // Search Function //
   const updateSemesters = () => {
@@ -282,6 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Back To Top Button
     DOM.backToTop = document.querySelector('.back-to-top')
     setupBackToTop()
+    // Update hero greeting & CTA based on auth
+    updateWelcomeUI();
+
   }
 
   init()
