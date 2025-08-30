@@ -75,6 +75,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
 
+
 ---
 
 **Legend:**
