@@ -6,26 +6,24 @@
   background-color: var(--bg-secondary);
 }
 
+/* Make dashboard boxes equal height automatically */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
+  align-items: stretch; /* ✅ all grid items stretch to tallest */
 }
 
-/* Profile Card */
-.profile-card {
-  grid-column: span 3;
-  background: var(--card-bg);
-  border-radius: 1.25rem;
-  padding: 1.75rem;
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--border-color);
+.profile-card,
+.notes-card,
+.stats-card,
+.upload-card {
+  height: auto; /* allow auto adjustment */
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: fit-content;
+  justify-content: space-between; /* keep content spaced nicely */
 }
 
 .profile-card:hover {
@@ -170,12 +168,13 @@
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap; /* Add this to allow items to wrap to a new line */
   gap: 1rem;
 }
 
 .stat-item {
+  flex: 1 1 45%; /* Use flex-basis to control the width of each item */
   background-color: var(--bg-secondary);
   border-radius: 0.875rem;
   padding: 1.25rem 1rem;
