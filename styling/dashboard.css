@@ -168,12 +168,13 @@
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap; /* Add this to allow items to wrap to a new line */
   gap: 1rem;
 }
 
 .stat-item {
+  flex: 1 1 45%; /* Use flex-basis to control the width of each item */
   background-color: var(--bg-secondary);
   border-radius: 0.875rem;
   padding: 1.25rem 1rem;
