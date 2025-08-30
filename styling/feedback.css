@@ -1,0 +1,111 @@
+/* Page background */
+body{
+    background: #9cd89c;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+/* Feedback Card */
+.feedback-card{
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    background: #8CE58C;
+    max-width: 350px;;
+    margin: 20px auto;
+    height: 550px;
+    width: 90%;
+    position: relative;
+    float: none; 
+}
+
+/* Close Button */
+.close-btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(4, 133, 4);
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(11, 1, 1);
+    border: none;
+}
+
+/* Headings */
+.feedback-card h2{
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: #222;
+}
+.feedback-card p{
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0 20px;
+}
+
+/* Ratings Star */
+.rating-stars{
+    direction: rtl;
+    display: inline-flex; 
+    margin: 10px;
+    gap: 30px;
+
+}
+.rating-stars input{
+    display: none;
+}
+.rating-stars label{
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+.rating-stars input:checked ~ label{
+    color: gold;
+}
+.rating-stars label:hover,
+.rating-stars label:hover ~ label{
+    color: gold;
+
+}
+/* Feedback Textarea */
+textarea{
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #ccc;padding: 10px;
+    padding: 10px;
+    resize: verticle;
+    font-size: 14px;
+}
+
+/* Submit */
+.submit-btn{
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+    background:   rgb(4, 133, 4);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.submit-btn:hover{
+    background: #218838;
+}
+#feedback-placeholder{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+
+
