@@ -1,6 +1,20 @@
 // Upload Notes (JavaScript)
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Check authentication first
+  function checkAuthentication() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn')
+    if (isLoggedIn !== 'true') {
+      localStorage.setItem('redirectAfterLogin', 'upload.html')
+      window.location.href = 'login.html'
+      return false
+    }
+    return true
+  }
+
+  // Stop execution if not authenticated
+  if (!checkAuthentication()) return
+
   let branchData
   const branchSelect = document.getElementById('branch')
   const semesterSelect = document.getElementById('semester')
@@ -279,11 +293,13 @@ document.addEventListener('DOMContentLoaded', function () {
   function handleFormSubmit(e) {
     e.preventDefault()
 
-    // Validate Form
-    const title = document.getElementById('title').value.trim()
+    // Validate Form - check required fields that actually exist
+    const branch = document.getElementById('branch').value
+    const semester = document.getElementById('semester').value
+    const subject = document.getElementById('subject').value
     const file = document.getElementById('file').files[0]
 
-    if (!title || !file) {
+    if (!branch || !semester || !subject || !file) {
       showMessage('Please fill all required fields', 'error')
       return
     }
