@@ -17,6 +17,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@Radhika984](https://github.com/Radhika984) | 1 | 1 | 0 | 4 |
+| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 5 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
@@ -62,7 +63,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
-| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
 | [@dhupikarajput](https://github.com/dhupikarajput) | 1 | 0 | 0 | 0 |
