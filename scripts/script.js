@@ -34,6 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return container.firstElementChild
   }
+     
+     const updateWelcomeUI = () => {
+     const user = localStorage.getItem('nv_user');                      // truthy = logged in
+     const userName = (localStorage.getItem('nv_user_name') || '').trim();
+     const welcomeText = document.querySelector('.welcome-text');
+     const primaryCTA = document.querySelector('.cta-buttons .btn.btn-primary'); // Upload/Sign Up button
+
+    // If elements aren't present on this page, do nothing
+      if (!welcomeText || !primaryCTA) return;
+
+    if (user) {
+    // logged in
+    welcomeText.textContent = userName ? `Welcome back, ${userName}` : 'Welcome back';
+    primaryCTA.setAttribute('href', 'upload.html');
+    primaryCTA.innerHTML = '<i class="fas fa-upload"></i>Upload Notes';
+  } else {
+    // logged out
+    welcomeText.textContent = 'Welcome to NotesVault';
+    primaryCTA.setAttribute('href', 'signup.html');
+    primaryCTA.innerHTML = '<i class="fas fa-user-plus"></i>Sign Up';
+  }
+};
 
   // Search Function //
   const updateSemesters = () => {
@@ -159,13 +181,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle')
     const mobileNav = document.querySelector('.mobile-nav')
     const overlay = document.querySelector('.overlay')
+    const backToTop  = document.querySelector('.back-to-top');
 
     menuToggle?.classList.toggle('active')
     mobileNav?.classList.toggle('active')
     overlay?.classList.toggle('active')
-    document.body.style.overflow = mobileNav?.classList.contains('active')
-      ? 'hidden'
-      : ''
+
+    const isOpen = mobileNav?.classList.contains('active');      // ✅ define it
+    document.body.style.overflow = isOpen ? 'hidden' : '';       // lock/unlock scroll
+    document.body.classList.toggle('drawer-open', isOpen);       // ✅ add/remove class
+
+    // hide the back-to-top while drawer is open
+    if (backToTop && isOpen) backToTop.classList.remove('visible');
+    
   }
 
   const setupMobileMenu = () => {
@@ -184,7 +212,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const setupBackToTop = () => {
     if (!DOM.backToTop) return
     window.addEventListener('scroll', () => {
-      DOM.backToTop.classList.toggle('visible', window.scrollY > 300)
+      const footer = document.querySelector('footer')
+      const backToTop = document.querySelector('.back-to-top')
+
+      if (!footer || !backToTop) return
+
+      const footerRect = footer.getBoundingClientRect()
+      const isFooterVisible = footerRect.top < window.innerHeight
+
+      // Show/hide button based on scroll position AND footer visibility
+      if (window.scrollY > 300 && !isFooterVisible) {
+        backToTop.classList.add('visible')
+      } else {
+        backToTop.classList.remove('visible')
+      }
     })
 
     DOM.backToTop.addEventListener('click', () => {
@@ -196,8 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadComponents = async () => {
     try {
       const [header, footer] = await Promise.all([
-        fetch('/components/header.html').then((res) => res.text()),
-        fetch('/components/footer.html').then((res) => res.text()),
+        fetch('../components/header.html').then((res) => res.text()),
+        fetch('../components/footer.html').then((res) => res.text()),
       ])
 
       document.getElementById('header-placeholder').innerHTML = header
@@ -263,6 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Back To Top Button
     DOM.backToTop = document.querySelector('.back-to-top')
     setupBackToTop()
+    // Update hero greeting & CTA based on auth
+    updateWelcomeUI();
+
   }
 
   init()
