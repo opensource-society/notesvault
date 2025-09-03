@@ -9,10 +9,10 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Peehu1308](https://github.com/Peehu1308) | 6 | 3 | 0 | 9 |
 | [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 12 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 2 | 0 | 9 |
+| [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 3 |
 | [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 3 | 1 | 4 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
-| [@Srushtee1706](https://github.com/Srushtee1706) | 4 | 1 | 0 | 3 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
@@ -29,6 +29,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
+| [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 2 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 1 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 1 | 0 | 0 | 1 |
@@ -58,7 +59,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 1 |
 | [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 1 |
 | [@Milan0407](https://github.com/Milan0407) | 1 | 0 | 0 | 1 |
-| [@Soumyosish](https://github.com/Soumyosish) | 1 | 0 | 0 | 1 |
 | [@Aripilli-Bhavana](https://github.com/Aripilli-Bhavana) | 1 | 0 | 0 | 1 |
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
