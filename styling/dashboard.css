@@ -1,7 +1,7 @@
 /* Student Dashboard (CSS) */
 
 .dashboard-container {
-  padding: 8rem 1.5rem;
+  padding: 7rem 1.5rem;
   min-height: calc(100vh - 6rem);
   background-color: var(--bg-secondary);
 }
@@ -169,7 +169,7 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, -1fr);
   gap: 1rem;
 }
 
