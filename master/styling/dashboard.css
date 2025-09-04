@@ -420,41 +420,82 @@
   border-radius: 0.875rem;
   border: 2px dashed var(--border-color);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   height: 100%;
   min-height: 200px;
+  padding: 2rem 1.5rem;
+  text-align: center;
 }
 
 .add-note-card:hover {
   border-color: var(--primary-500);
   background-color: var(--primary-50);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 140, 45, 0.15);
 }
 
-.add-note-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
-  color: var(--primary-500);
-  font-weight: 500;
-  transition: all 0.3s ease;
+.add-note-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
 }
 
-.add-note-btn i {
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
-  color: var(--primary-500);
+.add-note-icon {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  background-color: #008c2c !important; 
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
 }
 
-.add-note-btn span {
-  font-size: 0.9375rem;
+.add-note-icon i {
+  font-size: 1.5rem !important;
+  color: white !important;
+  font-weight: bold !important;
 }
 
-.add-note-card:hover .add-note-btn {
-  color: var(--primary-600);
+.add-note-content span {
+  font-size: 1.375rem !important;
+  font-weight: 700 !important;
+  color: var(--primary-500) !important;
+}
+
+/* Dark mode - white text */
+[data-theme="dark"] .add-note-content span {
+  color: var(--text-primary) !important;
+}
+
+/* Hover effects */
+.add-note-card:hover .add-note-icon {
+  transform: scale(1.1) !important;
+  background-color: #006d22 !important;
+}
+
+.add-note-card:hover span {
+  color: #006d22 !important;
+}
+
+.add-note-card:hover p {
+  color: #008c2c !important;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .add-note-card p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .add-note-card:hover p {
+  color: var(--primary-400) !important;
 }
 
 /* PYQs Section */
