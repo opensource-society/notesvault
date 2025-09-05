@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - Shared Note</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+    <link rel="stylesheet" href="../styling/shared-note.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="shared-note-container">
+      <!-- Loading State -->
+      <div id="loadingState" class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Loading shared note...</p>
+      </div>
+
+      <!-- Password Required State -->
+      <div id="passwordRequired" class="password-required" style="display: none;">
+        <div class="password-form">
+          <i class="fas fa-lock"></i>
+          <h2>Password Required</h2>
+          <p>This shared note is password protected. Please enter the password to access it.</p>
+          <div class="password-input-group">
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <button id="submitPassword" class="submit-btn">
+              <i class="fas fa-unlock"></i> Access Note
+            </button>
+          </div>
+          <div id="passwordError" class="error-message" style="display: none;"></div>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div id="errorState" class="error-state" style="display: none;">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h2>Access Denied</h2>
+        <p id="errorMessage">Unable to access this shared note.</p>
+        <a href="../pages/notes.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Browse Notes
+        </a>
+      </div>
+
+      <!-- Note Content -->
+      <div id="noteContent" class="note-content" style="display: none;">
+        <div class="note-header">
+          <div class="note-info">
+            <h1 id="noteTitle"></h1>
+            <div class="note-meta">
+              <span class="meta-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="noteBranch"></span>
+              </span>
+              <span class="meta-item">
+                <i class="fas fa-calendar"></i>
+                <span id="noteSemester"></span> Semester
+              </span>
+              <span class="meta-item">
+                <i class="fas fa-user"></i>
+                By <span id="noteUploader"></span>
+              </span>
+              <span class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span id="noteUploadDate"></span>
+              </span>
+            </div>
+          </div>
+          <div class="note-actions">
+            <div class="download-options">
+              <button id="downloadBtn" class="download-btn primary">
+                <i class="fas fa-download"></i> Download JSON
+              </button>
+              <div class="download-dropdown">
+                <button class="dropdown-btn">
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <button class="dropdown-item" data-format="json">
+                    <i class="fas fa-file-code"></i> JSON Format
+                  </button>
+                  <button class="dropdown-item" data-format="txt">
+                    <i class="fas fa-file-alt"></i> Text Format
+                  </button>
+                  <button class="dropdown-item" data-format="md">
+                    <i class="fas fa-file-markdown"></i> Markdown Format
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-body">
+          <div class="description-section">
+            <h3>Description</h3>
+            <p id="noteDescription"></p>
+          </div>
+
+          <div class="share-info">
+            <h3>Share Information</h3>
+            <div class="share-details">
+              <div class="detail-item">
+                <strong>Access Type:</strong>
+                <span id="shareAccessType"></span>
+              </div>
+              <div class="detail-item">
+                <strong>Shared On:</strong>
+                <span id="shareCreatedDate"></span>
+              </div>
+              <div class="detail-item">
+                <strong>Expires:</strong>
+                <span id="shareExpiry"></span>
+              </div>
+              <div class="detail-item">
+                <strong>Times Accessed:</strong>
+                <span id="shareAccessCount"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="file-preview">
+            <h3>File Access</h3>
+            <div class="file-info">
+              <i class="fas fa-file-pdf"></i>
+              <div class="file-details">
+                <p class="file-name" id="fileName"></p>
+                <p class="file-description">Click download to access the full note</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script src="../scripts/script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Get share ID from URL path
+        const pathParts = window.location.pathname.split('/')
+        const shareId = pathParts[pathParts.length - 1]
+
+        if (!shareId || shareId === 'shared') {
+          showError('Invalid share link')
+          return
+        }
+
+        // DOM Elements
+        const loadingState = document.getElementById('loadingState')
+        const passwordRequired = document.getElementById('passwordRequired')
+        const errorState = document.getElementById('errorState')
+        const noteContent = document.getElementById('noteContent')
+        const passwordInput = document.getElementById('passwordInput')
+        const submitPasswordBtn = document.getElementById('submitPassword')
+        const passwordError = document.getElementById('passwordError')
+        const downloadBtn = document.getElementById('downloadBtn')
+        const dropdownBtn = document.querySelector('.dropdown-btn')
+        const dropdownMenu = document.querySelector('.dropdown-menu')
+        const dropdownItems = document.querySelectorAll('.dropdown-item')
+
+        let currentShareId = shareId
+        let currentPassword = null
+        let selectedFormat = 'json'
+
+        // Initialize
+        loadSharedNote()
+
+        // Load shared note
+        async function loadSharedNote(password = null) {
+          showLoading()
+
+          try {
+            const url = new URL(`/api/shared/${currentShareId}`, window.location.origin)
+            if (password) {
+              url.searchParams.append('password', password)
+            }
+
+            const response = await fetch(url)
+            const data = await response.json()
+
+            if (!response.ok) {
+              if (response.status === 401 && data.password_required) {
+                showPasswordRequired()
+                return
+              }
+              throw new Error(data.error || 'Failed to load shared note')
+            }
+
+            currentPassword = password
+            displayNote(data.note, data.share_metadata)
+
+          } catch (error) {
+            console.error('Error loading shared note:', error)
+            showError(error.message)
+          }
+        }
+
+        // Display states
+        function showLoading() {
+          loadingState.style.display = 'flex'
+          passwordRequired.style.display = 'none'
+          errorState.style.display = 'none'
+          noteContent.style.display = 'none'
+        }
+
+        function showPasswordRequired() {
+          loadingState.style.display = 'none'
+          passwordRequired.style.display = 'flex'
+          errorState.style.display = 'none'
+          noteContent.style.display = 'none'
+          passwordInput.focus()
+        }
+
+        function showError(message) {
+          loadingState.style.display = 'none'
+          passwordRequired.style.display = 'none'
+          errorState.style.display = 'flex'
+          noteContent.style.display = 'none'
+          document.getElementById('errorMessage').textContent = message
+        }
+
+        function showNote() {
+          loadingState.style.display = 'none'
+          passwordRequired.style.display = 'none'
+          errorState.style.display = 'none'
+          noteContent.style.display = 'block'
+        }
+
+        // Display note content
+        function displayNote(note, shareMetadata) {
+          document.getElementById('noteTitle').textContent = note.title
+          document.getElementById('noteBranch').textContent = note.branch
+          document.getElementById('noteSemester').textContent = note.semester
+          document.getElementById('noteUploader').textContent = note.uploader
+          document.getElementById('noteUploadDate').textContent = 
+            new Date(note.uploadDate).toLocaleDateString()
+          document.getElementById('noteDescription').textContent = 
+            note.description || 'No description available'
+          document.getElementById('fileName').textContent = 
+            `${note.title.replace(/\s/g, '_')}.pdf`
+
+          // Share metadata
+          document.getElementById('shareAccessType').textContent = 
+            shareMetadata.view_only ? 'View Only' : 'View & Edit'
+          document.getElementById('shareCreatedDate').textContent = 
+            new Date(shareMetadata.created_at).toLocaleDateString()
+          document.getElementById('shareExpiry').textContent = 
+            shareMetadata.expires_at ? new Date(shareMetadata.expires_at).toLocaleDateString() : 'Never'
+          document.getElementById('shareAccessCount').textContent = shareMetadata.access_count
+
+          // Update page title
+          document.title = `NotesVault - ${note.title}`
+
+          showNote()
+        }
+
+        // Download functionality
+        async function downloadNote(format = selectedFormat) {
+          try {
+            downloadBtn.disabled = true
+            const formatName = format.toUpperCase()
+            downloadBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Downloading ${formatName}...`
+
+            const url = new URL(`/api/shared/${currentShareId}/download`, window.location.origin)
+            url.searchParams.append('format', format)
+            if (currentPassword) {
+              url.searchParams.append('password', currentPassword)
+            }
+
+            // Create a temporary link to trigger download
+            const link = document.createElement('a')
+            link.href = url.toString()
+            link.style.display = 'none'
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+
+          } catch (error) {
+            console.error('Download error:', error)
+            alert('Download failed: ' + error.message)
+          } finally {
+            downloadBtn.disabled = false
+            updateDownloadButton()
+          }
+        }
+
+        function updateDownloadButton() {
+          const formatNames = {
+            'json': 'JSON',
+            'txt': 'Text',
+            'md': 'Markdown'
+          }
+          const formatIcons = {
+            'json': 'file-code',
+            'txt': 'file-alt',
+            'md': 'file-markdown'
+          }
+          
+          downloadBtn.innerHTML = `<i class="fas fa-${formatIcons[selectedFormat]}"></i> Download ${formatNames[selectedFormat]}`
+        }
+
+        // Event listeners
+        submitPasswordBtn.addEventListener('click', () => {
+          const password = passwordInput.value.trim()
+          if (password) {
+            passwordError.style.display = 'none'
+            loadSharedNote(password)
+          } else {
+            passwordError.textContent = 'Please enter a password'
+            passwordError.style.display = 'block'
+          }
+        })
+
+        passwordInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            submitPasswordBtn.click()
+          }
+        })
+
+        passwordInput.addEventListener('input', () => {
+          passwordError.style.display = 'none'
+        })
+
+        downloadBtn.addEventListener('click', () => downloadNote())
+
+        // Dropdown functionality
+        dropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation()
+          dropdownMenu.classList.toggle('show')
+        })
+
+        dropdownItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            e.stopPropagation()
+            selectedFormat = item.dataset.format
+            updateDownloadButton()
+            dropdownMenu.classList.remove('show')
+          })
+        })
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+          dropdownMenu.classList.remove('show')
+        })
+      })
+    </script>
+  </body>
+</html>
