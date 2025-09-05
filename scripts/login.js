@@ -147,12 +147,23 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.removeItem('rememberEmail')
       }
 
+      // Set login status
+      localStorage.setItem('isLoggedIn', 'true')
+      localStorage.setItem('userEmail', email)
+
       // Show Success Message
       showMessage('Login Successful! Redirecting...', 'success')
 
+      // Check if there's a redirect destination
+      const redirectTo = localStorage.getItem('redirectAfterLogin')
+      const destination = redirectTo ? redirectTo : '../index.html'
+      
+      // Clear the redirect storage
+      localStorage.removeItem('redirectAfterLogin')
+
       // Redirect After Delay
       setTimeout(() => {
-        window.location.href = '../index.html'
+        window.location.href = destination
       }, 1500)
     } catch (error) {
       console.error('Login error:', error)

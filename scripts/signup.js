@@ -119,15 +119,26 @@ document.addEventListener('DOMContentLoaded', function () {
       // Simulate API Call - Replace With Actual Fetch In Production
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
+      // Set login status for new user
+      localStorage.setItem('isLoggedIn', 'true')
+      localStorage.setItem('userEmail', email)
+
       // Show Success Message
       showMessage(
-        'Account Created Successfully! Redirecting To Login...',
+        'Account Created Successfully! Redirecting...',
         'success'
       )
 
+      // Check if there's a redirect destination, otherwise go to login
+      const redirectTo = localStorage.getItem('redirectAfterLogin')
+      const destination = redirectTo ? redirectTo : 'login.html'
+      
+      // Clear the redirect storage
+      localStorage.removeItem('redirectAfterLogin')
+
       // Redirect After Delay
       setTimeout(() => {
-        window.location.href = 'login.html'
+        window.location.href = destination
       }, 2000)
     } catch (error) {
       console.error('Signup error:', error)
