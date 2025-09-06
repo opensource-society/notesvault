@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="../styling/home.css" />
     <link rel="stylesheet" href="../styling/base.css" />
     <link rel="stylesheet" href="../styling/variables.css" />
+    <link rel="stylesheet" href="../styling/feedback.css" />
   </head>
 
   <body>
@@ -146,6 +147,19 @@
             </div>
           </div>
         </div>
+      </section>
+      <!-- Feedback & Reviews Section -->
+      <section class="feedback-section" id="feedback-section">
+        <h2>Feedback & Reviews</h2>
+        <p>We value your feedback! Share your thoughts and help us improve NotesVault.</p>
+        <form class="feedback-form" id="feedback-form" autocomplete="off">
+          <input type="text" id="feedback-name" name="name" maxlength="60" placeholder="Your Name" required aria-label="Name" />
+          <input type="email" id="feedback-email" name="email" maxlength="100" placeholder="Your Email" required aria-label="Email" />
+          <textarea id="feedback-input" name="feedback" rows="3" maxlength="400" placeholder="Write your feedback here..." required aria-label="Feedback"></textarea>
+          <button type="submit">Submit Feedback</button>
+        </form>
+  <div id="feedback-success" class="feedback-success">Submitted successfully! Thank you for your feedback.</div>
+  <!-- Feedbacks are stored locally and not displayed on the website. -->
       </section>
     </main>
 
