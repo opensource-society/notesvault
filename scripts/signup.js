@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const messageBox = document.getElementById('messageBox')
   const passwordInput = document.getElementById('password')
   const confirmPasswordInput = document.getElementById('confirm-password')
-  const passwordToggle = document.querySelector('.password-toggle')
-  const passwordIcon = passwordToggle.querySelector('i')
+  const passwordToggles = document.querySelectorAll('.password-toggle')
+  const passwordIcon = passwordToggles[0].querySelector('i')
+  const confirmPasswordIcon = passwordToggles[1].querySelector('i')
   const signupBtn = document.getElementById('signupBtn')
   const spinner = document.getElementById('spinner')
   const btnText = document.getElementById('btnText')
@@ -16,16 +17,28 @@ document.addEventListener('DOMContentLoaded', function () {
   const MIN_PASSWORD_LENGTH = 6
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  // Toggle Password Visibility
-  passwordToggle.addEventListener('click', function () {
-    const isPassword = passwordInput.type === 'password'
-    passwordInput.type = isPassword ? 'text' : 'password'
-    passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
-    passwordToggle.setAttribute(
+  // Toggle Password Visibility for password field
+  passwordToggles[0].addEventListener('click', function () {
+    const isPassword = passwordInput.type === 'password';
+    passwordInput.type = isPassword ? 'text' : 'password';
+    passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye';
+    passwordToggles[0].setAttribute(
       'aria-label',
       isPassword ? 'Hide password' : 'Show password'
-    )
-  })
+    );
+  });
+
+  // Toggle Confirm Password Visibility (separate function)
+  function toggleConfirmPassword() {
+    const isPassword = confirmPasswordInput.type === 'password';
+    confirmPasswordInput.type = isPassword ? 'text' : 'password';
+    confirmPasswordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye';
+    passwordToggles[1].setAttribute(
+      'aria-label',
+      isPassword ? 'Hide password' : 'Show password'
+    );
+  }
+  passwordToggles[1].addEventListener('click', toggleConfirmPassword);
 
   // Floating Label Effect
   document.querySelectorAll('.floating-input input').forEach((input) => {
