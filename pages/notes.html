@@ -104,6 +104,58 @@
       </div>
     </div>
 
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Share Note: <span id="shareNoteTitle"></span></h2>
+        
+        <div class="share-options">
+          <div class="option-group">
+            <label for="viewOnlyCheckbox">
+              <input type="checkbox" id="viewOnlyCheckbox" checked>
+              View Only (prevents editing)
+            </label>
+          </div>
+          
+          <div class="option-group">
+            <label for="passwordInput">Password Protection (optional):</label>
+            <input type="password" id="passwordInput" placeholder="Enter password">
+          </div>
+          
+          <div class="option-group">
+            <label for="expirySelect">Link Expiry:</label>
+            <select id="expirySelect">
+              <option value="1">1 Hour</option>
+              <option value="24" selected>24 Hours</option>
+              <option value="168">1 Week</option>
+              <option value="720">1 Month</option>
+              <option value="0">Never</option>
+            </select>
+          </div>
+          
+          <button id="generateShareLink" class="share-generate-btn">
+            <i class="fas fa-link"></i> Generate Share Link
+          </button>
+          
+          <div id="shareResult" class="share-result" style="display: none;">
+            <h3>Share Link Generated!</h3>
+            <div class="share-link-container">
+              <input type="text" id="shareUrlInput" readonly>
+              <button id="copyShareLink" class="copy-btn">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <div class="share-details">
+              <p><strong>Expires:</strong> <span id="shareExpiry"></span></p>
+              <p><strong>Access:</strong> <span id="shareAccess"></span></p>
+              <p><strong>Password Protected:</strong> <span id="sharePasswordStatus"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="../scripts/script.js"></script>
 
@@ -229,6 +281,7 @@
             <p><strong>Uploaded By:</strong> ${note.uploader}</p>
             <div class="actions">
                 <button class="view-button"><i class="fas fa-eye"></i> &nbsp; View</button>
+                <button class="share-button"><i class="fas fa-share-alt"></i> &nbsp; Share</button>
                 <a class="download-button" href="${
                   note.filePath || '#'
                 }" download="${getDownloadFilename(note)}">
@@ -241,6 +294,12 @@
           noteCard
             .querySelector('.view-button')
             .addEventListener('click', () => openNoteDetailModal(note))
+          
+          // Event listener ("Share" Button)
+          noteCard
+            .querySelector('.share-button')
+            .addEventListener('click', () => openShareModal(note))
+          
           return noteCard
         }
 
@@ -341,14 +400,123 @@
           // Modal Close Button
           closeModalButton.addEventListener('click', closeNoteDetailModal)
 
+          // Share Modal Event Listeners
+          const shareCloseButton = shareModal.querySelector('.close-button')
+          shareCloseButton.addEventListener('click', closeShareModal)
+          generateShareLinkBtn.addEventListener('click', generateShareLink)
+          copyShareLinkBtn.addEventListener('click', copyShareLink)
+
           // Close Modal When Clicking Outside Or Pressing Escape
           window.addEventListener('click', (e) => {
             if (e.target === noteDetailModal) closeNoteDetailModal()
+            if (e.target === shareModal) closeShareModal()
           })
 
           window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeNoteDetailModal()
+            if (e.key === 'Escape') {
+              closeNoteDetailModal()
+              closeShareModal()
+            }
           })
+        }
+
+        // Share Modal Functions
+        let currentNoteForSharing = null
+        const shareModal = document.getElementById('shareModal')
+        const shareNoteTitle = document.getElementById('shareNoteTitle')
+        const generateShareLinkBtn = document.getElementById('generateShareLink')
+        const shareResult = document.getElementById('shareResult')
+        const shareUrlInput = document.getElementById('shareUrlInput')
+        const copyShareLinkBtn = document.getElementById('copyShareLink')
+
+        function openShareModal(note) {
+          currentNoteForSharing = note
+          shareNoteTitle.textContent = note.title
+          shareResult.style.display = 'none'
+          
+          // Reset form
+          document.getElementById('viewOnlyCheckbox').checked = true
+          document.getElementById('passwordInput').value = ''
+          document.getElementById('expirySelect').value = '24'
+          
+          shareModal.style.display = 'flex'
+          document.body.style.overflow = 'hidden'
+        }
+
+        function closeShareModal() {
+          shareModal.style.display = 'none'
+          document.body.style.overflow = 'auto'
+          currentNoteForSharing = null
+        }
+
+        async function generateShareLink() {
+          if (!currentNoteForSharing) return
+
+          const viewOnly = document.getElementById('viewOnlyCheckbox').checked
+          const password = document.getElementById('passwordInput').value.trim()
+          const expiresHours = parseInt(document.getElementById('expirySelect').value)
+
+          const shareData = {
+            view_only: viewOnly,
+            expires_hours: expiresHours === 0 ? null : expiresHours,
+            password: password || null
+          }
+
+          try {
+            generateShareLinkBtn.disabled = true
+            generateShareLinkBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...'
+
+            const response = await fetch(`/api/share/${currentNoteForSharing._id}`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(shareData)
+            })
+
+            if (!response.ok) {
+              throw new Error('Failed to generate share link')
+            }
+
+            const result = await response.json()
+            const fullUrl = `${window.location.origin}${result.share_url}`
+            
+            shareUrlInput.value = fullUrl
+            document.getElementById('shareExpiry').textContent = 
+              result.expires_at ? new Date(result.expires_at).toLocaleString() : 'Never'
+            document.getElementById('shareAccess').textContent = 
+              result.view_only ? 'View Only' : 'View & Edit'
+            document.getElementById('sharePasswordStatus').textContent = 
+              result.password_protected ? 'Yes' : 'No'
+            
+            shareResult.style.display = 'block'
+            
+          } catch (error) {
+            console.error('Error generating share link:', error)
+            alert('Failed to generate share link. Please try again.')
+          } finally {
+            generateShareLinkBtn.disabled = false
+            generateShareLinkBtn.innerHTML = '<i class="fas fa-link"></i> Generate Share Link'
+          }
+        }
+
+        async function copyShareLink() {
+          try {
+            await navigator.clipboard.writeText(shareUrlInput.value)
+            copyShareLinkBtn.innerHTML = '<i class="fas fa-check"></i> Copied!'
+            setTimeout(() => {
+              copyShareLinkBtn.innerHTML = '<i class="fas fa-copy"></i> Copy'
+            }, 2000)
+          } catch (error) {
+            console.error('Failed to copy:', error)
+            // Fallback for older browsers
+            shareUrlInput.select()
+            document.execCommand('copy')
+            copyShareLinkBtn.innerHTML = '<i class="fas fa-check"></i> Copied!'
+            setTimeout(() => {
+              copyShareLinkBtn.innerHTML = '<i class="fas fa-copy"></i> Copy'
+            }, 2000)
+          }
         }
 
         // Initialize The Page

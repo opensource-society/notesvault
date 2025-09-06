@@ -1,0 +1,495 @@
+/* Shared Note Page Styles */
+
+.shared-note-container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--neutral-200);
+  border-top: 4px solid var(--primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Password Required State */
+.password-required {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.password-form {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.password-form i {
+  font-size: 3rem;
+  color: var(--warning-500);
+  margin-bottom: 1.5rem;
+}
+
+.password-form h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.password-form p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.password-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.password-input-group input {
+  padding: 0.8rem;
+  border: 1px solid var(--neutral-300);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.password-input-group input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.submit-btn {
+  background: var(--primary-500);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submit-btn:hover {
+  background: var(--primary-600);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Error State */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.error-state i {
+  font-size: 4rem;
+  color: var(--error-500);
+  margin-bottom: 1.5rem;
+}
+
+.error-state h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.error-state p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.back-btn {
+  background: var(--primary-500);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-600);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.error-message {
+  color: var(--error-600);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: var(--error-50);
+  border: 1px solid var(--error-200);
+  border-radius: 4px;
+}
+
+/* Note Content */
+.note-content {
+  animation: fadeInUp 0.6s ease;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--neutral-200);
+}
+
+.note-info h1 {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.meta-item i {
+  color: var(--primary-500);
+  width: 16px;
+}
+
+.note-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.download-options {
+  position: relative;
+  display: flex;
+  background: var(--white);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.download-btn {
+  background: var(--success-500);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-right: 1px solid var(--success-600);
+}
+
+.download-btn:hover:not(:disabled) {
+  background: var(--success-600);
+}
+
+.download-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.dropdown-btn {
+  background: var(--success-500);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-btn:hover {
+  background: var(--success-600);
+}
+
+.download-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+  background: var(--neutral-100);
+}
+
+.dropdown-item i {
+  width: 16px;
+  color: var(--text-secondary);
+}
+
+.note-body {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.description-section,
+.share-info,
+.file-preview {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--neutral-200);
+}
+
+.description-section h3,
+.share-info h3,
+.file-preview h3 {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.description-section h3::before {
+  content: "📝";
+}
+
+.share-info h3::before {
+  content: "🔗";
+}
+
+.file-preview h3::before {
+  content: "📄";
+}
+
+.description-section p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.share-details {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--neutral-100);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.detail-item span {
+  color: var(--text-secondary);
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--neutral-50);
+  border-radius: 8px;
+  border: 2px dashed var(--neutral-300);
+}
+
+.file-info i {
+  font-size: 2.5rem;
+  color: var(--error-500);
+}
+
+.file-details .file-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.file-details .file-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .shared-note-container {
+    padding: 1rem;
+  }
+
+  .note-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .note-info h1 {
+    font-size: 2rem;
+  }
+
+  .note-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .note-actions {
+    width: 100%;
+  }
+
+  .note-actions {
+    width: 100%;
+  }
+
+  .download-options {
+    width: 100%;
+  }
+
+  .download-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .password-form {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .file-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .note-info h1 {
+    font-size: 1.8rem;
+  }
+
+  .description-section,
+  .share-info,
+  .file-preview {
+    padding: 1.5rem;
+  }
+
+  .password-form {
+    padding: 1.5rem;
+  }
+}
