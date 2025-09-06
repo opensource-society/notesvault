@@ -55,7 +55,7 @@
 }
 
 /* Theme Variables (Dark Mode) */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --bg-primary: var(--gray-900);
   --bg-secondary: var(--gray-800);
   --text-primary: var(--gray-50);
@@ -63,4 +63,7 @@
   --border-color: var(--gray-700);
   --card-bg: var(--gray-800);
   --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --primary-100: #03371f;
+  --glass-bg: rgba(0, 0, 0, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }

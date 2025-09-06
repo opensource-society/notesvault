@@ -40,7 +40,7 @@
 }
 
 .floating-back-btn:hover {
-  background: var(--primary-100);
+  background: var(--primary-50);
   transform: translateX(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
@@ -242,7 +242,7 @@
 }
 
 .checkmark:after {
-  content: '';
+  content: "";
   display: none;
   width: 5px;
   height: 10px;
@@ -309,7 +309,7 @@
 }
 
 .btn-primary::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -365,17 +365,17 @@
 }
 
 .message-box::before {
-  font-family: 'Font Awesome 6 Free';
+  font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 1.1rem;
 }
 
 .message-box.success::before {
-  content: '\f058';
+  content: "\f058";
 }
 
 .message-box.error::before {
-  content: '\f06a';
+  content: "\f06a";
 }
 
 /* Signup Link */
@@ -400,7 +400,7 @@
 }
 
 .signup-link a::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 1px;
