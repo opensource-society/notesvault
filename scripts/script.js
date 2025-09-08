@@ -19,6 +19,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year']
   let allData = { branches: [] }
 
+  // Authentication Helper Functions //
+  const isUserLoggedIn = () => {
+    // Check if user is logged in by looking for stored session data
+    const userEmail = localStorage.getItem('rememberEmail')
+    const loginStatus = localStorage.getItem('isLoggedIn')
+    return loginStatus === 'true' || userEmail !== null
+  }
+
+  const requireAuth = (redirectPath = 'upload.html') => {
+    if (!isUserLoggedIn()) {
+      // Store the intended destination for redirect after login
+      localStorage.setItem('redirectAfterLogin', redirectPath)
+      window.location.href = 'login.html'
+      return false
+    }
+    return true
+  }
+
+  // Navigation Helper Functions //
+  const navigateToLogin = () => {
+    // Determine the correct path based on current location
+    const currentPath = window.location.pathname
+    if (currentPath.includes('/pages/')) {
+      window.location.href = 'login.html'
+    } else {
+      window.location.href = 'pages/login.html'
+    }
+  }
+
+  const navigateToSignup = () => {
+    // Determine the correct path based on current location
+    const currentPath = window.location.pathname
+    if (currentPath.includes('/pages/')) {
+      window.location.href = 'signup.html'
+    } else {
+      window.location.href = 'pages/signup.html'
+    }
+  }
+
+  // Make navigation functions globally available
+  window.navigateToLogin = navigateToLogin
+  window.navigateToSignup = navigateToSignup
+
   // Helper Functions //
   const createDropdown = (container, id, placeholder, options) => {
     if (!container) return null

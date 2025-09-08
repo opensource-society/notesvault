@@ -98,13 +98,13 @@
 
           <div class="auth-buttons">
             <button
-              onclick="location.href='login.html'"
+              onclick="navigateToLogin()"
               class="btn btn-secondary"
             >
               Login
             </button>
             <button
-              onclick="location.href='signup.html'"
+              onclick="navigateToSignup()"
               class="btn btn-primary"
             >
               Sign Up
@@ -194,8 +194,8 @@
           </button>
 
           <div class="mobile-auth-buttons">
-            <button class="btn btn-secondary">Login</button>
-            <button class="btn btn-primary">Sign Up</button>
+            <button class="btn btn-secondary" onclick="navigateToLogin()">Login</button>
+            <button class="btn btn-primary" onclick="navigateToSignup()">Sign Up</button>
           </div>
         </div>
       </nav>
