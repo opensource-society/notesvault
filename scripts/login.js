@@ -1,5 +1,4 @@
 // Login (JavaScript)
-
 document.addEventListener('DOMContentLoaded', function () {
   // DOM Elements
   const loginForm = document.getElementById('loginForm')
@@ -17,9 +16,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const MIN_PASSWORD_LENGTH = 6
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+  // Hash password using SHA-256
+  async function hashPassword(password) {
+    const encoder = new TextEncoder()
+    const data = encoder.encode(password)
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+    return Array.from(new Uint8Array(hashBuffer))
+      .map((b) => b.toString(16).padStart(2, '0'))
+      .join('')
+  }
+
   // Initialize Form
   function initForm() {
-    // Check For Remembered Email
+    // Remembered Email
     const rememberedEmail = localStorage.getItem('rememberEmail')
     if (rememberedEmail) {
       emailInput.value = rememberedEmail
@@ -27,46 +36,31 @@ document.addEventListener('DOMContentLoaded', function () {
       emailInput.parentNode.classList.add('focused')
     }
 
-    // Setup Floating Labels
     initFloatingLabels()
-
-    // Setup Password Toggle
     initPasswordToggle()
   }
 
-  // Initialize Floating Labels
   function initFloatingLabels() {
     document.querySelectorAll('.floating-input input').forEach((input) => {
-      input.addEventListener('focus', () => {
-        input.parentNode.classList.add('focused')
-      })
-
+      input.addEventListener('focus', () => input.parentNode.classList.add('focused'))
       input.addEventListener('blur', () => {
-        if (!input.value) {
-          input.parentNode.classList.remove('focused')
-        }
+        if (!input.value) input.parentNode.classList.remove('focused')
       })
-
-      if (input.value) {
-        input.parentNode.classList.add('focused')
-      }
+      if (input.value) input.parentNode.classList.add('focused')
     })
   }
 
-  // Initialize Password Toggle
   function initPasswordToggle() {
     passwordToggle.addEventListener('click', togglePasswordVisibility)
     updatePasswordToggle()
   }
 
-  // Toggle Password Visibility
   function togglePasswordVisibility() {
     const isPassword = passwordInput.type === 'password'
     passwordInput.type = isPassword ? 'text' : 'password'
     updatePasswordToggle(isPassword)
   }
 
-  // Update Password Toggle State
   function updatePasswordToggle(isPassword) {
     passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
     passwordToggle.setAttribute(
@@ -75,41 +69,28 @@ document.addEventListener('DOMContentLoaded', function () {
     )
   }
 
-  // Message Function
   function showMessage(message, type = 'success') {
     messageBox.textContent = message
     messageBox.className = `message-box ${type} show`
-
-    // Auto-Hide Message After Timeout
-    setTimeout(() => {
-      messageBox.classList.remove('show')
-    }, 3000)
+    setTimeout(() => messageBox.classList.remove('show'), 3000)
   }
 
-  // Validate Form Inputs
   function validateForm(email, password) {
     if (!email || !password) {
       showMessage('Please Fill In All Fields', 'error')
       return false
     }
-
     if (!EMAIL_REGEX.test(email)) {
       showMessage('Please Enter a Valid Email Address', 'error')
       return false
     }
-
     if (password.length < MIN_PASSWORD_LENGTH) {
-      showMessage(
-        `Password Must Be At Least ${MIN_PASSWORD_LENGTH} Characters`,
-        'error'
-      )
+      showMessage(`Password Must Be At Least ${MIN_PASSWORD_LENGTH} Characters`, 'error')
       return false
     }
-
     return true
   }
 
-  // Set Loading State
   function setLoadingState(isLoading) {
     if (isLoading) {
       spinner.classList.remove('hidden')
@@ -122,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Handle Form Submission
+  // Handle Login
   async function handleLogin(e) {
     e.preventDefault()
 
@@ -130,30 +111,41 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = passwordInput.value
     const shouldRemember = rememberMe.checked
 
-    // Validate Form
     if (!validateForm(email, password)) return
-
-    // Set Loading State
     setLoadingState(true)
 
     try {
-      // Simulate API Call - Replace With Actual Fetch In Production
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000)) // simulate delay
 
-      // Store Remember Me Preference
+      // Get user from localStorage
+      const storedUser = localStorage.getItem(email)
+      if (!storedUser) {
+        showMessage('Invalid email or password', 'error')
+        setLoadingState(false)
+        return
+      }
+
+      const parsedUser = JSON.parse(storedUser)
+      const hashedInput = await hashPassword(password)
+
+      if (parsedUser.password !== hashedInput) {
+        showMessage('Invalid email or password', 'error')
+        setLoadingState(false)
+        return
+      }
+
+      // ✅ Login success
       if (shouldRemember) {
         localStorage.setItem('rememberEmail', email)
       } else {
         localStorage.removeItem('rememberEmail')
       }
 
-      // Show Success Message
       showMessage('Login Successful! Redirecting...', 'success')
-
-      // Redirect After Delay
       setTimeout(() => {
         window.location.href = '../index.html'
       }, 1500)
+
     } catch (error) {
       console.error('Login error:', error)
       showMessage('Login Failed. Please Try Again...', 'error')
@@ -162,9 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Event Listeners
   loginForm.addEventListener('submit', handleLogin)
-
-  // Initialize The Form
   initForm()
 })
