@@ -67,6 +67,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
+| [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 1 | 0 | 0 | 0 |
 | [@dhupikarajput](https://github.com/dhupikarajput) | 1 | 0 | 0 | 0 |
 | [@Dippp10](https://github.com/Dippp10) | 0 | 1 | 0 | 0 |
 | [@Niyatikansal31](https://github.com/Niyatikansal31) | 0 | 1 | 0 | 0 |
