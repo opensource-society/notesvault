@@ -2,13 +2,20 @@
 
 /* Hero Section */
 .todolist-hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-500) 0%,
-    var(--primary-700) 100%
-  );
+  background: url('../assets/index/images/back.jpg') no-repeat center center/cover;
   padding: 6rem 0 4rem 0;
   text-align: center;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 1;
 }
 
 .todolist-hero h1 {
@@ -29,7 +36,7 @@
 /* Main Container */
 .todo-main {
   min-height: 100vh;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
   background: var(--bg-primary) !important;
 }
@@ -111,6 +118,56 @@
 }
 
 /* Controls Section */
+.skill{
+  width: 160px;
+  height: 160px;
+  /*background: cornflowerblue;*/
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem auto;
+}
+.outer{
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+  padding: 20px;
+}
+.inner{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+              -0.5px -0.5px 1px rgba(255,255,255,1),
+              0.5px 0.5px 0px rgba(0,0,0,0.15),
+              0px 12px 10px -10px rgba(0,0,0,0.05);
+}
+
+#number{
+  font-weight: 600;
+  color: #555;
+}    
+#cskill{
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: anim 2s linear forwards;
+}
+.anim{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/*my changes*/
 .todo-controls {
   display: flex;
   justify-content: space-between;
@@ -185,7 +242,7 @@
 
 /* Task List Container */
 .todo-list-container {
-  background: white;
+  background: rgb(204, 199, 199);
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 8px 32px rgba(22, 61, 59, 0.1);
@@ -205,9 +262,9 @@
   align-items: center;
   padding: 1rem;
   margin-bottom: 0.75rem;
-  background: #fafbfc;
+  background: #ebf1f7;
   border-radius: 12px;
-  border: 1px solid #e1e5e9;
+  border: 1px solid #587da3;
   transition: all 0.3s ease;
   animation: slideIn 0.3s ease;
 }
@@ -295,12 +352,12 @@
 }
 
 .delete-btn {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
 }
 
 .delete-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
+  background: rgba(233, 75, 75, 0.2);
   transform: scale(1.05);
 }
 
@@ -433,10 +490,35 @@
   color: #a0a0a0;
 }
 
+[data-theme='dark'] .outer{
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(79, 78, 78, 0.7);
+}
+[data-theme='dark'] .inner{
+  box-shadow: inset 4px 4px 6px -1px rgba(86, 84, 84, 0.2),
+              inset -4px -4px 6px -1px rgba(95, 93, 93, 0.7),
+              -0.5px -0.5px 1px rgb(153, 150, 150),
+              0.5px 0.5px 0px rgba(99, 95, 95, 0.15),
+              0px 12px 10px -10px rgba(94, 93, 93, 0.05);
+}
+
+[data-theme='dark'] #number{
+  font-weight: 600;
+  color: #dfd3d3;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .todo-container {
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
+  }
+
+  .todo-form-container {
+    display: inline;
+    justify-content: center;
+    align-items: center;
   }
 
   .todo-title {
@@ -449,8 +531,15 @@
   }
 
   .add-btn {
-    width: 100%;
+    width: 30%;
     justify-content: center;
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem auto;
   }
 
   .todo-controls {
@@ -482,11 +571,19 @@
 @media (max-width: 480px) {
   .todo-form-container,
   .todo-list-container {
+    display: inline;
     padding: 1.5rem;
   }
 
   .todo-title {
     font-size: 1.75rem;
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem auto;
   }
 
   .task-stats {
