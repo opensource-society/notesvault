@@ -6,7 +6,7 @@
 
 /* Hero Section */
 .about-hero {
-  background: url("../assets/index/images/about_notes.png") center/cover no-repeat;
+  background: url("../assets/index/images/back.jpg") center/cover no-repeat;
   color: var(--white);
   padding: 4rem 0 6rem 0;
   position: relative;
