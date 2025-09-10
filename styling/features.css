@@ -6,11 +6,7 @@
 
 /* Hero Section */
 .features-hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-500) 0%,
-    var(--primary-700) 100%
-  );
+  background: url("../assets/index/images/back.jpg") center/cover no-repeat;
   padding: 6rem 0;
   text-align: center;
 }
