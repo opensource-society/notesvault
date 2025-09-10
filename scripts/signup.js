@@ -1,152 +1,150 @@
-// Sign Up (JavaScript)
-
 document.addEventListener('DOMContentLoaded', function () {
   // DOM Elements
-  const signupForm = document.getElementById('signupForm')
-  const messageBox = document.getElementById('messageBox')
-  const passwordInput = document.getElementById('password')
-  const confirmPasswordInput = document.getElementById('confirm-password')
-  const passwordToggles = document.querySelectorAll('.password-toggle')
-  const passwordIcon = passwordToggles[0].querySelector('i')
-  const confirmPasswordIcon = passwordToggles[1].querySelector('i')
-  const signupBtn = document.getElementById('signupBtn')
-  const spinner = document.getElementById('spinner')
-  const btnText = document.getElementById('btnText')
+  const signupForm = document.getElementById('signupForm');
+  const nameInput = document.getElementById('name');
+  const email = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+  const passwordToggle = document.querySelector('.password-toggle');
+  const passwordIcon = passwordToggle.querySelector('i');
+  const signupBtn = document.getElementById('signupBtn');
+  const spinner = document.getElementById('spinner');
+  const btnText = document.getElementById('btnText');
+  const terms = document.getElementById('terms');
 
-  // Constants
-  const MIN_PASSWORD_LENGTH = 6
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const confirmError = document.getElementById('confirmError');
+  const termsError = document.getElementById('termsError');
 
-  // Toggle Password Visibility for password field
-  passwordToggles[0].addEventListener('click', function () {
+  const themeToggle = document.getElementById("themeToggle");
+  const body = document.body;
+  const sunIcon = document.querySelector(".theme-icon.sun");
+  const moonIcon = document.querySelector(".theme-icon.moon");
+
+  const MIN_PASSWORD_LENGTH = 6;
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Toggle Password Visibility
+  passwordToggle.addEventListener('click', function () {
     const isPassword = passwordInput.type === 'password';
     passwordInput.type = isPassword ? 'text' : 'password';
     passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye';
-    passwordToggles[0].setAttribute(
+    passwordToggle.setAttribute(
       'aria-label',
       isPassword ? 'Hide password' : 'Show password'
     );
   });
 
-  // Toggle Confirm Password Visibility (separate function)
-  function toggleConfirmPassword() {
-    const isPassword = confirmPasswordInput.type === 'password';
-    confirmPasswordInput.type = isPassword ? 'text' : 'password';
-    confirmPasswordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye';
-    passwordToggles[1].setAttribute(
-      'aria-label',
-      isPassword ? 'Hide password' : 'Show password'
-    );
-  }
-  passwordToggles[1].addEventListener('click', toggleConfirmPassword);
-
-  // Floating Label Effect
+  // Floating Labels
   document.querySelectorAll('.floating-input input').forEach((input) => {
     input.addEventListener('focus', () => {
-      input.parentNode.classList.add('focused')
-    })
-
+      input.parentNode.classList.add('focused');
+    });
     input.addEventListener('blur', () => {
       if (!input.value) {
-        input.parentNode.classList.remove('focused')
+        input.parentNode.classList.remove('focused');
       }
-    })
-  })
+    });
+  });
 
-  // Password Strength Validation
-  passwordInput.addEventListener('input', function () {
-    validatePasswordStrength()
-  })
-
-  function validatePasswordStrength() {
-    // Add Password Strength Validation Logic While Implemneting User Authentication
+  // Show Error Messages Inline
+  function clearErrors() {
+    [nameError, emailError, passwordError, confirmError, termsError].forEach(
+      (e) => {
+        e.textContent = '';
+        e.style.display = 'none';
+      }
+    );
   }
 
-  // Show Message
-  function showMessage(text, type) {
-    messageBox.textContent = text
-    messageBox.className = `message-box ${type} show`
+  function validateForm(name, emailVal, password, confirmPassword) {
+    clearErrors();
+    let valid = true;
 
-    setTimeout(() => {
-      messageBox.classList.remove('show')
-    }, 3000)
-  }
-
-  // Set Loading State
-  function setLoadingState(isLoading) {
-    if (isLoading) {
-      spinner.classList.remove('hidden')
-      btnText.textContent = 'Signing up...'
-      signupBtn.disabled = true
-    } else {
-      spinner.classList.add('hidden')
-      btnText.textContent = 'Sign up'
-      signupBtn.disabled = false
-    }
-  }
-
-  // Form Validation
-  function validateForm(name, email, password, confirmPassword) {
-    if (!name || !email || !password || !confirmPassword) {
-      showMessage('Please Fill In All Fields', 'error')
-      return false
+    if (!name) {
+      nameError.textContent = 'Please enter your name.';
+      nameError.style.display = 'block';
+      valid = false;
     }
 
-    if (!EMAIL_REGEX.test(email)) {
-      showMessage('Please Enter a Valid Email Address', 'error')
-      return false
+    if (!EMAIL_REGEX.test(emailVal)) {
+      emailError.textContent = 'Please enter a valid email address.';
+      emailError.style.display = 'block';
+      valid = false;
     }
 
-    if (password.length < MIN_PASSWORD_LENGTH) {
-      showMessage(
-        `Password Must Be At Least ${MIN_PASSWORD_LENGTH} Characters`,
-        'error'
-      )
-      return false
+    // Password validation
+    const PASSWORD_REGEX =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$/;
+
+    if (!PASSWORD_REGEX.test(password)) {
+      passwordError.textContent =
+        'Password must contain at least 1 capital letter, 1 small letter, 1 number, 1 special symbol, and be at least 6 characters long.';
+      passwordError.style.display = 'block';
+      valid = false;
     }
 
     if (password !== confirmPassword) {
-      showMessage('Passwords Do Not Match', 'error')
-      return false
+      confirmError.textContent = 'Passwords do not match.';
+      confirmError.style.display = 'block';
+      valid = false;
     }
 
-    return true
+    if (!terms.checked) {
+      termsError.textContent = 'Please agree to the Terms of Service.';
+      termsError.style.display = 'block';
+      valid = false;
+    }
+
+    return valid;
   }
 
   // Form Submission
   signupForm.addEventListener('submit', async function (e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    const name = document.getElementById('name').value.trim()
-    const email = document.getElementById('email').value.trim()
-    const password = document.getElementById('password').value
-    const confirmPassword = document.getElementById('confirm-password').value
+    const name = nameInput.value.trim();
+    const emailVal = email.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
 
-    // Validate Form
-    if (!validateForm(name, email, password, confirmPassword)) return
+    if (!validateForm(name, emailVal, password, confirmPassword)) return;
 
-    // Set Loading State
-    setLoadingState(true)
+    spinner.classList.remove('hidden');
+    btnText.textContent = 'Signing up...';
+    signupBtn.disabled = true;
 
     try {
-      // Simulate API Call - Replace With Actual Fetch In Production
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate API
 
-      // Show Success Message
-      showMessage(
-        'Account Created Successfully! Redirecting To Login...',
-        'success'
-      )
-
-      // Redirect After Delay
+      alert('Account Created Successfully! Redirecting to login...');
       setTimeout(() => {
-        window.location.href = 'login.html'
-      }, 2000)
+        window.location.href = 'login.html';
+      }, 1500);
     } catch (error) {
-      console.error('Signup error:', error)
-      showMessage('Signup Failed. Please Try Again...', 'error')
+      console.error('Signup error:', error);
+      alert('Signup failed. Please try again.');
     } finally {
-      setLoadingState(false)
+      spinner.classList.add('hidden');
+      btnText.textContent = 'Sign Up';
+      signupBtn.disabled = false;
     }
-  })
-})
+  });
+
+  // 🌙 Theme Toggle (Fix)
+  themeToggle.addEventListener("click", function () {
+    const isDark = body.getAttribute("data-theme") === "dark";
+
+    if (isDark) {
+      body.setAttribute("data-theme", "light");
+      sunIcon.style.opacity = "1";
+      moonIcon.style.opacity = "0";
+    } else {
+      body.setAttribute("data-theme", "dark");
+      sunIcon.style.opacity = "0";
+      moonIcon.style.opacity = "1";
+    }
+  });
+});

@@ -6,24 +6,26 @@
   background-color: var(--bg-secondary);
 }
 
-/* Make dashboard boxes equal height automatically */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
-  align-items: stretch; /* ✅ all grid items stretch to tallest */
 }
 
-.profile-card,
-.notes-card,
-.stats-card,
-.upload-card {
-  height: auto; /* allow auto adjustment */
+/* Profile Card */
+.profile-card {
+  grid-column: span 3;
+  background: var(--card-bg);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* keep content spaced nicely */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: fit-content;
 }
 
 .profile-card:hover {
@@ -140,6 +142,171 @@
   background-color: var(--primary-50);
   border-color: var(--primary-100);
   color: var(--primary-600);
+}
+
+/* Profile Modal Styling */
+.profile-modal {
+  background-color: var(--card-bg, #fff);
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 520px;
+  padding: 2rem;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.modal-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #222);
+}
+
+.modal-header .close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary, #888);
+  transition: all 0.2s ease;
+}
+
+.modal-header .close:hover {
+  color: var(--primary-500, #4CAF50);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--text-secondary, #555);
+}
+
+.form-group input {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color, #ccc);
+  background-color: var(--bg-secondary, #f9f9f9);
+  color: var(--text-primary, #222);
+  font-size: 0.9375rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-300, #81c784);
+  box-shadow: 0 0 0 3px var(--primary-50, #e8f5e9);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* align buttons to the right */
+  gap: 0.75rem;
+  margin-top: 1rem; /* spacing from last form row */
+}
+
+.save-btn {
+  background-color: var(--primary-500);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: var(--primary-600);
+}
+
+.cancel-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background-color: var(--primary-50);
+  border-color: var(--primary-200);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+/* Avatar Upload in Modal */
+.avatar-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.avatar-upload input[type="file"] {
+  display: none;
+}
+
+.avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-500, #4CAF50);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.avatar-upload:hover .avatar-img {
+  opacity: 0.8;
+}
+
+.change-avatar-text {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--primary-500, #4CAF50);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
 }
 
 /* Stats Card */

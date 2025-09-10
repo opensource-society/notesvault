@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const spinner = document.getElementById('spinner')
   const btnText = document.getElementById('btnText')
 
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+  const sunIcon = document.querySelector(".theme-icon.sun");
+  const moonIcon = document.querySelector(".theme-icon.moon");
+
   // Constants
   const MIN_PASSWORD_LENGTH = 6
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -161,6 +166,21 @@ document.addEventListener('DOMContentLoaded', function () {
       setLoadingState(false)
     }
   }
+
+  // 🌙 Theme Toggle (Fix)
+  themeToggle.addEventListener("click", function () {
+    const isDark = body.getAttribute("data-theme") === "dark";
+
+    if (isDark) {
+      body.setAttribute("data-theme", "light");
+      sunIcon.style.opacity = "1";
+      moonIcon.style.opacity = "0";
+    } else {
+      body.setAttribute("data-theme", "dark");
+      sunIcon.style.opacity = "0";
+      moonIcon.style.opacity = "1";
+    }
+  });
 
   // Event Listeners
   loginForm.addEventListener('submit', handleLogin)

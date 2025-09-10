@@ -26,23 +26,93 @@
   <main class="dashboard-container">
     <div class="dashboard-grid">
 
-      <!-- Profile Card -->
-      <section class="profile-card">
-        <div class="profile-header">
-          <div class="avatar"><i class="fas fa-user-graduate"></i></div>
-          <div class="profile-info">
-            <h2>Pranav K</h2>
-            <p class="email">pranavk@gmail.com</p>
-            <p class="institution">University of Mumbai</p>
+  <!-- Profile Card -->
+  <section class="profile-card">
+    <div class="profile-header">
+      <div class="avatar"><i class="fas fa-user-graduate"></i></div>
+        <div class="profile-info">
+          <h2>Pranav K</h2>
+          <p class="email">pranavk@gmail.com</p>
+          <p class="phone">+94 77 123 4567</p>
+          <p class="institution">University of Mumbai</p>
+        </div>
+      </div>
+    <div class="profile-details">
+      <div class="detail-item"><i class="fas fa-graduation-cap"></i><div><span>Branch</span><p>Computer Science</p></div></div>
+      <div class="detail-item"><i class="fas fa-calendar-alt"></i><div><span>Year</span><p>2nd Year</p></div></div>
+      <div class="detail-item"><i class="fas fa-id-card"></i><div><span>Student ID</span><p>CS2024-049</p></div></div>
+      <div class="detail-item"><i class="fas fa-id-card"></i><div><span>Role</span><p>Student</p></div></div>
+    </div>
+      <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
+  </section>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-content profile-modal">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <span class="close" id="closeModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="editForm" class="profile-form">
+
+          <!--Avatar-->
+          <div class="avatar-upload">
+            <label for="profilePic">
+              <img id="avatarPreview" src="../assets/default-avatar.png" alt="Avatar" class="avatar-img">
+              <span class="change-avatar-text"><i class="fas fa-camera"></i> Change</span>
+            </label>
+            <input type="file" id="profilePic" accept="image/*">
           </div>
-        </div>
-        <div class="profile-details">
-          <div class="detail-item"><i class="fas fa-graduation-cap"></i><div><span>Branch</span><p>Computer Science</p></div></div>
-          <div class="detail-item"><i class="fas fa-calendar-alt"></i><div><span>Year</span><p>2nd Year</p></div></div>
-          <div class="detail-item"><i class="fas fa-id-card"></i><div><span>Student ID</span><p>CS2024-049</p></div></div>
-        </div>
-        <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
-      </section>
+
+          <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" value="Pranav K" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" value="pranavk@gmail.com" required>
+          </div>
+          </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" value="+94 77 123 4567" required>
+            </div>
+            <div class="form-group">
+              <label for="institution">Institution</label>
+              <input type="text" id="institution" value="University of Mumbai">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="branch">Branch</label>
+              <input type="text" id="branch" value="Computer Science">
+            </div>
+            <div class="form-group">
+              <label for="year">Year</label>
+              <input type="text" id="year" value="2nd Year">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="studentID">Student ID</label>
+              <input type="text" id="studentID" value="CS2024-049">
+            </div>
+            <div class="form-group">
+              <label for="role">Role</label>
+              <input type="text" id="role" value="Student" disabled>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="save-btn">Save Changes</button>
+            <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
       <!-- Stats Section -->
       <section class="stats-card">
