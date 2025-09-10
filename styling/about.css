@@ -6,13 +6,9 @@
 
 /* Hero Section */
 .about-hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-500) 0%,
-    var(--primary-700) 100%
-  );
+  background: url("../assets/index/images/about_notes.png") center/cover no-repeat;
   color: var(--white);
-  padding: 8rem 0 6rem 0;
+  padding: 4rem 0 6rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -98,19 +94,17 @@
 
 .feature-pill {
   background-color: var(--bg-secondary);
-  border: 1px  var(--border-color);
+  border: 1px solid var(--border-color);
   border-radius: 2rem;
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .feature-pill:hover {
   border-color: var(--primary-100);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 140, 45, 0.15);
 }
 
 .feature-pill i {
@@ -150,11 +144,11 @@
 
 .mv-card {
   background-color: var(--card-bg);
-  border-radius: 1rem;
+  border-radius: var(--card-radius);
   padding: 2.5rem;
   box-shadow: var(--card-shadow);
   border: 1px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .mv-card:hover {
@@ -172,13 +166,14 @@
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: auto auto 1rem;
 }
 
 .mv-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--primary-500);
+  text-align: center;
 }
 
 .mv-card p {
@@ -215,19 +210,17 @@
 
 .solutions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
 }
 
 .solution-card {
   background-color: var(--card-bg);
-  border-radius: 1rem;
+  border-radius: var(--card-radius);
   padding: 2rem;
   box-shadow: var(--card-shadow);
   border: 1px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
   text-align: center;
 }
 
@@ -237,16 +230,9 @@
 }
 
 .solution-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: var(--primary-50);
+  font-size: 1.5rem;
   color: var(--primary-500);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  margin: 0 auto 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .solution-card h3 {
@@ -270,7 +256,7 @@
 
 .tech-category {
   background-color: var(--card-bg);
-  border-radius: 1rem;
+  border-radius: var(--card-radius);
   padding: 2rem;
   box-shadow: var(--card-shadow);
   border: 1px solid var(--border-color);
@@ -352,7 +338,7 @@
 
 .step {
   background-color: var(--bg-secondary);
-  border-radius: 1rem;
+  border-radius: var(--card-radius);
   padding: 2rem;
   text-align: left;
   position: relative;
