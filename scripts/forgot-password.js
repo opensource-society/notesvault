@@ -7,13 +7,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const spinner = document.getElementById('spinner');
   const btnText = document.getElementById('btnText');
 
-  const themeToggle = document.getElementById('themeToggle');
-  const body = document.body;
-  const sunIcon = document.querySelector(".theme-icon.sun");
-  const moonIcon = document.querySelector(".theme-icon.moon");
 
   // Email Regex
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+   // Theme
+  const getStoredTheme = () => {
+    return localStorage.getItem("theme") || "light";
+  };
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+  setTheme(getStoredTheme());
 
   // Initialize Floating Label
   function initFloatingLabel() {
@@ -92,21 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
       setLoadingState(false);
     }
   }
-
-  // Dark Mode Toggle
-  themeToggle.addEventListener('click', function () {
-    const isDark = body.getAttribute('data-theme') === 'dark';
-
-    if (isDark) {
-      body.setAttribute('data-theme', 'light');
-      sunIcon.style.opacity = "1";
-      moonIcon.style.opacity = "0";
-    } else {
-      body.setAttribute('data-theme', 'dark');
-      sunIcon.style.opacity = "0";
-      moonIcon.style.opacity = "1";
-    }
-  });
 
   // Initialize
   initFloatingLabel();
