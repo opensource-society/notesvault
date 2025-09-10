@@ -187,6 +187,64 @@ document.addEventListener('DOMContentLoaded', function () {
   togglePlaceholder()
 })
 
+// Text formatting
+function formatText(command) {
+  document.execCommand(command, false, null);
+}
+//button ative
+// Text formatting
+function formatText(command) {
+  document.execCommand(command, false, null);
+  updateToolbarState();
+}
+
+// Update toolbar button states
+function updateToolbarState() {
+  const buttons = document.querySelectorAll('.toolbar button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+
+  if (document.queryCommandState('bold')) {
+    document.querySelector('.toolbar button[onclick*="bold"]').classList.add('active');
+  }
+  if (document.queryCommandState('italic')) {
+    document.querySelector('.toolbar button[onclick*="italic"]').classList.add('active');
+  }
+  if (document.queryCommandState('underline')) {
+    document.querySelector('.toolbar button[onclick*="underline"]').classList.add('active');
+  }
+}
+
+// Run update when cursor moves or text changes
+const noteArea = document.getElementById('noteArea');
+noteArea.addEventListener('keyup', updateToolbarState);
+noteArea.addEventListener('mouseup', updateToolbarState);
+
+// font style
+const fontSelector = document.getElementById('fontSelector');
+
+fontSelector.addEventListener('change', () => {
+  const font = fontSelector.value;
+  document.execCommand('fontName', false, font);
+  noteArea.focus();
+});
+
+// Update dropdown to show active font
+function updateFontSelector() {
+  const currentFont = document.queryCommandValue('fontName');
+  if (currentFont) {
+    // Some browsers return quotes around font name, remove them
+    const cleanFont = currentFont.replace(/['"]/g, '');
+    fontSelector.value = cleanFont;
+  }
+}
+
+// Run update when cursor moves or selection changes
+noteArea.addEventListener('keyup', updateFontSelector);
+noteArea.addEventListener('mouseup', updateFontSelector);
+
+
+
+
 // Download PDF
 async function downloadPDF() {
   const { jsPDF } = window.jspdf
