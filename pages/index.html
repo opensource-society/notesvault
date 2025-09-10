@@ -18,16 +18,6 @@
       type="image/x-icon"
     />
 
-  <!-- Extra Favicons & Touch Icons (for mobile + PWA) -->
-    <link rel="icon" type="image/png" href="../assets/index/images/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="../assets/index/images/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/index/images/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="NotesVault" />
-    <link rel="manifest" href="../assets/index/site.webmanifest">
-    <meta name="theme-color" content="#4523ab">
-
-
-
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -38,7 +28,6 @@
     <link rel="stylesheet" href="../styling/home.css" />
     <link rel="stylesheet" href="../styling/base.css" />
     <link rel="stylesheet" href="../styling/variables.css" />
-    <link rel="stylesheet" href="../styling/feedback.css" />
   </head>
 
   <body>
@@ -50,7 +39,7 @@
       <section class="hero">
         <div class="container">
           <div class="hero-content">
-            <p class="welcome-text">Welcome to NotesVault</p>
+            <p class="welcome-text">Welcome Back</p>
             <h1>Your Organized <span class="text-accent">Learning Companion...</span></h1>
             <p class="subtext">
               Keep your study notes and PYQs organized, easy to find, and always
@@ -95,7 +84,7 @@
       </section>
 
       <!-- Features Section -->
-      <section class="features">
+      <section class="features" data-aos="fade-up">
         <div class="container">
           <h2 class="section-title">Key Features</h2>
           <p class="section-subtitle">
@@ -105,7 +94,7 @@
           <div class="features-grid">
             <!-- Feature 1 -->
             <div class="feature-card" data-feature="upload">
-              <div class="feature-icon">
+              <div class="feature-icon" >
                 <i class="fas fa-cloud-upload-alt"></i>
               </div>
               <h3>Easy Upload</h3>
@@ -148,19 +137,6 @@
           </div>
         </div>
       </section>
-      <!-- Feedback & Reviews Section -->
-      <section class="feedback-section" id="feedback-section">
-        <h2>Feedback & Reviews</h2>
-        <p>We value your feedback! Share your thoughts and help us improve NotesVault.</p>
-        <form class="feedback-form" id="feedback-form" autocomplete="off">
-          <input type="text" id="feedback-name" name="name" maxlength="60" placeholder="Your Name" required aria-label="Name" />
-          <input type="email" id="feedback-email" name="email" maxlength="100" placeholder="Your Email" required aria-label="Email" />
-          <textarea id="feedback-input" name="feedback" rows="3" maxlength="400" placeholder="Write your feedback here..." required aria-label="Feedback"></textarea>
-          <button type="submit">Submit Feedback</button>
-        </form>
-  <div id="feedback-success" class="feedback-success">Submitted successfully! Thank you for your feedback.</div>
-  <!-- Feedbacks are stored locally and not displayed on the website. -->
-      </section>
     </main>
 
     <!-- Footer -->
@@ -168,5 +144,27 @@
 
     <!-- JavaScript -->
     <script src="../scripts/script.js" defer></script>
+    <script>
+      // Example JavaScript code to demonstrate functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        const searchForm = document.querySelector('.search-form');
+        const searchInput = document.querySelector('input[name="query"]');
+
+        searchForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const query = searchInput.value.trim();
+          if (query) {
+            // Redirect to notes page with query parameter
+            window.location.href = `pages/notes.html?query=${encodeURIComponent(query)}`;
+          }
+        });
+      });
+
+      // Fetch example data from the API and log it
+      fetch('http://localhost/notesvault/backend/api/')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error fetching data:', error));
+    </script>
   </body>
 </html>
