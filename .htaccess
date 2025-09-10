@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /web_technoloyg_project/notesvault/
+
+# Exclude backend folder from rewrite
+RewriteCond %{REQUEST_URI} !^/web_technoloyg_project/notesvault/backend/
+
+# Redirect all requests to the frontend folder if not a file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ frontend/$1 [L]
