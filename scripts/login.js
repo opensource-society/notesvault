@@ -1,190 +1,165 @@
-// Login (JavaScript)
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // DOM Elements
-  const loginForm = document.getElementById('loginForm')
-  const messageBox = document.getElementById('messageBox')
-  const emailInput = document.getElementById('email')
-  const passwordInput = document.getElementById('password')
-  const passwordToggle = document.querySelector('.password-toggle')
-  const passwordIcon = passwordToggle.querySelector('i')
-  const rememberMe = document.getElementById('remember-me')
-  const loginBtn = document.getElementById('loginBtn')
-  const spinner = document.getElementById('spinner')
-  const btnText = document.getElementById('btnText')
-
-  const themeToggle = document.getElementById('themeToggle');
-  const body = document.body;
-  const sunIcon = document.querySelector(".theme-icon.sun");
-  const moonIcon = document.querySelector(".theme-icon.moon");
+  const loginForm = document.getElementById("loginForm");
+  const messageBox = document.getElementById("messageBox");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const passwordToggle = document.querySelector(".password-toggle");
+  const passwordIcon = passwordToggle.querySelector("i");
+  const rememberMe = document.getElementById("remember-me");
+  const loginBtn = document.getElementById("loginBtn");
+  const spinner = document.getElementById("spinner");
+  const btnText = document.getElementById("btnText");
 
   // Constants
-  const MIN_PASSWORD_LENGTH = 6
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const MIN_PASSWORD_LENGTH = 6;
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Theme
+  const getStoredTheme = () => {
+    return localStorage.getItem("theme") || "light";
+  };
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+  setTheme(getStoredTheme());
 
   // Initialize Form
   function initForm() {
     // Check For Remembered Email
-    const rememberedEmail = localStorage.getItem('rememberEmail')
+    const rememberedEmail = localStorage.getItem("rememberEmail");
     if (rememberedEmail) {
-      emailInput.value = rememberedEmail
-      rememberMe.checked = true
-      emailInput.parentNode.classList.add('focused')
+      emailInput.value = rememberedEmail;
+      rememberMe.checked = true;
+      emailInput.parentNode.classList.add("focused");
     }
-
     // Setup Floating Labels
-    initFloatingLabels()
-
+    initFloatingLabels();
     // Setup Password Toggle
-    initPasswordToggle()
+    initPasswordToggle();
   }
 
-  // Initialize Floating Labels
+  // Floating Labels
   function initFloatingLabels() {
-    document.querySelectorAll('.floating-input input').forEach((input) => {
-      input.addEventListener('focus', () => {
-        input.parentNode.classList.add('focused')
-      })
-
-      input.addEventListener('blur', () => {
+    document.querySelectorAll(".floating-input input").forEach((input) => {
+      input.addEventListener("focus", () => {
+        input.parentNode.classList.add("focused");
+      });
+      input.addEventListener("blur", () => {
         if (!input.value) {
-          input.parentNode.classList.remove('focused')
+          input.parentNode.classList.remove("focused");
         }
-      })
-
+      });
       if (input.value) {
-        input.parentNode.classList.add('focused')
+        input.parentNode.classList.add("focused");
       }
-    })
+    });
   }
 
-  // Initialize Password Toggle
+  // Password Toggle
   function initPasswordToggle() {
-    passwordToggle.addEventListener('click', togglePasswordVisibility)
-    updatePasswordToggle()
+    passwordToggle.addEventListener("click", togglePasswordVisibility);
+    updatePasswordToggle(passwordInput.type === "password");
   }
 
-  // Toggle Password Visibility
   function togglePasswordVisibility() {
-    const isPassword = passwordInput.type === 'password'
-    passwordInput.type = isPassword ? 'text' : 'password'
-    updatePasswordToggle(isPassword)
+    const isPassword = passwordInput.type === "password";
+    passwordInput.type = isPassword ? "text" : "password";
+    updatePasswordToggle(!isPassword);
   }
 
-  // Update Password Toggle State
   function updatePasswordToggle(isPassword) {
-    passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
+    passwordIcon.className = isPassword ? "far fa-eye-slash" : "far fa-eye";
     passwordToggle.setAttribute(
-      'aria-label',
-      isPassword ? 'Hide password' : 'Show password'
-    )
+      "aria-label",
+      isPassword ? "Hide password" : "Show password"
+    );
   }
 
   // Message Function
-  function showMessage(message, type = 'success') {
-    messageBox.textContent = message
-    messageBox.className = `message-box ${type} show`
-
-    // Auto-Hide Message After Timeout
+  function showMessage(message, type = "success") {
+    messageBox.textContent = message;
+    messageBox.className = `message-box ${type} show`;
     setTimeout(() => {
-      messageBox.classList.remove('show')
-    }, 3000)
+      messageBox.classList.remove("show");
+    }, 3000);
   }
 
   // Validate Form Inputs
   function validateForm(email, password) {
     if (!email || !password) {
-      showMessage('Please Fill In All Fields', 'error')
-      return false
+      showMessage("Please Fill In All Fields", "error");
+      return false;
     }
-
     if (!EMAIL_REGEX.test(email)) {
-      showMessage('Please Enter a Valid Email Address', 'error')
-      return false
+      showMessage("Please Enter a Valid Email Address", "error");
+      return false;
     }
-
     if (password.length < MIN_PASSWORD_LENGTH) {
       showMessage(
         `Password Must Be At Least ${MIN_PASSWORD_LENGTH} Characters`,
-        'error'
-      )
-      return false
+        "error"
+      );
+      return false;
     }
-
-    return true
+    return true;
   }
 
   // Set Loading State
   function setLoadingState(isLoading) {
     if (isLoading) {
-      spinner.classList.remove('hidden')
-      btnText.textContent = 'Signing in...'
-      loginBtn.disabled = true
+      spinner.classList.remove("hidden");
+      btnText.textContent = "Signing in...";
+      loginBtn.disabled = true;
     } else {
-      spinner.classList.add('hidden')
-      btnText.textContent = 'Sign in'
-      loginBtn.disabled = false
+      spinner.classList.add("hidden");
+      btnText.textContent = "Sign in";
+      loginBtn.disabled = false;
     }
   }
 
   // Handle Form Submission
   async function handleLogin(e) {
-    e.preventDefault()
-
-    const email = emailInput.value.trim()
-    const password = passwordInput.value
-    const shouldRemember = rememberMe.checked
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const shouldRemember = rememberMe.checked;
 
     // Validate Form
-    if (!validateForm(email, password)) return
+    if (!validateForm(email, password)) return;
 
     // Set Loading State
-    setLoadingState(true)
+    setLoadingState(true);
 
     try {
       // Simulate API Call - Replace With Actual Fetch In Production
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Store Remember Me Preference
       if (shouldRemember) {
-        localStorage.setItem('rememberEmail', email)
+        localStorage.setItem("rememberEmail", email);
       } else {
-        localStorage.removeItem('rememberEmail')
+        localStorage.removeItem("rememberEmail");
       }
 
       // Show Success Message
-      showMessage('Login Successful! Redirecting...', 'success')
+      showMessage("Login Successful! Redirecting...", "success");
 
       // Redirect After Delay
       setTimeout(() => {
-        window.location.href = '../index.html'
-      }, 1500)
+        window.location.href = "../index.html";
+      }, 1500);
     } catch (error) {
-      console.error('Login error:', error)
-      showMessage('Login Failed. Please Try Again...', 'error')
+      console.error("Login error:", error);
+      showMessage("Login Failed. Please Try Again...", "error");
     } finally {
-      setLoadingState(false)
+      setLoadingState(false);
     }
   }
 
-  // 🌙 Theme Toggle (Fix)
-  themeToggle.addEventListener("click", function () {
-    const isDark = body.getAttribute("data-theme") === "dark";
-
-    if (isDark) {
-      body.setAttribute("data-theme", "light");
-      sunIcon.style.opacity = "1";
-      moonIcon.style.opacity = "0";
-    } else {
-      body.setAttribute("data-theme", "dark");
-      sunIcon.style.opacity = "0";
-      moonIcon.style.opacity = "1";
-    }
-  });
-
   // Event Listeners
-  loginForm.addEventListener('submit', handleLogin)
+  loginForm.addEventListener("submit", handleLogin);
 
   // Initialize The Form
-  initForm()
-})
+  initForm();
+});

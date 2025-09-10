@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Sign Up (JavaScript)
+
+document.addEventListener("DOMContentLoaded", function () {
   // DOM Elements
   const signupForm = document.getElementById('signupForm');
   const nameInput = document.getElementById('name');
@@ -18,13 +20,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const confirmError = document.getElementById('confirmError');
   const termsError = document.getElementById('termsError');
 
-  const themeToggle = document.getElementById("themeToggle");
-  const body = document.body;
-  const sunIcon = document.querySelector(".theme-icon.sun");
-  const moonIcon = document.querySelector(".theme-icon.moon");
-
   const MIN_PASSWORD_LENGTH = 6;
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Theme Setup Logic
+  const getStoredTheme = () => {
+    return localStorage.getItem("theme") || "light";
+  };
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+  setTheme(getStoredTheme());
 
   // Toggle Password Visibility
   passwordToggle.addEventListener('click', function () {
@@ -130,21 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
       spinner.classList.add('hidden');
       btnText.textContent = 'Sign Up';
       signupBtn.disabled = false;
-    }
-  });
-
-  // 🌙 Theme Toggle (Fix)
-  themeToggle.addEventListener("click", function () {
-    const isDark = body.getAttribute("data-theme") === "dark";
-
-    if (isDark) {
-      body.setAttribute("data-theme", "light");
-      sunIcon.style.opacity = "1";
-      moonIcon.style.opacity = "0";
-    } else {
-      body.setAttribute("data-theme", "dark");
-      sunIcon.style.opacity = "0";
-      moonIcon.style.opacity = "1";
     }
   });
 });
