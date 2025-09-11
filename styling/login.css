@@ -450,3 +450,12 @@
     padding: 1.1rem;
   }
 }
+
+  @media (prefers-color-scheme: dark) {
+    .floating-back-btn:active {
+      background: #222a3a !important;
+      color: #e0e0e0 !important;
+      border-color: #222a3a !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+  }
