@@ -218,7 +218,7 @@ class TodoList {
     }
 
     const number = document.getElementById('number');
-    const circle = document.querySelector('circle');
+    const circle = document.getElementById('circlarng');
     const strokeLength = 472;
     let currentPercentage = 0;
     let startPercentage = 0;
