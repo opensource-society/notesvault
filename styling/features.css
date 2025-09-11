@@ -5,8 +5,8 @@
 }
 
 /* Hero Section */
-.features
-  background: url("../assets/index/images/back.jpg") center/cover no-repeat;
+.features-hero {
+  background: url('../assets/index/images/back.jpg') no-repeat center center/cover;
   padding: 6rem 0;
   text-align: center;
 }
