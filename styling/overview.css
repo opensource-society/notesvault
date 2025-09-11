@@ -40,13 +40,12 @@
 }
 
 .welcome-badge {
-  display: inline-block;
-  background-color: var(--primary-500);
-  color: white;
-  padding: 0.5rem 1rem;
+  
+  color: var(--accent-500);
+  padding: 0.5rem 2rem;
   border-radius: 2rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 800;
   margin-bottom: 1.5rem;
 }
 
@@ -69,7 +68,8 @@
 .cta-buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  
 }
 
 .btn:hover {
