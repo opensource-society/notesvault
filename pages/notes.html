@@ -42,14 +42,14 @@
 
     <!-- Main Section -->
     <main class="browse-notes-container">
-      <h2>Search Notes -</h2>
+      <h2>Search Notes </h2>
 
       <!-- Search & Filters -->
       <div class="search-bar">
         <input
           type="text"
           id="searchInput"
-          placeholder="Search Notes By Title, Uploader..."
+          placeholder="Search Notes By Title, Uploader"
         />
       </div>
 
@@ -65,6 +65,15 @@
           <label for="semesterFilter">Semester</label>
           <select id="semesterFilter">
             <option value="">All Semesters</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="sortFilter">Sort By</label>
+          <select id="sortFilter">
+            <option value="date_desc">Newest First</option>
+            <option value="date_asc">Oldest First</option>
+            <option value="title_asc">Title (A–Z)</option>
+            <option value="title_desc">Title (Z–A)</option>
           </select>
         </div>
 
@@ -98,9 +107,11 @@
         <p>
           <strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span>
         </p>
-        <a id="modalDownloadButton" class="download-button" href="#" download>
+        <a id="modalViewButton" class="view-button" href="#" target="_blank" view>View Note</a>
+        
+        <!--<a id="modalDownloadButton" class="download-button" href="#" download>
           <i class="fas fa-download"></i> &nbsp; Download Note
-        </a>
+        </a>-->
       </div>
     </div>
 
@@ -128,7 +139,8 @@
           description: document.getElementById('modalNoteDescription'),
           uploader: document.getElementById('modalNoteUploader'),
           uploadDate: document.getElementById('modalNoteUploadDate'),
-          downloadButton: document.getElementById('modalDownloadButton'),
+          //downloadButton: document.getElementById('modalDownloadButton'),
+          viewButton: document.getElementById('modalViewButton')
         }
 
         let allNotes = []
@@ -143,7 +155,7 @@
         }
 
         // Fetch Notes From JSON File
-        async function fetchNotes() {
+        async function fetchNotes() { 
           loadingMessage.style.display = 'block'
           noNotesMessage.style.display = 'none'
           notesGrid.innerHTML = ''
@@ -197,6 +209,42 @@
             option.textContent = semester
             semesterFilter.appendChild(option)
           })
+          const sortFilter = document.getElementById('sortFilter')
+
+        function sortNotes(notes) {
+          const sortValue = sortFilter.value
+          return notes.sort((a, b) => {
+            if (sortValue === 'date_desc') return new Date(b.uploadDate) - new Date(a.uploadDate)
+            if (sortValue === 'date_asc') return new Date(a.uploadDate) - new Date(b.uploadDate)
+            if (sortValue === 'title_asc') return a.title.localeCompare(b.title)
+            if (sortValue === 'title_desc') return b.title.localeCompare(a.title)
+            return 0
+        })
+}
+
+        sortFilter.addEventListener('change', filterNotes)
+
+        function filterNotes() {
+          const searchQuery = searchInput.value.toLowerCase().trim()
+          const selectedBranch = branchFilter.value
+          const selectedSemester = semesterFilter.value
+
+          let filteredNotes = allNotes.filter((note) => {
+            const matchesSearch =
+              searchQuery === '' ||
+              note.title.toLowerCase().includes(searchQuery) ||
+              (note.uploader && note.uploader.toLowerCase().includes(searchQuery))
+
+          const matchesBranch = selectedBranch === '' || note.branch === selectedBranch
+          const matchesSemester = selectedSemester === '' || note.semester === selectedSemester
+
+          return matchesSearch && matchesBranch && matchesSemester
+        })
+
+      filteredNotes = sortNotes(filteredNotes)
+      displayNotes(filteredNotes)
+}
+
         }
 
         // Display Notes (Grid Layout)
@@ -262,13 +310,19 @@
             : 'Unknown date'
 
           if (note.filePath) {
-            modalElements.downloadButton.href = note.filePath
+            // Set up "View" button
+            modalElements.viewButton.href = note.filePath
+            modalElements.viewButton.style.display = 'inline-block'
+
+            // Set up "Download" button
+           /* modalElements.downloadButton.href = note.filePath
             modalElements.downloadButton.setAttribute(
               'download',
               getDownloadFilename(note)
             )
-            modalElements.downloadButton.style.display = 'inline-flex'
+            modalElements.downloadButton.style.display = 'inline-flex'*/
           } else {
+            modalElements.viewButton.style.display = 'none'
             modalElements.downloadButton.style.display = 'none'
           }
 

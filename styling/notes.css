@@ -2,16 +2,20 @@
 
 /* Hero Section */
 .notes-hero {
-  background: url("../assets/index/images/back.jpg") center/cover no-repeat;
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
   padding: 6rem 0 4rem 0;
   text-align: center;
 }
 
 .notes-hero h1 {
-  font-size: 2.75rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .notes-hero .subtitle {
