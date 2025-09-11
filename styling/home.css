@@ -12,6 +12,8 @@
     var(--bg-secondary)
   );
   --search-card-width: 480px;
+  
+
 }
 
 /* Background Gradient */
@@ -95,7 +97,6 @@
   font-size: 1.15rem;
   line-height: 1.7;
   margin-bottom: 2.25rem;
-  text-transform: capitalize;
   color: var(--text-secondary);
   opacity: 0.9;
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
@@ -258,9 +259,8 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  position: relative;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
 }
 
 .feature-card {
@@ -269,11 +269,13 @@
   border-radius: 1rem;
   padding: 2.5rem 2rem;
   box-shadow: var(--card-shadow);
-  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: var(--transition) 0.4s cubic-bezier(1, 4, 0.5, 1);
   overflow: hidden;
   border: 1px solid var(--border-color);
   text-align: center;
+  animation: fadeInUp 2.0s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
 }
+
 
 .feature-card:hover {
   transform: translateY(-10px);
@@ -281,17 +283,9 @@
 }
 
 .feature-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--primary-500);
-  background: rgba(0, 140, 45, 0.1);
-  border-radius: 50%;
-  transition: all 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 .feature-card:hover .feature-icon {
@@ -300,7 +294,7 @@
 }
 
 .feature-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--text-primary);
 }

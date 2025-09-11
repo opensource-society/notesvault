@@ -1,13 +1,12 @@
 /* Sign Up (CSS) */
-
 /* Base Layout */
 .signup-page {
   background: linear-gradient(
-    135deg,
-    var(--primary-100) 0%,
-    var(--bg-primary) 100%
+     to bottom,
+    var(--bg-primary),
+    var(--bg-secondary)
   );
-  min-height: 100vh;
+  min-height: 100vh; /* Ensure the height remains consistent */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +15,6 @@
   position: relative;
   transition: background 0.5s ease;
 }
-
 /* Back Button */
 .floating-back-btn {
   position: fixed;
@@ -188,6 +186,15 @@
 .password-toggle:hover {
   color: var(--primary-500);
   transform: translateY(-50%) scale(1.1);
+}
+
+/* ✅ Error Messages Fix */
+.error-message {
+  display: block;
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px; /* keeps space below input */
+  line-height: 1.4;
 }
 
 /* Primary Button */
@@ -388,5 +395,13 @@
 
   .btn-primary {
     padding: 1.1rem;
+  }
+}
+ 
+@media (prefers-color-scheme: dark) {
+  .signup-page {
+    background: #0b1126 !important;
+    color: #f0f0f0 !important;
+    /* Remove any gradient by overriding with !important */
   }
 }

@@ -39,10 +39,10 @@
         </p>
       </div>
     </section>
-
     <!-- Main Content -->
     <main class="todo-main">
       <div class="todo-container">
+
         <!-- Add Task Form -->
         <div class="todo-form-container">
           <form id="todoForm" class="todo-form">
@@ -61,7 +61,25 @@
             </div>
           </form>
         </div>
-
+        <!--circle progress-->
+        <div class="skill">
+          <div class="outer">
+            <div class="inner">
+              <div id="number">
+                <!--percentages-->
+              </div>
+            </div>
+          </div>
+          <svg class="anim" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+            <defs>
+              <linearGradient id="GradientColor">
+                <stop offset="0%" stop-color="#e91e63" />
+                <stop offset="100%" stop-color="#673ab7" />
+              </linearGradient>
+            </defs>
+            <circle id="cskill" cx="80" cy="80" r="70" stroke-linecap="round" />
+          </svg>
+        </div>
         <!-- Task Controls -->
         <div class="todo-controls">
           <div class="task-stats">
@@ -102,5 +120,6 @@
     <!-- JavaScript -->
     <script src="../scripts/script.js"></script>
     <script src="../scripts/todolist.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
   </body>
 </html>

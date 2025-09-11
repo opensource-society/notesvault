@@ -2,11 +2,7 @@
 
 /* Hero Section */
 .jotpad-hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-500) 0%,
-    var(--primary-700) 100%
-  );
+  background: url("../assets/index/images/back.jpg") center/cover no-repeat;
   padding: 6rem 0 4rem 0;
   text-align: center;
 }
@@ -120,3 +116,53 @@
   background-color: var(--error);
   color: var(--white);
 }
+
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  padding: 0.625rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.toolbar button {
+  padding: 6px 10px;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.toolbar button:hover {
+  background: #ddd;
+}
+
+.toolbar button.active {
+  background: var(--primary-500);
+  color: #fff;
+}
+
+/* Font style */
+#fontSelector {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit; /* Use default font for dropdown itself */
+}
+
+#fontSelector option {
+  font-family: inherit; /* fallback, each inline style will override */
+}
+
+#fontSelector:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+

@@ -340,6 +340,20 @@
             event.target.classList.add('active');
         }
 
+        // New logic to handle URL hash
+        window.onload = function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetButton = document.getElementById(hash);
+                if (targetButton) {
+                    // Create a dummy event object
+                    const event = new Event('click');
+                    // Call the switchTab function with the correct tab name
+                    switchTab(event, hash);
+                }
+            }
+        };
+
         function scrollToTop() {
             window.scrollTo({
                 top: 0,

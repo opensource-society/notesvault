@@ -1,10 +1,8 @@
-/* Login (CSS) */
-
 .login-page {
   background: linear-gradient(
-    135deg,
-    var(--primary-100) 0%,
-    var(--bg-primary) 100%
+     to bottom,
+    var(--bg-primary),
+    var(--bg-secondary)
   );
   min-height: 100vh;
   display: flex;

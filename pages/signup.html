@@ -1,170 +1,83 @@
-<!-- Sign Up (HTML) -->
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NotesVault - Sign Up</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotesVault - Sign Up</title>
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="../assets/index/images/favicon.png"
-      type="image/x-icon"
-    />
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styling/signup.css" />
+  <link rel="stylesheet" href="../styling/base.css" />
+  <link rel="stylesheet" href="../styling/variables.css" />
+</head>
+<body class="signup-page" data-theme="light">
+  <!-- Back Button -->
+  <a href="index.html" class="floating-back-btn">
+    <i class="fas fa-chevron-left"></i>
+    <span>Home</span>
+  </a>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../styling/signup.css" />
-    <link rel="stylesheet" href="../styling/base.css" />
-    <link rel="stylesheet" href="../styling/variables.css" />
-  </head>
-
-  <body class="signup-page">
-    <!-- Back Button -->
-    <a href="index.html" class="floating-back-btn">
-      <i class="fas fa-chevron-left"></i>
-      <span>Home</span>
-    </a>
-
-    <!-- Animated Message Box -->
-    <div id="messageBox" class="message-box"></div>
-
-    <!-- Signup Card -->
-    <div class="signup-card">
-      <div class="signup-header">
-        <div class="logo-preview">
-          <i class="fas fa-book-open"></i>
-        </div>
-        <h2>Create Your Account</h2>
-        <p>Join NotesVault Today!</p>
+  <!-- Signup Card -->
+  <div class="signup-card">
+    <div class="signup-header">
+      <div class="logo-preview">
+        <i class="fas fa-book-open"></i>
       </div>
-
-      <form id="signupForm" class="signup-form" method="POST">
-        <div class="form-group floating-input">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder=" "
-            autocomplete="name"
-          />
-          <label for="name">Full Name</label>
-          <div class="input-border"></div>
-        </div>
-
-        <div class="form-group floating-input">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder=" "
-            autocomplete="email"
-          />
-          <label for="email">Email address</label>
-          <div class="input-border"></div>
-        </div>
-
-        <div class="form-group floating-input">
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            placeholder=" "
-            autocomplete="new-password"
-            minlength="6"
-          />
-          <label for="password">Password</label>
-          <div class="input-border"></div>
-          <button type="button" class="password-toggle">
-            <i class="far fa-eye"></i>
-          </button>
-        </div>
-
-        <div class="form-group floating-input">
-          <input
-            type="password"
-            id="confirm-password"
-            name="confirm-password"
-            required
-            placeholder=" "
-            autocomplete="new-password"
-            minlength="6"
-          />
-          <label for="confirm-password">Confirm Password</label>
-          <div class="input-border"></div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" id="signup" name="signup">
-          <span class="spinner hidden" id="spinner"></span>
-          <span id="btnText">Sign Up</span>
-          <i class="fas fa-arrow-right btn-icon"></i>
-        </button>
-      </form>
-
-      <div class="signin-link">
-        <p>Already have an account? <a href="login.html">Sign in here</a></p>
-      </div>
+      <h2>Create Your Account</h2>
+      <p>Join NotesVault Today!</p>
     </div>
-    <!-- Sign Up (HTML + PHP) -->
-      <!-- <?php
-        if (isset($_POST['signup'])) {
-            // Database connection
-            $connect = mysqli_connect("localhost", "root", "", "banana");
-            if (!$connect) {
-                die("Database connection failed: " . mysqli_connect_error());
-            }
 
-            // Get form values
-            $name  = trim($_POST['name']);
-            $email = trim($_POST['email']);
-            $password = $_POST['password'];
-            $confirmPassword = $_POST['confirm-password'];
+    <form id="signupForm" class="signup-form" novalidate>
+      <!-- Name -->
+      <div class="form-group floating-input">
+        <input type="text" id="name" name="name" required
+               placeholder=" " autocomplete="name"/>
+        <label for="name">Full Name</label>
+        <div class="input-border"></div>
+        <div class="error-message" id="nameError"></div>
+      </div>
 
-            // Check if passwords match
-            if ($password !== $confirmPassword) {
-                echo "<script>alert('Passwords do not match!');</script>";
-            } else {
-                // Check if email already exists
-                $stmt = mysqli_prepare($connect, "SELECT id FROM signup WHERE email = ?");
-                mysqli_stmt_bind_param($stmt, "s", $email);
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
+      <!-- Password -->
+      <div class="form-group floating-input">
+        <input type="password" id="password" name="password" required
+               placeholder=" " autocomplete="new-password"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])
+                        [A-Za-z\d@$!%*?&]{6,}$"/>
+        <label for="password">Password</label>
+        <div class="input-border"></div>
+        <button type="button" class="password-toggle">
+          <i class="far fa-eye"></i>
+        </button>
+        <div class="error-message" id="passwordError"></div>
+      </div>
 
-                if (mysqli_num_rows($result) > 0) {
-                    echo "<script>alert('Email already registered!');</script>";
-                } else {
-                    // Hash the password
-                    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+      <!-- Confirm Password -->
+      <div class="form-group floating-input">
+        <input type="password" id="confirm-password"
+               name="confirm-password" required placeholder=" "
+               autocomplete="new-password"/>
+        <label for="confirm-password">Confirm Password</label>
+        <div class="input-border"></div>
+        <div class="error-message" id="confirmError"></div>
+      </div>
 
-                    // Insert into DB
-                    $stmt = mysqli_prepare($connect, "INSERT INTO signup (name, email, password) VALUES (?, ?, ?)");
-                    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashedPassword);
+      <!-- Terms -->
+      <div class="form-group terms">
+        <input type="checkbox" id="terms" name="terms" />
+        <label for="terms">I agree to the
+          <a href="termsOfservice.html">Terms of Service</a></label>
+        <div class="error-message" id="termsError"></div>
+      </div>
 
-                    if (mysqli_stmt_execute($stmt)) {
-                        echo "<script>alert('Signup successful! Please login.'); window.location.href='login.php';</script>";
-                    } else {
-                        echo "<script>alert('Error: " . mysqli_error($connect) . "');</script>";
-                    }
-                }
-            }
+    <div class="signin-link">
+      <p>Already have an account? <a href="login.html">Sign in here</a></p>
+    </div>
 
-            mysqli_close($connect);
-        }
-        ?> -->
-
-
-    <!-- JavaScript -->
-    <script src="../scripts/script.js"></script>
-    <script src="../scripts/signup.js"></script>
-  </body>
+  <!-- JavaScript -->
+  <script src="../scripts/signup.js"></script>
+</body>
 </html>
