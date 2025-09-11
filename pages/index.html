@@ -84,7 +84,7 @@
       </section>
 
       <!-- Features Section -->
-      <section class="features">
+      <section class="features" data-aos="fade-up">
         <div class="container">
           <h2 class="section-title">Key Features</h2>
           <p class="section-subtitle">
@@ -94,7 +94,7 @@
           <div class="features-grid">
             <!-- Feature 1 -->
             <div class="feature-card" data-feature="upload">
-              <div class="feature-icon">
+              <div class="feature-icon" >
                 <i class="fas fa-cloud-upload-alt"></i>
               </div>
               <h3>Easy Upload</h3>
@@ -144,5 +144,27 @@
 
     <!-- JavaScript -->
     <script src="../scripts/script.js" defer></script>
+    <script>
+      // Example JavaScript code to demonstrate functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        const searchForm = document.querySelector('.search-form');
+        const searchInput = document.querySelector('input[name="query"]');
+
+        searchForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const query = searchInput.value.trim();
+          if (query) {
+            // Redirect to notes page with query parameter
+            window.location.href = `pages/notes.html?query=${encodeURIComponent(query)}`;
+          }
+        });
+      });
+
+      // Fetch example data from the API and log it
+      fetch('http://localhost/notesvault/backend/api/')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error fetching data:', error));
+    </script>
   </body>
 </html>

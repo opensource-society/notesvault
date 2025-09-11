@@ -44,6 +44,23 @@
           <button class="mode-btn active" id="textModeBtn">Text Mode</button>
           <button class="mode-btn" id="drawModeBtn">Draw Mode</button>
         </div>
+        <!-- Toolbar -->
+    <div class="toolbar">
+      <button onclick="formatText('bold')"><i class="fas fa-bold"></i></button>
+      <button onclick="formatText('italic')"><i class="fas fa-italic"></i></button>
+      <button onclick="formatText('underline')"><i class="fas fa-underline"></i></button>
+
+      <!-- font style changing -->
+    <select id="fontSelector">
+      <option value="Arial" style="font-family: Arial;">Arial</option>
+      <option value="Verdana" style="font-family: Verdana;">Verdana</option>
+      <option value="Tahoma" style="font-family: Tahoma;">Tahoma</option>
+      <option value="Georgia" style="font-family: Georgia;">Georgia</option>
+      <option value="Courier New" style="font-family: 'Courier New';">Courier New</option>
+      <option value="Times New Roman" style="font-family: 'Times New Roman';">Times New Roman</option>
+    </select>
+
+    </div>
 
         <div class="drawing-container">
           <div
