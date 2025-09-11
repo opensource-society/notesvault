@@ -1,0 +1,76 @@
+<!-- MCQ Page (HTML) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - MCQ</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../mcq/mcq.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <!-- JavaScript -->
+    <script src="../scripts/script.js"></script>
+    <main class="mcq-main">
+      <div class="mcq-front">
+        <div class="mcq-header">
+          <button id="createQuizBtn" class="create-quiz-btn">
+            <span>+ Create a Quiz</span>
+          </button>
+          <span class="upgrade-label">Upgrade</span>
+        </div>
+        <div class="mcq-help">
+          <a href="#" class="help-link">View help for this section</a>
+        </div>
+        <div class="mcq-sort">
+          <span>Newest to Oldest</span>
+        </div>
+        <div id="quizCards" class="quiz-cards">
+          <!-- Quiz cards will be rendered here by JS -->
+        </div>
+      </div>
+      <div class="mcq-container" style="display:none;">
+        <h1>Create & Practice MCQs</h1>
+        <form id="mcqForm" class="mcq-form">
+          <input type="text" id="questionInput" placeholder="Enter your question..." required />
+          <input type="text" id="optionA" placeholder="Option A" required />
+          <input type="text" id="optionB" placeholder="Option B" required />
+          <input type="text" id="optionC" placeholder="Option C" required />
+          <input type="text" id="optionD" placeholder="Option D" required />
+          <select id="correctOption" required>
+            <option value="">Select Correct Option</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+          <button type="submit">Add MCQ</button>
+        </form>
+        <div id="mcqList" class="mcq-list" style="display:none;"></div>
+        <button id="weeklyQuizBtn">Take Weekly Quiz</button>
+        <div id="quizSection" class="quiz-section"></div>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../mcq/mcq.js"></script>
+  </body>
+</html>
