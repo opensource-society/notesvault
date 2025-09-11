@@ -46,7 +46,7 @@
         <p>Sign in to continue to NotesVault</p>
       </div>
 
-      <form id="loginForm" class="login-form">
+      <form id="loginForm" class="login-form" method="post" action="">
         <div class="form-group floating-input">
           <input
             type="email"
@@ -87,13 +87,50 @@
           >
         </div>
 
-        <button type="submit" class="btn btn-primary" id="loginBtn">
+        <button type="submit" class="btn btn-primary" id="loginBtn" name="login">
           <span class="spinner hidden" id="spinner"></span>
-          <span id="btnText">Sign in</span>
+          <span id="btnText ">Sign in</span>
           <i class="fas fa-arrow-right btn-icon"></i>
         </button>
       </form>
+      <!-- <?php
+        if (isset($_POST['login'])) {
+            // Database connection
+            $connect = mysqli_connect("localhost", "root", "", "banana");
+            if (!$connect) {
+                echo "<p style='color: red;'>Database connection failed: " . mysqli_connect_error() . "</p>";
+                exit();
+            }
 
+            // Get form inputs
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            // Query to get user by email
+            $sql = "SELECT * FROM signup WHERE email = '$email'";
+            $result = mysqli_query($connect, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                // Fetch user data
+                $row = mysqli_fetch_assoc($result);
+
+                // DB email & password
+                $db_email = $row['email'];
+                $db_password = $row['password'];
+
+                // Check if password matches
+                if ($password === $db_password) {
+                    echo "<script>alert('Login successful! Welcome $db_email');</script>";
+                } else {
+                    echo "<script>alert('Incorrect password!');</script>";
+                }
+            } else {
+                echo "<script>alert('Email not found!');</script>";
+            }
+
+            mysqli_close($connect);
+        }
+        ?> -->
       <div class="signup-link">
         <p>New to NotesVault? <a href="signup.html">Create an account</a></p>
       </div>

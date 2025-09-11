@@ -46,7 +46,7 @@
         <p>Join NotesVault Today!</p>
       </div>
 
-      <form id="signupForm" class="signup-form">
+      <form id="signupForm" class="signup-form" method="POST">
         <div class="form-group floating-input">
           <input
             type="text"
@@ -104,7 +104,7 @@
           <div class="input-border"></div>
         </div>
 
-        <button type="submit" class="btn btn-primary" id="signupBtn">
+        <button type="submit" class="btn btn-primary" id="signup" name="signup">
           <span class="spinner hidden" id="spinner"></span>
           <span id="btnText">Sign Up</span>
           <i class="fas fa-arrow-right btn-icon"></i>
@@ -115,6 +115,53 @@
         <p>Already have an account? <a href="login.html">Sign in here</a></p>
       </div>
     </div>
+    <!-- Sign Up (HTML + PHP) -->
+      <!-- <?php
+        if (isset($_POST['signup'])) {
+            // Database connection
+            $connect = mysqli_connect("localhost", "root", "", "banana");
+            if (!$connect) {
+                die("Database connection failed: " . mysqli_connect_error());
+            }
+
+            // Get form values
+            $name  = trim($_POST['name']);
+            $email = trim($_POST['email']);
+            $password = $_POST['password'];
+            $confirmPassword = $_POST['confirm-password'];
+
+            // Check if passwords match
+            if ($password !== $confirmPassword) {
+                echo "<script>alert('Passwords do not match!');</script>";
+            } else {
+                // Check if email already exists
+                $stmt = mysqli_prepare($connect, "SELECT id FROM signup WHERE email = ?");
+                mysqli_stmt_bind_param($stmt, "s", $email);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+
+                if (mysqli_num_rows($result) > 0) {
+                    echo "<script>alert('Email already registered!');</script>";
+                } else {
+                    // Hash the password
+                    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                    // Insert into DB
+                    $stmt = mysqli_prepare($connect, "INSERT INTO signup (name, email, password) VALUES (?, ?, ?)");
+                    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashedPassword);
+
+                    if (mysqli_stmt_execute($stmt)) {
+                        echo "<script>alert('Signup successful! Please login.'); window.location.href='login.php';</script>";
+                    } else {
+                        echo "<script>alert('Error: " . mysqli_error($connect) . "');</script>";
+                    }
+                }
+            }
+
+            mysqli_close($connect);
+        }
+        ?> -->
+
 
     <!-- JavaScript -->
     <script src="../scripts/script.js"></script>

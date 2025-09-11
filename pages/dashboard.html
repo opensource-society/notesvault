@@ -27,92 +27,50 @@
     <div class="dashboard-grid">
 
       <!-- Profile Card -->
-      <section class="profile-card">
+      <section class="profile-card" style="height: 630px;">
         <div class="profile-header">
           <div class="avatar"><i class="fas fa-user-graduate"></i></div>
           <div class="profile-info">
-            <h2>Pranav K</h2>
-            <p class="email">pranavk@gmail.com</p>
-            <p class="institution">University of Mumbai</p>
+            <h2>Student <div id="studentnumber"></div></h2>
+            <p class="email">univ.jfn.ac.lk</p>
+            <p class="institution">University of Jaffna</p>
           </div>
         </div>
         <div class="profile-details">
           <div class="detail-item"><i class="fas fa-graduation-cap"></i><div><span>Branch</span><p>Computer Science</p></div></div>
           <div class="detail-item"><i class="fas fa-calendar-alt"></i><div><span>Year</span><p>2nd Year</p></div></div>
-          <div class="detail-item"><i class="fas fa-id-card"></i><div><span>Student ID</span><p>CS2024-049</p></div></div>
+          <div class="detail-item"><i class="fas fa-id-card"></i><div><span>Student ID</span><p>2022-CSC- <div id="studentnumber"></div> </p></div></div>
         </div>
         <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
       </section>
 
       <!-- Stats Section -->
-      <section class="stats-card">
+      <section class="stats-card" style="height: 630px;">
         <h3><i class="fas fa-chart-line"></i> Your Stats</h3>
         <div class="stats-grid">
-          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Notes</div></div>
+          <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Notes</div></div>
           <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">PYQs</div></div>
-          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Subjects</div></div>
+          <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">Subjects</div></div>
           <div class="stat-item"><div class="stat-value">0%</div><div class="stat-label">Completion</div></div>
         </div>
       </section>
 
       <!-- Notes Section -->
-      <section class="notes-section">
+      <section class="notes-section" style="height: 630px; width: 710px;">
         <div class="section-header">
           <h2><i class="fas fa-book"></i> Your Notes</h2>
           <div class="section-actions">
-            <button class="btn-primary" id="upload-note-btn"><i class="fas fa-cloud-upload-alt"></i> Upload Notes</button>
-            <div class="search-box"><input type="text" placeholder="Search notes..." /><i class="fas fa-search"></i></div>
+            <a href="upload.html" class="btn btn-primary" id="upload-note-btn" style="color:white;" onmouseover="this.style.color='white'" onmouseout="this.style.color='white'"><i class="fas fa-cloud-upload-alt"></i> Upload Notes</a>
           </div>
         </div>
 
         <div class="notes-grid">
-          <!-- Note Card 1 -->
-          <div class="note-card">
-            <div class="note-header">
-              <i class="fas fa-file-pdf note-icon"></i>
-              <div class="note-actions">
-                <button class="icon-btn"><i class="fas fa-download"></i></button>
-                <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
-                <button class="icon-btn"><i class="fas fa-ellipsis-v"></i></button>
-              </div>
-            </div>
-            <div class="note-body">
-              <h3>DBMS - Normalization</h3>
-              <p class="note-meta">Computer Science • 2.4 MB</p>
-              <p class="note-description">Complete notes on database normalization forms with examples.</p>
-            </div>
-            <div class="note-footer">
-              <span class="note-date">Uploaded: 15 May 2023</span>
-              <div class="note-tags"><span class="tag">DB</span><span class="tag">Theory</span></div>
-            </div>
-          </div>
-
-          <!-- Note Card 2 -->
-          <div class="note-card">
-            <div class="note-header">
-              <i class="fas fa-file-powerpoint note-icon"></i>
-              <div class="note-actions">
-                <button class="icon-btn"><i class="fas fa-download"></i></button>
-                <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
-                <button class="icon-btn"><i class="fas fa-ellipsis-v"></i></button>
-              </div>
-            </div>
-            <div class="note-body">
-              <h3>OS - Deadlock</h3>
-              <p class="note-meta">Operating Systems • 5.1 MB</p>
-              <p class="note-description">Presentation on deadlock conditions and prevention algorithms.</p>
-            </div>
-            <div class="note-footer">
-              <span class="note-date">Uploaded: 2 Apr 2023</span>
-              <div class="note-tags"><span class="tag">OS</span><span class="tag">Slides</span></div>
-            </div>
-          </div>
-
           <!-- Add New Note -->
-          <div class="add-note-card">
-            <button class="add-note-btn"><i class="fas fa-plus-circle"></i><span>Add New Notes</span></button>
+          <div class="add-note-card" style="width: 160px; display: flex;">
+            <a href="upload.html"><button class="add-note-btn"><i class="fas fa-plus-circle"></i><span>Add New Notes</span></button></a>
           </div>
         </div>
+        
       </section>
 
       <!-- PYQs Section -->
