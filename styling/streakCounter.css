@@ -1,0 +1,110 @@
+/* [StudyStreak] Study Streak Counter Styles */
+
+.streak-counter {
+  /* [StudyStreak] Base styling for the streak counter */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  border: none;
+  cursor: default;
+  user-select: none;
+}
+
+.streak-counter:hover {
+  /* [StudyStreak] Hover effect for better interactivity */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.streak-counter .streak-icon {
+  /* [StudyStreak] Fire emoji styling */
+  font-size: 16px;
+  animation: flame-flicker 2s ease-in-out infinite alternate;
+}
+
+.streak-counter .streak-text {
+  /* [StudyStreak] Text styling */
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+/* [StudyStreak] Flame animation for the fire emoji */
+@keyframes flame-flicker {
+  0% {
+    transform: scale(1) rotate(-2deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(1deg);
+  }
+  100% {
+    transform: scale(1) rotate(-1deg);
+  }
+}
+
+/* [StudyStreak] Responsive design for mobile devices */
+@media (max-width: 768px) {
+  .streak-counter {
+    padding: 6px 10px;
+    font-size: 12px;
+    gap: 6px;
+  }
+  
+  .streak-counter .streak-icon {
+    font-size: 14px;
+  }
+}
+
+/* [StudyStreak] Mobile-specific streak counter styling */
+.mobile-streak-counter {
+  margin-bottom: 10px;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* [StudyStreak] Mobile navigation streak counter adjustments */
+.mobile-nav .streak-counter {
+  margin: 10px 0;
+  font-size: 13px;
+  padding: 8px 16px;
+}
+
+/* [StudyStreak] Dark theme support */
+[data-theme="dark"] .streak-counter {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+}
+
+[data-theme="dark"] .streak-counter:hover {
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.5);
+}
+
+/* [StudyStreak] High contrast mode support */
+@media (prefers-contrast: high) {
+  .streak-counter {
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* [StudyStreak] Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .streak-counter .streak-icon {
+    animation: none;
+  }
+  
+  .streak-counter:hover {
+    transform: none;
+  }
+}
