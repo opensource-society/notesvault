@@ -44,6 +44,73 @@
         <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
       </section>
 
+      <!-- Edit Profile Modal -->
+      <div class="modal" id="editModal" aria-hidden="true">
+        <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="editProfileTitle">
+          <div class="modal-header">
+            <h3 id="editProfileTitle">Edit Profile</h3>
+            <button id="closeModal" class="close" aria-label="Close">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <form id="editForm" class="profile-form" novalidate>
+              <!-- Avatar Upload -->
+              <div class="avatar-upload">
+                <label class="avatar-label" for="profilePic">
+                  <img src="../assets/index/images/default-avatar.png" alt="Avatar preview" id="avatarPreview" class="avatar-img" />
+                  <span class="change-avatar-text"><i class="fas fa-camera"></i> Change profile</span>
+                </label>
+                <!-- The input is visible for accessibility but styled so click works reliably -->
+                <input type="file" id="profilePic" accept="image/*" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" placeholder="Enter your name" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" placeholder="Enter your email" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text" id="phone" placeholder="Enter phone number" />
+                </div>
+                <div class="form-group">
+                  <label for="institution">Institution</label>
+                  <input type="text" id="institution" placeholder="University/College" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="branch">Branch</label>
+                  <input type="text" id="branch" placeholder="Your Branch" />
+                </div>
+                <div class="form-group">
+                  <label for="year">Year</label>
+                  <input type="text" id="year" placeholder="e.g., 2nd Year" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="studentID">Student ID</label>
+                <input type="text" id="studentID" placeholder="Enter Student ID" />
+              </div>
+
+              <div class="form-actions">
+                <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+                <button type="submit" class="save-btn">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <!-- Stats Section -->
       <section class="stats-card" style="height: 630px;">
         <h3><i class="fas fa-chart-line"></i> Your Stats</h3>

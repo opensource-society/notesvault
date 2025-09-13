@@ -68,23 +68,27 @@ a:hover {
 
 .btn-primary {
   background-color: var(--primary-500);
-  color: white;
+  color: var(--white);
+  font-size: small;
 }
 
 .btn-primary:hover {
   background-color: var(--primary-600);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 140, 45, 0.2);
+  color: var(--white) !important; 
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
+  font-size: small;
   border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
   border-color: var(--gray-300);
+  color: inherit;
+  transform: translateY(-2px);
 }
 
 /* Utility Classes */
@@ -190,9 +194,6 @@ a:hover {
   background-color: var(--primary-600);
   transform: translateY(-3px);
 }
-
-
-
 
 /* Footer interaction */
 .footer-visible .back-to-top {

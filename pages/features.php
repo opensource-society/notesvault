@@ -107,6 +107,24 @@
               </div>
             </article>
 
+            <!-- Pomodoro Clock Feature -->
+            <article class="feature-card" id="pomodoro-feature">
+              <div class="feature-icon">
+                <i class="fas fa-hourglass-half"></i>
+              </div>
+              <div class="feature-content">
+                <h2>Pomodoro Clock</h2>
+                <p>
+                  Stay focused during study sessions, take refreshing breaks,
+                  and manage your time effectively to maximize learning
+                  efficiency.
+                </p>
+                <a href="pomodoro-clock.php" class="btn btn-primary">
+                  Start Focusing &nbsp; <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
             <!-- To-Do List Feature -->
             <article class="feature-card" id="todo-feature">
               <div class="feature-icon">
@@ -144,6 +162,26 @@
                   Get Organized &nbsp; <i class="fas fa-arrow-right"></i>
                 </a>
               </div>
+            </article>
+
+             <!--Study Group Feature-->
+            <article class="feature-card" id="studygroup-feature">
+              <div class="feature-icon">
+                <i class="fa-solid fa-user-group"></i>
+              </div>
+              <div class="feature-content">
+                <h2>Study-Group</h2>
+                <p>
+                  Make a group with friends, 
+                  share notes, chat, schedule meetings, and 
+                  play subject-based games in one collaborative space.
+                </p>
+                <a
+                  href="studygroup.php"
+                  class="btn btn-primary"
+                >
+                  Study Group &nbsp; <i class="fas fa-arrow-right"></i>
+                </a>
             </article>
           </div>
         </div>
