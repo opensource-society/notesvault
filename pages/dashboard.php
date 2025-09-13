@@ -60,14 +60,14 @@
         <div class="section-header">
           <h2><i class="fas fa-book"></i> Your Notes</h2>
           <div class="section-actions">
-            <a href="upload.html" class="btn btn-primary" id="upload-note-btn" style="color:white;" onmouseover="this.style.color='white'" onmouseout="this.style.color='white'"><i class="fas fa-cloud-upload-alt"></i> Upload Notes</a>
+            <a href="upload.php" class="btn btn-primary" id="upload-note-btn" style="color:white;" onmouseover="this.style.color='white'" onmouseout="this.style.color='white'"><i class="fas fa-cloud-upload-alt"></i> Upload Notes</a>
           </div>
         </div>
 
         <div class="notes-grid">
           <!-- Add New Note -->
           <div class="add-note-card" style="width: 160px; display: flex;">
-            <a href="upload.html"><button class="add-note-btn"><i class="fas fa-plus-circle"></i><span>Add New Notes</span></button></a>
+            <a href="upload.php"><button class="add-note-btn"><i class="fas fa-plus-circle"></i><span>Add New Notes</span></button></a>
           </div>
         </div>
         

@@ -1,0 +1,125 @@
+<!-- To-Do List (HTML) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - To-Do List</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/variables.css" />
+    <link rel="stylesheet" href="../styling/todolist.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="todolist-hero">
+      <div class="container">
+        <h1>To-Do List</h1>
+        <p class="subtitle">
+          Manage your tasks efficiently & stay organized!
+        </p>
+      </div>
+    </section>
+    <!-- Main Content -->
+    <main class="todo-main">
+      <div class="todo-container">
+
+        <!-- Add Task Form -->
+        <div class="todo-form-container">
+          <form id="todoForm" class="todo-form">
+            <div class="input-group">
+              <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task here..."
+                class="task-input"
+                required
+              />
+              <button type="submit" class="add-btn">
+                <i class="fas fa-plus"></i>
+                Add Task
+              </button>
+            </div>
+          </form>
+        </div>
+        <!--circle progress-->
+        <div class="skill">
+          <div class="outer">
+            <div class="inner">
+              <div id="number">
+                <!--percentages-->
+              </div>
+            </div>
+          </div>
+          <svg class="anim" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+            <defs>
+              <linearGradient id="GradientColor">
+                <stop offset="0%" stop-color="#e91e63" />
+                <stop offset="100%" stop-color="#673ab7" />
+              </linearGradient>
+            </defs>
+            <circle id="cskill" cx="80" cy="80" r="70" stroke-linecap="round" />
+          </svg>
+        </div>
+        <!-- Task Controls -->
+        <div class="todo-controls">
+          <div class="task-stats">
+            <span id="taskCount" class="task-count">0 Tasks</span>
+            <span id="completedCount" class="completed-count">0 Completed</span>
+          </div>
+          <div class="task-actions">
+            <button id="clearCompleted" class="clear-btn">
+              <i class="fas fa-trash"></i>
+              Clear Completed
+            </button>
+            <button id="clearAll" class="clear-all-btn">
+              <i class="fas fa-trash-alt"></i>
+              Clear All
+            </button>
+          </div>
+        </div>
+
+        <!-- Task List -->
+        <div class="todo-list-container">
+          <ul id="todoList" class="todo-list">
+            <!-- Task List (Dynamic) -->
+          </ul>
+
+          <!-- Empty State -->
+          <div id="emptyState" class="empty-state">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>No tasks yet</h3>
+            <p>Add your first task to get started!</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/todolist.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  </body>
+</html>

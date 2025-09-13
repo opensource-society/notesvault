@@ -28,7 +28,7 @@
 
   <body class="login-page">
     <!-- Back Button -->
-    <a href="index.html" class="floating-back-btn">
+    <a href="index.php" class="floating-back-btn">
       <i class="fas fa-chevron-left"></i>
       <span>Home</span>
     </a>
@@ -82,7 +82,7 @@
             <span class="checkmark"></span>
             Remember me
           </label>
-          <a href="forgot-password.html" class="forgot-password"
+          <a href="forgot-password.php" class="forgot-password"
             >Forgot password?
           </a>
         </div>
@@ -93,46 +93,8 @@
           <i class="fas fa-arrow-right btn-icon"></i>
         </button>
       </form>
-      <!-- <?php
-        if (isset($_POST['login'])) {
-            // Database connection
-            $connect = mysqli_connect("localhost", "root", "", "banana");
-            if (!$connect) {
-                echo "<p style='color: red;'>Database connection failed: " . mysqli_connect_error() . "</p>";
-                exit();
-            }
-
-            // Get form inputs
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-            // Query to get user by email
-            $sql = "SELECT * FROM signup WHERE email = '$email'";
-            $result = mysqli_query($connect, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                // Fetch user data
-                $row = mysqli_fetch_assoc($result);
-
-                // DB email & password
-                $db_email = $row['email'];
-                $db_password = $row['password'];
-
-                // Check if password matches
-                if ($password === $db_password) {
-                    echo "<script>alert('Login successful! Welcome $db_email');</script>";
-                } else {
-                    echo "<script>alert('Incorrect password!');</script>";
-                }
-            } else {
-                echo "<script>alert('Email not found!');</script>";
-            }
-
-            mysqli_close($connect);
-        }
-        ?> -->
       <div class="signup-link">
-        <p>New to NotesVault? <a href="signup.html">Create an account</a></p>
+        <p>New to NotesVault? <a href="signup.php">Create an account</a></p>
       </div>
     </div>
 

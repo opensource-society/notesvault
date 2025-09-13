@@ -46,8 +46,8 @@
               just a click away with NotesVault!
             </p>
             <div class="cta-buttons">
-              <a href="notes.html" class="btn btn-secondary"><i class="fas fa-search"></i>Browse Notes</a>
-              <a href="upload.html" class="btn btn-primary"><i class="fas fa-upload"></i>Upload Notes</a>
+              <a href="notes.php" class="btn btn-secondary"><i class="fas fa-search"></i>Browse Notes</a>
+              <a href="upload.php" class="btn btn-primary"><i class="fas fa-upload"></i>Upload Notes</a>
             </div>
           </div>
           <div class="search-card">
@@ -55,7 +55,7 @@
               <p>Notes Organized by <span id="typewriter">Subject</span></p>
             </div>
             <form
-              action="pages/notes.html"
+              action="pages/notes.php"
               method="get"
               class="search-form"
             >
@@ -155,7 +155,7 @@
           const query = searchInput.value.trim();
           if (query) {
             // Redirect to notes page with query parameter
-            window.location.href = `pages/notes.html?query=${encodeURIComponent(query)}`;
+            window.location.href = `pages/notes.php?query=${encodeURIComponent(query)}`;
           }
         });
       });

@@ -32,7 +32,7 @@
       <div class="footer-container">
         <!-- Logo -->
         <div class="footer-brand">
-          <a href="index.html" class="footer-logo">
+          <a href="index.php" class="footer-logo">
             <span>NotesVault</span>
           </a>
           <p class="footer-description">
@@ -48,22 +48,22 @@
             <h3 class="footer-heading">Quick Links</h3>
             <ul class="footer-nav">
               <li>
-                <a href="overview.html" class="footer-link">
+                <a href="overview.php" class="footer-link">
                   <i class="fas fa-eye fa-fw"></i> &nbsp; Overview
                 </a>
               </li>
               <li>
-                <a href="dashboard.html" class="footer-link">
+                <a href="dashboard.php" class="footer-link">
                   <i class="fas fa-user-graduate fa-fw"></i> &nbsp; Dashboard
                 </a>
               </li>
               <li>
-                <a href="features.html" class="footer-link">
+                <a href="features.php" class="footer-link">
                   <i class="fas fa-star fa-fw"></i> &nbsp; Features
                 </a>
               </li>
               <li>
-                <a href="about.html" class="footer-link">
+                <a href="about.php" class="footer-link">
                   <i class="fas fa-info-circle fa-fw"></i> &nbsp; About
                 </a>
               </li>
@@ -75,22 +75,22 @@
             <h3 class="footer-heading">Features</h3>
             <ul class="footer-nav">
               <li>
-                <a href="upload.html" class="footer-link">
+                <a href="upload.php" class="footer-link">
                   <i class="fas fa-upload fa-fw"></i> &nbsp; Upload Notes
                 </a>
               </li>
               <li>
-                <a href="notes.html" class="footer-link">
+                <a href="notes.php" class="footer-link">
                   <i class="fas fa-search fa-fw"></i> &nbsp; Browse Notes
                 </a>
               </li>
               <li>
-                <a href="jotpad.html" class="footer-link">
+                <a href="jotpad.php" class="footer-link">
                   <i class="fas fa-edit fa-fw"></i> &nbsp; Jotpad
                 </a>
               </li>
               <li>
-                <a href="todolist.html" class="footer-link">
+                <a href="todolist.php" class="footer-link">
                   <i class="fas fa-tasks fa-fw"></i> &nbsp; To-Do List
                 </a>
               </li>
@@ -143,11 +143,11 @@
           <span class="heart">❤️</span> by the Open Source Community
         </p>
         <div class="legal-links">
-          <a href="privacyPolicy.html" class="legal-link">Privacy Policy</a>
+          <a href="privacyPolicy.php" class="legal-link">Privacy Policy</a>
           <span class="divider">•</span>
-          <a href="termsOfService.html" class="legal-link">Terms of Service</a>
+          <a href="termsOfService.php" class="legal-link">Terms of Service</a>
           <span class="divider">•</span>
-          <a href="termsOfService.html#contact" class="legal-link">Contact</a>
+          <a href="termsOfService.php#contact" class="legal-link">Contact</a>
           <span class="divider">•</span>
           <a
             href="https://opensource.org/licenses/MIT"

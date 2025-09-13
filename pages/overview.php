@@ -49,10 +49,10 @@
             </p>
 
             <div class="cta-buttons">
-              <a href="notes.html" class="btn btn-primary">
+              <a href="notes.php" class="btn btn-primary">
                 <i class="fas fa-search"></i> Browse Notes
               </a>
-              <a href="upload.html" class="btn btn-secondary">
+              <a href="upload.php" class="btn btn-secondary">
                 <i class="fas fa-upload"></i> Upload Notes
               </a>
             </div>
@@ -228,8 +228,8 @@
             Join thousands of students who are studying smarter with NotesVault
           </p>
           <div class="cta-button">
-            <a href="signup.html" class="btn btn-primary">Get Started Free</a>
-            <a href="features.html" class="btn btn-secondary">Learn More</a>
+            <a href="signup.php" class="btn btn-primary">Get Started Free</a>
+            <a href="features.php" class="btn btn-secondary">Learn More</a>
           </div>
         </div>
       </section>
