@@ -955,3 +955,138 @@
     margin: 0 1rem;
   }
 }
+
+/* ===== Edit Profile Modal improvements ===== */
+#editModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;                 /* safe padding for small screens */
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+#editModal.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.profile-modal {
+  background: var(--bg-primary, #fff);
+  width: 600px;
+  max-width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  overflow: hidden;
+  /* Make modal internally scrollable when content is taller than viewport */
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal header */
+.modal-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color, #eee);
+}
+
+.modal-header h3 { margin: 0; font-size: 1.25rem; color: var(--text-primary); }
+.modal-header .close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+/* Modal body scroll area */
+.modal-body {
+  padding: 16px 20px;
+  overflow-y: auto;              /* enable internal scrolling */
+}
+
+/* Avatar */
+.avatar-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;            /* for file input overlay */
+}
+
+.avatar-label {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar-img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-100, #e6f4ea);
+  transition: transform 0.15s ease;
+}
+
+.avatar-img:hover { transform: scale(1.03); }
+
+.change-avatar-text {
+  font-size: 0.92rem;
+  color: var(--primary-500, #007bff);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* FILE INPUT - overlay the avatar so label & file are reliably clickable */
+.avatar-upload input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Form row tweaks (reduced spacing) */
+.form-row { display: flex; gap: 12px; margin-bottom: 8px; }
+.form-group { flex: 1; display:flex; flex-direction:column; }
+.form-group label { margin-bottom:6px; font-size:0.90rem; }
+.form-group input { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border-color); }
+
+/* Actions - sticky so Save is always visible when you scroll inside modal */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 12px 0 4px;
+  /* If you want sticky bottom within the modal's scroll area, uncomment below:
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0), var(--bg-primary, #fff));
+  */
+}
+
+/* Buttons */
+.cancel-btn { background: var(--bg-secondary); border:1px solid var(--border-color); padding:8px 14px; border-radius:8px; }
+.save-btn { background: var(--primary-500); color:#fff; border:none; padding:8px 14px; border-radius:8px; }
+
+/* Make sure profile-card avatar image (when replaced) matches the avatar circle size */
+.profile-card .avatar img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}

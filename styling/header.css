@@ -163,27 +163,47 @@
 
 .theme-icon.moon {
   right: 0.25rem;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   opacity: 0;
 }
 
-[data-theme='dark'] .theme-icon {
-  background-color: var(--gray-900);
+/* Light Mode (Sun Visible) */
+[data-theme='light'] .theme-icon.sun {
+  opacity: 1;
+  left: 0.25rem;
+  background-color: var(--white);
+  transform: translateY(-50%) scale(1);
 }
 
 [data-theme='dark'] .theme-icon.sun {
   opacity: 0;
-  left: 1.75rem;
+  left: 0.25rem;
+  background-color: var(--gray-700);
+  transform: translateY(-50%) translateX(-15px) scale(0.6) rotate(-90deg);
 }
 
+/* Dark Mode - (Moon visible) */
 [data-theme='dark'] .theme-icon.moon {
   opacity: 1;
-  right: 1.75rem;
+    right: 0.25rem;
+  background-color: var(--gray-800);
+  transform: translateY(-50%) scale(1);
+}
+
+/* Light Mode - (Moon Invisible) */
+[data-theme='light'] .theme-icon.moon {
+  opacity: 0;
+  right: 0.25rem;
+  background-color: var(--gray-200);
+  transform: translateY(-50%) translateX(15px) scale(0.6) rotate(90deg);
 }
 
 .theme-toggle svg {
   width: 0.9rem;
   height: 0.9rem;
   stroke: var(--gray-600);
+  transition: stroke 0.3s ease;
 }
 
 [data-theme='dark'] .theme-toggle svg {
@@ -196,6 +216,7 @@
   position: relative;
   width: 2.5rem;
   height: 2.5rem;
+  margin: 0.5rem 0;
   cursor: pointer;
   z-index: 1001;
   background: transparent;
