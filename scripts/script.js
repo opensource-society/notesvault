@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (user) {
     // logged in
     welcomeText.textContent = userName ? `Welcome back, ${userName}` : 'Welcome back';
-    primaryCTA.setAttribute('href', 'upload.html');
+    primaryCTA.setAttribute('href', 'upload.php');
     primaryCTA.innerHTML = '<i class="fas fa-upload"></i>Upload Notes';
   } else {
     // logged out
     welcomeText.textContent = 'Welcome to NotesVault';
-    primaryCTA.setAttribute('href', 'signup.html');
+    primaryCTA.setAttribute('href', 'signup.php');
     primaryCTA.innerHTML = '<i class="fas fa-user-plus"></i>Sign Up';
   }
 };
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     const searchInput = DOM.searchForm?.querySelector("input[type='text']")
     if (searchInput?.value) {
-      window.location.href = `pages/notes.html?query=${encodeURIComponent(
+      window.location.href = `pages/notes.php?query=${encodeURIComponent(
         searchInput.value
       )}`
     }
@@ -237,8 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadComponents = async () => {
     try {
       const [header, footer] = await Promise.all([
-        fetch('../components/header.html').then((res) => res.text()),
-        fetch('../components/footer.html').then((res) => res.text()),
+        fetch('../components/header.php').then((res) => res.text()),
+        fetch('../components/footer.php').then((res) => res.text()),
       ])
 
       document.getElementById('header-placeholder').innerHTML = header

@@ -43,7 +43,7 @@ notesvault/
 ├── data/              # All JSON files for notes/PYQs
 │   └── notes.json
 ├── pages/             # All pages used in the project
-│   └── <all .html files>
+│   └── <all .php files>
 ├── scripts            # Application logic (load/display/filter)
     └── <scripts>
 ├── styling            # Global styles and theming
@@ -64,7 +64,7 @@ notesvault/
 
 2. **Open the app**
 
-Simply open `index.html` in your browser. All data is stored locally via JSON or localStorage.
+Simply open `index.php` in your browser. All data is stored locally via JSON or localStorage.
 
 3. **Develop and test**
 

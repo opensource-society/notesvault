@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       alert('Account Created Successfully! Redirecting to login...');
       setTimeout(() => {
-        window.location.href = 'login.html';
+        window.location.href = 'login.php';
       }, 1500);
     } catch (error) {
       console.error('Signup error:', error);

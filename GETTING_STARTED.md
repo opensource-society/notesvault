@@ -31,7 +31,7 @@ Before you start contributing to NotesVault, make sure you have the following:
 
 ### 🚫 No Frameworks Needed
 This is a beginner-friendly project — **no frameworks, no backend** required.  
-You just open `index.html` in your browser and start building!
+You just open `index.php` in your browser and start building!
 
 ---
 
@@ -57,9 +57,9 @@ Replace `YOUR_USERNAME` with your actual GitHub username.
 
 Since NotesVault is a static web app, you don't need any server or build tool.
 
-Just open the `index.html` file in your browser:
+Just open the `index.php` file in your browser:
 
-* Right-click on `index.html` and select **"Open with" > your browser**, or
+* Right-click on `index.php` and select **"Open with" > your browser**, or
 * Drag and drop the file into a browser window
 
 You should now see the NotesVault homepage running locally.
@@ -102,7 +102,7 @@ Replace `my-feature-branch` with a short, meaningful name.
 ### ✍️ Step 2: Make Your Changes
 
 * Edit files (HTML, CSS, JS, or JSON) as needed
-* Test your changes locally by refreshing `index.html` in the browser
+* Test your changes locally by refreshing `index.php` in the browser
 
 ---
 

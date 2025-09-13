@@ -16,7 +16,7 @@
 </head>
 <body class="signup-page" data-theme="light">
   <!-- Back Button -->
-  <a href="index.html" class="floating-back-btn">
+  <a href="index.php" class="floating-back-btn">
     <i class="fas fa-chevron-left"></i>
     <span>Home</span>
   </a>
@@ -39,6 +39,15 @@
         <label for="name">Full Name</label>
         <div class="input-border"></div>
         <div class="error-message" id="nameError"></div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group floating-input">
+        <input type="email" id="email" name="email" required
+               placeholder=" " autocomplete="email"/>
+        <label for="email">Email address</label>
+        <div class="input-border"></div>
+        <div class="error-message" id="emailError"></div>
       </div>
 
       <!-- Password -->
@@ -69,13 +78,22 @@
       <div class="form-group terms">
         <input type="checkbox" id="terms" name="terms" />
         <label for="terms">I agree to the
-          <a href="termsOfservice.html">Terms of Service</a></label>
+          <a href="termsOfservice.php">Terms of Service</a></label>
         <div class="error-message" id="termsError"></div>
       </div>
 
+      <!-- Button -->
+      <button type="submit" class="btn btn-primary" id="signupBtn">
+        <span class="spinner hidden" id="spinner"></span>
+        <span id="btnText">Sign Up</span>
+        <i class="fas fa-arrow-right btn-icon"></i>
+      </button>
+    </form>
+
     <div class="signin-link">
-      <p>Already have an account? <a href="login.html">Sign in here</a></p>
+      <p>Already have an account? <a href="login.php">Sign in here</a></p>
     </div>
+  </div>
 
   <!-- JavaScript -->
   <script src="../scripts/signup.js"></script>

@@ -30,24 +30,24 @@
   <body>
     <header class="navbar">
       <div class="navbar-container">
-        <a href="index.html" class="navbar-logo">
+        <a href="index.php" class="navbar-logo">
           <img src="../assets/index/images/oss.png" alt="" style="border-radius: 25px;"/>
           <span>NotesVault</span>
         </a>
 
         <nav class="navbar-nav">
           <ul class="nav-links">
-            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="index.php" class="nav-link">Home</a></li>
             <li>
-              <a href="overview.html" class="nav-link">Overview</a>
+              <a href="overview.php" class="nav-link">Overview</a>
             </li>
             <li>
-              <a href="dashboard.html" class="nav-link">Dashboard</a>
+              <a href="dashboard.php" class="nav-link">Dashboard</a>
             </li>
             <li>
-              <a href="features.html" class="nav-link">Features</a>
+              <a href="features.php" class="nav-link">Features</a>
             </li>
-            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="about.php" class="nav-link">About</a></li>
           </ul>
         </nav>
 
@@ -98,14 +98,14 @@
 
           <div class="auth-buttons">
             <button
-              onclick="location.href='login.html'"
+              onclick="location.href='login.php'"
               class="btn btn-secondary"
               style="background-color: gainsboro; color: black;"
             > 
               <b>Login</b>
             </button>
             <button
-              onclick="location.href='signup.html'"
+              onclick="location.href='signup.php'"
               class="btn btn-secondary" style="background-color: green; color: white;"
             >
               <b>Sign Up</b>
@@ -124,25 +124,25 @@
       <nav class="mobile-nav">
         <ul class="mobile-nav-links">
           <li>
-            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="index.php" class="mobile-nav-link">Home</a>
           </li>
           <li>
-            <a href="overview.html" class="mobile-nav-link"
+            <a href="overview.php" class="mobile-nav-link"
               >Overview</a
             >
           </li>
           <li>
-            <a href="dashboard.html" class="mobile-nav-link"
+            <a href="dashboard.php" class="mobile-nav-link"
               >Dashboard</a
             >
           </li>
           <li>
-            <a href="features.html" class="mobile-nav-link"
+            <a href="features.php" class="mobile-nav-link"
               >Features</a
             >
           </li>
           <li>
-            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="about.php" class="mobile-nav-link">About</a>
           </li>
         </ul>
 

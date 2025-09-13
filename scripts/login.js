@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Redirect After Delay
       setTimeout(() => {
-        window.location.href = "../index.html";
+        window.location.href = "../index.php";
       }, 1500);
     } catch (error) {
       console.error("Login error:", error);

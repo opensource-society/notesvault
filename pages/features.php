@@ -59,7 +59,7 @@
                   clicks. Supports multiple file formats.
                 </p>
                 <a
-                  href="upload.html"
+                  href="upload.php"
                   class="btn btn-primary"
                 >
                   Try It Now &nbsp; <i class="fas fa-arrow-right"></i>
@@ -79,7 +79,7 @@
                   filtering system. Organized by subject and semester.
                 </p>
                 <a
-                  href="notes.html"
+                  href="notes.php"
                   class="btn btn-primary"
                 >
                   Browse Notes &nbsp; <i class="fas fa-arrow-right"></i>
@@ -99,7 +99,7 @@
                   the app. Auto-saves your work.
                 </p>
                 <a
-                  href="jotpad.html"
+                  href="jotpad.php"
                   class="btn btn-primary"
                 >
                   Start Writing &nbsp; <i class="fas fa-arrow-right"></i>
@@ -119,7 +119,7 @@
                   plans, and daily academic tasks all in one place.
                 </p>
                 <a
-                  href="todolist.html"
+                  href="todolist.php"
                   class="btn btn-primary"
                 >
                   Get Organized &nbsp; <i class="fas fa-arrow-right"></i>
@@ -138,7 +138,7 @@
                   Make your own MCQs and take weekly quizzes to test your knowledge.
                 </p>
                 <a
-                  href="mcq.html"
+                  href="mcq.php"
                   class="btn btn-primary"
                 >
                   Get Organized &nbsp; <i class="fas fa-arrow-right"></i>
