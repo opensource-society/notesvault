@@ -6,15 +6,16 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
-| [@Peehu1308](https://github.com/Peehu1308) | 2 | 0 | 0 | 9 |
+| [@Harsh-26626](https://github.com/Harsh-26626) | 0 | 2 | 0 | 12 |
+| [@Peehu1308](https://github.com/Peehu1308) | 3 | 0 | 0 | 9 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 0 | 1 | 0 | 9 |
 | [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 2 | 1 | 4 |
 | [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 3 | 1 | 0 | 2 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 2 | 1 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 2 | 0 | 0 | 4 |
+| [@Srushtee1706](https://github.com/Srushtee1706) | 3 | 0 | 0 | 3 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Gourangi4](https://github.com/Gourangi4) | 2 | 0 | 0 | 2 |
-| [@Srushtee1706](https://github.com/Srushtee1706) | 1 | 0 | 0 | 3 |
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 1 | 0 | 1 |
