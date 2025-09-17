@@ -143,7 +143,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       showMessage('Login Successful! Redirecting...', 'success')
       setTimeout(() => {
-        window.location.href = '../index.html'
+        const emailInput = document.getElementById("email"); // or your form field id
+        const userEmail = emailInput.value.trim();
+
+        localStorage.setItem("loggedInUser", JSON.stringify({ email: userEmail }));
+        window.location.href = 'dashboard.html'
       }, 1500)
 
     } catch (error) {
