@@ -49,8 +49,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | 1 | 0 | 0 | 1 |
 | [@dhruv-git-sys](https://github.com/dhruv-git-sys) | 1 | 0 | 0 | 1 |
 | [@ParulAgrawal-bot](https://github.com/ParulAgrawal-bot) | 1 | 0 | 0 | 1 |
-| [@ud-ai](https://github.com/ud-ai) | 1 | 0 | 0 | 1 |
-| [@diiviikk5](https://github.com/diiviikk5) | 1 | 0 | 0 | 1 |
 | [@neelima-singh07](https://github.com/neelima-singh07) | 1 | 0 | 0 | 1 |
 | [@HayatZarine](https://github.com/HayatZarine) | 1 | 0 | 0 | 1 |
 | [@AkshitBhandariCodes](https://github.com/AkshitBhandariCodes) | 1 | 0 | 0 | 1 |
@@ -79,6 +77,8 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
+| [@ud-ai](https://github.com/ud-ai) | 1 | 0 | 0 | 0 |
+| [@diiviikk5](https://github.com/diiviikk5) | 1 | 0 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
 | [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
 
