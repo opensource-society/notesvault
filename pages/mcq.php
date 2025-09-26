@@ -1,4 +1,14 @@
 <!-- MCQ Page (HTML) -->
+ <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    // Redirect them to the login page
+    header("Location: login.html");
+    exit();
+}
+// If they are logged in, the rest of the dashboard page will be displayed below
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,7 +37,7 @@
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <?php include '../components/header.php'; ?>
     <!-- JavaScript -->
     <script src="../scripts/script.js"></script>
     <main class="mcq-main">
@@ -70,7 +80,9 @@
         <div id="quizSection" class="quiz-section"></div>
       </div>
     </main>
-    <div id="footer-placeholder"></div>
+    <?php include '../components/footer.php'; ?>
     <script src="../mcq/mcq.js"></script>
+    <script src="../scripts/header.js" defer></script>
+    <script src="../scripts/script.js" defer></script>
   </body>
 </html>

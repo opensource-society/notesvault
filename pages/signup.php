@@ -1,101 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NotesVault - Sign Up</title>
+<?php
+require 'db.php'; // Include the database connection file
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+header('Content-Type: application/json');
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="../styling/signup.css" />
-  <link rel="stylesheet" href="../styling/base.css" />
-  <link rel="stylesheet" href="../styling/variables.css" />
-</head>
-<body class="signup-page" data-theme="light">
-  <!-- Back Button -->
-  <a href="index.php" class="floating-back-btn">
-    <i class="fas fa-chevron-left"></i>
-    <span>Home</span>
-  </a>
+$response = ['success' => false, 'message' => ''];
 
-  <!-- Signup Card -->
-  <div class="signup-card">
-    <div class="signup-header">
-      <div class="logo-preview">
-        <i class="fas fa-book-open"></i>
-      </div>
-      <h2>Create Your Account</h2>
-      <p>Join NotesVault Today!</p>
-    </div>
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $terms = $_POST['terms'] ?? '';
 
-    <form id="signupForm" class="signup-form" novalidate>
-      <!-- Name -->
-      <div class="form-group floating-input">
-        <input type="text" id="name" name="name" required
-               placeholder=" " autocomplete="name"/>
-        <label for="name">Full Name</label>
-        <div class="input-border"></div>
-        <div class="error-message" id="nameError"></div>
-      </div>
+    // Server-side validation
+    if (empty($name) || empty($email) || empty($password) || $terms !== 'on') {
+        $response['message'] = 'Please fill in all fields and agree to the terms.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $response['message'] = 'Invalid email format.';
+    } else {
+        try {
+            // Check if email already exists
+            $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+            $stmt->execute([$email]);
+            if ($stmt->rowCount() > 0) {
+                $response['message'] = 'This email is already registered.';
+            } else {
+                // Hash the password for secure storage
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-      <!-- Email -->
-      <div class="form-group floating-input">
-        <input type="email" id="email" name="email" required
-               placeholder=" " autocomplete="email"/>
-        <label for="email">Email address</label>
-        <div class="input-border"></div>
-        <div class="error-message" id="emailError"></div>
-      </div>
+                // Insert the new user into the database, explicitly handling profile_pic_path
+                $stmt = $pdo->prepare("INSERT INTO users (name, email, password, profile_pic_path) VALUES (?, ?, ?, ?)");
+                if ($stmt->execute([$name, $email, $hashedPassword, null])) {
+                    $response['success'] = true;
+                    $response['message'] = 'Registration successful!';
+                } else {
+                    $response['message'] = 'Registration failed. Please try again.';
+                }
+            }
+        } catch (PDOException $e) {
+            // For debugging, use $e->getMessage()
+            $response['message'] = 'An unexpected error occurred. Please try again later.';
+        }
+    }
+} else {
+    $response['message'] = 'Invalid request method.';
+}
 
-      <!-- Password -->
-      <div class="form-group floating-input">
-        <input type="password" id="password" name="password" required
-               placeholder=" " autocomplete="new-password"
-               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])
-                        [A-Za-z\d@$!%*?&]{6,}$"/>
-        <label for="password">Password</label>
-        <div class="input-border"></div>
-        <button type="button" class="password-toggle">
-          <i class="far fa-eye"></i>
-        </button>
-        <div class="error-message" id="passwordError"></div>
-      </div>
-
-      <!-- Confirm Password -->
-      <div class="form-group floating-input">
-        <input type="password" id="confirm-password"
-               name="confirm-password" required placeholder=" "
-               autocomplete="new-password"/>
-        <label for="confirm-password">Confirm Password</label>
-        <div class="input-border"></div>
-        <div class="error-message" id="confirmError"></div>
-      </div>
-
-      <!-- Terms -->
-      <div class="form-group terms">
-        <input type="checkbox" id="terms" name="terms" />
-        <label for="terms">I agree to the
-          <a href="termsOfservice.php">Terms of Service</a></label>
-        <div class="error-message" id="termsError"></div>
-      </div>
-
-      <!-- Button -->
-      <button type="submit" class="btn btn-primary" id="signupBtn">
-        <span class="spinner hidden" id="spinner"></span>
-        <span id="btnText">Sign Up</span>
-        <i class="fas fa-arrow-right btn-icon"></i>
-      </button>
-    </form>
-
-    <div class="signin-link">
-      <p>Already have an account? <a href="login.php">Sign in here</a></p>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
-  <script src="../scripts/signup.js"></script>
-</body>
-</html>
+echo json_encode($response);
+?>

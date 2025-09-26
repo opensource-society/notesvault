@@ -1,0 +1,108 @@
+
+
+<!-- Login (HTML) -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - Login</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="../assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styling/login.css" />
+    <link rel="stylesheet" href="../styling/base.css" />
+    <link rel="stylesheet" href="../styling/variables.css" />
+  </head>
+
+  <body class="login-page">
+    <!-- Back Button -->
+    <a href="index.php" class="floating-back-btn">
+      <i class="fas fa-chevron-left"></i>
+      <span>Home</span>
+    </a>
+
+    <!-- Animated Message Box -->
+    <div id="messageBox" class="message-box"></div>
+
+    <!-- Login Card -->
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo-preview">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h2>Welcome Back!</h2>
+        <p>Sign in to continue to NotesVault</p>
+      </div>
+
+      <form id="loginForm" class="login-form" method="post" action="">
+        <div class="form-group floating-input">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder=" "
+            autocomplete="username"
+          />
+          <label for="email">Email address</label>
+          <div class="input-border"></div>
+        </div>
+
+        <div class="form-group floating-input">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder=" "
+            autocomplete="current-password"
+          />
+          <label for="password">Password</label>
+          <div class="input-border"></div>
+          <button type="button" class="password-toggle">
+            <i class="far fa-eye"></i>
+          </button>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="remember-me" name="remember-me" />
+            <span class="checkmark"></span>
+            Remember me
+          </label>
+          <a href="forgot-password.php" class="forgot-password"
+            >Forgot password?
+          </a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="loginBtn" name="login">
+          <span class="spinner hidden" id="spinner"></span>
+          <span id="btnText">Sign in</span>
+          <i class="fas fa-arrow-right btn-icon"></i>
+        </button>
+      </form>
+      <div class="signup-link">
+        <p>New to NotesVault? <a href="signup.html">Create an account</a></p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>

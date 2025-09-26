@@ -33,7 +33,8 @@
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <?php include '../components/header.php'; ?>
+    
 
     <main class="about-page">
       <!-- Hero Section -->
@@ -262,9 +263,10 @@
     </main>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <?php include '../components/footer.php'; ?>
 
     <!-- JS -->
+    <script src="../scripts/header.js" defer></script>
     <script src="../scripts/script.js" defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

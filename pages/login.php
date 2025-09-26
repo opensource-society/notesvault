@@ -1,105 +1,42 @@
-<!-- Login (HTML) -->
+<?php
+session_start(); // Start the session
+require 'db.php'; // Include the database connection file
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NotesVault - Login</title>
+header('Content-Type: application/json');
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="../assets/index/images/favicon.png"
-      type="image/x-icon"
-    />
+$response = ['success' => false, 'message' => ''];
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../styling/login.css" />
-    <link rel="stylesheet" href="../styling/base.css" />
-    <link rel="stylesheet" href="../styling/variables.css" />
-  </head>
+    if (empty($email) || empty($password)) {
+        $response['message'] = 'Please enter both email and password.';
+    } else {
+        try {
+            // Fetch the user from the database by email
+            $stmt = $pdo->prepare("SELECT id, name, password FROM users WHERE email = ?");
+            $stmt->execute([$email]);
+            $user = $stmt->fetch();
 
-  <body class="login-page">
-    <!-- Back Button -->
-    <a href="index.php" class="floating-back-btn">
-      <i class="fas fa-chevron-left"></i>
-      <span>Home</span>
-    </a>
+            if ($user && password_verify($password, $user['password'])) {
+                // Password is correct, create a session
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_name'] = $user['name'];
+                $_SESSION['logged_in'] = true;
 
-    <!-- Animated Message Box -->
-    <div id="messageBox" class="message-box"></div>
+                $response['success'] = true;
+                $response['message'] = 'Login successful!';
+            } else {
+                $response['message'] = 'Invalid email or password.';
+            }
+        } catch (PDOException $e) {
+            $response['message'] = 'An unexpected error occurred.';
+        }
+    }
+} else {
+    $response['message'] = 'Invalid request method.';
+}
 
-    <!-- Login Card -->
-    <div class="login-card">
-      <div class="login-header">
-        <div class="logo-preview">
-          <i class="fas fa-book-open"></i>
-        </div>
-        <h2>Welcome Back!</h2>
-        <p>Sign in to continue to NotesVault</p>
-      </div>
-
-      <form id="loginForm" class="login-form" method="post" action="">
-        <div class="form-group floating-input">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder=" "
-            autocomplete="username"
-          />
-          <label for="email">Email address</label>
-          <div class="input-border"></div>
-        </div>
-
-        <div class="form-group floating-input">
-          <input
-            type="password"
-            id="password"
-            name="password"
-            required
-            placeholder=" "
-            autocomplete="current-password"
-          />
-          <label for="password">Password</label>
-          <div class="input-border"></div>
-          <button type="button" class="password-toggle">
-            <i class="far fa-eye"></i>
-          </button>
-        </div>
-
-        <div class="form-options">
-          <label class="remember-me">
-            <input type="checkbox" id="remember-me" name="remember-me" />
-            <span class="checkmark"></span>
-            Remember me
-          </label>
-          <a href="forgot-password.php" class="forgot-password"
-            >Forgot password?
-          </a>
-        </div>
-
-        <button type="submit" class="btn btn-primary" id="loginBtn" name="login">
-          <span class="spinner hidden" id="spinner"></span>
-          <span id="btnText ">Sign in</span>
-          <i class="fas fa-arrow-right btn-icon"></i>
-        </button>
-      </form>
-      <div class="signup-link">
-        <p>New to NotesVault? <a href="signup.php">Create an account</a></p>
-      </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script src="../scripts/script.js"></script>
-    <script src="../scripts/login.js"></script>
-  </body>
-</html>
+echo json_encode($response);
+?>

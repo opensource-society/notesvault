@@ -1,0 +1,184 @@
+.group-card .deleteBtn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 16px;
+  font-size: 0.97rem;
+  cursor: pointer;
+  margin-left: 8px;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.group-card .deleteBtn:hover {
+  background: #b91c1c;
+}
+body[data-theme="dark"] .group-card .deleteBtn {
+  background: #dc2626;
+  color: #fff;
+}
+body[data-theme="dark"] .group-card .deleteBtn:hover {
+  background: #991b1b;
+}
+/* Create Group Modal Styles */
+.create-group-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #7c3aed;
+  box-shadow: 0 8px 32px rgba(60,40,120,0.18);
+  padding: 28px 32px;
+  z-index: 1000;
+  min-width: 320px;
+}
+.create-group-title {
+  margin-top: 0;
+  color: #4f46e5;
+  font-size: 1.3rem;
+}
+.create-group-input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  background: #f9f9ff;
+  color: #222;
+}
+.create-group-btns {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.create-group-btn.create {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.create-group-btn.cancel {
+  background: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.create-group-msg {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.98rem;
+}
+
+body[data-theme="dark"] .create-group-modal {
+  background: #232136;
+  border-color: #a78bfa;
+}
+body[data-theme="dark"] .create-group-title {
+  color: #a78bfa;
+}
+body[data-theme="dark"] .create-group-input {
+  background: #2a2740;
+  color: #e0e0e0;
+  border-color: #39375b;
+}
+body[data-theme="dark"] .create-group-btn.create {
+  background: #7c3aed;
+  color: #fff;
+}
+body[data-theme="dark"] .create-group-btn.cancel {
+  background: #39375b;
+  color: #e0e0e0;
+}
+body[data-theme="dark"] .create-group-msg {
+  color: #f87171;
+}
+
+.group-card {
+  background: #f9f9ff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.group-card.new-group {
+  background: #ede9fe;
+  border-color: #7c3aed;
+}
+.group-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.group-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  color: #2d3748;
+}
+.group-card p {
+  margin: 4px 0;
+  color: #4a5568;
+  font-size: 0.98rem;
+}
+.group-card input[type="email"] {
+  width: 70%;
+  padding: 7px 10px;
+  margin-right: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  font-size: 0.97rem;
+}
+.group-card .inviteBtn {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 16px;
+  font-size: 0.97rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.group-card .inviteBtn:hover {
+  background: #3730a3;
+}
+.group-card .inviteMsg {
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+/* Dark mode styles */
+body[data-theme="dark"] .group-card {
+  background: #181825;
+  border-color: #39375b;
+  color: #e0e0e0;
+}
+body[data-theme="dark"] .group-card h4 {
+  color: #a78bfa;
+}
+body[data-theme="dark"] .group-card p {
+  color: #b3b3b3;
+}
+body[data-theme="dark"] .group-card input[type="email"] {
+  background: #232136;
+  color: #e0e0e0;
+  border-color: #39375b;
+}
+body[data-theme="dark"] .group-card .inviteBtn {
+  background: #7c3aed;
+  color: #fff;
+}
+body[data-theme="dark"] .group-card .inviteBtn:hover {
+  background: #4f46e5;
+}
+body[data-theme="dark"] .group-card.new-group {
+  background: #2a2740;
+  border-color: #a78bfa;
+}

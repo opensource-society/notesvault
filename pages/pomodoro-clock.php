@@ -30,7 +30,7 @@
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <?php include '../components/header.php'; ?>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -133,10 +133,12 @@
     </main>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
+      <?php include '../components/footer.php'; ?>
 
     <!-- JavaScript -->
+    <script src="../scripts/header.js" defer></script>
     <script src="../scripts/script.js" defer></script>
+
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         // Timer Elements

@@ -32,7 +32,7 @@
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <?php include '../components/header.php'; ?>
 
     <main>
       <!-- Hero Section -->
@@ -228,7 +228,7 @@
             Join thousands of students who are studying smarter with NotesVault
           </p>
           <div class="cta-button">
-            <a href="signup.php" class="btn btn-primary">Get Started Free</a>
+            <a href="signup.html" class="btn btn-primary">Get Started Free</a>
             <a href="features.php" class="btn btn-secondary">Learn More</a>
           </div>
         </div>
@@ -236,9 +236,10 @@
     </main>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <?php include '../components/footer.php'; ?>
 
     <!-- JavaScript -->
+    <script src="../scripts/header.js" defer></script>
     <script src="../scripts/script.js" defer></script>
   </body>
 </html>

@@ -16,11 +16,7 @@
 
 /* Hero Section */
 .studygroup-hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-500) 0%,
-    var(--primary-700) 100%
-  );
+  background: url('../assets/index/images/back.jpg') no-repeat center center/cover;
   padding: 6rem 0 4rem 0;
   text-align: center;
   margin-bottom: 2rem;
@@ -78,6 +74,14 @@
   background: var(--bg-primary);
   color: var(--text-main);
 }
+
+body[data-theme="dark"] .group-actions input[type="text"] {
+  background: #232136;
+  color: #fff;
+  border-color: #39375b;
+  caret-color: #fff;
+}
+
 
 .group-actions button {
   background: var(--primary-100);

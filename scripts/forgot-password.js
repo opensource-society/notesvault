@@ -82,20 +82,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setLoadingState(true);
 
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+    // try {
+    //   // Simulate API call
+    //   await new Promise(resolve => setTimeout(resolve, 1000));
 
-      showMessage('Reset link sent successfully!', 'success');
-      emailInput.value = '';
-      emailInput.parentNode.classList.remove('focused');
+    //   showMessage('Reset link sent successfully!', 'success');
+    //   emailInput.value = '';
+    //   emailInput.parentNode.classList.remove('focused');
 
-    } catch (error) {
-      console.error(error);
-      showMessage('Failed to send reset link. Please try again.', 'error');
-    } finally {
-      setLoadingState(false);
+    // } catch (error) {
+    //   console.error(error);
+    //   showMessage('Failed to send reset link. Please try again.', 'error');
+    // } finally {
+    //   setLoadingState(true);
+    // }
+
+      // ... inside your handleSubmit(e) function ...
+
+setLoadingState(true);
+
+try {
+    // Use FormData to send the email as a POST request
+    const formData = new FormData();
+    formData.append('email', email);
+
+    // Make the real API call to your PHP script
+    const response = await fetch('../php/send_reset_link.php', {
+        method: 'POST',
+        body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        showMessage(result.message, 'success');
+        emailInput.value = '';
+        emailInput.parentNode.classList.remove('focused');
+    } else {
+        showMessage(result.message, 'error');
     }
+} catch (error) {
+    console.error('Error:', error);
+    showMessage('Failed to send reset link. Please try again.', 'error');
+} finally {
+    setLoadingState(false);
+}
+
+// ... rest of the code ...
+    
   }
 
   // Initialize

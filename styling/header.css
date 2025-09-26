@@ -1,5 +1,4 @@
-/* Header (CSS) */
-
+/* Header */
 .navbar {
   position: fixed;
   top: 0;
@@ -186,7 +185,7 @@
 /* Dark Mode - (Moon visible) */
 [data-theme='dark'] .theme-icon.moon {
   opacity: 1;
-    right: 0.25rem;
+  right: 0.25rem;
   background-color: var(--gray-800);
   transform: translateY(-50%) scale(1);
 }
@@ -393,10 +392,71 @@
   visibility: visible;
 }
 
+/* New CSS for Profile Icon and Dropdown */
+.profile-container {
+  position: relative;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: var(--primary-400);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-item.logoutBtn:hover {
+    display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-btn:hover {
+  transform: scale(1.05);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 150%;
+  right: 0;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 1000;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+}
+
+.profile-dropdown.show {
+  display: flex;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+.hidden {
+  display: none !important;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
   .navbar-nav,
-  .auth-buttons {
+  .auth-buttons,
+  .profile-container {
     display: none;
   }
 
@@ -438,4 +498,33 @@
   .navbar-actions {
     display: none;
   }
+}
+
+/* Styling for the new Logout button */
+.dropdown-item.logoutBtn {
+    /* To align the icon and text */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+    
+    /* Text and Icon Colors */
+    color: var(--danger-400); 
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item.logoutBtn:hover {
+    /* Hover effect */
+    background-color: var(--danger-400);
+    color: var(--white);
+    border-radius: 4px;
+}
+
+/* Optional: Define a red color for consistency */
+:root {
+  --danger-400: #dc3545;
+}
+
+[data-theme='dark'] {
+  --danger-400: #e85664;
 }

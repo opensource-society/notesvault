@@ -1,5 +1,14 @@
 <!-- To-Do List (HTML) -->
+<?php
+session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    // Redirect them to the login page
+    header("Location: login.html");
+    exit();
+}
+// If they are logged in, the rest of the dashboard page will be displayed below
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +37,7 @@
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <?php include '../components/header.php'; ?>
 
     <!-- Hero Section -->
     <section class="todolist-hero">
@@ -115,10 +124,11 @@
     </main>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <?php include '../components/footer.php'; ?>
 
     <!-- JavaScript -->
-    <script src="../scripts/script.js"></script>
+    <script src="../scripts/header.js" defer></script>
+    <script src="../scripts/script.js" defer></script>
     <script src="../scripts/todolist.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
   </body>
