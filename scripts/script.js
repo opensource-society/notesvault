@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <select id="${id}" class="search-parameters-select" aria-label="${placeholder}">
         <option value="" disabled selected>${placeholder}</option>
         ${options
-          .map((opt) => `<option value="${opt}">${opt}</option>`)
-          .join('')}
+        .map((opt) => `<option value="${opt}">${opt}</option>`)
+        .join('')}
       </select>
     `
 
@@ -206,6 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Re-initialize Header-Based Features
       setupThemeToggle()
       setupMobileMenu()
+
+      const yearElement = document.getElementById('year')
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear()
+      }
 
       // Set Active Nav Link //
       const currentPath = window.location.pathname.split('/').pop()
