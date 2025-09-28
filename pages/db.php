@@ -1,7 +1,7 @@
 <?php
 // Define database credentials
 $host = 'localhost'; // Replace with your MySQL host and port if needed
-$dbname = 'tenotesvault';
+$dbname = 'notesvault';
 $username = 'root'; // Replace with your MySQL username
 $password = ''; // Replace with your MySQL password
 

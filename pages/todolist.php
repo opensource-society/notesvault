@@ -1,14 +1,5 @@
-<!-- To-Do List (HTML) -->
-<?php
-session_start();
+<!-- To-Do List Page (PHP/HTML) -->
 
-if (!isset($_SESSION['user_id'])) {
-    // Redirect them to the login page
-    header("Location: login.html");
-    exit();
-}
-// If they are logged in, the rest of the dashboard page will be displayed below
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,6 +14,14 @@ if (!isset($_SESSION['user_id'])) {
       type="image/x-icon"
     />
 
+  <!-- Extra Favicons & Touch Icons (for mobile + PWA) -->
+    <link rel="icon" type="image/png" href="../assets/index/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../assets/index/images/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/index/images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="NotesVault" />
+    <link rel="manifest" href="../assets/index/site.webmanifest">
+    <meta name="theme-color" content="#4523ab">
+
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -30,106 +29,105 @@ if (!isset($_SESSION['user_id'])) {
     />
 
     <!-- CSS -->
+    <link rel="stylesheet" href="../styling/base.css" />
     <link rel="stylesheet" href="../styling/variables.css" />
     <link rel="stylesheet" href="../styling/todolist.css" />
-    <link rel="stylesheet" href="../styling/base.css" />
+
+    <!-- Confetti for animations -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   </head>
 
   <body>
     <!-- Header -->
-    <?php include '../components/header.php'; ?>
+    <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="todolist-hero">
-      <div class="container">
-        <h1>To-Do List</h1>
-        <p class="subtitle">
-          Manage your tasks efficiently & stay organized!
-        </p>
-      </div>
-    </section>
     <!-- Main Content -->
-    <main class="todo-main">
-      <div class="todo-container">
-
-        <!-- Add Task Form -->
-        <div class="todo-form-container">
-          <form id="todoForm" class="todo-form">
-            <div class="input-group">
-              <input
-                type="text"
-                id="taskInput"
-                placeholder="Enter your task here..."
-                class="task-input"
-                required
-              />
-              <button type="submit" class="add-btn">
-                <i class="fas fa-plus"></i>
-                Add Task
-              </button>
-            </div>
-          </form>
+    <main id="main-content">
+      <!-- To-Do List Hero -->
+      <section class="todolist-hero">
+        <div class="container">
+          <h1>To-Do List</h1>
+          <p class="subtitle">Organize your day, achieve your goals</p>
         </div>
-        <!--circle progress-->
-        <div class="skill">
-          <div class="outer">
-            <div class="inner">
-              <div id="number">
-                <!--percentages-->
+      </section>
+
+      <!-- To-Do Main -->
+      <section class="todo-main">
+        <div class="todo-container">
+          <!-- Progress Circle -->
+          <div class="skill">
+            <div class="outer">
+              <svg class="anim" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <defs>
+                  <linearGradient id="GradientColor" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#64CCC5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#2F7D7D;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle id="cskill" cx="100" cy="100" r="75" fill="none"></circle>
+              </svg>
+              <div class="inner">
+                <span id="number">0%</span>
               </div>
             </div>
           </div>
-          <svg class="anim" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-            <defs>
-              <linearGradient id="GradientColor">
-                <stop offset="0%" stop-color="#e91e63" />
-                <stop offset="100%" stop-color="#673ab7" />
-              </linearGradient>
-            </defs>
-            <circle id="cskill" cx="80" cy="80" r="70" stroke-linecap="round" />
-          </svg>
-        </div>
-        <!-- Task Controls -->
-        <div class="todo-controls">
-          <div class="task-stats">
-            <span id="taskCount" class="task-count">0 Tasks</span>
-            <span id="completedCount" class="completed-count">0 Completed</span>
-          </div>
-          <div class="task-actions">
-            <button id="clearCompleted" class="clear-btn">
-              <i class="fas fa-trash"></i>
-              Clear Completed
-            </button>
-            <button id="clearAll" class="clear-all-btn">
-              <i class="fas fa-trash-alt"></i>
-              Clear All
-            </button>
-          </div>
-        </div>
 
-        <!-- Task List -->
-        <div class="todo-list-container">
-          <ul id="todoList" class="todo-list">
-            <!-- Task List (Dynamic) -->
-          </ul>
+          <!-- Form Container -->
+          <div class="todo-form-container">
+            <form id="todoForm" class="todo-form">
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="taskInput"
+                  class="task-input"
+                  placeholder="What needs to be done?"
+                  autocomplete="off"
+                  required
+                />
+                <button type="submit" class="add-btn">
+                  <i class="fas fa-plus"></i>
+                  <span>Add Task</span>
+                </button>
+              </div>
+            </form>
+          </div>
 
-          <!-- Empty State -->
-          <div id="emptyState" class="empty-state">
-            <i class="fas fa-clipboard-list"></i>
-            <h3>No tasks yet</h3>
-            <p>Add your first task to get started!</p>
+          <!-- Controls -->
+          <div class="todo-controls">
+            <div class="task-stats">
+              <span id="taskCount" class="task-count">0 Tasks</span>
+              <span id="completedCount" class="completed-count">0 Completed</span>
+            </div>
+            <div class="task-actions">
+              <button id="clearCompleted" class="clear-btn">
+                <i class="fas fa-check"></i>
+                <span>Clear Completed</span>
+              </button>
+              <button id="clearAll" class="clear-all-btn">
+                <i class="fas fa-trash-alt"></i>
+                <span>Clear All</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Task List -->
+          <div class="todo-list-container">
+            <ul id="todoList" class="todo-list"></ul>
+            <div id="emptyState" class="empty-state">
+              <i class="fas fa-tasks"></i>
+              <h3>No tasks yet</h3>
+              <p>Add a task above to get started!</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <!-- Footer -->
-    <?php include '../components/footer.php'; ?>
+    <div id="footer-placeholder"></div>
 
     <!-- JavaScript -->
-    <script src="../scripts/header.js" defer></script>
     <script src="../scripts/script.js" defer></script>
-    <script src="../scripts/todolist.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="../scripts/todolist.js" defer></script>
   </body>
 </html>
