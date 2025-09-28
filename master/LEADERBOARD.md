@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2025-09-09*
+*Last updated: 2025-09-28*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -14,9 +14,10 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
+| [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
+| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 3 | 1 | 0 | 2 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
-| [@Radhika984](https://github.com/Radhika984) | 1 | 1 | 0 | 4 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 5 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
@@ -66,6 +67,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
+| [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 1 | 0 | 0 | 0 |
 | [@dhupikarajput](https://github.com/dhupikarajput) | 1 | 0 | 0 | 0 |
 | [@Dippp10](https://github.com/Dippp10) | 0 | 1 | 0 | 0 |
 | [@Niyatikansal31](https://github.com/Niyatikansal31) | 0 | 1 | 0 | 0 |
@@ -75,8 +77,10 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
 | [@shrvtiprasad](https://github.com/shrvtiprasad) | 1 | 0 | 0 | 0 |
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
+| [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
+| [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
 
 ---
 

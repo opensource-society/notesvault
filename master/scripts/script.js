@@ -192,6 +192,37 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  // Navbar Auth Handler //
+  const updateNavbarAuth = () => {
+    const user = JSON.parse(localStorage.getItem('loggedInUser'))
+
+    const loginLink = document.getElementById('nav-login')
+    const signupLink = document.getElementById('nav-signup')
+    const profileLink = document.getElementById('nav-profile')
+    const logoutLink = document.getElementById('nav-logout')
+
+    if (!loginLink || !signupLink || !profileLink || !logoutLink) return
+
+    if (user) {
+      loginLink.style.display = 'none'
+      signupLink.style.display = 'none'
+      profileLink.style.display = 'inline-block'
+      logoutLink.style.display = 'inline-block'
+    } else {
+      loginLink.style.display = 'inline-block'
+      signupLink.style.display = 'inline-block'
+      profileLink.style.display = 'none'
+      logoutLink.style.display = 'none'
+    }
+
+    // Logout handler
+    logoutLink.addEventListener('click', (e) => {
+      e.preventDefault()
+      localStorage.removeItem('loggedInUser')
+      window.location.href = 'login.html'
+    })
+  }
+
   // Load Components (Header & Footer) //
   const loadComponents = async () => {
     try {
@@ -206,6 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Re-initialize Header-Based Features
       setupThemeToggle()
       setupMobileMenu()
+
+      // Run Navbar Auth update (after header loaded)
+      updateNavbarAuth()
 
       // Set Active Nav Link //
       const currentPath = window.location.pathname.split('/').pop()
