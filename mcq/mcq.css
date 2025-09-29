@@ -1,18 +1,48 @@
+.quiz-hero {
+  background: url("../assets/index/images/back.jpg") center/cover no-repeat;
+  padding: 6rem 0 4rem 0;
+  text-align: center;
+}
+
+.quiz-hero h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.quiz-hero .subtitle {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.quiz-hero .subtitle li {
+  margin-bottom: 0.5rem;
+}
 /* MCQ Front Page Styles */
 .mcq-front {
-  max-width: 700px;
+  max-width: 100%;
   margin: 2rem auto;
   background: var(--bg-secondary);
   border-radius: 1.5rem;
   box-shadow: 0 8px 32px rgba(22, 61, 59, 0.1);
   padding: 2rem;
 }
-.mcq-header {
+
+.button-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
+  gap: 1rem;
 }
+
 .create-quiz-btn {
   background: #1976d2;
   color: #fff;
@@ -26,35 +56,53 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  justify-content: center;
 }
+
 .create-quiz-btn:hover {
   background: #1565c0;
 }
+
 .upgrade-label {
   color: #1976d2;
   font-size: 0.95rem;
   font-weight: 500;
   margin-left: 1rem;
 }
-.mcq-help {
-  margin-bottom: 1rem;
-}
-.help-link {
-  color: #1976d2;
-  text-decoration: underline;
-  font-size: 1rem;
-  cursor: pointer;
-}
+
 .mcq-sort {
-  margin-bottom: 1.5rem;
-  color: #555;
-  font-size: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
 }
+
+.mcq-sort button {
+  background: #1976d2;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 2px 8px rgba(22, 61, 59, 0.08);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.mcq-sort button:hover {
+  background: #1565c0;
+}
+
 .quiz-cards {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 1.5rem;
 }
+
 .quiz-card {
   background: #fff;
   border-radius: 1rem;
@@ -65,6 +113,7 @@
   align-items: flex-start;
   position: relative;
 }
+
 .quiz-card .quiz-image {
   width: 100%;
   height: 120px;
@@ -72,12 +121,14 @@
   border-radius: 1rem 1rem 0 0;
   margin-bottom: 1rem;
 }
+
 .quiz-card .quiz-title {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: #222;
 }
+
 .quiz-card .quiz-meta {
   display: flex;
   align-items: center;
@@ -86,25 +137,66 @@
   color: #888;
   margin-top: 0.5rem;
 }
+
 .quiz-card .quiz-meta .quiz-date {
   font-size: 0.95rem;
 }
+
 .quiz-card .quiz-meta .quiz-views {
   display: flex;
   align-items: center;
   gap: 0.3rem;
 }
+
 .quiz-card .quiz-meta .quiz-count {
   display: flex;
   align-items: center;
   gap: 0.3rem;
 }
+
 .quiz-card .quiz-lock {
   position: absolute;
   top: 1.2rem;
   left: 1.2rem;
   color: #888;
   font-size: 1.2rem;
+}
+
+.quiz-buttons {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.quiz-buttons button {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-mcq-btn, .take-quiz-btn {
+  background: #1976d2;
+  color: white;
+  border: none;
+}
+
+.add-mcq-btn:hover, .take-quiz-btn:hover {
+  background: #1565c0;
+}
+
+.delete-quiz-btn{
+  background: #dc3545;
+  color: white;
+  border: none;
+}
+
+.delete-quiz-btn:hover {
+  background: #c82333;
 }
 /* MCQ Page Styles */
 .mcq-main {
@@ -113,7 +205,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
 }
+
 .mcq-container {
   background: var(--bg-secondary);
   border-radius: 1.5rem;
@@ -121,13 +215,16 @@
   max-width: 600px;
   width: 100%;
   box-shadow: 0 8px 32px rgba(22, 61, 59, 0.1);
+  margin: 0 auto;
 }
+
 .mcq-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 2rem;
 }
+
 .mcq-form input, .mcq-form select {
   padding: 0.75rem;
   border-radius: 8px;
@@ -135,6 +232,39 @@
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
 }
+
+.back-btn {
+  background: #2b9a66;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.back-btn:hover {
+  background: #89afa3;
+}
+
+.quiz-btn {
+  background: #1b1e22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  gap: 15px;
+}
+
+.quiz-btn :hover{
+  background: #81a0c3;
+}
+
 .mcq-form button {
   padding: 0.75rem;
   background: var(--primary-500);
@@ -145,10 +275,13 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 0.5rem;
+  gap: 15px;
 }
+
 .mcq-list {
   margin-bottom: 2rem;
 }
+
 .mcq-item {
   background: #fafbfc;
   border-radius: 8px;
@@ -156,20 +289,45 @@
   margin-bottom: 0.5rem;
   border: 1px solid #e1e5e9;
 }
+
 .mcq-item .correct {
   color: #10b981;
   font-weight: bold;
   margin-left: 1rem;
 }
+
 .quiz-section {
   margin-top: 2rem;
 }
+
 .quiz-item {
   background: #f3f4f6;
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 0.5rem;
+  color: #333;
 }
+
+.quiz-item strong {
+  color: #222;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-item label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.quiz-item input[type="radio"] {
+  margin-right: 0.5rem;
+  accent-color: #1976d2;
+}
+
 .quiz-section button {
   padding: 0.75rem 1.5rem;
   background: var(--primary-500);
@@ -180,4 +338,23 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 1rem;
+}
+
+.quiz-submit-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.quiz-submit-row .quiz-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 0;
 }
