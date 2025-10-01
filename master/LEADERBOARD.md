@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2025-09-28*
+*Last updated: 2025-10-01*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -10,12 +10,12 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 12 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 2 | 0 | 9 |
 | [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 3 |
+| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 3 | 2 | 0 | 3 |
 | [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 3 | 1 | 4 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
-| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 3 | 1 | 0 | 2 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 5 |
