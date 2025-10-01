@@ -1,6 +1,4 @@
-// Login (JavaScript)
 document.addEventListener('DOMContentLoaded', function () {
-  // DOM Elements
   const loginForm = document.getElementById('loginForm')
   const messageBox = document.getElementById('messageBox')
   const emailInput = document.getElementById('email')
@@ -12,11 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const spinner = document.getElementById('spinner')
   const btnText = document.getElementById('btnText')
 
-  // Constants
   const MIN_PASSWORD_LENGTH = 6
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  // Hash password using SHA-256
   async function hashPassword(password) {
     const encoder = new TextEncoder()
     const data = encoder.encode(password)
@@ -26,16 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
       .join('')
   }
 
-  // Initialize Form
   function initForm() {
-    // Remembered Email
     const rememberedEmail = localStorage.getItem('rememberEmail')
     if (rememberedEmail) {
       emailInput.value = rememberedEmail
       rememberMe.checked = true
       emailInput.parentNode.classList.add('focused')
     }
-
     initFloatingLabels()
     initPasswordToggle()
   }
@@ -52,20 +45,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function initPasswordToggle() {
     passwordToggle.addEventListener('click', togglePasswordVisibility)
-    updatePasswordToggle()
+    updatePasswordToggle(passwordInput.type === 'password')
   }
 
   function togglePasswordVisibility() {
     const isPassword = passwordInput.type === 'password'
     passwordInput.type = isPassword ? 'text' : 'password'
-    updatePasswordToggle(isPassword)
+    updatePasswordToggle(passwordInput.type === 'password')
   }
 
   function updatePasswordToggle(isPassword) {
-    passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
+    passwordIcon.className = isPassword ? 'far fa-eye' : 'far fa-eye-slash'
     passwordToggle.setAttribute(
       'aria-label',
-      isPassword ? 'Hide password' : 'Show password'
+      isPassword ? 'Show password' : 'Hide password'
     )
   }
 
@@ -103,53 +96,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Handle Login
   async function handleLogin(e) {
     e.preventDefault()
-
     const email = emailInput.value.trim()
     const password = passwordInput.value
     const shouldRemember = rememberMe.checked
-
     if (!validateForm(email, password)) return
     setLoadingState(true)
-
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000)) // simulate delay
-
-      // Get user from localStorage
+      await new Promise((resolve) => setTimeout(resolve, 1000))
       const storedUser = localStorage.getItem(email)
       if (!storedUser) {
         showMessage('Invalid email or password', 'error')
         setLoadingState(false)
         return
       }
-
       const parsedUser = JSON.parse(storedUser)
       const hashedInput = await hashPassword(password)
-
       if (parsedUser.password !== hashedInput) {
         showMessage('Invalid email or password', 'error')
         setLoadingState(false)
         return
       }
-
-      // ✅ Login success
       if (shouldRemember) {
         localStorage.setItem('rememberEmail', email)
       } else {
         localStorage.removeItem('rememberEmail')
       }
-
       showMessage('Login Successful! Redirecting...', 'success')
       setTimeout(() => {
-        const emailInput = document.getElementById("email"); // or your form field id
-        const userEmail = emailInput.value.trim();
-
-        localStorage.setItem("loggedInUser", JSON.stringify({ email: userEmail }));
+        localStorage.setItem("loggedInUser", JSON.stringify({ email }))
         window.location.href = 'dashboard.html'
       }, 1500)
-
     } catch (error) {
       console.error('Login error:', error)
       showMessage('Login Failed. Please Try Again...', 'error')
