@@ -1,77 +1,101 @@
-// dashboard.js
 document.addEventListener('DOMContentLoaded', function () {
-  // Elements
-  const uploadBtn = document.getElementById('upload-note-btn'); // dashboard button
-  const modal = document.getElementById('upload-modal');
-  const closeModalBtns = document.querySelectorAll('.close-modal');
-  const fileInput = document.getElementById('note-file');
-  const uploadForm = document.getElementById('upload-form');
-  const preview = document.createElement('div'); // preview inside modal
+  const addNoteCard = document.querySelector('.add-note-card');
+  const notesGrid = document.querySelector('.notes-grid');
 
-  // Add preview container to modal body
-  const modalBody = modal.querySelector('.modal-body');
-  modalBody.appendChild(preview);
-  preview.id = 'upload-preview';
-  preview.style.marginTop = '0.5rem';
+  // Create the inline form HTML
+  const formHTML = `
+    <form class="inline-upload-form" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; padding: 1rem; border: 1px solid #ddd; border-radius: 0.5rem; background-color: #f9f9f9;">
+      <input type="text" name="title" placeholder="Note Title" required style="padding: 0.5rem;"/>
+      <select name="subject" required style="padding: 0.5rem;">
+        <option value="">Select Subject</option>
+        <option value="Database Management">Database Management</option>
+        <option value="Operating Systems">Operating Systems</option>
+        <option value="Data Structures">Data Structures</option>
+      </select>
+      <input type="text" name="tags" placeholder="Tags (comma separated)" style="padding: 0.5rem;"/>
+      <input type="file" name="file" accept=".pdf,.doc,.docx,.ppt,.pptx" required style="padding: 0.5rem;"/>
+      <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+        <button type="button" class="cancel-btn" style="padding: 0.5rem;">Cancel</button>
+        <button type="submit" style="padding: 0.5rem; background-color:#008c2c; color:white; border:none;">Upload</button>
+      </div>
+      <div class="form-preview" style="margin-top:0.5rem;"></div>
+    </form>
+  `;
 
-  // Dashboard button triggers file input
-  uploadBtn.addEventListener('click', () => {
-    // Open modal
-    modal.style.display = 'block';
-    // Trigger file input click
-    fileInput.click();
-  });
+  // Expand form when Add Note Card is clicked
+  addNoteCard.addEventListener('click', () => {
+    // Prevent adding multiple forms
+    if (addNoteCard.querySelector('form')) return;
 
-  // Close modal on clicking 'x' or Cancel buttons
-  closeModalBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      uploadForm.reset();
-      preview.textContent = '';
+    addNoteCard.insertAdjacentHTML('beforeend', formHTML);
+
+    const form = addNoteCard.querySelector('form');
+    const preview = form.querySelector('.form-preview');
+    const cancelBtn = form.querySelector('.cancel-btn');
+
+    // Cancel button removes the form
+    cancelBtn.addEventListener('click', () => {
+      form.remove();
     });
-  });
 
-  // Close modal if clicking outside modal content
-  window.addEventListener('click', e => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-      uploadForm.reset();
-      preview.textContent = '';
-    }
-  });
+    // Handle form submission
+    form.addEventListener('submit', e => {
+      e.preventDefault();
 
-  // Show selected file name inside modal
-  fileInput.addEventListener('change', () => {
-    if (fileInput.files.length > 0) {
-      preview.style.color = 'green';
-      preview.textContent = `Selected file: ${fileInput.files[0].name}`;
-    } else {
-      preview.textContent = '';
-    }
-  });
+      const title = form.title.value.trim();
+      const subject = form.subject.value;
+      const tags = form.tags.value
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(tag => tag !== '');
+      const file = form.file.files[0];
 
-  // Handle form submission inside modal
-  uploadForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const title = document.getElementById('note-title').value.trim();
-    const subject = document.getElementById('note-subject').value;
-    const file = fileInput.files[0];
+      if (!title || !subject || !file) {
+        preview.style.color = 'red';
+        preview.textContent = 'Please fill all fields and select a file!';
+        return;
+      }
 
-    if (!title || !subject || !file) {
-      preview.style.color = 'red';
-      preview.textContent = 'Please fill all fields and select a file!';
-      return;
-    }
+      // Determine icon based on file type
+      let fileIcon = 'fas fa-file';
+      const fileExt = file.name.split('.').pop().toLowerCase();
+      if (fileExt === 'pdf') fileIcon = 'fas fa-file-pdf';
+      else if (fileExt === 'ppt' || fileExt === 'pptx') fileIcon = 'fas fa-file-powerpoint';
+      else if (fileExt === 'doc' || fileExt === 'docx') fileIcon = 'fas fa-file-word';
 
-    // Simulate upload success
-    preview.style.color = 'green';
-    preview.textContent = `Notes "${title}" uploaded successfully!`;
+      const today = new Date();
+      const uploadedDate = `${today.getDate()} ${today.toLocaleString('default', { month: 'short' })} ${today.getFullYear()}`;
 
-    // Reset form after 2 seconds and close modal
-    setTimeout(() => {
-      uploadForm.reset();
-      preview.textContent = '';
-      modal.style.display = 'none';
-    }, 2000);
+      // Create new note card
+      const newNoteCard = document.createElement('div');
+      newNoteCard.classList.add('note-card');
+      newNoteCard.innerHTML = `
+        <div class="note-header">
+          <i class="${fileIcon} note-icon"></i>
+          <div class="note-actions">
+            <button class="icon-btn"><i class="fas fa-download"></i></button>
+            <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
+            <button class="icon-btn"><i class="fas fa-ellipsis-v"></i></button>
+          </div>
+        </div>
+        <div class="note-body">
+          <h3>${title}</h3>
+          <p class="note-meta">${subject} • ${(file.size / (1024*1024)).toFixed(1)} MB</p>
+          <p class="note-description">Uploaded file: ${file.name}</p>
+        </div>
+        <div class="note-footer">
+          <span class="note-date">Uploaded: ${uploadedDate}</span>
+          <div class="note-tags">
+            ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+      `;
+
+      // Insert new note before Add Note Card
+      notesGrid.insertBefore(newNoteCard, addNoteCard);
+
+      // Remove the form after submission
+      form.remove();
+    });
   });
 });
