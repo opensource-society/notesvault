@@ -12,7 +12,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 3 |
 | [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 3 | 2 | 0 | 3 |
 | [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 3 | 1 | 4 |
-| [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
@@ -20,6 +19,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 5 |
+| [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 0 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
