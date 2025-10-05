@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotesVault - Features</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Features Section -->
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-4">✨ Key Features of <span class="text-blue-600">NotesVault</span></h1>
+    <p class="text-center text-lg text-gray-600 mb-10">Empowering your study experience with simplicity and speed.</p>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold mb-2">📚 Organized by Branch & Semester</h2>
+        <p class="text-gray-600">Sort your notes smartly by branch and semester, making it easier to browse content.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold mb-2">🔍 Smart Search</h2>
+        <p class="text-gray-600">Search notes by subject, semester, or custom tags with instant results.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold mb-2">📝 Jotpad</h2>
+        <p class="text-gray-600">Take quick notes or summaries anytime without switching tabs.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold mb-2">📤 Easy Upload</h2>
+        <p class="text-gray-600">Upload your notes with a clean form or drag & drop interface.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold mb-2">🌙 Light/Dark Mode</h2>
+        <p class="text-gray-600">Switch themes for your comfort and improved readability anytime.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold mb-2">🧾 License-Friendly</h2>
+        <p class="text-gray-600">Open-source and transparent — explore the GitHub repo and contribute easily.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <div id="quiz-widget" class="max-w-xl mx-auto mt-10 p-6 bg-white shadow-xl rounded-2xl">
+    <h2 class="text-2xl font-bold mb-4 text-center">🎯 Take a Quick Quiz</h2>
+
+    <div class="mb-4">
+      <label class="block mb-2 font-semibold">Choose Education Level:</label>
+      <select id="level" onchange="updateSubjects()" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400">
+        <option value="School">School</option>
+        <option value="BTech">BTech</option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-2 font-semibold">Choose Subject:</label>
+      <select id="subject" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400"></select>
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-2 font-semibold">Choose Difficulty:</label>
+      <select id="difficulty" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+
+    <button onclick="startQuiz()" class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Start Quiz</button>
+
+    <div id="quiz-container" class="mt-6 hidden">
+      <p id="question" class="font-semibold mb-3"></p>
+      <div id="options" class="space-y-2"></div>
+      <button onclick="submitAnswer()" class="w-full mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Submit</button>
+      <p id="result" class="mt-4 font-bold text-lg text-center"></p>
+    </div>
+  </div>
+
+  <script>
+    const subjectMap = {
+      'School': { 'Math': 19, 'Science': 17, 'History': 23 },
+      'BTech': { 'Computer Science': 18, 'Electronics': 30, 'General Knowledge': 9 }
+    };
+
+    let correctAnswer = '';
+
+    function updateSubjects() {
+      const level = document.getElementById('level').value;
+      const subjectSelect = document.getElementById('subject');
+      subjectSelect.innerHTML = '';
+      const subjects = Object.keys(subjectMap[level] || {});
+      subjects.forEach(sub => {
+        const option = document.createElement('option');
+        option.value = sub;
+        option.textContent = sub;
+        subjectSelect.appendChild(option);
+      });
+    }
+
+    async function startQuiz() {
+      const level = document.getElementById('level').value;
+      const subject = document.getElementById('subject').value;
+      const difficulty = document.getElementById('difficulty').value;
+      const category = subjectMap[level]?.[subject] || '';
+      const url = `https://opentdb.com/api.php?amount=1&difficulty=${difficulty}&type=multiple${category ? `&category=${category}` : ''}`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.results && data.results.length > 0) {
+        const questionData = data.results[0];
+        correctAnswer = questionData.correct_answer;
+        const allAnswers = [...questionData.incorrect_answers, correctAnswer].sort(() => Math.random() - 0.5);
+        document.getElementById('question').innerHTML = decodeHTML(questionData.question);
+        const optionsHTML = allAnswers.map(answer => `
+          <label class="block border p-2 rounded hover:bg-gray-100 cursor-pointer">
+            <input type="radio" name="answer" value="${answer}" class="mr-2">
+            ${decodeHTML(answer)}
+          </label>
+        `).join('');
+        document.getElementById('options').innerHTML = optionsHTML;
+        document.getElementById('quiz-container').classList.remove('hidden');
+        document.getElementById('result').textContent = '';
+      }
+    }
+
+    function submitAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      if (!selected) {
+        alert("Please select an answer.");
+        return;
+      }
+      const isCorrect = selected.value === correctAnswer;
+      document.getElementById('result').textContent = isCorrect ? "✅ Correct!" : `❌ Wrong! Correct answer was: ${correctAnswer}`;
+      document.getElementById('result').classList.add(isCorrect ? 'text-green-600' : 'text-red-600');
+    }
+
+    function decodeHTML(html) {
+      const txt = document.createElement('textarea');
+      txt.innerHTML = html;
+      return txt.value;
+    }
+
+    window.onload = updateSubjects;
+  </script>
+
+</body>
+</html>
