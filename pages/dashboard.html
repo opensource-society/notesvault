@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,6 +19,7 @@
   <link rel="stylesheet" href="../styling/base.css" />
   <link rel="stylesheet" href="../styling/dashboard.css" />
 </head>
+
 <body>
   <!-- Header -->
   <div id="header-placeholder"></div>
@@ -37,9 +39,21 @@
           </div>
         </div>
         <div class="profile-details">
-          <div class="detail-item"><i class="fas fa-graduation-cap"></i><div><span>Branch</span><p>Computer Science</p></div></div>
-          <div class="detail-item"><i class="fas fa-calendar-alt"></i><div><span>Year</span><p>2nd Year</p></div></div>
-          <div class="detail-item"><i class="fas fa-id-card"></i><div><span>Student ID</span><p>CS2024-049</p></div></div>
+          <div class="detail-item"><i class="fas fa-graduation-cap"></i>
+            <div><span>Branch</span>
+              <p>Computer Science</p>
+            </div>
+          </div>
+          <div class="detail-item"><i class="fas fa-calendar-alt"></i>
+            <div><span>Year</span>
+              <p>2nd Year</p>
+            </div>
+          </div>
+          <div class="detail-item"><i class="fas fa-id-card"></i>
+            <div><span>Student ID</span>
+              <p>CS2024-049</p>
+            </div>
+          </div>
         </div>
         <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
       </section>
@@ -48,10 +62,22 @@
       <section class="stats-card">
         <h3><i class="fas fa-chart-line"></i> Your Stats</h3>
         <div class="stats-grid">
-          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Notes</div></div>
-          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">PYQs</div></div>
-          <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Subjects</div></div>
-          <div class="stat-item"><div class="stat-value">0%</div><div class="stat-label">Completion</div></div>
+          <div class="stat-item">
+            <div class="stat-value">0</div>
+            <div class="stat-label">Notes</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">0</div>
+            <div class="stat-label">PYQs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">0</div>
+            <div class="stat-label">Subjects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">0%</div>
+            <div class="stat-label">Completion</div>
+          </div>
         </div>
       </section>
 
@@ -60,8 +86,10 @@
         <div class="section-header">
           <h2><i class="fas fa-book"></i> Your Notes</h2>
           <div class="section-actions">
-            <button class="btn-primary" id="upload-note-btn"><i class="fas fa-cloud-upload-alt"></i> Upload Notes</button>
-            <div class="search-box"><input type="text" placeholder="Search notes..." /><i class="fas fa-search"></i></div>
+            <button class="btn-primary" id="upload-note-btn"><i class="fas fa-cloud-upload-alt"></i> Upload
+              Notes</button>
+            <div class="search-box"><input type="text" placeholder="Search notes..." /><i class="fas fa-search"></i>
+            </div>
           </div>
         </div>
 
@@ -109,15 +137,20 @@
           </div>
 
           <!-- Add New Note -->
-          <div class="add-note-card">
-            <div class="add-note-content" style="display: flex; align-items: center; gap: 1rem; justify-content: center;">
-              <div class="add-note-icon" style="width: 2.5rem; height: 2.5rem; background-color: #008c2c; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+          <div class="add-note-card" id="add-note-card">
+            <div class="add-note-content"
+              style="display: flex; align-items: center; gap: 1rem; justify-content: center;">
+              <div class="add-note-icon"
+                style="width: 2.5rem; height: 2.5rem; background-color: #008c2c; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
                 <i class="fa-solid fa-plus" style="font-size: 1rem; color: white; font-weight: bold;"></i>
               </div>
-              <span style="font-size: 18px; font-weight: 700; color: #008c2c;margin-right: -1rem; margin-top: 10px;">Add New Notes</span>
+              <span style="font-size: 18px; font-weight: 700; color: #008c2c;margin-right: -1rem; margin-top: 10px;">Add
+                New Notes</span>
             </div>
-            <p style="font-size: 0.875rem; color: #666; margin-top: 1rem; text-align: center; line-height: 1.4;">Upload and organize your study materials</p>
+            <p style="font-size: 0.875rem; color: #666; margin-top: 1rem; text-align: center; line-height: 1.4;">Upload
+              and organize your study materials</p>
           </div>
+
         </div>
       </section>
 
@@ -232,4 +265,5 @@
   <script src="../scripts/script.js"></script>
   <script src="../scripts/dashboard.js"></script>
 </body>
+
 </html>
