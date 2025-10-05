@@ -81,7 +81,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
-| [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
 
 ---
 
