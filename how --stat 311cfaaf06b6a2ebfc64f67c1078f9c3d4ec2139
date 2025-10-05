@@ -1,0 +1,5 @@
+[33mcommit 311cfaaf06b6a2ebfc64f67c1078f9c3d4ec2139[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/sign-up[m[33m)[m
+Author: Utkarsh Shukla <utkarshshukla372@gmail.com>
+Date:   Wed Sep 3 22:56:43 2025 +0530
+
+    Fix: add password visibility toggle to Confirm Password field (#864)

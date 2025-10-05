@@ -1,3 +1,5 @@
+                  🚨 Please make sure you are sending pull requrest for 'master' branch.
+                                            
 [![OSCI-Project-Banner.png](https://i.postimg.cc/76mJvBmF/OSCI-Project-Banner.png)](https://postimg.cc/8JfzMb84)
 
 # 📚 NotesVault - Academic Resource Management Platform
