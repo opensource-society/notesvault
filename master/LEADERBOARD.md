@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2025-10-02*
+*Last updated: 2025-10-06*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -16,13 +16,13 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
+| [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 6 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 5 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
-| [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 4 |
 | [@Gourangi4](https://github.com/Gourangi4) | 2 | 0 | 0 | 2 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
@@ -75,12 +75,12 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@AbhishekSharma-9](https://github.com/AbhishekSharma-9) | 0 | 1 | 0 | 0 |
 | [@zoxilsi](https://github.com/zoxilsi) | 0 | 1 | 0 | 0 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
+| [@madegowda11](https://github.com/madegowda11) | 1 | 0 | 0 | 0 |
 | [@shrvtiprasad](https://github.com/shrvtiprasad) | 1 | 0 | 0 | 0 |
 | [@DeeptiChincholi](https://github.com/DeeptiChincholi) | 1 | 0 | 0 | 0 |
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
-| [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
 
 ---
 
