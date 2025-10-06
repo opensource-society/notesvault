@@ -65,7 +65,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
-| [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
 | [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 1 | 0 | 0 | 0 |
 | [@dhupikarajput](https://github.com/dhupikarajput) | 1 | 0 | 0 | 0 |
@@ -81,6 +80,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
+| [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 0 |
 
 ---
 
