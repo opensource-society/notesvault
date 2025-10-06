@@ -2,7 +2,25 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   const noteArea = document.getElementById('noteArea')
-  noteArea.innerHTML = localStorage.getItem('noteContent') || ''
+  const markdownPreview = document.getElementById('markdownPreview')
+  const markdownToolbar = document.getElementById('markdownToolbar')
+  
+  // Initialize markdown content from localStorage
+  noteArea.value = localStorage.getItem('noteContent') || ''
+  
+  // Update markdown preview
+  function updateMarkdownPreview() {
+    const markdownText = noteArea.value
+    if (markdownText.trim() === '') {
+      markdownPreview.innerHTML = '<p class="preview-placeholder">Preview will appear here...</p>'
+    } else {
+      markdownPreview.innerHTML = parseMarkdown(markdownText)
+    }
+    saveNoteContent()
+  }
+  
+  // Initial preview render
+  updateMarkdownPreview()
 
   // Initialize Canvas
   const canvas = document.getElementById('drawingCanvas')
@@ -89,22 +107,28 @@ document.addEventListener('DOMContentLoaded', function () {
   function activateTextMode() {
     textModeBtn.classList.add('active')
     drawModeBtn.classList.remove('active')
-    noteArea.contentEditable = 'true'
+    noteArea.style.display = 'block'
+    markdownPreview.style.display = 'block'
+    noteArea.disabled = false
     canvas.style.pointerEvents = 'none'
     saveDrawingBtn.style.display = 'none'
     clearDrawingBtn.style.display = 'none'
     document.getElementById('drawingTools').style.display = 'none'
+    markdownToolbar.style.display = 'flex'
     noteArea.focus()
   }
 
   function activateDrawMode() {
     textModeBtn.classList.remove('active')
     drawModeBtn.classList.add('active')
-    noteArea.contentEditable = 'false'
+    noteArea.style.display = 'none'
+    markdownPreview.style.display = 'none'
+    noteArea.disabled = true
     canvas.style.pointerEvents = 'auto'
     saveDrawingBtn.style.display = 'inline-block'
     clearDrawingBtn.style.display = 'inline-block'
     document.getElementById('drawingTools').style.display = 'flex'
+    markdownToolbar.style.display = 'none'
   }
 
   textModeBtn.addEventListener('click', activateTextMode)
@@ -155,25 +179,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // Save Drawing Button
   saveDrawingBtn.addEventListener('click', () => {
     const imageData = canvas.toDataURL('image/png')
-    const img = document.createElement('img')
-    img.src = imageData
-    img.style.maxWidth = '100%'
-
+    
     activateTextMode()
     noteArea.focus()
 
-    // Insert At Cursor Position
-    const selection = window.getSelection()
-    if (selection.rangeCount > 0) {
-      const range = selection.getRangeAt(0)
-      range.insertNode(img)
-    } else {
-      noteArea.appendChild(img)
-    }
-
+    // Insert markdown image syntax at cursor
+    const cursorPos = noteArea.selectionStart
+    const textBefore = noteArea.value.substring(0, cursorPos)
+    const textAfter = noteArea.value.substring(cursorPos)
+    noteArea.value = textBefore + `\n![Drawing](${imageData})\n` + textAfter
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     localStorage.removeItem('canvasData')
-    saveNoteContent()
+    updateMarkdownPreview()
   })
 
   // Drawing Tools Functions
@@ -201,254 +219,120 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('eraserTool').addEventListener('click', () => setTool('eraser'))
   document.getElementById('brushSize').addEventListener('input', (e) => setBrushSize(e.target.value))
 
-  // Handle Note Content
-  function togglePlaceholder() {
-    if (noteArea.innerText.trim() === '') {
-      noteArea.classList.add('empty')
-    } else {
-      noteArea.classList.remove('empty')
+  // Markdown Toolbar Functions
+  function insertMarkdown(format) {
+    const start = noteArea.selectionStart
+    const end = noteArea.selectionEnd
+    const selectedText = noteArea.value.substring(start, end)
+    const beforeText = noteArea.value.substring(0, start)
+    const afterText = noteArea.value.substring(end)
+    
+    let newText = ''
+    let cursorOffset = 0
+    
+    switch(format) {
+      case 'bold':
+        newText = selectedText ? `**${selectedText}**` : '**bold text**'
+        cursorOffset = selectedText ? newText.length : 2
+        break
+      case 'italic':
+        newText = selectedText ? `*${selectedText}*` : '*italic text*'
+        cursorOffset = selectedText ? newText.length : 1
+        break
+      case 'strikethrough':
+        newText = selectedText ? `~~${selectedText}~~` : '~~strikethrough text~~'
+        cursorOffset = selectedText ? newText.length : 2
+        break
+      case 'h1':
+        newText = `# ${selectedText || 'Heading 1'}`
+        cursorOffset = newText.length
+        break
+      case 'h2':
+        newText = `## ${selectedText || 'Heading 2'}`
+        cursorOffset = newText.length
+        break
+      case 'h3':
+        newText = `### ${selectedText || 'Heading 3'}`
+        cursorOffset = newText.length
+        break
+      case 'ul':
+        newText = selectedText ? `- ${selectedText}` : '- List item'
+        cursorOffset = newText.length
+        break
+      case 'ol':
+        newText = selectedText ? `1. ${selectedText}` : '1. List item'
+        cursorOffset = newText.length
+        break
+      case 'checklist':
+        newText = selectedText ? `- [ ] ${selectedText}` : '- [ ] Task item'
+        cursorOffset = newText.length
+        break
+      case 'link':
+        newText = selectedText ? `[${selectedText}](url)` : '[Link text](url)'
+        cursorOffset = selectedText ? newText.length - 4 : 1
+        break
+      case 'code':
+        newText = selectedText ? `\`${selectedText}\`` : '`inline code`'
+        cursorOffset = selectedText ? newText.length : 1
+        break
+      case 'codeblock':
+        newText = selectedText ? `\`\`\`\n${selectedText}\n\`\`\`` : '```javascript\n// your code here\n```'
+        cursorOffset = selectedText ? newText.length : 3
+        break
+      case 'quote':
+        newText = selectedText ? `> ${selectedText}` : '> Blockquote'
+        cursorOffset = newText.length
+        break
     }
-    saveNoteContent()
+    
+    noteArea.value = beforeText + newText + afterText
+    noteArea.focus()
+    noteArea.setSelectionRange(start + cursorOffset, start + cursorOffset)
+    updateMarkdownPreview()
   }
-
-  function saveNoteContent() {
-    localStorage.setItem('noteContent', noteArea.innerHTML)
-  }
-
-  noteArea.addEventListener('input', togglePlaceholder)
-  noteArea.addEventListener('blur', togglePlaceholder)
-  noteArea.addEventListener('focus', function () {
-    if (noteArea.innerText.trim() === '') {
-      noteArea.classList.add('empty')
+  
+  // Markdown Toolbar Event Listeners
+  document.querySelectorAll('.toolbar-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const format = btn.dataset.format
+      insertMarkdown(format)
+    })
+  })
+  
+  // Keyboard shortcuts for markdown
+  noteArea.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.metaKey) {
+      switch(e.key.toLowerCase()) {
+        case 'b':
+          e.preventDefault()
+          insertMarkdown('bold')
+          break
+        case 'i':
+          e.preventDefault()
+          insertMarkdown('italic')
+          break
+      }
     }
   })
 
-  togglePlaceholder()
+  // Handle Note Content
+  function saveNoteContent() {
+    localStorage.setItem('noteContent', noteArea.value)
+  }
+
+  noteArea.addEventListener('input', updateMarkdownPreview)
+  noteArea.addEventListener('blur', saveNoteContent)
 })
 
-const highlightToggleBtn = document.getElementById('highlightToggleBtn');
-const highlightPalette = document.getElementById('highlightPalette');
-
-// Highlight Colors Circular Palette
-const highlightColors = ['yellow', 'lightgreen', 'lightblue', 'pink', 'orange'];
-let selectedColor = highlightColors[0];
-let highlightEnabled = false;
-
-// --- Helper Functions ---
-function insertNodeAtRange(node, range) {
-  const container = range.startContainer;
-  if (container.nodeType === 3) {
-    container.parentNode.insertBefore(node, container.nextSibling);
-  } else {
-    range.insertNode(node);
-  }
-}
-
-function setCaretAfterNode(node) {
-  const selection = window.getSelection();
-  const range = document.createRange();
-  range.setStartAfter(node);
-  range.collapse(true);
-  selection.removeAllRanges();
-  selection.addRange(range);
-}
-
-function splitSpanAtCaret() {
-  const selection = window.getSelection();
-  if (!selection.rangeCount) return;
-
-  const range = selection.getRangeAt(0);
-  const container = range.startContainer;
-  const offset = range.startOffset;
-
-  let parentSpan = container.nodeType === 3 ? container.parentNode : container.closest('span');
-  if (!parentSpan || parentSpan.tagName !== 'SPAN') return;
-
-  const text = container.textContent;
-
-  // Caret at start → move before span
-  if (offset === 0) {
-    const newRange = document.createRange();
-    newRange.setStartBefore(parentSpan);
-    newRange.collapse(true);
-    selection.removeAllRanges();
-    selection.addRange(newRange);
-    return;
-  }
-
-  // Caret at end → move after span
-  if (offset >= text.length) {
-    const newRange = document.createRange();
-    newRange.setStartAfter(parentSpan);
-    newRange.collapse(true);
-    selection.removeAllRanges();
-    selection.addRange(newRange);
-    return;
-  }
-
-  // Mid-span → split into two spans
-  const spanStyle = parentSpan.style.cssText;
-
-  const beforeSpan = document.createElement('span');
-  beforeSpan.style.cssText = spanStyle;
-  beforeSpan.textContent = text.slice(0, offset);
-
-  const afterSpan = document.createElement('span');
-  afterSpan.style.cssText = spanStyle;
-  afterSpan.textContent = text.slice(offset);
-
-  parentSpan.parentNode.insertBefore(beforeSpan, parentSpan);
-  parentSpan.parentNode.insertBefore(afterSpan, parentSpan.nextSibling);
-  parentSpan.remove();
-
-  setCaretAfterNode(beforeSpan.nextSibling); // move caret to after split
-}
-
-// --- Create color swatches ---
-highlightColors.forEach((color, i) => {
-  const swatch = document.createElement('div');
-  swatch.className = 'color-swatch';
-  swatch.style.backgroundColor = color;
-  if (i === 0) swatch.classList.add('active-selected');
-  highlightPalette.appendChild(swatch);
-
-  swatch.addEventListener('click', () => {
-    selectedColor = color;
-    highlightPalette.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active-selected'));
-    swatch.classList.add('active-selected');
-  });
-});
-
-// --- Toggle button click ---
-highlightToggleBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  highlightEnabled = !highlightEnabled;
-  highlightToggleBtn.classList.toggle('active', highlightEnabled);
-
-  const swatches = highlightPalette.querySelectorAll('.color-swatch');
-
-  if (highlightEnabled) {
-    highlightPalette.classList.add('active');
-    highlightPalette.style.display = 'flex';
-    const btnRect = highlightToggleBtn.getBoundingClientRect();
-    const centerX = btnRect.left + btnRect.width / 2 + window.scrollX;
-    const centerY = btnRect.top + btnRect.height / 2 + window.scrollY;
-    highlightPalette.style.left = `${centerX - 60}px`;
-    highlightPalette.style.top = `${centerY - 60}px`;
-
-    const radius = 50;
-    const arcStart = Math.PI;
-    const arcEnd = 2 * Math.PI;
-    const angleStep = (arcEnd - arcStart) / (swatches.length - 1);
-    swatches.forEach((swatch, i) => {
-      const angle = arcStart + i * angleStep;
-      const x = 60 + radius * Math.cos(angle) - 14;
-      const y = 60 + radius * Math.sin(angle) - 14;
-      swatch.style.transition = 'all 0.3s ease';
-      setTimeout(() => {
-        swatch.style.left = `${x}px`;
-        swatch.style.top = `${y}px`;
-        swatch.style.transform = 'scale(1)';
-      }, i * 50);
-    });
-  } else {
-    swatches.forEach((swatch, i) => {
-      swatch.style.transition = 'all 0.2s ease';
-      setTimeout(() => {
-        swatch.style.left = '60px';
-        swatch.style.top = '60px';
-        swatch.style.transform = 'scale(0)';
-      }, i * 30);
-    });
-
-    setTimeout(() => {
-      highlightPalette.style.display = 'none';
-      highlightPalette.classList.remove('active');
-    }, swatches.length * 30 + 150);
-  }
-});
-
-// --- Apply highlight to selection ---
-function applyHighlight(color) {
-  const selection = window.getSelection();
-  if (selection.isCollapsed) return;
-
-  const range = selection.getRangeAt(0);
-  const span = document.createElement('span');
-  const isDarkMode = document.body.classList.contains('dark-mode');
-  span.style.color = isDarkMode ? 'white' : 'black';
-  span.style.backgroundColor = color;
-  span.textContent = range.toString();
-  range.deleteContents();
-  range.insertNode(span);
-
-  setCaretAfterNode(span);
-  saveNoteContent();
-}
-
-// --- Mouseup listener ---
-noteArea.addEventListener('mouseup', () => {
-  if (!highlightEnabled) return;
-  const selection = window.getSelection();
-  if (!selection.isCollapsed) applyHighlight(selectedColor);
-});
-
-// --- Handle typing and input ---
-noteArea.addEventListener('beforeinput', (e) => {
-  const selection = window.getSelection();
-  if (!selection.rangeCount) return;
-
-  // Remove placeholder if present
-  if (noteArea.classList.contains('empty')) {
-    noteArea.innerHTML = '';
-    noteArea.classList.remove('empty');
-  }
-
-  const range = selection.getRangeAt(0);
-
-  // Handle Enter
-  if (e.inputType === "insertParagraph") {
-    e.preventDefault();
-    const br = document.createElement('br');
-    insertNodeAtRange(br, range);
-    setCaretAfterNode(br);
-    saveNoteContent();
-    return;
-  }
-
-  // Only handle text insertion
-  if (e.inputType !== "insertText") return;
-  e.preventDefault();
-  const text = e.data;
-
-  splitSpanAtCaret();
-
-  const rangeAfterSplit = selection.getRangeAt(0);
-  if (highlightEnabled) {
-    const span = document.createElement('span');
-    span.style.backgroundColor = selectedColor;
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    span.style.color = isDarkMode ? 'white' : 'black';
-    span.textContent = text;
-    insertNodeAtRange(span, rangeAfterSplit);
-    setCaretAfterNode(span);
-  } else {
-    const textNode = document.createTextNode(text);
-    insertNodeAtRange(textNode, rangeAfterSplit);
-    setCaretAfterNode(textNode);
-  }
-
-  saveNoteContent();
-});
 
 async function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF("p", "mm", "a4");
 
-  const noteArea = document.getElementById("noteArea");
+  const markdownPreview = document.getElementById("markdownPreview");
   const drawingCanvas = document.getElementById("drawingCanvas");
 
-  const noteCanvas = await html2canvas(noteArea, {
+  const noteCanvas = await html2canvas(markdownPreview, {
     backgroundColor: "#ffffff",
     scale: 2
   });
@@ -491,15 +375,15 @@ function getImageData(url) {
 function deleteAll() {
   if (confirm('Are you sure you want to delete all notes?')) {
     const noteArea = document.getElementById('noteArea')
+    const markdownPreview = document.getElementById('markdownPreview')
     const canvas = document.getElementById('drawingCanvas')
     const ctx = canvas.getContext('2d')
 
-    noteArea.innerHTML = ''
+    noteArea.value = ''
+    markdownPreview.innerHTML = '<p class="preview-placeholder">Preview will appear here...</p>'
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     localStorage.removeItem('noteContent')
     localStorage.removeItem('canvasData')
-
-    noteArea.classList.add('empty')
   }
 }
