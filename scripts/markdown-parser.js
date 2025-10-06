@@ -45,18 +45,21 @@ function parseMarkdown(markdown) {
   html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
   
   // Blockquotes
-  html = html.replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>');
+  html = html.replace(/^> (.*)$/gim, '<blockquote>$1</blockquote>');
+  
+  // Checklist items (must be before regular lists)
+  html = html.replace(/^- \[ \] (.*)$/gim, '<li class="task-item"><input type="checkbox" disabled> $1</li>');
+  html = html.replace(/^- \[x\] (.*)$/gim, '<li class="task-item"><input type="checkbox" checked disabled> $1</li>');
   
   // Unordered lists
-  html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+  html = html.replace(/^- (.*)$/gim, '<li>$1</li>');
   
   // Ordered lists
-  html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
+  html = html.replace(/^\d+\. (.*)$/gim, '<li>$1</li>');
   
-  // Checklist items
-  html = html.replace(/^\- \[ \] (.*$)/gim, '<li class="task-item"><input type="checkbox" disabled> $1</li>');
-  html = html.replace(/^\- \[x\] (.*$)/gim, '<li class="task-item"><input type="checkbox" checked disabled> $1</li>');
+  // Wrap consecutive list items in ul tags
+  html = html.replace(/(<li class="task-item">.*?<\/li>\n?)+/g, '<ul class="task-list">$&</ul>');
+  html = html.replace(/(<li>(?!.*task-item).*?<\/li>\n?)+/g, '<ul>$&</ul>');
   
   // Line breaks
   html = html.replace(/\n\n/g, '</p><p>');
