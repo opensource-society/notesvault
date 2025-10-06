@@ -46,13 +46,71 @@
           <button class="mode-btn" id="drawModeBtn">Draw Mode</button>
         </div>
 
+        <!-- Markdown Toolbar (only visible in text mode) -->
+        <div class="markdown-toolbar" id="markdownToolbar">
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="boldBtn" title="Bold (Ctrl+B)" data-format="bold">
+              <i class="fa-solid fa-bold"></i>
+            </button>
+            <button class="toolbar-btn" id="italicBtn" title="Italic (Ctrl+I)" data-format="italic">
+              <i class="fa-solid fa-italic"></i>
+            </button>
+            <button class="toolbar-btn" id="strikeBtn" title="Strikethrough" data-format="strikethrough">
+              <i class="fa-solid fa-strikethrough"></i>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="h1Btn" title="Heading 1" data-format="h1">
+              <i class="fa-solid fa-heading"></i><sub>1</sub>
+            </button>
+            <button class="toolbar-btn" id="h2Btn" title="Heading 2" data-format="h2">
+              <i class="fa-solid fa-heading"></i><sub>2</sub>
+            </button>
+            <button class="toolbar-btn" id="h3Btn" title="Heading 3" data-format="h3">
+              <i class="fa-solid fa-heading"></i><sub>3</sub>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="ulBtn" title="Bulleted List" data-format="ul">
+              <i class="fa-solid fa-list-ul"></i>
+            </button>
+            <button class="toolbar-btn" id="olBtn" title="Numbered List" data-format="ol">
+              <i class="fa-solid fa-list-ol"></i>
+            </button>
+            <button class="toolbar-btn" id="checkBtn" title="Checklist" data-format="checklist">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="linkBtn" title="Insert Link" data-format="link">
+              <i class="fa-solid fa-link"></i>
+            </button>
+            <button class="toolbar-btn" id="codeBtn" title="Inline Code" data-format="code">
+              <i class="fa-solid fa-code"></i>
+            </button>
+            <button class="toolbar-btn" id="codeBlockBtn" title="Code Block" data-format="codeblock">
+              <i class="fa-solid fa-file-code"></i>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="quoteBtn" title="Blockquote" data-format="quote">
+              <i class="fa-solid fa-quote-left"></i>
+            </button>
+          </div>
+        </div>
+
         <div class="drawing-container">
-          <div
+          <textarea
             class="note-box empty"
-            contenteditable="true"
             id="noteArea"
             spellcheck="true"
-          ></div>
+            placeholder="Start typing here... Use markdown syntax for formatting!"
+          ></textarea>
+          <div class="markdown-preview" id="markdownPreview"></div>
           <canvas id="drawingCanvas"></canvas>
         </div>
 
@@ -83,9 +141,6 @@
           <button class="delete-btn" id="clearDrawingBtn" style="display: none">
             Clear Drawing
           </button>
-        <button class="icon-btn" id="highlightToggleBtn" title="Highlight"><i class="fa-solid fa-highlighter"></i></button>
-        <div id="highlightPalette" class="circular-palette" title="Select Highlight Color">
-        </div>
       </div>
     </div>
     </div>
@@ -95,6 +150,7 @@
 
     <!-- JavaScript -->
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/markdown-parser.js"></script>
     <script src="../scripts/jotpad.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
