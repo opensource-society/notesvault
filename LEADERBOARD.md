@@ -17,6 +17,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
+| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 6 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
@@ -64,7 +65,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
-| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
 | [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 1 | 0 | 0 | 0 |
