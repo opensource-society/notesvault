@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch)
     if (DOM.yearElement) DOM.yearElement.textContent = new Date().getFullYear()
     try {
-      const response = await fetch('data/search_parameters/parameters.json')
+      const response = await fetch('/data/parameters.json')
       allData.branches = (await response.json()).branches.filter((b) => b.name?.trim())
       const branchSelect = createDropdown(
         DOM.searchBranchContainer,
