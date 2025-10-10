@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     const searchInput = DOM.searchForm?.querySelector("input[type='text']")
     if (searchInput?.value) {
-      window.location.href = `pages/notes.html?query=${encodeURIComponent(searchInput.value)}`
+      // Redirect to notes.html in the same directory — avoid `pages/pages/` when current page is in /pages/
+      window.location.href = `notes.html?query=${encodeURIComponent(searchInput.value)}`
     }
   }
 
