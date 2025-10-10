@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add("fade-in");
+document.querySelectorAll('a').forEach(link => {
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+  link.addEventListener('click', e => {
+    if (link.target === '_blank' || link.hasAttribute('download')) return;
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300); 
+  });
+});
+
   const DOM = {
     searchBranchContainer: document.getElementById('search-parameters-branch'),
     searchSemesterContainer: document.getElementById('search-parameters-semester'),
@@ -8,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     yearElement: document.getElementById('year'),
     backToTop: document.querySelector('.back-to-top'),
   }
+  
 
   const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year']
   let allData = { branches: [] }
@@ -16,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return null
     container.innerHTML = `
       <select id="${id}" class="search-parameters-select" aria-label="${placeholder}">
-        <option value="" disabled selected>${placeholder}</option>
+        <option value="" disabledselected>${placeholder}</option>
         ${options.map((opt) => `<option value="${opt}">${opt}</option>`).join('')}
       </select>
     `
