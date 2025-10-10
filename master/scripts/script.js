@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     const searchInput = DOM.searchForm?.querySelector("input[type='text']")
     if (searchInput?.value) {
-      window.location.href = `pages/notes.html?query=${encodeURIComponent(searchInput.value)}`
+      // Redirect to notes.html in the same directory — avoid `pages/pages/` when current page is in /pages/
+      window.location.href = `notes.html?query=${encodeURIComponent(searchInput.value)}`
     }
   }
 
@@ -198,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch)
     if (DOM.yearElement) DOM.yearElement.textContent = new Date().getFullYear()
     try {
-      const response = await fetch('data/search_parameters/parameters.json')
+      const response = await fetch('/data/parameters.json')
       allData.branches = (await response.json()).branches.filter((b) => b.name?.trim())
       const branchSelect = createDropdown(
         DOM.searchBranchContainer,
