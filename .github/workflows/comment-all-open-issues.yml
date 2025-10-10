@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Comment guidelines on every open issue (skip PRs)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Comment on issues missing the guidelines
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -24,6 +28,21 @@ jobs:
               { owner, repo, state: "open", per_page: 100 }
             );
 
+            const commentMarker = '<!-- notesvault-guidelines -->';
+            
+            // Read the comment body from a file
+            const body = require('fs').readFileSync('.github/ISSUE_GUIDELINES_COMMENT.md', 'utf8');
+            
+            // Use the search API to find open issues that are not PRs and do NOT contain the comment marker.
+            // This is much more efficient than fetching all issues and then all comments for each issue.
+            const q = `repo:${owner}/${repo} is:issue is:open -"${commentMarker}"`;
+            const issues = await github.paginate(github.rest.search.issuesAndPullRequests, { q });
+            
+            if (issues.length === 0) {
+              console.log("No issues found that need a guidelines comment. All done!");
+              return;
+            }
+            
             for (const issue of issues) {
               if (issue.pull_request) continue;
 
@@ -45,6 +64,10 @@ jobs:
               });
 
               console.log(`Commented on #${issue.number}`);
+              await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body });
+              console.log(`Commented on #${issue.number}: ${issue.title}`);
             }
 
             console.log('All done.');
+            
+            console.log(`\nFinished commenting on ${issues.length} issues.`);
