@@ -12,8 +12,17 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   margin: 3rem 0 0 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
+body.fade-in {
+  opacity: 1;
+}
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
 
 /* Typography */
 h1,
