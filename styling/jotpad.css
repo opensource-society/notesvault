@@ -322,3 +322,36 @@
   border-color: #000;
   transform: scale(1.2);
 }
+
+.upload-btn {
+  background: #4f46e5; /* fallback solid color */
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s ease;
+  z-index: 10; 
+}
+
+.upload-btn:hover {
+  background: var(--primary-hover, #0056b3); 
+}
+
+
+
+#noteArea img {
+  max-width: 200px;           
+  display: block;             
+  margin: 10px auto;         
+  border-radius: 8px;         
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+}
+
+#bgColorPicker {
+  cursor: pointer;
+}
+
