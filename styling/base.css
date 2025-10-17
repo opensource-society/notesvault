@@ -106,3 +106,65 @@ a:hover {
 .text-center {
   text-align: center;
 }
+
+/* Accessibility utilities */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-200%);
+  background: var(--primary-500);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-bottom-right-radius: 0.5rem;
+  z-index: 10000;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--accent-400);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus-visible ring for interactive elements */
+a.btn:focus-visible,
+button:focus-visible,
+.nav-link:focus-visible,
+.mobile-nav-link:focus-visible,
+.menu-toggle:focus-visible,
+.theme-toggle:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-400);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast/forced colors */
+@media (forced-colors: active) {
+  .btn,
+  .view-button,
+  .download-button,
+  .close-button {
+    border: 1px solid currentColor;
+  }
+}

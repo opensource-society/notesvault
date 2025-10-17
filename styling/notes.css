@@ -112,7 +112,7 @@
 /* Notes Grid */
 .notes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
@@ -189,7 +189,7 @@
 
 .download-button:hover {
   background-color: var(--primary-600);
-  color: inherit;
+  color: white;
 }
 
 /* Modal */
@@ -206,6 +206,10 @@
   z-index: 9999;
   padding: 1rem;
 }
+
+.modal.open { display: flex; }
+
+body.no-scroll { overflow: hidden; }
 
 .modal-content {
   background-color: var(--card-bg);
