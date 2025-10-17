@@ -33,11 +33,12 @@
   </head>
 
   <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Header -->
     <div id="header-placeholder"></div>
 
     <!-- Main Content -->
-    <main id="main-content">
+  <main id="main-content" tabindex="-1">
       <section class="hero">
         <div class="container">
           <div class="hero-content">
@@ -47,19 +48,20 @@
               Keep your study notes and PYQs organized, easy to find, and always
               just a click away with NotesVault!
             </p>
-            <div class="cta-buttons">
-              <a href="notes.html"  class="btn btn-primary"><i class="fas fa-search"></i>Browse Notes</a>
-              <a href="upload.html"  class="btn btn-primary"><i class="fas fa-upload"></i>Upload Notes</a>
+            <div class="cta-buttons" role="group" aria-label="Primary actions">
+              <a href="notes.html"  class="btn btn-primary"><i class="fas fa-search" aria-hidden="true"></i>Browse Notes</a>
+              <a href="upload.html"  class="btn btn-primary"><i class="fas fa-upload" aria-hidden="true"></i>Upload Notes</a>
             </div>
           </div>
           <div class="search-card">
             <div class="search-header">
-              <p>Notes Organized by <span id="typewriter">Subject</span></p>
+              <p>Notes Organized by <span id="typewriter" aria-live="polite">Subject</span></p>
             </div>
             <form
               action="notes.html"
               method="get"
               class="search-form"
+              role="search"
             >
               <div class="search-input">
                 <svg
@@ -72,12 +74,8 @@
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="m21 21-4.35-4.35"></path>
                 </svg>
-                <input
-                  type="text"
-                  name="query"
-                  placeholder="Search"
-                  aria-label="Search notes"
-                />
+                <label for="home-search" class="visually-hidden">Search notes</label>
+                <input id="home-search" type="text" name="query" placeholder="Search" aria-label="Search notes" />
               </div>
               <input type="submit" hidden />
             </form>
@@ -93,11 +91,11 @@
             Powerful tools to organize your academic journey!
           </p>
 
-          <div class="features-grid">
+          <div class="features-grid" role="list">
             <!-- Feature 1 -->
-            <div class="feature-card" data-feature="upload">
+            <div class="feature-card" data-feature="upload" role="listitem">
               <div class="feature-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
+                <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
               </div>
               <h3>Easy Upload</h3>
               <p>
@@ -108,9 +106,9 @@
             </div>
 
             <!-- Feature 2 -->
-            <div class="feature-card" data-feature="organize">
+      <div class="feature-card" data-feature="organize" role="listitem">
               <div class="feature-icon">
-                <i class="fas fa-folder-tree"></i>
+        <i class="fas fa-folder-tree" aria-hidden="true"></i>
               </div>
               <h3>Sort The Chaos</h3>
               <p>Neatly arrange all your notes with smart categorization</p>
@@ -118,9 +116,9 @@
             </div>
 
             <!-- Feature 3 -->
-            <div class="feature-card" data-feature="search">
+      <div class="feature-card" data-feature="search" role="listitem">
               <div class="feature-icon">
-                <i class="fas fa-tags"></i>
+        <i class="fas fa-tags" aria-hidden="true"></i>
               </div>
               <h3>Search By Tags</h3>
               <p>Find notes instantly using subject tags and keywords</p>
@@ -128,9 +126,9 @@
             </div>
 
             <!-- Feature 4 -->
-            <div class="feature-card" data-feature="sync">
+      <div class="feature-card" data-feature="sync" role="listitem">
               <div class="feature-icon">
-                <i class="fas fa-sync-alt"></i>
+        <i class="fas fa-sync-alt" aria-hidden="true"></i>
               </div>
               <h3>Cross-Device Sync</h3>
               <p>Access your notes from any device, anywhere</p>
@@ -139,9 +137,9 @@
             
           
             <!-- Feature 5 -->
-            <div class="feature-card" data-feature="study-tracker">
+      <div class="feature-card" data-feature="study-tracker" role="listitem">
               <div class="feature-icon">
-                <i class="fas fa-stopwatch"></i>
+        <i class="fas fa-stopwatch" aria-hidden="true"></i>
               </div>
               <h3>Study Tracker</h3>
               <p>Monitor your study sessions and stay accountable</p>
@@ -149,9 +147,9 @@
             </div>
 
             <!-- Feature 6 -->
-            <div class="feature-card" data-feature="discussion">
+      <div class="feature-card" data-feature="discussion" role="listitem">
               <div class="feature-icon">
-                <i class="fas fa-comments"></i>
+        <i class="fas fa-comments" aria-hidden="true"></i>
               </div>
               <h3>Collaborative Discussions</h3>
               <p>A space for students to ask, share and discuss ideas.</p>
@@ -159,9 +157,9 @@
             </div>
 
             <!-- Feature 6 -->
-            <div class="feature-card" data-feature="google-login">
+      <div class="feature-card" data-feature="google-login" role="listitem">
               <div class="feature-icon">
-                <i class="fab fa-google"></i>
+        <i class="fab fa-google" aria-hidden="true"></i>
              </div>
              <h3>Google Login</h3>
              <p>Seamless integration with your Google account for easy access</p>
