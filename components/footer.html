@@ -1,33 +1,6 @@
-<!-- Footer (HTML) -->
+<!-- Footer Fragment: injected into pages via scripts/script.js -->
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="NotesVault - Organize your academic notes and PYQs semester-wise"
-    />
-    <title>NotesVault - Footer</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="../assets/index/images/favicon.png" />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../styling/variables.css" />
-    <link rel="stylesheet" href="../styling/base.css" />
-    <link rel="stylesheet" href="../styling/footer.css" />
-  </head>
-
-  <body>
-    <footer class="footer">
+<footer class="footer" role="contentinfo">
       <div class="footer-container">
         <!-- Logo -->
         <div class="footer-brand">
@@ -67,7 +40,7 @@
                 </a>
               </li>
               <li>
-                <a href="contact.html" class="footer-link">
+                <a href="#" class="footer-link" aria-disabled="true" tabindex="-1">
                   <i class="fas fa-envelope fa-fw"></i> &nbsp; Contact Us
                 </a>
               </li>
@@ -164,11 +137,6 @@
     </footer>
 
     <!-- Back To Top Button -->
-    <button class="back-to-top" aria-label="Back to top">
-      <i class="fas fa-arrow-up"></i>
+    <button class="back-to-top" aria-label="Back to top" title="Back to top">
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
-
-    <!-- JavaScript -->
-    <script src="../scripts/script.js" defer></script>
-  </body>
-</html>
