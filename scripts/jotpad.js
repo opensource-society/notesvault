@@ -2,7 +2,25 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   const noteArea = document.getElementById('noteArea')
-  noteArea.innerHTML = localStorage.getItem('noteContent') || ''
+  const markdownPreview = document.getElementById('markdownPreview')
+  const markdownToolbar = document.getElementById('markdownToolbar')
+  
+  // Initialize markdown content from localStorage
+  noteArea.value = localStorage.getItem('noteContent') || ''
+  
+  // Update markdown preview
+  function updateMarkdownPreview() {
+    const markdownText = noteArea.value
+    if (markdownText.trim() === '') {
+      markdownPreview.innerHTML = '<p class="preview-placeholder">Preview will appear here...</p>'
+    } else {
+      markdownPreview.innerHTML = parseMarkdown(markdownText)
+    }
+    saveNoteContent()
+  }
+  
+  // Initial preview render
+  updateMarkdownPreview()
 
   // Initialize Canvas
   const canvas = document.getElementById('drawingCanvas')
@@ -10,6 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
   let isDrawing = false
   let lastX = 0
   let lastY = 0
+
+  // Drawing tool variables
+  let currentTool = 'pen'
+  let brushSize = 2
 
   // Canvas Size
   function resizeCanvas() {
@@ -48,8 +70,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const theme = document.documentElement.getAttribute('data-theme')
 
-    ctx.strokeStyle = theme === 'dark' ? '#ffffff' : '#000000'
-    ctx.lineWidth = 2
+    // Set drawing properties based on current tool
+    if (currentTool === 'eraser') {
+      ctx.globalCompositeOperation = 'destination-out'
+      ctx.lineWidth = brushSize * 3 // Make eraser bigger
+    } else {
+      ctx.globalCompositeOperation = 'source-over'
+      ctx.strokeStyle = theme === 'dark' ? '#ffffff' : '#000000'
+      ctx.lineWidth = brushSize
+    }
+
     ctx.lineJoin = 'round'
     ctx.lineCap = 'round'
 
@@ -77,20 +107,28 @@ document.addEventListener('DOMContentLoaded', function () {
   function activateTextMode() {
     textModeBtn.classList.add('active')
     drawModeBtn.classList.remove('active')
-    noteArea.contentEditable = 'true'
+    noteArea.style.display = 'block'
+    markdownPreview.style.display = 'block'
+    noteArea.disabled = false
     canvas.style.pointerEvents = 'none'
     saveDrawingBtn.style.display = 'none'
     clearDrawingBtn.style.display = 'none'
+    document.getElementById('drawingTools').style.display = 'none'
+    markdownToolbar.style.display = 'flex'
     noteArea.focus()
   }
 
   function activateDrawMode() {
     textModeBtn.classList.remove('active')
     drawModeBtn.classList.add('active')
-    noteArea.contentEditable = 'false'
+    noteArea.style.display = 'none'
+    markdownPreview.style.display = 'none'
+    noteArea.disabled = true
     canvas.style.pointerEvents = 'auto'
     saveDrawingBtn.style.display = 'inline-block'
     clearDrawingBtn.style.display = 'inline-block'
+    document.getElementById('drawingTools').style.display = 'flex'
+    markdownToolbar.style.display = 'none'
   }
 
   textModeBtn.addEventListener('click', activateTextMode)
@@ -141,101 +179,188 @@ document.addEventListener('DOMContentLoaded', function () {
   // Save Drawing Button
   saveDrawingBtn.addEventListener('click', () => {
     const imageData = canvas.toDataURL('image/png')
-    const img = document.createElement('img')
-    img.src = imageData
-    img.style.maxWidth = '100%'
-
+    
     activateTextMode()
     noteArea.focus()
 
-    // Insert At Cursor Position
-    const selection = window.getSelection()
-    if (selection.rangeCount > 0) {
-      const range = selection.getRangeAt(0)
-      range.insertNode(img)
-    } else {
-      noteArea.appendChild(img)
-    }
-
+    // Insert markdown image syntax at cursor
+    const cursorPos = noteArea.selectionStart
+    const textBefore = noteArea.value.substring(0, cursorPos)
+    const textAfter = noteArea.value.substring(cursorPos)
+    noteArea.value = textBefore + `\n![Drawing](${imageData})\n` + textAfter
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     localStorage.removeItem('canvasData')
-    saveNoteContent()
+    updateMarkdownPreview()
+  })
+
+  // Drawing Tools Functions
+  function setTool(tool) {
+    currentTool = tool
+    
+    // Update button states
+    document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'))
+    document.getElementById(tool + 'Tool').classList.add('active')
+    
+    // Set cursor style based on tool
+    if (tool === 'eraser') {
+      canvas.style.cursor = 'crosshair'
+    } else {
+      canvas.style.cursor = 'default'
+    }
+  }
+
+  function setBrushSize(size) {
+    brushSize = parseInt(size)
+  }
+
+  // Drawing Tools Event Listeners
+  document.getElementById('penTool').addEventListener('click', () => setTool('pen'))
+  document.getElementById('eraserTool').addEventListener('click', () => setTool('eraser'))
+  document.getElementById('brushSize').addEventListener('input', (e) => setBrushSize(e.target.value))
+
+  // Markdown Toolbar Functions
+  function insertMarkdown(format) {
+    const start = noteArea.selectionStart
+    const end = noteArea.selectionEnd
+    const selectedText = noteArea.value.substring(start, end)
+    const beforeText = noteArea.value.substring(0, start)
+    const afterText = noteArea.value.substring(end)
+    
+    let newText = ''
+    let cursorOffset = 0
+    
+    switch(format) {
+      case 'bold':
+        newText = selectedText ? `**${selectedText}**` : '**bold text**'
+        cursorOffset = selectedText ? newText.length : 2
+        break
+      case 'italic':
+        newText = selectedText ? `*${selectedText}*` : '*italic text*'
+        cursorOffset = selectedText ? newText.length : 1
+        break
+      case 'strikethrough':
+        newText = selectedText ? `~~${selectedText}~~` : '~~strikethrough text~~'
+        cursorOffset = selectedText ? newText.length : 2
+        break
+      case 'h1':
+        newText = `# ${selectedText || 'Heading 1'}`
+        cursorOffset = newText.length
+        break
+      case 'h2':
+        newText = `## ${selectedText || 'Heading 2'}`
+        cursorOffset = newText.length
+        break
+      case 'h3':
+        newText = `### ${selectedText || 'Heading 3'}`
+        cursorOffset = newText.length
+        break
+      case 'ul':
+        newText = selectedText ? `- ${selectedText}` : '- List item'
+        cursorOffset = newText.length
+        break
+      case 'ol':
+        newText = selectedText ? `1. ${selectedText}` : '1. List item'
+        cursorOffset = newText.length
+        break
+      case 'checklist':
+        newText = selectedText ? `- [ ] ${selectedText}` : '- [ ] Task item'
+        cursorOffset = newText.length
+        break
+      case 'link':
+        newText = selectedText ? `[${selectedText}](url)` : '[Link text](url)'
+        cursorOffset = selectedText ? newText.length - 4 : 1
+        break
+      case 'code':
+        newText = selectedText ? `\`${selectedText}\`` : '`inline code`'
+        cursorOffset = selectedText ? newText.length : 1
+        break
+      case 'codeblock':
+        newText = selectedText ? `\`\`\`\n${selectedText}\n\`\`\`` : '```javascript\n// your code here\n```'
+        cursorOffset = selectedText ? newText.length : 3
+        break
+      case 'quote':
+        newText = selectedText ? `> ${selectedText}` : '> Blockquote'
+        cursorOffset = newText.length
+        break
+    }
+    
+    noteArea.value = beforeText + newText + afterText
+    noteArea.focus()
+    noteArea.setSelectionRange(start + cursorOffset, start + cursorOffset)
+    updateMarkdownPreview()
+  }
+  
+  // Markdown Toolbar Event Listeners
+  document.querySelectorAll('.toolbar-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const format = btn.dataset.format
+      insertMarkdown(format)
+    })
+  })
+  
+  // Keyboard shortcuts for markdown
+  noteArea.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.metaKey) {
+      switch(e.key.toLowerCase()) {
+        case 'b':
+          e.preventDefault()
+          insertMarkdown('bold')
+          break
+        case 'i':
+          e.preventDefault()
+          insertMarkdown('italic')
+          break
+      }
+    }
   })
 
   // Handle Note Content
-  function togglePlaceholder() {
-    if (noteArea.innerText.trim() === '') {
-      noteArea.classList.add('empty')
-    } else {
-      noteArea.classList.remove('empty')
-    }
-    saveNoteContent()
-  }
-
   function saveNoteContent() {
-    localStorage.setItem('noteContent', noteArea.innerHTML)
+    localStorage.setItem('noteContent', noteArea.value)
   }
 
-  noteArea.addEventListener('input', togglePlaceholder)
-  noteArea.addEventListener('blur', togglePlaceholder)
-  noteArea.addEventListener('focus', function () {
-    if (noteArea.innerText.trim() === '') {
-      noteArea.classList.add('empty')
-    }
-  })
-
-  togglePlaceholder()
+  noteArea.addEventListener('input', updateMarkdownPreview)
+  noteArea.addEventListener('blur', saveNoteContent)
 })
 
-// Download PDF
+
 async function downloadPDF() {
-  const { jsPDF } = window.jspdf
-  const content = document.getElementById('noteArea').innerHTML
-  const doc = new jsPDF()
-  doc.setFont('helvetica', 'normal')
-  doc.setFontSize(14)
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF("p", "mm", "a4");
 
-  const tempDiv = document.createElement('div')
-  tempDiv.innerHTML = content
+  const markdownPreview = document.getElementById("markdownPreview");
+  const drawingCanvas = document.getElementById("drawingCanvas");
 
-  let textContent = ''
-  const walker = document.createTreeWalker(
-    tempDiv,
-    NodeFilter.SHOW_TEXT,
-    null,
-    false
-  )
-  let node
-  while ((node = walker.nextNode())) {
-    textContent += node.nodeValue + '\n'
-  }
+  const noteCanvas = await html2canvas(markdownPreview, {
+    backgroundColor: "#ffffff",
+    scale: 2
+  });
 
-  const images = tempDiv.getElementsByTagName('img')
-  let yPosition = 20
-  const textLines = doc.splitTextToSize(textContent, 180)
-  doc.text(textLines, 10, yPosition)
-  yPosition += textLines.length * 7
+  const combinedCanvas = document.createElement("canvas");
+  combinedCanvas.width = noteCanvas.width;
+  combinedCanvas.height = noteCanvas.height;
+  const ctx = combinedCanvas.getContext("2d");
 
-  for (let i = 0; i < images.length; i++) {
-    if (yPosition > 250) {
-      doc.addPage()
-      yPosition = 20
-    }
+  ctx.drawImage(noteCanvas, 0, 0);
 
-    try {
-      const imgData = await getImageData(images[i].src)
-      const imgProps = doc.getImageProperties(imgData)
-      const width = 180
-      const height = (imgProps.height * width) / imgProps.width
-      doc.addImage(imgData, 'PNG', 10, yPosition, width, height)
-      yPosition += height + 10
-    } catch (error) {
-      console.error('Error adding image to PDF:', error)
-    }
-  }
+  ctx.drawImage(
+    drawingCanvas,
+    0,
+    0,
+    combinedCanvas.width,
+    combinedCanvas.height
+  );
 
-  doc.save('My_Notes.pdf')
+  const imgData = combinedCanvas.toDataURL("image/png");
+  const imgProps = doc.getImageProperties(imgData);
+  const pdfWidth = doc.internal.pageSize.getWidth();
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+  doc.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+  doc.save("My_Notes.pdf");
 }
+
 
 function getImageData(url) {
   return new Promise((resolve, reject) => {
@@ -250,15 +375,15 @@ function getImageData(url) {
 function deleteAll() {
   if (confirm('Are you sure you want to delete all notes?')) {
     const noteArea = document.getElementById('noteArea')
+    const markdownPreview = document.getElementById('markdownPreview')
     const canvas = document.getElementById('drawingCanvas')
     const ctx = canvas.getContext('2d')
 
-    noteArea.innerHTML = ''
+    noteArea.value = ''
+    markdownPreview.innerHTML = '<p class="preview-placeholder">Preview will appear here...</p>'
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     localStorage.removeItem('noteContent')
     localStorage.removeItem('canvasData')
-
-    noteArea.classList.add('empty')
   }
 }
