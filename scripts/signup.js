@@ -18,14 +18,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Toggle Password Visibility for password field
   passwordToggles[0].addEventListener('click', function () {
+ my-feature
     const isPassword = passwordInput.type === 'password'
     passwordInput.type = isPassword ? 'text' : 'password'
     passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
+
+    const isPassword = passwordInput.type === 'password';
+    passwordInput.type = isPassword ? 'text' : 'password';
+    passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye';
+ main
     passwordToggles[0].setAttribute(
       'aria-label',
       isPassword ? 'Hide password' : 'Show password'
-    )
-  })
+    );
+  });
+
+  // Toggle Confirm Password Visibility (separate function)
+  function toggleConfirmPassword() {
+    const isPassword = confirmPasswordInput.type === 'password';
+    confirmPasswordInput.type = isPassword ? 'text' : 'password';
+    confirmPasswordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye';
+    passwordToggles[1].setAttribute(
+      'aria-label',
+      isPassword ? 'Hide password' : 'Show password'
+    );
+  }
+  passwordToggles[1].addEventListener('click', toggleConfirmPassword);
 
   // Toggle Confirm Password Visibility
   function toggleConfirmPassword() {

@@ -2,7 +2,11 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
+ my-feature
 *Last updated: 2025-10-15*
+
+*Last updated: 2025-10-05*
+ main
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -15,11 +19,19 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
+my-feature
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 6 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
+
+| [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
+| [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 6 |
+| [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
+| [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
+| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 5 |
+ main
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
@@ -32,7 +44,10 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
+ my-feature
 | [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
+
+main
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 1 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 1 | 0 | 0 | 1 |
@@ -82,6 +97,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
+| [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
 
 ---
 

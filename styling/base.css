@@ -106,3 +106,101 @@ a:hover {
 .text-center {
   text-align: center;
 }
+/* Hide Back-to-Top whenever the mobile drawer is open */
+.drawer-open .back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, visibility 0s linear .2s;
+}
+
+/* ensure drawer sits above the button */
+/* header toggle stays clickable */
+.menu-toggle {
+  position: relative;
+  z-index: 1100;
+}
+
+/* overlay: covers the page, below the drawer */
+.overlay {
+  position: fixed;
+  inset: 0;                    /* top/right/bottom/left:0 */
+  background: rgba(0,0,0,.45);
+  z-index: 900;                /* < drawer (1000), > page */
+  opacity: 0;
+  pointer-events: none;        /* not clickable until active */
+  transition: opacity .2s ease;
+}
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;        /* click to close */
+}
+
+/* drawer: on top of overlay */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;                    /* (use left:0 if your drawer slides from left) */
+  width: 80vw;
+  max-width: 420px;
+  height: 100vh;
+  background: var(--bg-primary);
+  overflow: auto;              /* menu can scroll internally */
+  z-index: 1000;               /* above overlay (900) */
+  transform: translateX(100%); /* closed state (from right) */
+  transition: transform .25s ease;
+}
+.mobile-nav.active {
+  transform: translateX(0);    /* open */
+}
+
+
+/* bump mobile spacing a bit more to avoid bottom UI */
+@media (max-width: 600px) {
+  .back-to-top {
+    bottom: 120px; /* was 100px */
+  }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 80px; /* Safe distance from bottom on desktop */
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--primary-500);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  transition: all 0.3s ease;
+  z-index: 99; /* Lower than modals (100) but above content */
+  box-shadow: 0 4px 15px rgba(0, 140, 45, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--primary-600);
+  transform: translateY(-3px);
+}
+
+
+
+
+/* Footer interaction */
+.footer-visible .back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
