@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchForm: document.querySelector('.search-form'),
     yearElement: document.getElementById('year'),
     backToTop: document.querySelector('.back-to-top'),
+    
   }
 
   const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year']
