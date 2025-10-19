@@ -27,6 +27,7 @@
   </head>
 
   <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Header -->
     <div id="header-placeholder"></div>
 
@@ -41,19 +42,16 @@
     </section>
 
     <!-- Main Section -->
-    <main class="browse-notes-container">
-      <h2>Search Notes -</h2>
+    <main id="main-content" class="browse-notes-container" tabindex="-1">
+      <h2>Search Notes</h2>
 
       <!-- Search & Filters -->
-      <div class="search-bar">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search Notes By Title, Uploader..."
-        />
-      </div>
+      <form class="search-bar" role="search" aria-label="Search notes">
+        <label for="searchInput" class="visually-hidden">Search notes by title or uploader</label>
+        <input type="text" id="searchInput" placeholder="Search Notes By Title, Uploader..." />
+      </form>
 
-      <div class="filters-container">
+      <form class="filters-container" aria-label="Filters">
         <div class="filter-group">
           <label for="branchFilter">Branch</label>
           <select id="branchFilter">
@@ -68,10 +66,10 @@
           </select>
         </div>
 
-        <button class="reset-filters" id="resetFilters">Reset Filters</button>
-      </div>
+        <button type="button" class="reset-filters" id="resetFilters">Reset Filters</button>
+      </form>
 
-      <div class="notes-grid" id="notesGrid">
+  <div class="notes-grid" id="notesGrid" role="list" aria-live="polite">
         <div class="loading-message" id="loadingMessage">Loading notes...</div>
         <div class="no-notes-message" id="noNotesMessage" style="display: none">
           No Notes Found.
@@ -83,15 +81,13 @@
     <div id="footer-placeholder"></div>
 
     <!-- Note Modal -->
-    <div id="noteDetailModal" class="modal">
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2 id="modalNoteTitle"></h2>
+    <div id="noteDetailModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalNoteTitle" aria-describedby="modalNoteDescription">
+      <div class="modal-content" role="document">
+        <button class="close-button" aria-label="Close">&times;</button>
+        <h2 id="modalNoteTitle">Note details</h2>
         <p><strong>Branch:</strong> <span id="modalNoteBranch"></span></p>
         <p><strong>Semester:</strong> <span id="modalNoteSemester"></span></p>
-        <p>
-          <strong>Description:</strong> <span id="modalNoteDescription"></span>
-        </p>
+        <p><strong>Description:</strong> <span id="modalNoteDescription"></span></p>
         <p>
           <strong>Uploaded By:</strong> <span id="modalNoteUploader"></span>
         </p>
