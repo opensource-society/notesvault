@@ -18,11 +18,19 @@
       type="image/x-icon"
     />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="../styling/features.css" />
@@ -37,10 +45,32 @@
     <main class="features-page">
       <section class="features-hero">
         <div class="container">
-          <h1>Powerful Features</h1>
-          <p class="subtitle">
-            Everything you need to organize your academic life!
-          </p>
+          <div class="hero-content" data-aos="fade-up">
+            <span class="badge">Explore</span>
+            <h1>Powerful Features</h1>
+            <p class="subtitle">
+              Everything you need to organize your academic life in one place
+            </p>
+            <div class="hero-buttons">
+              <a href="signup.html" class="btn btn-primary-outline">Get Started</a>
+              <a href="dashboard.html" class="btn btn-accent">Go to Dashboard</a>
+            </div>
+          </div>
+          <div class="hero-decoration">
+            <div class="floating-icon icon-1"><i class="fas fa-book"></i></div>
+            <div class="floating-icon icon-2"><i class="fas fa-tasks"></i></div>
+            <div class="floating-icon icon-3"><i class="fas fa-clock"></i></div>
+            <div class="floating-icon icon-4"><i class="fas fa-edit"></i></div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="features-overview">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <h2>All You Need To Succeed</h2>
+            <p>Our comprehensive tools help you stay organized, focused, and productive</p>
+          </div>
         </div>
       </section>
 
@@ -48,16 +78,24 @@
         <div class="container">
           <div class="features-grid">
             <!-- Upload Notes Feature -->
-            <article class="feature-card" id="upload-feature">
-              <div class="feature-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
+            <article class="feature-card" id="upload-feature" data-aos="fade-up">
+              <div class="card-header">
+                <div class="feature-icon">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <span class="feature-badge">Popular</span>
               </div>
               <div class="feature-content">
                 <h2>Upload Notes</h2>
                 <p>
                   Share your study materials with the community in just a few
-                  clicks. Supports multiple file formats.
+                  clicks. Supports multiple file formats including PDFs, images, and documents.
                 </p>
+                <div class="feature-benefits">
+                  <div class="benefit"><i class="fas fa-check"></i> Multiple formats</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Easy sharing</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Quick upload</div>
+                </div>
                 <a href="upload.html" class="btn btn-primary">
                   Try It Now &nbsp; <i class="fas fa-arrow-right"></i>
                 </a>
@@ -65,9 +103,12 @@
             </article>
 
             <!-- Browse Notes Feature -->
-            <article class="feature-card" id="browse-feature">
-              <div class="feature-icon">
-                <i class="fas fa-search"></i>
+            <article class="feature-card" id="browse-feature" data-aos="fade-up" data-aos-delay="100">
+              <div class="card-header">
+                <div class="feature-icon">
+                  <i class="fas fa-search"></i>
+                </div>
+                <span class="feature-badge">Essential</span>
               </div>
               <div class="feature-content">
                 <h2>Browse Notes</h2>
@@ -75,6 +116,11 @@
                   Find exactly what you need with our powerful search and
                   filtering system. Organized by subject and semester.
                 </p>
+                <div class="feature-benefits">
+                  <div class="benefit"><i class="fas fa-check"></i> Advanced search</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Filter options</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Subject categories</div>
+                </div>
                 <a href="notes.html" class="btn btn-primary">
                   Browse Notes &nbsp; <i class="fas fa-arrow-right"></i>
                 </a>
@@ -82,16 +128,24 @@
             </article>
 
             <!-- Jotpad Feature -->
-            <article class="feature-card" id="jotpad-feature">
-              <div class="feature-icon">
-                <i class="fas fa-edit"></i>
+            <article class="feature-card" id="jotpad-feature" data-aos="fade-up" data-aos-delay="200">
+              <div class="card-header">
+                <div class="feature-icon">
+                  <i class="fas fa-edit"></i>
+                </div>
+                <span class="feature-badge">Efficient</span>
               </div>
               <div class="feature-content">
                 <h2>Jotpad</h2>
                 <p>
                   Quickly jot down ideas, formulas, or reminders without leaving
-                  the app. Auto-saves your work.
+                  the app. Auto-saves your work as you type.
                 </p>
+                <div class="feature-benefits">
+                  <div class="benefit"><i class="fas fa-check"></i> Auto-save</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Markdown support</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Distraction-free</div>
+                </div>
                 <a href="jotpad.html" class="btn btn-primary">
                   Start Writing &nbsp; <i class="fas fa-arrow-right"></i>
                 </a>
@@ -99,9 +153,12 @@
             </article>
 
             <!-- To-Do List Feature -->
-            <article class="feature-card" id="todo-feature">
-              <div class="feature-icon">
-                <i class="fas fa-tasks"></i>
+            <article class="feature-card" id="todo-feature" data-aos="fade-up" data-aos-delay="300">
+              <div class="card-header">
+                <div class="feature-icon">
+                  <i class="fas fa-tasks"></i>
+                </div>
+                <span class="feature-badge">Productive</span>
               </div>
               <div class="feature-content">
                 <h2>To-Do List</h2>
@@ -109,37 +166,51 @@
                   Organize your study schedule, assignment deadlines, revision
                   plans, and daily academic tasks all in one place.
                 </p>
+                <div class="feature-benefits">
+                  <div class="benefit"><i class="fas fa-check"></i> Task priorities</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Due dates</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Progress tracking</div>
+                </div>
                 <a href="todolist.html" class="btn btn-primary">
                   Get Organized &nbsp; <i class="fas fa-arrow-right"></i>
                 </a>
               </div>
             </article>
-            FEATURESCREENTIMER
             
-            <!-- screen timer  Feature -->
-            <article class="feature-card glass-card" id="screen-time-feature">
-            <div class="feature-icon">
-           <i class="fas fa-clock"></i>
-           </div>
-        <div class="feature-content">
-          <h2>Screen Time Tracker</h2>
-           <p>
-               Monitor how long you've spent on this project page to stay mindful and boost productivity.
-           </p>
-          <div class="screen-time-display">
-            <strong>Time on Page:</strong> <span id="screen-time-value">0m</span>
-          </div>
-         <a href="study-tracker.html" class="btn btn-primary disabled">
-              Tracking Active &nbsp; <i class="fas fa-eye"></i>
+            <!-- Screen Timer Feature -->
+            <article class="feature-card" id="screen-time-feature" data-aos="fade-up" data-aos-delay="400">
+              <div class="card-header">
+                <div class="feature-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <span class="feature-badge">Mindful</span>
+              </div>
+              <div class="feature-content">
+                <h2>Screen Time Tracker</h2>
+                <p>
+                  Monitor how long you've spent on this project page to stay mindful and boost productivity.
+                </p>
+                <div class="feature-benefits">
+                  <div class="benefit"><i class="fas fa-check"></i> Automatic tracking</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Usage reports</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Focus insights</div>
+                </div>
+                <div class="screen-time-display">
+                  <strong>Time on Page:</strong> <span id="screen-time-value">0m</span>
+                </div>
+                <a href="study-tracker.html" class="btn btn-primary disabled">
+                  Tracking Active &nbsp; <i class="fas fa-eye"></i>
                 </a>
-          </div>
-         </article>
-=======
+              </div>
+            </article>
 
             <!-- Pomodoro Timer Feature -->
-            <article class="feature-card" id="pomodoro-feature">
-              <div class="feature-icon">
-                <i class="fas fa-hourglass-half"></i>
+            <article class="feature-card" id="pomodoro-feature" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-header">
+                <div class="feature-icon">
+                  <i class="fas fa-hourglass-half"></i>
+                </div>
+                <span class="feature-badge">Focus</span>
               </div>
               <div class="feature-content">
                 <h2>Pomodoro Timer</h2>
@@ -148,12 +219,88 @@
                   and manage your time effectively to maximize learning
                   efficiency.
                 </p>
+                <div class="feature-benefits">
+                  <div class="benefit"><i class="fas fa-check"></i> Customizable intervals</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Break reminders</div>
+                  <div class="benefit"><i class="fas fa-check"></i> Session tracking</div>
+                </div>
                 <a href="pomodoro-timer.html" class="btn btn-primary">
                   Start Focusing &nbsp; <i class="fas fa-arrow-right"></i>
                 </a>
               </div>
             </article>
- master
+          </div>
+        </div>
+      </section>
+      
+      <!-- Testimonials Section -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <h2>What Our Users Say</h2>
+            <p>Join thousands of students who have transformed their study habits</p>
+          </div>
+          
+          <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="testimonial-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p>NotesVault has completely changed how I study. The to-do list and pomodoro timer have helped me stay on track with my assignments.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah L." />
+                </div>
+                <div class="author-info">
+                  <h4>Sarah L.</h4>
+                  <p>Computer Science Major</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="testimonial-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p>I love how easy it is to share and find notes. The Jotpad feature has been a lifesaver for quick ideas during lectures.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." />
+                </div>
+                <div class="author-info">
+                  <h4>Michael T.</h4>
+                  <p>Engineering Student</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="testimonial-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p>The screen time tracker helped me realize how much time I was wasting. Now I'm more focused and productive with my study sessions.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica K." />
+                </div>
+                <div class="author-info">
+                  <h4>Jessica K.</h4>
+                  <p>Medical Student</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Call to Action Section -->
+      <section class="cta-section" data-aos="fade-up">
+        <div class="container">
+          <h2>Ready to Transform Your Study Habits?</h2>
+          <p>Join thousands of students who have already improved their academic performance with NotesVault</p>
+          <div class="cta-buttons">
+            <a href="signup.html" class="btn btn-large btn-light">Get Started for Free</a>
+            <a href="about.html" class="btn btn-large btn-outline">Learn More</a>
           </div>
         </div>
       </section>
@@ -163,6 +310,26 @@
     <div id="footer-placeholder"></div>
 
     <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="../scripts/script.js"></script>
+    <script>
+      // Initialize AOS animation
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true,
+          offset: 100
+        });
+        
+        // Screen time tracker functionality
+        let seconds = 0;
+        setInterval(function() {
+          seconds++;
+          const minutes = Math.floor(seconds / 60);
+          document.getElementById('screen-time-value').textContent = minutes + 'm ' + (seconds % 60) + 's';
+        }, 1000);
+      });
+    </script>
   </body>
 </html>

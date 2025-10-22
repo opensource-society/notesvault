@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     dropZone.addEventListener('click', () => fileInput.click())
 
-    fileInput.addEventListener('change', handleFileSelect)
+  if (fileInput) fileInput.addEventListener('change', handleFileSelect)
     ;['dragenter', 'dragover'].forEach((eventName) => {
       dropZone.addEventListener(eventName, highlightDropZone)
     })
@@ -229,8 +229,16 @@ document.addEventListener('DOMContentLoaded', function () {
   function handleDrop(e) {
     const dt = e.dataTransfer
     const files = dt.files
-    fileInput.files = files
-    handleFileSelect({ target: fileInput })
+    // Get file input from DOM to avoid referencing outer-scope var
+    const fileInput = document.getElementById('file')
+    if (!fileInput) return
+    try {
+      fileInput.files = files
+      handleFileSelect({ target: fileInput })
+    } catch (err) {
+      // Some browsers prevent programmatic assignment to input.files; fallback to using files directly
+      handleFileSelect({ target: { files } })
+    }
   }
 
   function handleFileSelect(e) {
