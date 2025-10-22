@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const messageBox = document.getElementById('messageBox')
   const passwordInput = document.getElementById('password')
   const confirmPasswordInput = document.getElementById('confirm-password')
-  const passwordToggles = document.querySelectorAll('.password-toggle')
-  const passwordIcon = passwordToggles[0].querySelector('i')
-  const confirmPasswordIcon = passwordToggles[1].querySelector('i')
+  const passwordToggles = Array.from(document.querySelectorAll('.password-toggle'))
+  // Safely get icons for toggles (may not exist if markup is incomplete)
+  const passwordIcon = passwordToggles[0]?.querySelector('i')
+  const confirmPasswordIcon = passwordToggles[1]?.querySelector('i')
   const signupBtn = document.getElementById('signupBtn')
   const spinner = document.getElementById('spinner')
   const btnText = document.getElementById('btnText')
@@ -16,31 +17,32 @@ document.addEventListener('DOMContentLoaded', function () {
   const MIN_PASSWORD_LENGTH = 6
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  // Toggle Password Visibility for password field
-  passwordToggles[0].addEventListener('click', function () {
-    const isPassword = passwordInput.type === 'password'
-    passwordInput.type = isPassword ? 'text' : 'password'
-    passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
-    passwordToggles[0].setAttribute(
-      'aria-label',
-      isPassword ? 'Hide password' : 'Show password'
-    )
-  })
+  // Toggle Password Visibility for password field (if toggle exists)
+  if (passwordToggles[0]) {
+    passwordToggles[0].addEventListener('click', function () {
+      const isPassword = passwordInput.type === 'password'
+      passwordInput.type = isPassword ? 'text' : 'password'
+      if (passwordIcon) passwordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
+      passwordToggles[0].setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password')
+    })
+  }
 
   // Toggle Confirm Password Visibility
   function toggleConfirmPassword() {
     const isPassword = confirmPasswordInput.type === 'password'
     confirmPasswordInput.type = isPassword ? 'text' : 'password'
-    confirmPasswordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
-    passwordToggles[1].setAttribute(
-      'aria-label',
-      isPassword ? 'Hide password' : 'Show password'
-    )
+    if (confirmPasswordIcon) confirmPasswordIcon.className = isPassword ? 'far fa-eye-slash' : 'far fa-eye'
+    if (passwordToggles[1]) passwordToggles[1].setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password')
   }
-  passwordToggles[1].addEventListener('click', toggleConfirmPassword)
+  if (passwordToggles[1]) passwordToggles[1].addEventListener('click', toggleConfirmPassword)
 
   // Floating Label Effect
+  // Floating Label Effect
   document.querySelectorAll('.floating-input input').forEach((input) => {
+    // Initialize focused state if input already has value (e.g., browser autofill)
+    if (input.value && input.value.trim() !== '') {
+      input.parentNode.classList.add('focused')
+    }
     input.addEventListener('focus', () => input.parentNode.classList.add('focused'))
     input.addEventListener('blur', () => {
       if (!input.value) input.parentNode.classList.remove('focused')
