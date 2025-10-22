@@ -41,6 +41,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Abhiyanshu-Sharma](https://github.com/Abhiyanshu-Sharma) | 0 | 1 | 0 | 1 |
 | [@priyanshu5ingh](https://github.com/priyanshu5ingh) | 1 | 1 | 0 | 0 |
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
+| [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 1 |
 | [@Disha19-09](https://github.com/Disha19-09) | 0 | 0 | 1 | 1 |
 | [@Snehadas2005](https://github.com/Snehadas2005) | 0 | 1 | 0 | 1 |
 | [@utkarshwrks](https://github.com/utkarshwrks) | 1 | 0 | 0 | 1 |
@@ -73,7 +74,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Niyatikansal31](https://github.com/Niyatikansal31) | 0 | 1 | 0 | 0 |
 | [@Anushka-045](https://github.com/Anushka-045) | 1 | 0 | 0 | 0 |
 | [@AbhishekSharma-9](https://github.com/AbhishekSharma-9) | 0 | 1 | 0 | 0 |
-| [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 0 |
 | [@zoxilsi](https://github.com/zoxilsi) | 0 | 1 | 0 | 0 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
 | [@madegowda11](https://github.com/madegowda11) | 1 | 0 | 0 | 0 |
