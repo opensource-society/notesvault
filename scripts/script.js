@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     searchForm: document.querySelector('.search-form'),
     yearElement: document.getElementById('year'),
     backToTop: document.querySelector('.back-to-top'),
+    testimonialTrack: document.querySelector('.testimonial-track'),
+    testimonialCarousel: document.querySelector('.testimonial-carousel'),
+    testimonialCards: document.querySelectorAll('.testimonial-card'),
+    carouselDots: document.querySelector('.carousel-dots'),
   }
 
   const TYPEWRITER_WORDS = ['Branch', 'Semester', 'Subject', 'Year']
@@ -194,6 +198,111 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Testimonial Carousel Functionality
+  const initTestimonialCarousel = () => {
+    if (!DOM.testimonialTrack) return;
+    
+    const cards = DOM.testimonialCards;
+    let currentIndex = 0;
+    let autoSlideInterval;
+    
+    // Create dots for each testimonial
+    if (DOM.carouselDots && cards.length) {
+      cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        DOM.carouselDots.appendChild(dot);
+      });
+    }
+    
+    // Set initial active card
+    if (cards.length) {
+      cards[0].classList.add('active');
+    }
+    
+    // Function to go to a specific slide
+    const goToSlide = (index) => {
+      if (!DOM.testimonialTrack || !cards.length) return;
+      
+      // Update currentIndex
+      currentIndex = index;
+      
+      // Handle index boundaries
+      if (currentIndex < 0) currentIndex = cards.length - 1;
+      if (currentIndex >= cards.length) currentIndex = 0;
+      
+      // Transform the track to show the current slide
+      const slideWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(cards[0]).marginLeft) * 2;
+      DOM.testimonialTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      
+      // Update active states
+      cards.forEach((card, i) => {
+        card.classList.toggle('active', i === currentIndex);
+      });
+      
+      // Update dots
+      const dots = DOM.carouselDots.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+      
+      // Reset auto slide timer
+      resetAutoSlide();
+    };
+    
+    // Function to go to the next slide
+    const nextSlide = () => {
+      goToSlide(currentIndex + 1);
+    };
+    
+    // Function to go to the previous slide
+    const prevSlide = () => {
+      goToSlide(currentIndex - 1);
+    };
+    
+    // Set up automatic sliding
+    const startAutoSlide = () => {
+      autoSlideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+    };
+    
+    // Reset auto slide timer
+    const resetAutoSlide = () => {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    };
+    
+    // Initialize the carousel with automatic sliding
+    startAutoSlide();
+    
+    // Add swipe functionality for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    if (DOM.testimonialCarousel) {
+      DOM.testimonialCarousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      
+      DOM.testimonialCarousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+    }
+    
+    const handleSwipe = () => {
+      const swipeThreshold = 50;
+      if (touchStartX - touchEndX > swipeThreshold) {
+        // Swipe left - next slide
+        nextSlide();
+      } else if (touchEndX - touchStartX > swipeThreshold) {
+        // Swipe right - previous slide
+        prevSlide();
+      }
+    };
+  };
+
   const init = async () => {
     if (DOM.typewriterElement) typeWriter()
     if (DOM.searchForm) DOM.searchForm.addEventListener('submit', handleSearch)
@@ -214,6 +323,17 @@ document.addEventListener('DOMContentLoaded', () => {
     await loadComponents()
     DOM.backToTop = document.querySelector('.back-to-top')
     setupBackToTop()
+    
+    // Initialize the testimonial carousel after components are loaded
+    // Need to reselect DOM elements after components are loaded
+    DOM.testimonialTrack = document.querySelector('.testimonial-track');
+    DOM.testimonialCarousel = document.querySelector('.testimonial-carousel');
+    DOM.testimonialCards = document.querySelectorAll('.testimonial-card');
+    DOM.carouselDots = document.querySelector('.carousel-dots');
+    
+    if (DOM.testimonialTrack) {
+      initTestimonialCarousel();
+    }
   }
 
   init()
