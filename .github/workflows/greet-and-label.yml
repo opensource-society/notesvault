@@ -52,6 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greet and post guidelines for PR
+        if: github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -72,4 +73,9 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: guidelines
-            });
+            })
+
+      - name: Skip greeting for forked PRs
+        if: github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          echo "Skipping comment: this pull request comes from a fork. GITHUB_TOKEN has limited permissions for forked PRs."
