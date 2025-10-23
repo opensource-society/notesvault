@@ -146,27 +146,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateNavbarAuth = () => {
     const user = JSON.parse(localStorage.getItem('loggedInUser'))
+    // Desktop nav elements
     const loginLink = document.getElementById('nav-login')
     const signupLink = document.getElementById('nav-signup')
     const profileLink = document.getElementById('nav-profile')
     const logoutLink = document.getElementById('nav-logout')
-    if (!loginLink || !signupLink || !profileLink || !logoutLink) return
-    if (user) {
-      loginLink.style.display = 'none'
-      signupLink.style.display = 'none'
-      profileLink.style.display = 'inline-block'
-      logoutLink.style.display = 'inline-block'
-    } else {
-      loginLink.style.display = 'inline-block'
-      signupLink.style.display = 'inline-block'
-      profileLink.style.display = 'none'
-      logoutLink.style.display = 'none'
+    
+    // Mobile nav elements
+    const mobileLoginBtn = document.getElementById('mobile-nav-login')
+    const mobileSignupBtn = document.getElementById('mobile-nav-signup')
+    const mobileProfileBtn = document.getElementById('mobile-nav-profile')
+    const mobileLogoutBtn = document.getElementById('mobile-nav-logout')
+    const mobilMenuProfileItem = document.getElementById('mobile-menu-profile')
+    
+    // Update desktop navigation
+    if (loginLink && signupLink && profileLink && logoutLink) {
+      if (user) {
+        loginLink.style.display = 'none'
+        signupLink.style.display = 'none'
+        profileLink.style.display = 'inline-block'
+        logoutLink.style.display = 'inline-block'
+      } else {
+        loginLink.style.display = 'inline-block'
+        signupLink.style.display = 'inline-block'
+        profileLink.style.display = 'none'
+        logoutLink.style.display = 'none'
+      }
+      
+      logoutLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        localStorage.removeItem('loggedInUser')
+        window.location.href = 'login.html'
+      })
     }
-    logoutLink.addEventListener('click', (e) => {
-      e.preventDefault()
-      localStorage.removeItem('loggedInUser')
-      window.location.href = 'login.html'
-    })
+    
+    // Update mobile navigation buttons
+    if (mobileLoginBtn && mobileSignupBtn && mobileProfileBtn && mobileLogoutBtn) {
+      if (user) {
+        mobileLoginBtn.style.display = 'none'
+        mobileSignupBtn.style.display = 'none'
+        mobileProfileBtn.style.display = 'inline-block'
+        mobileLogoutBtn.style.display = 'inline-block'
+      } else {
+        mobileLoginBtn.style.display = 'inline-block'
+        mobileSignupBtn.style.display = 'inline-block'
+        mobileProfileBtn.style.display = 'none'
+        mobileLogoutBtn.style.display = 'none'
+      }
+      
+      mobileLogoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('loggedInUser')
+        window.location.href = 'login.html'
+      })
+    }
+    
+    // Update mobile menu profile item
+    if (mobilMenuProfileItem) {
+      mobilMenuProfileItem.style.display = user ? 'block' : 'none'
+    }
   }
 
   const loadComponents = async () => {
