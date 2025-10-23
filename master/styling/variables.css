@@ -12,11 +12,13 @@
   --primary-700: #00541d;
   --primary-800: #003814;
   --primary-900: #001c0a;
+  --primary-rgb: 0, 140, 45;
 
   /* Accent Colors */
   --accent-300: #f7b86e;
   --accent-400: #f5a647;
   --accent-500: #f38f20; /* Base Accent */
+  --accent-rgb: 243, 143, 32;
 
   /* Neutral Colors */
   --white: #ffffff;
