@@ -1,0 +1,258 @@
+<!-- User Profile Page (HTML) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotesVault - User Profile</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styling/variables.css" />
+  <link rel="stylesheet" href="../styling/base.css" />
+  <link rel="stylesheet" href="../styling/profile.css" />
+</head>
+<body>
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main Content -->
+  <main class="profile-container">
+    <div class="profile-header">
+      <h1>My Profile</h1>
+      <p>Manage your account information and settings</p>
+    </div>
+
+    <div class="profile-grid">
+      <!-- Profile Information -->
+      <section class="profile-info-card">
+        <div class="card-header">
+          <h2><i class="fas fa-user-circle"></i> Personal Information</h2>
+          <button class="edit-btn" id="edit-profile-info"><i class="fas fa-pen"></i> Edit</button>
+        </div>
+        <div class="profile-info-content">
+          <div class="profile-avatar">
+            <div class="avatar-circle">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <button class="change-avatar-btn">Change Photo</button>
+          </div>
+          <div class="profile-details">
+            <form id="profile-form">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" value="Pranav K" disabled />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" value="pranavk@gmail.com" disabled />
+              </div>
+              <div class="form-group">
+                <label for="institution">Institution</label>
+                <input type="text" id="institution" name="institution" value="University of Mumbai" disabled />
+              </div>
+              <div class="form-group">
+                <label for="branch">Branch</label>
+                <input type="text" id="branch" name="branch" value="Computer Science" disabled />
+              </div>
+              <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" id="year" name="year" value="2nd Year" disabled />
+              </div>
+              <div class="form-group">
+                <label for="studentId">Student ID</label>
+                <input type="text" id="studentId" name="studentId" value="CS2024-049" disabled />
+              </div>
+              <div class="form-actions" style="display: none;">
+                <button type="button" class="btn-secondary" id="cancel-edit">Cancel</button>
+                <button type="submit" class="btn-primary">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Account Settings -->
+      <section class="account-settings-card">
+        <div class="card-header">
+          <h2><i class="fas fa-cog"></i> Account Settings</h2>
+        </div>
+        <div class="settings-content">
+          <div class="settings-group">
+            <h3>Password</h3>
+            <div class="setting-item">
+              <div class="setting-info">
+                <p class="setting-label">Change Password</p>
+                <p class="setting-desc">Update your password regularly for security</p>
+              </div>
+              <button class="btn-outline" id="change-password-btn"><i class="fas fa-key"></i> Update</button>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3>Notifications</h3>
+            <div class="setting-item">
+              <div class="setting-info">
+                <p class="setting-label">Email Notifications</p>
+                <p class="setting-desc">Receive updates about new resources and features</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div class="setting-info">
+                <p class="setting-label">Study Reminders</p>
+                <p class="setting-desc">Get reminders for upcoming exams and deadlines</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3>Preferences</h3>
+            <div class="setting-item">
+              <div class="setting-info">
+                <p class="setting-label">Language</p>
+                <p class="setting-desc">Select your preferred language</p>
+              </div>
+              <select class="settings-select">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="settings-group danger-zone">
+            <h3>Danger Zone</h3>
+            <div class="setting-item">
+              <div class="setting-info">
+                <p class="setting-label">Delete Account</p>
+                <p class="setting-desc">Permanently delete your account and all data</p>
+              </div>
+              <button class="btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activity Summary -->
+      <section class="activity-summary-card">
+        <div class="card-header">
+          <h2><i class="fas fa-chart-line"></i> Activity Summary</h2>
+        </div>
+        <div class="activity-content">
+          <div class="stats-overview">
+            <div class="stat-box">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Notes Uploaded</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">8</div>
+              <div class="stat-label">PYQs Accessed</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">5</div>
+              <div class="stat-label">Active Subjects</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value">15h</div>
+              <div class="stat-label">Study Time</div>
+            </div>
+          </div>
+          
+          <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-timeline">
+              <div class="activity-item">
+                <div class="activity-icon"><i class="fas fa-upload"></i></div>
+                <div class="activity-details">
+                  <p class="activity-title">Uploaded DBMS Normalization Notes</p>
+                  <p class="activity-time">2 days ago</p>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon"><i class="fas fa-download"></i></div>
+                <div class="activity-details">
+                  <p class="activity-title">Downloaded OS Deadlock Notes</p>
+                  <p class="activity-time">1 week ago</p>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon"><i class="fas fa-share-alt"></i></div>
+                <div class="activity-details">
+                  <p class="activity-title">Shared Data Structures PYQs</p>
+                  <p class="activity-time">2 weeks ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Change Password Modal -->
+  <div class="modal" id="change-password-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-key"></i> Change Password</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="password-change-form">
+          <div class="form-group">
+            <label for="current-password">Current Password</label>
+            <div class="password-input-group">
+              <input type="password" id="current-password" required />
+              <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="new-password">New Password</label>
+            <div class="password-input-group">
+              <input type="password" id="new-password" required />
+              <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm New Password</label>
+            <div class="password-input-group">
+              <input type="password" id="confirm-password" required />
+              <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="password-strength">
+            <div class="strength-bar">
+              <div class="strength-progress" style="width: 0%"></div>
+            </div>
+            <span class="strength-label">Password Strength: <span class="strength-value">Weak</span></span>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary close-modal">Cancel</button>
+            <button type="submit" class="btn-primary">Update Password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript -->
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/profile.js"></script>
+</body>
+</html>

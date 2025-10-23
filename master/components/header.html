@@ -105,6 +105,9 @@
         <li>
           <a href="about.html" class="mobile-nav-link">About</a>
         </li>
+        <li id="mobile-menu-profile" style="display:none;">
+          <a href="profile.html" class="mobile-nav-link">Profile</a>
+        </li>
       </ul>
 
       <div class="mobile-actions">
@@ -127,8 +130,10 @@
           </span>
         </button>
         <div class="mobile-auth-buttons">
-          <button onclick="location.href='login.html'" class="btn btn-secondary">Login</button>
-          <button onclick="location.href='signup.html'" class="btn btn-primary">Sign Up</button>
+          <button id="mobile-nav-login" onclick="location.href='login.html'" class="btn btn-secondary">Login</button>
+          <button id="mobile-nav-signup" onclick="location.href='signup.html'" class="btn btn-primary">Sign Up</button>
+          <button id="mobile-nav-profile" onclick="location.href='profile.html'" class="btn btn-secondary" style="display:none;">Profile</button>
+          <button id="mobile-nav-logout" class="btn btn-danger" style="display:none;">Logout</button>
         </div>
       </div>
     </nav>
