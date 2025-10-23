@@ -125,7 +125,16 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       showMessage('Login Successful! Redirecting...', 'success')
       setTimeout(() => {
-        localStorage.setItem("loggedInUser", JSON.stringify({ email }))
+        // Store more complete user data for profile page
+        const userData = {
+          email,
+          name: parsedUser.name || "User",
+          institution: parsedUser.institution || "Not specified",
+          branch: parsedUser.branch || "Not specified",
+          year: parsedUser.year || "Not specified",
+          studentId: parsedUser.studentId || "Not specified"
+        }
+        localStorage.setItem("loggedInUser", JSON.stringify(userData))
         window.location.href = 'dashboard.html'
       }, 1500)
     } catch (error) {

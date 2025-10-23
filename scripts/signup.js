@@ -121,8 +121,18 @@ document.addEventListener('DOMContentLoaded', function () {
       // Hash the password
       const hashedPassword = await hashPassword(password)
 
-      // Store user in localStorage
-      localStorage.setItem(email, JSON.stringify({ name, password: hashedPassword }))
+      // Store user in localStorage with additional fields for profile page
+      const userData = {
+        name,
+        password: hashedPassword,
+        email,
+        institution: "Not specified", // Default values that user can update in profile
+        branch: "Not specified",
+        year: "Not specified",
+        studentId: "Not specified"
+      }
+      
+      localStorage.setItem(email, JSON.stringify(userData))
       console.log('Stored user:', localStorage.getItem(email))
 
       showMessage('Account Created Successfully! Redirecting To Login...', 'success')
