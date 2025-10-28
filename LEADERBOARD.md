@@ -19,11 +19,11 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 6 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
+| [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
 | [@Gourangi4](https://github.com/Gourangi4) | 2 | 0 | 0 | 2 |
-| [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 1 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
