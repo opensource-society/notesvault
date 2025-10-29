@@ -123,6 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         localStorage.removeItem('rememberEmail')
       }
+
+      localStorage.setItem("loggedInUser", email);
+
       showMessage('Login Successful! Redirecting...', 'success')
       setTimeout(() => {
         // Store more complete user data for profile page

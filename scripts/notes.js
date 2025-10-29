@@ -212,3 +212,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize
   init()
 })
+
+// Optional: Protect Upload Notes button in footer for guests
+document.addEventListener('DOMContentLoaded', () => {
+  const uploadLink = document.querySelector('a[href="pages/upload.html"]');
+  if (uploadLink && !localStorage.getItem("loggedInUser")) {
+    uploadLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("You must be logged in to upload notes!");
+      window.location.href = "pages/login.html";
+    });
+  }
+});
