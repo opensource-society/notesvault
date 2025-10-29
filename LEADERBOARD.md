@@ -61,6 +61,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@unnati-078](https://github.com/unnati-078) | 1 | 0 | 0 | 1 |
 | [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 1 |
 | [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 1 |
+| [@Milan0407](https://github.com/Milan0407) | 1 | 0 | 0 | 1 |
 | [@Aripilli-Bhavana](https://github.com/Aripilli-Bhavana) | 1 | 0 | 0 | 1 |
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
@@ -81,7 +82,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
-| [@Milan0407](https://github.com/Milan0407) | 1 | 0 | 0 | 0 |
 
 ---
 
