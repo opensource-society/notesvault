@@ -2,179 +2,173 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="NotesVault - Organize your academic notes and PYQs semester-wise"
-    />
-    <title>NotesVault - Your Organized Learning Companion</title>
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="../assets/index/images/favicon.png"
-      type="image/x-icon"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NotesVault - Organize your academic notes and PYQs semester-wise" />
+  <title>NotesVault - Your Organized Learning Companion</title>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../styling/home.css" />
-    <link rel="stylesheet" href="../styling/base.css" />
-    <link rel="stylesheet" href="../styling/variables.css" />
-    <link rel="stylesheet" href="../styling/button.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  </head>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styling/home.css" />
+  <link rel="stylesheet" href="../styling/base.css" />
+  <link rel="stylesheet" href="../styling/variables.css" />
+  <link rel="stylesheet" href="../styling/button.css">
+  <link rel="stylesheet" href="../styling/feedback.css" />
 
-  <body>
-    <!-- Header -->
-    <div id="header-placeholder"></div>
+</head>
 
-    <!-- Main Content -->
-    <main id="main-content">
-      <section class="hero">
-        <div class="container">
-          <div class="hero-content">
-            
-            <h1>Your Organized <span class="text-accent">Learning Companion...</span></h1>
-            <p class="subtext">
-              Keep your study notes and PYQs organized, easy to find, and always
-              just a click away with NotesVault!
-            </p>
-            <div class="cta-buttons">
-              <a href="notes.html"  class="btn btn-primary"><i class="fas fa-search"></i>Browse Notes</a>
-              <a href="upload.html"  class="btn btn-primary"><i class="fas fa-upload"></i>Upload Notes</a>
-            </div>
-          </div>
-          <div class="search-card">
-            <div class="search-header">
-              <p>Notes Organized by <span id="typewriter">Subject</span></p>
-            </div>
-            <form
-              action="notes.html"
-              method="get"
-              class="search-form"
-            >
-              <div class="search-input">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.35-4.35"></path>
-                </svg>
-                <input
-                  type="text"
-                  name="query"
-                  placeholder="Search"
-                  aria-label="Search notes"
-                />
-              </div>
-              <input type="submit" hidden />
-            </form>
+<body>
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+
+          <h1>Your Organized <span class="text-accent">Learning Companion...</span></h1>
+          <p class="subtext">
+            Keep your study notes and PYQs organized, easy to find, and always
+            just a click away with NotesVault!
+          </p>
+          <div class="cta-buttons">
+            <a href="notes.html" class="btn btn-primary"><i class="fas fa-search"></i>Browse Notes</a>
+            <a href="upload.html" class="btn btn-primary"><i class="fas fa-upload"></i>Upload Notes</a>
           </div>
         </div>
-      </section>
-
-      <!-- Features Section -->
-      <section class="features">
-        <div class="container">
-          <h2 class="section-title">Key Features</h2>
-          <p class="section-subtitle">
-            Powerful tools to organize your academic journey!
-          </p>
-
-          <div class="features-grid">
-            <!-- Feature 1 -->
-            <div class="feature-card" data-feature="upload">
-              <div class="feature-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
-              </div>
-              <h3>Easy Upload</h3>
-              <p>
-                Add your notes quickly and effortlessly with drag & drop
-                functionality
-              </p>
-              <div class="feature-hover-effect"></div>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="feature-card" data-feature="organize">
-              <div class="feature-icon">
-                <i class="fas fa-folder-tree"></i>
-              </div>
-              <h3>Sort The Chaos</h3>
-              <p>Neatly arrange all your notes with smart categorization</p>
-              <div class="feature-hover-effect"></div>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="feature-card" data-feature="search">
-              <div class="feature-icon">
-                <i class="fas fa-tags"></i>
-              </div>
-              <h3>Search By Tags</h3>
-              <p>Find notes instantly using subject tags and keywords</p>
-              <div class="feature-hover-effect"></div>
-            </div>
-
-            <!-- Feature 4 -->
-            <div class="feature-card" data-feature="sync">
-              <div class="feature-icon">
-                <i class="fas fa-sync-alt"></i>
-              </div>
-              <h3>Cross-Device Sync</h3>
-              <p>Access your notes from any device, anywhere</p>
-              <div class="feature-hover-effect"></div>
-            </div>
-            
-          
-            <!-- Feature 5 -->
-            <div class="feature-card" data-feature="study-tracker">
-              <div class="feature-icon">
-                <i class="fas fa-stopwatch"></i>
-              </div>
-              <h3>Study Tracker</h3>
-              <p>Monitor your study sessions and stay accountable</p>
-              <div class="feature-hover-effect"></div>
-            </div>
-
-            <!-- Feature 6 -->
-            <div class="feature-card" data-feature="discussion">
-              <div class="feature-icon">
-                <i class="fas fa-comments"></i>
-              </div>
-              <h3>Collaborative Discussions</h3>
-              <p>A space for students to ask, share and discuss ideas.</p>
-              <div class="feature-hover-effect"></div>
-            </div>
-
-            <!-- Feature 6 -->
-            <div class="feature-card" data-feature="google-login">
-              <div class="feature-icon">
-                <i class="fab fa-google"></i>
-             </div>
-             <h3>Google Login</h3>
-             <p>Seamless integration with your Google account for easy access</p>
-             <div class="feature-hover-effect"></div>
-           </div>
+        <div class="search-card">
+          <div class="search-header">
+            <p>Notes Organized by <span id="typewriter">Subject</span></p>
           </div>
-      </section>
-    </main>
+          <form action="notes.html" method="get" class="search-form">
+            <div class="search-input">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <input type="text" name="query" placeholder="Search" aria-label="Search notes" />
+            </div>
+            <input type="submit" hidden />
+          </form>
+        </div>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2 class="section-title">Key Features</h2>
+        <p class="section-subtitle">
+          Powerful tools to organize your academic journey!
+        </p>
 
-    <!-- JavaScript -->
-    <script src="../scripts/script.js" defer></script>
-  </body>
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card" data-feature="upload">
+            <div class="feature-icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <h3>Easy Upload</h3>
+            <p>
+              Add your notes quickly and effortlessly with drag & drop
+              functionality
+            </p>
+            <div class="feature-hover-effect"></div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card" data-feature="organize">
+            <div class="feature-icon">
+              <i class="fas fa-folder-tree"></i>
+            </div>
+            <h3>Sort The Chaos</h3>
+            <p>Neatly arrange all your notes with smart categorization</p>
+            <div class="feature-hover-effect"></div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card" data-feature="search">
+            <div class="feature-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <h3>Search By Tags</h3>
+            <p>Find notes instantly using subject tags and keywords</p>
+            <div class="feature-hover-effect"></div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card" data-feature="sync">
+            <div class="feature-icon">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3>Cross-Device Sync</h3>
+            <p>Access your notes from any device, anywhere</p>
+            <div class="feature-hover-effect"></div>
+          </div>
+
+
+          <!-- Feature 5 -->
+          <div class="feature-card" data-feature="study-tracker">
+            <div class="feature-icon">
+              <i class="fas fa-stopwatch"></i>
+            </div>
+            <h3>Study Tracker</h3>
+            <p>Monitor your study sessions and stay accountable</p>
+            <div class="feature-hover-effect"></div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card" data-feature="discussion">
+            <div class="feature-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Collaborative Discussions</h3>
+            <p>A space for students to ask, share and discuss ideas.</p>
+            <div class="feature-hover-effect"></div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card" data-feature="google-login">
+            <div class="feature-icon">
+              <i class="fab fa-google"></i>
+            </div>
+            <h3>Google Login</h3>
+            <p>Seamless integration with your Google account for easy access</p>
+            <div class="feature-hover-effect"></div>
+          </div>
+        </div>
+    </section>
+
+    <section class="feedback-section" id="feedback-section">
+      <h2>Feedback & Reviews</h2>
+      <p>We value your feedback! Share your thoughts and help us improve NotesVault.</p>
+      <form class="feedback-form" id="feedback-form" autocomplete="off">
+        <input type="text" id="feedback-name" name="name" minlength="2" maxlength="60" placeholder="Your Name" required
+          aria-label="Name" />
+        <input type="email" id="feedback-email" name="email" maxlength="100" placeholder="Your Email" required
+          aria-label="Email" />
+        <textarea id="feedback-input" name="feedback" rows="3" maxlength="400" placeholder="Write your feedback here..."
+          required aria-label="Feedback"></textarea>
+        <button type="submit">Submit Feedback</button>
+      </form>
+      <div id="feedback-success" class="feedback-success">Submitted successfully! Thank you for your feedback.</div>
+      <!-- Feedbacks are stored locally and not displayed on the website. -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript -->
+  <script src="../scripts/script.js" defer></script>
+</body>
+
 </html>
