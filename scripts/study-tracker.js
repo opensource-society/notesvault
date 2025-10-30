@@ -6,6 +6,7 @@ const chartCtx = document.getElementById('progressChart').getContext('2d');
 
 let sessionData = JSON.parse(localStorage.getItem('studySessions')) || [];
 let currentSession = null;
+let chartUpdatePending = false;
 
 const progressChart = new Chart(chartCtx, {
   type: 'bar',
@@ -25,15 +26,22 @@ const progressChart = new Chart(chartCtx, {
   }
 });
 
+// Batch chart updates to improve performance
 function updateChart() {
-  const subjectMap = {};
-  sessionData.forEach(({ subject, duration }) => {
-    subjectMap[subject] = (subjectMap[subject] || 0) + duration;
-  });
+  if (chartUpdatePending) return;
+  
+  chartUpdatePending = true;
+  requestAnimationFrame(() => {
+    const subjectMap = {};
+    sessionData.forEach(({ subject, duration }) => {
+      subjectMap[subject] = (subjectMap[subject] || 0) + duration;
+    });
 
-  progressChart.data.labels = Object.keys(subjectMap);
-  progressChart.data.datasets[0].data = Object.values(subjectMap);
-  progressChart.update();
+    progressChart.data.labels = Object.keys(subjectMap);
+    progressChart.data.datasets[0].data = Object.values(subjectMap);
+    progressChart.update();
+    chartUpdatePending = false;
+  });
 }
 
 startBtn.onclick = () => {
