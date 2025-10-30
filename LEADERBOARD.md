@@ -16,8 +16,8 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
+| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
-| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 6 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
