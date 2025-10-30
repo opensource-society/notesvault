@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       semesters.map(semester => `<option value="${semester}">${semester}</option>`).join('');
   }
 
-  // Display Notes
+  // Display Notes with DocumentFragment for better performance
   function displayNotes(notes) {
     notesGrid.innerHTML = ''
 
@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     noNotesMessage.style.display = 'none'
 
+    // Use DocumentFragment to minimize reflows
     const fragment = document.createDocumentFragment();
     notes.forEach((note) => {
       const noteCard = createNoteCard(note)
@@ -199,7 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event Listeners
   function setupEventListeners() {
-    searchInput.addEventListener('input', filterNotes)
+    // Debounce search input for better performance (300ms delay)
+    const debouncedFilter = debounce(filterNotes, 300)
+    searchInput.addEventListener('input', debouncedFilter)
     branchFilter.addEventListener('change', filterNotes)
     semesterFilter.addEventListener('change', filterNotes)
     resetFiltersBtn.addEventListener('click', resetAllFilters)
@@ -207,6 +210,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (e) => {
       if (e.target === noteDetailModal) closeNoteDetailModal()
     })
+  }
+
+  // Debounce function to limit how often a function can execute
+  function debounce(func, wait) {
+    let timeout
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout)
+        func(...args)
+      }
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
+    }
   }
 
   // Initialize

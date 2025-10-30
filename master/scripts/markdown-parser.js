@@ -4,58 +4,72 @@
 function parseMarkdown(markdown) {
   let html = markdown;
 
-  // Escape HTML characters first
-  const escapeMap = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;'
+  // Pre-compile regex patterns for better performance
+  const patterns = {
+    h3: /^### (.*$)/gim,
+    h2: /^## (.*$)/gim,
+    h1: /^# (.*$)/gim,
+    boldStar: /\*\*(.*?)\*\*/g,
+    boldUnderscore: /__(.*?)__/g,
+    italicStar: /\*(.*?)\*/g,
+    italicUnderscore: /_(.*?)_/g,
+    strikethrough: /~~(.*?)~~/g,
+    codeBlock: /```(\w+)?\n([\s\S]*?)```/g,
+    inlineCode: /`([^`]+)`/g,
+    link: /\[([^\]]+)\]\(([^)]+)\)/g,
+    image: /!\[([^\]]*)\]\(([^)]+)\)/g,
+    blockquote: /^> (.*)$/gim,
+    checklistChecked: /^- \[x\] (.*)$/gim,
+    checklistUnchecked: /^- \[ \] (.*)$/gim,
+    unorderedList: /^- (.*)$/gim,
+    orderedList: /^\d+\. (.*)$/gim
   };
   
-  // Convert markdown to HTML
+  // Convert markdown to HTML in optimized order
   
   // Headers (must be done before other processing)
-  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-  html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-  html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+  html = html.replace(patterns.h3, '<h3>$1</h3>');
+  html = html.replace(patterns.h2, '<h2>$1</h2>');
+  html = html.replace(patterns.h1, '<h1>$1</h1>');
   
   // Bold
-  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
+  html = html.replace(patterns.boldStar, '<strong>$1</strong>');
+  html = html.replace(patterns.boldUnderscore, '<strong>$1</strong>');
   
   // Italic
-  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+  html = html.replace(patterns.italicStar, '<em>$1</em>');
+  html = html.replace(patterns.italicUnderscore, '<em>$1</em>');
   
   // Strikethrough
-  html = html.replace(/~~(.*?)~~/g, '<del>$1</del>');
+  html = html.replace(patterns.strikethrough, '<del>$1</del>');
   
   // Code blocks (must be before inline code)
-  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, function(match, lang, code) {
+  html = html.replace(patterns.codeBlock, function(match, lang, code) {
     const language = lang || 'plaintext';
     return `<pre><code class="language-${language}">${escapeHtml(code)}</code></pre>`;
   });
   
   // Inline code
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  html = html.replace(patterns.inlineCode, '<code>$1</code>');
   
   // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  html = html.replace(patterns.link, '<a href="$2" target="_blank">$1</a>');
   
   // Images
-  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
+  html = html.replace(patterns.image, '<img src="$2" alt="$1" />');
   
   // Blockquotes
-  html = html.replace(/^> (.*)$/gim, '<blockquote>$1</blockquote>');
+  html = html.replace(patterns.blockquote, '<blockquote>$1</blockquote>');
   
   // Checklist items (must be before regular lists)
-  html = html.replace(/^- \[ \] (.*)$/gim, '<li class="task-item"><input type="checkbox" disabled> $1</li>');
-  html = html.replace(/^- \[x\] (.*)$/gim, '<li class="task-item"><input type="checkbox" checked disabled> $1</li>');
+  html = html.replace(patterns.checklistUnchecked, '<li class="task-item"><input type="checkbox" disabled> $1</li>');
+  html = html.replace(patterns.checklistChecked, '<li class="task-item"><input type="checkbox" checked disabled> $1</li>');
   
   // Unordered lists
-  html = html.replace(/^- (.*)$/gim, '<li>$1</li>');
+  html = html.replace(patterns.unorderedList, '<li>$1</li>');
   
   // Ordered lists
-  html = html.replace(/^\d+\. (.*)$/gim, '<li>$1</li>');
+  html = html.replace(patterns.orderedList, '<li>$1</li>');
   
   // Wrap consecutive list items in ul tags
   html = html.replace(/(<li class="task-item">.*?<\/li>\n?)+/g, '<ul class="task-list">$&</ul>');
