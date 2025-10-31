@@ -32,6 +32,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
+| [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
 | [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 1 | 0 | 1 |
