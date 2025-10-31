@@ -22,16 +22,20 @@
   margin-bottom: 2rem;
 }
 
+/* Main Feedback Form */
 .feedback-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* ✅ Left align all form fields */
   gap: 1rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
+/* Common Input + Dropdown + Textarea Styles */
 .feedback-form input[type="text"],
 .feedback-form input[type="email"],
+.feedback-form select,
 .feedback-form textarea {
   width: 100%;
   max-width: 500px;
@@ -42,16 +46,20 @@
   color: var(--text-primary);
   font-size: 1rem;
   resize: vertical;
-  transition: border 0.2s;
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
+/* Focus Effect */
 .feedback-form input[type="text"]:focus,
 .feedback-form input[type="email"]:focus,
+.feedback-form select:focus,
 .feedback-form textarea:focus {
   border-color: var(--primary-500);
   outline: none;
+  box-shadow: 0 0 4px rgba(0, 140, 255, 0.2);
 }
 
+/* Button */
 .feedback-form button {
   background: var(--primary-500);
   color: var(--white);
@@ -61,13 +69,16 @@
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.1s;
 }
 
+/* Button Hover */
 .feedback-form button:hover {
   background: var(--primary-600);
+  transform: translateY(-2px);
 }
 
+/* Success Message */
 .feedback-success {
   display: none;
   color: var(--primary-600);
@@ -76,9 +87,13 @@
   padding: 0.75rem 1.5rem;
   margin-bottom: 1.5rem;
   font-weight: 500;
-  /* display: inline-block; will be set by JS when shown */
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  /* JS will show by setting display: inline-block; */
 }
 
+/* Feedback List */
 .feedback-list {
   margin-top: 1.5rem;
   text-align: left;
@@ -98,14 +113,19 @@
   word-break: break-word;
 }
 
+/* Responsive Design */
 @media (max-width: 600px) {
   .feedback-section {
     padding: 2rem 0.5rem 1.5rem 0.5rem;
   }
+
   .feedback-form input[type="text"],
+  .feedback-form input[type="email"],
+  .feedback-form select,
   .feedback-form textarea {
     max-width: 100%;
   }
+
   .feedback-list {
     max-width: 100%;
   }
