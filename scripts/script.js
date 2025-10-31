@@ -375,3 +375,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   init()
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+  const welcomeBtn = document.getElementById("welcomeBackBtn");
+  
+  if (welcomeBtn) {
+    welcomeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      const loggedInUser = localStorage.getItem("loggedInUser");
+
+      if (loggedInUser) {
+        window.location.href = "dashboard.html";
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+  }
+});
