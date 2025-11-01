@@ -93,9 +93,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function stopDrawing() {
+    if (!isDrawing) return
     isDrawing = false
-    // Save Canvas
-    localStorage.setItem('canvasData', canvas.toDataURL())
+    // Debounce canvas save to avoid excessive localStorage writes
+    debouncedSaveCanvas()
+  }
+
+  // Debounced save function to reduce localStorage writes
+  let canvasSaveTimeout
+  function debouncedSaveCanvas() {
+    clearTimeout(canvasSaveTimeout)
+    canvasSaveTimeout = setTimeout(() => {
+      localStorage.setItem('canvasData', canvas.toDataURL())
+    }, 500)
   }
 
   // Switch Mode (Text <--> Draw)
@@ -315,13 +325,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
-  // Handle Note Content
+  // Handle Note Content with debounced saving
+  let saveTimeout
   function saveNoteContent() {
-    localStorage.setItem('noteContent', noteArea.value)
+    clearTimeout(saveTimeout)
+    saveTimeout = setTimeout(() => {
+      localStorage.setItem('noteContent', noteArea.value)
+    }, 500)
   }
 
   noteArea.addEventListener('input', updateMarkdownPreview)
-  noteArea.addEventListener('blur', saveNoteContent)
+  noteArea.addEventListener('blur', () => {
+    // Force immediate save on blur
+    clearTimeout(saveTimeout)
+    localStorage.setItem('noteContent', noteArea.value)
+  })
 })
 
 

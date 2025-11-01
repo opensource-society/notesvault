@@ -136,12 +136,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const setupBackToTop = () => {
     if (!DOM.backToTop) return
-    window.addEventListener('scroll', () => {
+    // Throttle scroll event for better performance
+    const handleScroll = () => {
       DOM.backToTop.classList.toggle('visible', window.scrollY > 300)
-    })
+    }
+    window.addEventListener('scroll', throttle(handleScroll, 100))
     DOM.backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
+  }
+
+  // Throttle function for performance optimization
+  const throttle = (func, limit) => {
+    let inThrottle
+    return function(...args) {
+      if (!inThrottle) {
+        func.apply(this, args)
+        inThrottle = true
+        setTimeout(() => inThrottle = false, limit)
+      }
+    }
   }
 
   const updateNavbarAuth = () => {
@@ -177,7 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault()
         localStorage.removeItem('loggedInUser')
         window.location.href = 'login.html'
-      })
+      }
+      logoutLink.removeEventListener('click', handleLogout)
+      logoutLink.addEventListener('click', handleLogout)
     }
 
     // Update mobile navigation buttons
@@ -197,7 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileLogoutBtn.addEventListener('click', () => {
         localStorage.removeItem('loggedInUser')
         window.location.href = 'login.html'
-      })
+      }
+      mobileLogoutBtn.removeEventListener('click', handleMobileLogout)
+      mobileLogoutBtn.addEventListener('click', handleMobileLogout)
     }
 
     // Update mobile menu profile item
