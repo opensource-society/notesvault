@@ -76,17 +76,21 @@ document.addEventListener('DOMContentLoaded', function () {
     semesterSelect.disabled = false
     subjectSelect.disabled = true
 
+    // Use find() instead of filter for better performance (stops at first match)
     const branch = branchData.branches.find((b) =>
       typeof b === 'object' ? b.name === selectedBranch : b === selectedBranch
     )
 
-    if (branch && typeof branch === 'object') {
+    if (branch && typeof branch === 'object' && branch.semesters) {
+      // Use DocumentFragment for better DOM performance
+      const fragment = document.createDocumentFragment()
       branch.semesters.forEach((sem) => {
         const option = document.createElement('option')
         option.value = sem.semester
         option.textContent = `Semester ${sem.semester}`
-        semesterSelect.appendChild(option)
+        fragment.appendChild(option)
       })
+      semesterSelect.appendChild(fragment)
     }
   }
 
@@ -115,15 +119,18 @@ document.addEventListener('DOMContentLoaded', function () {
       const semesterObj = branchObj.semesters.find(
         (s) => s.semester === semester
       )
-      if (semesterObj) {
+      if (semesterObj && semesterObj.subjects) {
+        // Use DocumentFragment for better DOM performance
+        const fragment = document.createDocumentFragment()
         semesterObj.subjects.forEach((sub) => {
           const code = Object.keys(sub)[0]
           const name = sub[code]
           const option = document.createElement('option')
           option.value = code
           option.textContent = `${code} - ${name}`
-          subjectSelect.appendChild(option)
+          fragment.appendChild(option)
         })
+        subjectSelect.appendChild(fragment)
       }
     }
   }

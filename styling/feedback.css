@@ -1,0 +1,132 @@
+/* Feedback & Reviews Section Styles */
+
+.feedback-section {
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  padding: 3rem 2rem 2rem 2rem;
+  margin: 3rem auto 2rem auto;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.feedback-section h2 {
+  color: var(--primary-500);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-section p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Main Feedback Form */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ✅ Left align all form fields */
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/* Common Input + Dropdown + Textarea Styles */
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form select,
+.feedback-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  resize: vertical;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Focus Effect */
+.feedback-form input[type="text"]:focus,
+.feedback-form input[type="email"]:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: var(--primary-500);
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 140, 255, 0.2);
+}
+
+/* Button */
+.feedback-form button {
+  background: var(--primary-500);
+  color: var(--white);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Button Hover */
+.feedback-form button:hover {
+  background: var(--primary-600);
+  transform: translateY(-2px);
+}
+
+/* Success Message */
+.feedback-success {
+  display: none;
+  color: var(--primary-600);
+  background: rgba(0,140,45,0.08);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  /* JS will show by setting display: inline-block; */
+}
+
+/* Feedback List */
+.feedback-list {
+  margin-top: 1.5rem;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feedback-item {
+  background: var(--bg-secondary);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  word-break: break-word;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .feedback-section {
+    padding: 2rem 0.5rem 1.5rem 0.5rem;
+  }
+
+  .feedback-form input[type="text"],
+  .feedback-form input[type="email"],
+  .feedback-form select,
+  .feedback-form textarea {
+    max-width: 100%;
+  }
+
+  .feedback-list {
+    max-width: 100%;
+  }
+}
