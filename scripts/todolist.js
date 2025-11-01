@@ -172,9 +172,20 @@ class TodoList {
     }
 
     emptyState.classList.remove('show')
-    todoList.innerHTML = this.todos
+    
+    // Use DocumentFragment for better performance
+    const fragment = document.createDocumentFragment()
+    const tempDiv = document.createElement('div')
+    tempDiv.innerHTML = this.todos
       .map((todo) => this.createTaskElement(todo))
       .join('')
+    
+    while (tempDiv.firstChild) {
+      fragment.appendChild(tempDiv.firstChild)
+    }
+    
+    todoList.innerHTML = ''
+    todoList.appendChild(fragment)
   }
 
   createTaskElement(todo) {
