@@ -165,14 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const signupLink = document.getElementById('nav-signup')
     const profileLink = document.getElementById('nav-profile')
     const logoutLink = document.getElementById('nav-logout')
-    
+
     // Mobile nav elements
     const mobileLoginBtn = document.getElementById('mobile-nav-login')
     const mobileSignupBtn = document.getElementById('mobile-nav-signup')
     const mobileProfileBtn = document.getElementById('mobile-nav-profile')
     const mobileLogoutBtn = document.getElementById('mobile-nav-logout')
     const mobilMenuProfileItem = document.getElementById('mobile-menu-profile')
-    
+
     // Update desktop navigation
     if (loginLink && signupLink && profileLink && logoutLink) {
       if (user) {
@@ -186,9 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
         profileLink.style.display = 'none'
         logoutLink.style.display = 'none'
       }
-      
-      // Only add logout listener once - use removeEventListener first to prevent duplicates
-      const handleLogout = (e) => {
+
+      logoutLink.addEventListener('click', (e) => {
         e.preventDefault()
         localStorage.removeItem('loggedInUser')
         window.location.href = 'login.html'
@@ -196,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       logoutLink.removeEventListener('click', handleLogout)
       logoutLink.addEventListener('click', handleLogout)
     }
-    
+
     // Update mobile navigation buttons
     if (mobileLoginBtn && mobileSignupBtn && mobileProfileBtn && mobileLogoutBtn) {
       if (user) {
@@ -210,16 +209,15 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileProfileBtn.style.display = 'none'
         mobileLogoutBtn.style.display = 'none'
       }
-      
-      // Only add mobile logout listener once - use removeEventListener first to prevent duplicates
-      const handleMobileLogout = () => {
+
+      mobileLogoutBtn.addEventListener('click', () => {
         localStorage.removeItem('loggedInUser')
         window.location.href = 'login.html'
       }
       mobileLogoutBtn.removeEventListener('click', handleMobileLogout)
       mobileLogoutBtn.addEventListener('click', handleMobileLogout)
     }
-    
+
     // Update mobile menu profile item
     if (mobilMenuProfileItem) {
       mobilMenuProfileItem.style.display = user ? 'block' : 'none'
@@ -258,11 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Testimonial Carousel Functionality
   const initTestimonialCarousel = () => {
     if (!DOM.testimonialTrack) return;
-    
+
     const cards = DOM.testimonialCards;
     let currentIndex = 0;
     let autoSlideInterval;
-    
+
     // Create dots for each testimonial
     if (DOM.carouselDots && cards.length) {
       cards.forEach((_, index) => {
@@ -273,81 +271,81 @@ document.addEventListener('DOMContentLoaded', () => {
         DOM.carouselDots.appendChild(dot);
       });
     }
-    
+
     // Set initial active card
     if (cards.length) {
       cards[0].classList.add('active');
     }
-    
+
     // Function to go to a specific slide
     const goToSlide = (index) => {
       if (!DOM.testimonialTrack || !cards.length) return;
-      
+
       // Update currentIndex
       currentIndex = index;
-      
+
       // Handle index boundaries
       if (currentIndex < 0) currentIndex = cards.length - 1;
       if (currentIndex >= cards.length) currentIndex = 0;
-      
+
       // Transform the track to show the current slide
       const slideWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(cards[0]).marginLeft) * 2;
       DOM.testimonialTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-      
+
       // Update active states
       cards.forEach((card, i) => {
         card.classList.toggle('active', i === currentIndex);
       });
-      
+
       // Update dots
       const dots = DOM.carouselDots.querySelectorAll('.carousel-dot');
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === currentIndex);
       });
-      
+
       // Reset auto slide timer
       resetAutoSlide();
     };
-    
+
     // Function to go to the next slide
     const nextSlide = () => {
       goToSlide(currentIndex + 1);
     };
-    
+
     // Function to go to the previous slide
     const prevSlide = () => {
       goToSlide(currentIndex - 1);
     };
-    
+
     // Set up automatic sliding
     const startAutoSlide = () => {
       autoSlideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
     };
-    
+
     // Reset auto slide timer
     const resetAutoSlide = () => {
       clearInterval(autoSlideInterval);
       startAutoSlide();
     };
-    
+
     // Initialize the carousel with automatic sliding
     startAutoSlide();
-    
+
     // Add swipe functionality for mobile
     let touchStartX = 0;
     let touchEndX = 0;
-    
+
     if (DOM.testimonialCarousel) {
       DOM.testimonialCarousel.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
       }, { passive: true });
-      
+
       DOM.testimonialCarousel.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
       }, { passive: true });
     }
-    
+
     const handleSwipe = () => {
       const swipeThreshold = 50;
       if (touchStartX - touchEndX > swipeThreshold) {
@@ -380,14 +378,14 @@ document.addEventListener('DOMContentLoaded', () => {
     await loadComponents()
     DOM.backToTop = document.querySelector('.back-to-top')
     setupBackToTop()
-    
+
     // Initialize the testimonial carousel after components are loaded
     // Need to reselect DOM elements after components are loaded
     DOM.testimonialTrack = document.querySelector('.testimonial-track');
     DOM.testimonialCarousel = document.querySelector('.testimonial-carousel');
     DOM.testimonialCards = document.querySelectorAll('.testimonial-card');
     DOM.carouselDots = document.querySelector('.carousel-dots');
-    
+
     if (DOM.testimonialTrack) {
       initTestimonialCarousel();
     }
@@ -398,11 +396,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const welcomeBtn = document.getElementById("welcomeBackBtn");
-  
+
   if (welcomeBtn) {
     welcomeBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      
+
       const loggedInUser = localStorage.getItem("loggedInUser");
 
       if (loggedInUser) {
@@ -413,3 +411,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+function submitFeedback() {
+    const rating = document.querySelector('input[name="rating"]:checked');
+    const feedbackText = document.getElementById("feedback-text");
+    const message = document.getElementById("feedback-message");
+
+    // Validation
+    const textValue = feedbackText.value.trim();
+    if (!rating) {
+      message.textContent = "Please select a rating before submitting.";
+      message.style.color = "red";
+      message.style.display = "block";
+      return;
+    }
+
+    if (textValue.length > 0 && textValue.length < 2) {
+      message.textContent = "Feedback must be at least 2 characters long.";
+      message.style.color = "red";
+      message.style.display = "block";
+      return;
+    }
+
+    // Show success message
+    message.textContent = "✅ Your feedback has been submitted successfully!";
+    message.style.color = "green";
+    message.style.display = "block";
+
+    // Clear input & rating
+    feedbackText.value = "";
+    rating.checked = false;
+
+    // Hide message after 3 seconds
+    setTimeout(() => {
+      message.style.display = "none";
+    }, 3000);
+  }
+
+  function skipFeedback() {
+    const message = document.getElementById("feedback-message");
+    message.textContent = "Feedback skipped.";
+    message.style.color = "#555";
+    message.style.display = "block";
+
+    setTimeout(() => {
+      message.style.display = "none";
+    }, 2000);
+  }
