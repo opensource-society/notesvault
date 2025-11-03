@@ -6,7 +6,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
-| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 15 | 3 | 0 | 12 |
+| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 16 | 3 | 0 | 13 |
 | [@Peehu1308](https://github.com/Peehu1308) | 7 | 3 | 0 | 9 |
 | [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 12 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 2 | 0 | 9 |
