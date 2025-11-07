@@ -72,27 +72,34 @@
   <!-- Footer -->
   <div id="footer-placeholder"></div>
 
-  <!-- Note Modal -->
   <div id="noteDetailModal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
       <h2 id="modalNoteTitle"></h2>
+
       <p><strong>Branch:</strong> <span id="modalNoteBranch"></span></p>
       <p><strong>Semester:</strong> <span id="modalNoteSemester"></span></p>
+
       <p>
         <strong>Description:</strong> <span id="modalNoteDescription"></span>
       </p>
-      <p>
-        <strong>Uploaded By:</strong> <span id="modalNoteUploader"></span>
-      </p>
-      <p>
-        <strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span>
-      </p>
+
+      <!-- ✅ Copy Note Button -->
+      <button id="copyNoteButton" class="copy-btn">
+        <i class="fa fa-copy"></i> Copy Note
+      </button>
+      <span id="copyTooltip" class="copy-tooltip">Copied!</span>
+
+      <p><strong>Uploaded By:</strong> <span id="modalNoteUploader"></span></p>
+      <p><strong>Upload Date:</strong> <span id="modalNoteUploadDate"></span></p>
+
       <a id="modalDownloadButton" class="download-button" href="#" download>
         <i class="fas fa-download"></i> &nbsp; Download Note
       </a>
     </div>
   </div>
+
+
 
   <!-- JavaScript -->
   <script>

@@ -255,6 +255,37 @@
   color: var(--text-secondary);
   grid-column: 1 / -1;
 }
+.copy-btn {
+  background-color: var(--primary-500); /* use your site’s green color */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.copy-btn:hover {
+  background-color: var(--primary-600);
+}
+
+.copy-tooltip {
+  display: none;
+  color: #28a745;
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.copy-tooltip.show {
+  display: inline;
+}
+
 
 /* Animations */
 @keyframes fadeInUp {
