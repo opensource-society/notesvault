@@ -240,3 +240,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+const copyBtn = document.getElementById("copyNoteButton");
+const copyTooltip = document.getElementById("copyTooltip");
+
+copyBtn.addEventListener("click", () => {
+  const noteTitle = document.getElementById("modalNoteTitle").innerText;
+  const noteBranch = document.getElementById("modalNoteBranch").innerText;
+  const noteSemester = document.getElementById("modalNoteSemester").innerText;
+  const noteDescription = document.getElementById("modalNoteDescription").innerText;
+
+  const noteText = `Title: ${noteTitle}\nBranch: ${noteBranch}\nSemester: ${noteSemester}\nDescription: ${noteDescription}`;
+  
+  navigator.clipboard.writeText(noteText).then(() => {
+    copyTooltip.classList.add("show");
+    setTimeout(() => copyTooltip.classList.remove("show"), 2000);
+  });
+});
