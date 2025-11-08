@@ -25,6 +25,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
 | [@Gourangi4](https://github.com/Gourangi4) | 2 | 0 | 0 | 2 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
+| [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
@@ -82,7 +83,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
-| [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 0 |
 
 ---
 
