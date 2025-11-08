@@ -24,13 +24,13 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
 | [@Gourangi4](https://github.com/Gourangi4) | 2 | 0 | 0 | 2 |
+| [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
-| [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
 | [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
 | [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
