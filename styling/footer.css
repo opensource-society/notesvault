@@ -176,6 +176,7 @@
   background-color: var(--bg-primary);
   color: var(--text-primary);
   border: 1px solid rgba(0, 140, 45, 0.15);
+  opacity: 0.8;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
@@ -184,6 +185,7 @@
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 140, 45, 0.15);
+  opacity: 1;
 }
 
 /* Footer Bottom */
