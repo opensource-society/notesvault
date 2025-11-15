@@ -1,10 +1,10 @@
-/* Features (CSS) */
+
 
 .features-page {
   padding-top: 0;
 }
 
-/* Hero Section */
+
 .features-hero {
   background: linear-gradient(
     135deg,
@@ -94,7 +94,7 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Floating icons in hero */
+
 .hero-decoration {
   position: absolute;
   top: 0;
@@ -144,7 +144,7 @@
   }
 }
 
-/* Features Overview Section */
+
 .features-overview {
   padding: 4rem 0 1rem;
   background-color: var(--bg-primary);
@@ -169,7 +169,7 @@
   margin: 0 auto;
 }
 
-/* Features Grid Section */
+
 .features-grid-section {
   padding: 2rem 1.5rem 6rem;
   background-color: var(--bg-primary);
@@ -181,7 +181,7 @@
   gap: 2.5rem;
 }
 
-/* Feature Card */
+
 .feature-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -258,7 +258,7 @@
   letter-spacing: 0.5px;
 }
 
-/* Feature Content */
+
 .feature-content h2 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -299,7 +299,7 @@
   font-size: 0.8rem;
 }
 
-/* Testimonials Section */
+
 .testimonials-section {
   background-color: var(--gray-50);
   padding: 5rem 1.5rem;
@@ -376,7 +376,7 @@
   margin: 0;
 }
 
-/* CTA Section */
+
 .cta-section {
   background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
   color: white;
@@ -499,7 +499,7 @@
   border: 1px solid var(--gray-100);
 }
 
-/* Responsive Design */
+
 @media (max-width: 992px) {
   .features-hero h1 {
     font-size: 2.8rem;

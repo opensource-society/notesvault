@@ -1,4 +1,4 @@
-<!-- JotPad (HTML) -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,30 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NotesVault - JotPad</title>
 
-    <!-- Favicon -->
+
     <link
       rel="icon"
-      href="../assets/index/images/favicon.png"
+      href="/assets/index/images/favicon.png"
       type="image/x-icon"
     />
 
-    <!-- Font Awesome -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../styling/jotpad.css" />
-    <link rel="stylesheet" href="../styling/base.css" />
-    <link rel="stylesheet" href="../styling/variables.css" />
+
+    <link rel="stylesheet" href="/styling/jotpad.css" />
+    <link rel="stylesheet" href="/styling/base.css" />
+    <link rel="stylesheet" href="/styling/variables.css" />
   </head>
 
   <body>
-    <!-- Header -->
+
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
+
     <section class="jotpad-hero">
       <div class="container">
         <h1>JotPad</h1>
@@ -46,7 +46,7 @@
           <button class="mode-btn" id="drawModeBtn">Draw Mode</button>
         </div>
 
-        <!-- Markdown Toolbar (only visible in text mode) -->
+
         <div class="markdown-toolbar" id="markdownToolbar">
           <div class="toolbar-group">
             <button class="toolbar-btn" id="boldBtn" title="Bold (Ctrl+B)" data-format="bold">
@@ -115,7 +115,7 @@
         </div>
 
         <div class="button-wrapper">
-          <!-- Drawing Tools (only visible in draw mode) -->
+
           <div class="drawing-tools" id="drawingTools" style="display: none;">
             <button class="tool-btn active" id="penTool" title="Pen Tool">
               <i class="fa-solid fa-pen"></i>
@@ -145,13 +145,14 @@
     </div>
     </div>
 
-    <!-- Footer -->
+
     <div id="footer-placeholder"></div>
 
-    <!-- JavaScript -->
-    <script src="../scripts/script.js"></script>
-    <script src="../scripts/markdown-parser.js"></script>
-    <script src="../scripts/jotpad.js"></script>
+
+    <script src="/scripts/auth.js" defer></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/markdown-parser.js"></script>
+    <script src="/scripts/jotpad.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   </body>

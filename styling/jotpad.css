@@ -1,7 +1,7 @@
 
-/* JotPad (CSS) */
 
-/* Hero Section */
+
+
 .jotpad-hero {
   background: linear-gradient(
     135deg,
@@ -64,7 +64,7 @@
   border-radius: 0.25rem;
 }
 
-/* Markdown Toolbar */
+
 .markdown-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -270,7 +270,7 @@
   font-style: italic;
 }
 
-/* Code syntax highlighting */
+
 .markdown-preview .keyword {
   color: #0000ff;
   font-weight: bold;
@@ -384,7 +384,7 @@
   flex-wrap: wrap;
 }
 
-/* Drawing Tools Styles */
+
 .drawing-tools {
   display: flex;
   align-items: center;
@@ -484,7 +484,7 @@
   background-color: #ffd700;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .drawing-container {
     grid-template-columns: 1fr;

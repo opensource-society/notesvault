@@ -1,4 +1,4 @@
-<!-- User Profile Page (HTML) -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,22 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NotesVault - User Profile</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
 
-  <!-- Font Awesome -->
+  <link rel="icon" href="/assets/index/images/favicon.png" type="image/x-icon" />
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="../styling/variables.css" />
-  <link rel="stylesheet" href="../styling/base.css" />
-  <link rel="stylesheet" href="../styling/profile.css" />
+
+  <link rel="stylesheet" href="/styling/variables.css" />
+  <link rel="stylesheet" href="/styling/base.css" />
+  <link rel="stylesheet" href="/styling/profile.css" />
 </head>
-<body>
-  <!-- Header -->
+<body data-require-auth="true">
+
   <div id="header-placeholder"></div>
 
-  <!-- Main Content -->
+
   <main class="profile-container">
     <div class="profile-header">
       <h1>My Profile</h1>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="profile-grid">
-      <!-- Profile Information -->
+
       <section class="profile-info-card">
         <div class="card-header">
           <h2><i class="fas fa-user-circle"></i> Personal Information</h2>
@@ -78,7 +78,7 @@
         </div>
       </section>
 
-      <!-- Account Settings -->
+
       <section class="account-settings-card">
         <div class="card-header">
           <h2><i class="fas fa-cog"></i> Account Settings</h2>
@@ -147,7 +147,7 @@
         </div>
       </section>
 
-      <!-- Activity Summary -->
+
       <section class="activity-summary-card">
         <div class="card-header">
           <h2><i class="fas fa-chart-line"></i> Activity Summary</h2>
@@ -171,7 +171,7 @@
               <div class="stat-label">Study Time</div>
             </div>
           </div>
-          
+
           <div class="recent-activity">
             <h3>Recent Activity</h3>
             <div class="activity-timeline">
@@ -203,7 +203,7 @@
     </div>
   </main>
 
-  <!-- Change Password Modal -->
+
   <div class="modal" id="change-password-modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -248,11 +248,12 @@
     </div>
   </div>
 
-  <!-- Footer -->
+
   <div id="footer-placeholder"></div>
 
-  <!-- JavaScript -->
-  <script src="../scripts/script.js"></script>
-  <script src="../scripts/profile.js"></script>
+
+  <script src="/scripts/auth.js" defer></script>
+  <script src="/scripts/script.js"></script>
+  <script src="/scripts/profile.js"></script>
 </body>
 </html>

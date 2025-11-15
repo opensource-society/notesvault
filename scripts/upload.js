@@ -1,4 +1,4 @@
-// Upload Notes (JavaScript)
+
 
 document.addEventListener('DOMContentLoaded', function () {
   let branchData
@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const semesterSelect = document.getElementById('semester')
   const subjectSelect = document.getElementById('subject')
 
-  // Custom Input Containers
   const customBranchContainer = document.getElementById('customBranchContainer')
   const customSemesterContainer = document.getElementById(
     'customSemesterContainer'
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
     'customSubjectContainer'
   )
 
-  // Initialize Form State
   function initializeForm() {
     semesterSelect.disabled = true
     subjectSelect.disabled = true
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
     customSubjectContainer.style.display = 'none'
   }
 
-  // Fetch Branch Data
   function loadBranchData() {
     fetch('../data/parameters.json')
       .then((response) => {
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
       })
   }
 
-  // Populate Branches Dropdown
   function populateBranches(branches) {
     branchSelect.innerHTML =
       '<option value="">Select Branch</option><option value="custom">Add Custom Branch...</option>'
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  // Handle Branch Selection Change
   function handleBranchChange() {
     const selectedBranch = this.value
     semesterSelect.innerHTML =
@@ -76,13 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
     semesterSelect.disabled = false
     subjectSelect.disabled = true
 
-    // Use find() instead of filter for better performance (stops at first match)
     const branch = branchData.branches.find((b) =>
       typeof b === 'object' ? b.name === selectedBranch : b === selectedBranch
     )
 
     if (branch && typeof branch === 'object' && branch.semesters) {
-      // Use DocumentFragment for better DOM performance
+
       const fragment = document.createDocumentFragment()
       branch.semesters.forEach((sem) => {
         const option = document.createElement('option')
@@ -94,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Handle Semester Selection Change
   function handleSemesterChange() {
     const selectedSemester = this.value
     subjectSelect.innerHTML =
@@ -120,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         (s) => s.semester === semester
       )
       if (semesterObj && semesterObj.subjects) {
-        // Use DocumentFragment for better DOM performance
+
         const fragment = document.createDocumentFragment()
         semesterObj.subjects.forEach((sub) => {
           const code = Object.keys(sub)[0]
@@ -135,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Handle Subject Selection Change
   function handleSubjectChange() {
     if (this.value === 'custom') {
       customSubjectContainer.style.display = 'flex'
@@ -144,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
     customSubjectContainer.style.display = 'none'
   }
 
-  // Confirm Custom Branch
   function confirmCustomBranch() {
     const customBranch = document.getElementById('customBranch').value.trim()
     if (!customBranch) {
@@ -162,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('customBranch').value = ''
   }
 
-  // Confirm Custom Semester
   function confirmCustomSemester() {
     const customSemester = document
       .getElementById('customSemester')
@@ -182,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('customSemester').value = ''
   }
 
-  // Confirm Custom Subject
   function confirmCustomSubject() {
     const code = document.getElementById('customSubjectCode').value.trim()
     const name = document.getElementById('customSubjectName').value.trim()
@@ -202,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('customSubjectName').value = ''
   }
 
-  // File Drop Zone Functionality
   function setupFileDropZone() {
     const dropZone = document.getElementById('drop-zone')
     const fileInput = document.getElementById('file')
@@ -236,14 +224,14 @@ document.addEventListener('DOMContentLoaded', function () {
   function handleDrop(e) {
     const dt = e.dataTransfer
     const files = dt.files
-    // Get file input from DOM to avoid referencing outer-scope var
+
     const fileInput = document.getElementById('file')
     if (!fileInput) return
     try {
       fileInput.files = files
       handleFileSelect({ target: fileInput })
     } catch (err) {
-      // Some browsers prevent programmatic assignment to input.files; fallback to using files directly
+
       handleFileSelect({ target: { files } })
     }
   }
@@ -277,24 +265,20 @@ document.addEventListener('DOMContentLoaded', function () {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
   }
 
-  // Show Status Message
   function showMessage(text, type) {
     const message = document.getElementById('message')
     message.textContent = text
     message.className = `status-message status-${type}`
 
-    // Auto-Hide Message After 5 Seconds
     setTimeout(() => {
       message.textContent = ''
       message.className = 'status-message'
     }, 5000)
   }
 
-  // Form Submission
   function handleFormSubmit(e) {
     e.preventDefault()
 
-    // Validate Form
     const title = document.getElementById('title').value.trim()
     const file = document.getElementById('file').files[0]
 
@@ -303,24 +287,61 @@ document.addEventListener('DOMContentLoaded', function () {
       return
     }
 
-    // Simulate Successful Upload
-    showMessage(
-      'Notes Uploaded Successfully (For Demo Purposes Only - Not Stored)',
-      'success'
-    )
+    // Build FormData and POST to server
+    const form = new FormData()
+    form.append('title', title)
+    form.append('branch', document.getElementById('branch').value)
+    form.append('semester', document.getElementById('semester').value)
+    form.append('subject', document.getElementById('subject').value)
+    form.append('tags', document.getElementById('tags').value)
+    form.append('file', file)
 
-    // Reset Form
-    this.reset()
-    document.getElementById('preview').innerHTML = ''
-    initializeForm()
+    showMessage('Uploading...', 'info')
+
+    // Use XMLHttpRequest to show progress
+    const xhr = new XMLHttpRequest()
+    xhr.open('POST', '/api/upload')
+    xhr.withCredentials = true
+
+    xhr.upload.addEventListener('progress', (ev) => {
+      if (ev.lengthComputable) {
+        const percent = Math.round((ev.loaded / ev.total) * 100)
+        showMessage(`Uploading... ${percent}%`, 'info')
+      }
+    })
+
+    xhr.addEventListener('load', () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try {
+          const data = JSON.parse(xhr.responseText)
+          showMessage('Upload successful', 'success')
+        } catch (e) {
+          showMessage('Upload completed (server returned non-JSON)', 'success')
+        }
+        document.getElementById('uploadForm').reset()
+        document.getElementById('preview').innerHTML = ''
+        initializeForm()
+      } else {
+        let msg = 'Upload failed'
+        try {
+          const data = JSON.parse(xhr.responseText)
+          msg = data.error || data.message || msg
+        } catch (e) {}
+        showMessage(msg, 'error')
+      }
+    })
+
+    xhr.addEventListener('error', () => {
+      showMessage('Upload failed due to network error', 'error')
+    })
+
+    xhr.send(form)
   }
 
-  // Initialize Application
   function init() {
     initializeForm()
     loadBranchData()
 
-    // Event Listeners
     branchSelect.addEventListener('change', handleBranchChange)
     semesterSelect.addEventListener('change', handleSemesterChange)
     subjectSelect.addEventListener('change', handleSubjectChange)
