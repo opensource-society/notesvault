@@ -2,11 +2,11 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2025-11-07*
+*Last updated: 2025-11-15*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
-| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 16 | 3 | 0 | 13 |
+| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 17 | 3 | 0 | 14 |
 | [@Peehu1308](https://github.com/Peehu1308) | 7 | 3 | 0 | 9 |
 | [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 12 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 2 | 0 | 9 |

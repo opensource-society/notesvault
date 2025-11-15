@@ -108,7 +108,7 @@
 }
 
 .footer-link::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0%;
   height: 2px;
@@ -149,6 +149,7 @@
 }
 
 .oss-badge:hover {
+  cursor: pointer;
   transform: translateY(-3px);
   box-shadow: 0 3px 15px rgba(0, 140, 45, 0.15);
 }
@@ -175,6 +176,7 @@
   background-color: var(--bg-primary);
   color: var(--text-primary);
   border: 1px solid rgba(0, 140, 45, 0.15);
+  opacity: 0.8;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
@@ -183,6 +185,7 @@
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 140, 45, 0.15);
+  opacity: 1;
 }
 
 /* Footer Bottom */
@@ -279,24 +282,22 @@
 }
 
 /* Dark Mode Adjustments */
-[data-theme='dark'] .footer {
+[data-theme="dark"] .footer {
   background-color: var(--gray-900);
 }
 
-[data-theme='dark'] .oss-badge {
+[data-theme="dark"] .oss-badge {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-[data-theme='dark'] .social-link {
+[data-theme="dark"] .social-link {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
-[data-theme='dark'] .social-link:hover {
-  background-color: var(--primary-500);/*green clr*/
+[data-theme="dark"] .social-link:hover {
+  background-color: var(--primary-500); /*green clr*/
   color: white;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
