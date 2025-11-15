@@ -1,23 +1,21 @@
-// Sign Up (JavaScript)
+
 document.addEventListener('DOMContentLoaded', function () {
-  // DOM Elements
+
   const signupForm = document.getElementById('signupForm')
   const messageBox = document.getElementById('messageBox')
   const passwordInput = document.getElementById('password')
   const confirmPasswordInput = document.getElementById('confirm-password')
   const passwordToggles = Array.from(document.querySelectorAll('.password-toggle'))
-  // Safely get icons for toggles (may not exist if markup is incomplete)
+
   const passwordIcon = passwordToggles[0]?.querySelector('i')
   const confirmPasswordIcon = passwordToggles[1]?.querySelector('i')
   const signupBtn = document.getElementById('signupBtn')
   const spinner = document.getElementById('spinner')
   const btnText = document.getElementById('btnText')
 
-  // Constants
   const MIN_PASSWORD_LENGTH = 6
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-  // Toggle Password Visibility for password field (if toggle exists)
   if (passwordToggles[0]) {
     passwordToggles[0].addEventListener('click', function () {
       const isPassword = passwordInput.type === 'password'
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  // Toggle Confirm Password Visibility
   function toggleConfirmPassword() {
     const isPassword = confirmPasswordInput.type === 'password'
     confirmPasswordInput.type = isPassword ? 'text' : 'password'
@@ -36,10 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (passwordToggles[1]) passwordToggles[1].addEventListener('click', toggleConfirmPassword)
 
-  // Floating Label Effect
-  // Floating Label Effect
+
   document.querySelectorAll('.floating-input input').forEach((input) => {
-    // Initialize focused state if input already has value (e.g., browser autofill)
+
     if (input.value && input.value.trim() !== '') {
       input.parentNode.classList.add('focused')
     }
@@ -49,14 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
 
-  // Show Message
   function showMessage(text, type) {
     messageBox.textContent = text
     messageBox.className = `message-box ${type} show`
     setTimeout(() => messageBox.classList.remove('show'), 3000)
   }
 
-  // Set Loading State
   function setLoadingState(isLoading) {
     if (isLoading) {
       spinner.classList.remove('hidden')
@@ -69,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Hash password using SHA-256
   async function hashPassword(password) {
     const encoder = new TextEncoder()
     const data = encoder.encode(password)
@@ -79,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
       .join('')
   }
 
-  // Form Validation
   function validateForm(name, email, password, confirmPassword) {
     if (!name || !email || !password || !confirmPassword) {
       showMessage('Please Fill In All Fields', 'error')
@@ -104,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return true
   }
 
-  // Form Submission
+  const API_BASE = 'http://localhost:5000'
+
   signupForm.addEventListener('submit', async function (e) {
     e.preventDefault()
 
@@ -118,28 +111,27 @@ document.addEventListener('DOMContentLoaded', function () {
     setLoadingState(true)
 
     try {
-      // Hash the password
+
       const hashedPassword = await hashPassword(password)
 
-      // Store user in localStorage with additional fields for profile page
-      const userData = {
-        name,
-        password: hashedPassword,
-        email,
-        institution: "Not specified", // Default values that user can update in profile
-        branch: "Not specified",
-        year: "Not specified",
-        studentId: "Not specified"
+      const res = await fetch(`${API_BASE}/api/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password: hashedPassword }),
+        credentials: 'include',
+      })
+
+      const data = await res.json()
+      if (!res.ok) {
+        showMessage(data.error || 'Signup failed', 'error')
+        setLoadingState(false)
+        return
       }
-      
-      localStorage.setItem(email, JSON.stringify(userData))
-      console.log('Stored user:', localStorage.getItem(email))
 
       showMessage('Account Created Successfully! Redirecting To Login...', 'success')
-
       setTimeout(() => {
-        window.location.href = 'login.html'
-      }, 2000)
+        window.location.href = '/pages/login.html'
+      }, 1200)
     } catch (error) {
       console.error('Signup error:', error)
       showMessage('Signup Failed. Please Try Again...', 'error')

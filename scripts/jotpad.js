@@ -1,14 +1,12 @@
-// JotPad (JavaScript)
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const noteArea = document.getElementById('noteArea')
   const markdownPreview = document.getElementById('markdownPreview')
   const markdownToolbar = document.getElementById('markdownToolbar')
-  
-  // Initialize markdown content from localStorage
+
   noteArea.value = localStorage.getItem('noteContent') || ''
-  
-  // Update markdown preview
+
   function updateMarkdownPreview() {
     const markdownText = noteArea.value
     if (markdownText.trim() === '') {
@@ -18,28 +16,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     saveNoteContent()
   }
-  
-  // Initial preview render
+
   updateMarkdownPreview()
 
-  // Initialize Canvas
   const canvas = document.getElementById('drawingCanvas')
   const ctx = canvas.getContext('2d')
   let isDrawing = false
   let lastX = 0
   let lastY = 0
 
-  // Drawing tool variables
   let currentTool = 'pen'
   let brushSize = 2
 
-  // Canvas Size
   function resizeCanvas() {
     const noteBox = document.querySelector('.note-box')
     canvas.width = noteBox.offsetWidth
     canvas.height = noteBox.offsetHeight
 
-    // Redraw Existing Content
     const canvasData = localStorage.getItem('canvasData')
     if (canvasData) {
       const img = new Image()
@@ -53,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
   resizeCanvas()
   window.addEventListener('resize', resizeCanvas)
 
-  // Drawing Functions
   function startDrawing(e) {
     isDrawing = true
     const rect = canvas.getBoundingClientRect()
@@ -70,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const theme = document.documentElement.getAttribute('data-theme')
 
-    // Set drawing properties based on current tool
     if (currentTool === 'eraser') {
       ctx.globalCompositeOperation = 'destination-out'
       ctx.lineWidth = brushSize * 3 // Make eraser bigger
@@ -95,11 +86,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function stopDrawing() {
     if (!isDrawing) return
     isDrawing = false
-    // Debounce canvas save to avoid excessive localStorage writes
+
     debouncedSaveCanvas()
   }
 
-  // Debounced save function to reduce localStorage writes
   let canvasSaveTimeout
   function debouncedSaveCanvas() {
     clearTimeout(canvasSaveTimeout)
@@ -108,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 500)
   }
 
-  // Switch Mode (Text <--> Draw)
   const textModeBtn = document.getElementById('textModeBtn')
   const drawModeBtn = document.getElementById('drawModeBtn')
   const saveDrawingBtn = document.getElementById('saveDrawingBtn')
@@ -144,16 +133,13 @@ document.addEventListener('DOMContentLoaded', function () {
   textModeBtn.addEventListener('click', activateTextMode)
   drawModeBtn.addEventListener('click', activateDrawMode)
 
-  // Set Initial Mode
   activateTextMode()
 
-  // Canvas Event Listeners
   canvas.addEventListener('mousedown', startDrawing)
   canvas.addEventListener('mousemove', draw)
   canvas.addEventListener('mouseup', stopDrawing)
   canvas.addEventListener('mouseout', stopDrawing)
 
-  // Touch Functionality (Draw Mode)
   canvas.addEventListener('touchstart', (e) => {
     e.preventDefault()
     const touch = e.touches[0]
@@ -180,20 +166,17 @@ document.addEventListener('DOMContentLoaded', function () {
     canvas.dispatchEvent(mouseEvent)
   })
 
-  // Clear Drawing Button
   clearDrawingBtn.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     localStorage.removeItem('canvasData')
   })
 
-  // Save Drawing Button
   saveDrawingBtn.addEventListener('click', () => {
     const imageData = canvas.toDataURL('image/png')
     
     activateTextMode()
     noteArea.focus()
 
-    // Insert markdown image syntax at cursor
     const cursorPos = noteArea.selectionStart
     const textBefore = noteArea.value.substring(0, cursorPos)
     const textAfter = noteArea.value.substring(cursorPos)
@@ -204,15 +187,12 @@ document.addEventListener('DOMContentLoaded', function () {
     updateMarkdownPreview()
   })
 
-  // Drawing Tools Functions
   function setTool(tool) {
     currentTool = tool
-    
-    // Update button states
+
     document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'))
     document.getElementById(tool + 'Tool').classList.add('active')
-    
-    // Set cursor style based on tool
+
     if (tool === 'eraser') {
       canvas.style.cursor = 'crosshair'
     } else {
@@ -224,12 +204,10 @@ document.addEventListener('DOMContentLoaded', function () {
     brushSize = parseInt(size)
   }
 
-  // Drawing Tools Event Listeners
   document.getElementById('penTool').addEventListener('click', () => setTool('pen'))
   document.getElementById('eraserTool').addEventListener('click', () => setTool('eraser'))
   document.getElementById('brushSize').addEventListener('input', (e) => setBrushSize(e.target.value))
 
-  // Markdown Toolbar Functions
   function insertMarkdown(format) {
     const start = noteArea.selectionStart
     const end = noteArea.selectionEnd
@@ -300,16 +278,14 @@ document.addEventListener('DOMContentLoaded', function () {
     noteArea.setSelectionRange(start + cursorOffset, start + cursorOffset)
     updateMarkdownPreview()
   }
-  
-  // Markdown Toolbar Event Listeners
+
   document.querySelectorAll('.toolbar-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const format = btn.dataset.format
       insertMarkdown(format)
     })
   })
-  
-  // Keyboard shortcuts for markdown
+
   noteArea.addEventListener('keydown', (e) => {
     if (e.ctrlKey || e.metaKey) {
       switch(e.key.toLowerCase()) {
@@ -325,7 +301,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
-  // Handle Note Content with debounced saving
   let saveTimeout
   function saveNoteContent() {
     clearTimeout(saveTimeout)
@@ -336,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   noteArea.addEventListener('input', updateMarkdownPreview)
   noteArea.addEventListener('blur', () => {
-    // Force immediate save on blur
+
     clearTimeout(saveTimeout)
     localStorage.setItem('noteContent', noteArea.value)
   })

@@ -26,7 +26,6 @@ const progressChart = new Chart(chartCtx, {
   }
 });
 
-// Batch chart updates to improve performance
 function updateChart() {
   if (chartUpdatePending) return;
   

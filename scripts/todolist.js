@@ -1,4 +1,4 @@
-// To-Do List (JavaScript)
+
 
 class TodoList {
   constructor() {
@@ -14,11 +14,10 @@ class TodoList {
   }
 
   bindEvents() {
-    // Form Submission
+
     const form = document.getElementById('todoForm')
     form.addEventListener('submit', (e) => this.handleSubmit(e))
 
-    // Clear Buttons
     document
       .getElementById('clearCompleted')
       .addEventListener('click', () => this.clearCompleted())
@@ -26,7 +25,6 @@ class TodoList {
       .getElementById('clearAll')
       .addEventListener('click', () => this.clearAll())
 
-    // Task Input Focus
     const taskInput = document.getElementById('taskInput')
     taskInput.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.currentEditId) {
@@ -172,8 +170,7 @@ class TodoList {
     }
 
     emptyState.classList.remove('show')
-    
-    // Use DocumentFragment for better performance
+
     const fragment = document.createDocumentFragment()
     const tempDiv = document.createElement('div')
     tempDiv.innerHTML = this.todos
@@ -249,7 +246,7 @@ class TodoList {
   }
 
   showNotification(message, type = 'info') {
-    // Create Notification Element
+
     const notification = document.createElement('div')
     notification.className = `notification notification-${type}`
     notification.innerHTML = `
@@ -259,7 +256,6 @@ class TodoList {
             </div>
         `
 
-    // Add Styles
     notification.style.cssText = `
             position: fixed;
             top: 20px;
@@ -276,15 +272,12 @@ class TodoList {
             font-family: 'Poppins', sans-serif;
         `
 
-    // Add To Page
     document.body.appendChild(notification)
 
-    // Animate In
     setTimeout(() => {
       notification.style.transform = 'translateX(0)'
     }, 100)
 
-    // Remove After 3 Seconds
     setTimeout(() => {
       notification.style.transform = 'translateX(100%)'
       setTimeout(() => {
@@ -316,15 +309,13 @@ class TodoList {
   }
 }
 
-// Initialize To-Do List When DOM Is Loaded
 let todoList
 document.addEventListener('DOMContentLoaded', () => {
   todoList = new TodoList()
 })
 
-// Add Keyboard Shortcuts
 document.addEventListener('keydown', (e) => {
-  // Ctrl/Cmd + Enter To Submit Form
+
   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
     const form = document.getElementById('todoForm')
     if (form) {

@@ -1,6 +1,6 @@
-/* Browse Notes (CSS) */
 
-/* Hero Section */
+
+
 .notes-hero {
   background: linear-gradient(
     135deg,
@@ -38,7 +38,7 @@
   color: var(--accent-400);
 }
 
-/* Search Bar */
+
 .search-bar {
   margin-bottom: 2rem;
   text-align: left;
@@ -61,7 +61,7 @@
   border-color: var(--primary-500);
 }
 
-/* Filters */
+
 .filters-container {
   display: flex;
   flex-wrap: wrap;
@@ -109,7 +109,7 @@
   background-color: var(--gray-300);
 }
 
-/* Notes Grid */
+
 .notes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -148,7 +148,7 @@
   color: var(--text-secondary);
 }
 
-/* Button */
+
 .note-card .actions {
   margin-top: 1.25rem;
   display: flex;
@@ -192,7 +192,7 @@
   color: inherit;
 }
 
-/* Modal */
+
 .modal {
   position: fixed;
   top: 0;
@@ -247,7 +247,7 @@
   color: var(--error);
 }
 
-/* Loading / No Notes */
+
 .loading-message,
 .no-notes-message {
   text-align: center;
@@ -256,7 +256,7 @@
   grid-column: 1 / -1;
 }
 .copy-btn {
-  background-color: var(--primary-500); /* use your site’s green color */
+  background-color: var(--primary-500); 
   color: white;
   border: none;
   padding: 8px 14px;
@@ -287,7 +287,7 @@
 }
 
 
-/* Animations */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -299,7 +299,7 @@
   }
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .filters-container {
     flex-direction: column;

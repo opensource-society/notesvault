@@ -1,6 +1,6 @@
-/* User Profile Page Styling */
 
-/* Main Container */
+
+
 .profile-container {
   padding: 8rem 2rem 4rem;
   min-height: calc(100vh - 6rem);
@@ -38,7 +38,7 @@
   margin: 0 auto;
 }
 
-/* Profile Grid Layout */
+
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -47,7 +47,7 @@
   margin: 0 auto;
 }
 
-/* Card Styling Base */
+
 .profile-info-card,
 .account-settings-card,
 .activity-summary-card {
@@ -92,7 +92,7 @@
   font-size: 1.125rem;
 }
 
-/* Profile Information Card */
+
 .profile-info-card {
   grid-column: span 5;
 }
@@ -187,7 +187,7 @@
   margin-top: 2rem;
 }
 
-/* Account Settings Card */
+
 .account-settings-card {
   grid-column: span 7;
 }
@@ -238,7 +238,7 @@
   color: var(--text-secondary);
 }
 
-/* Toggle Switch */
+
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -305,7 +305,7 @@ input:checked + .toggle-slider:before {
   border-top: 1px solid rgba(220, 53, 69, 0.2);
 }
 
-/* Activity Summary Card */
+
 .activity-summary-card {
   grid-column: span 12;
   margin-top: 1rem;
@@ -393,7 +393,7 @@ input:checked + .toggle-slider:before {
   color: var(--text-secondary);
 }
 
-/* Edit Button */
+
 .edit-btn {
   background-color: var(--bg-secondary);
   color: var(--primary-500);
@@ -415,7 +415,7 @@ input:checked + .toggle-slider:before {
   border-color: var(--primary-400);
 }
 
-/* Button Styles */
+
 .btn-primary {
   background: linear-gradient(to right, var(--primary-500), var(--primary-600));
   color: white;
@@ -498,7 +498,7 @@ input:checked + .toggle-slider:before {
   border-color: #dc3545;
 }
 
-/* Modal Design */
+
 .modal {
   position: fixed;
   top: 0;
@@ -575,7 +575,7 @@ input:checked + .toggle-slider:before {
   padding: 2rem;
 }
 
-/* Password input group */
+
 .password-input-group {
   position: relative;
 }
@@ -620,7 +620,7 @@ input:checked + .toggle-slider:before {
   color: #dc3545;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
   .profile-info-card {
     grid-column: span 5;

@@ -1,6 +1,6 @@
-/* Overview (CSS) */
 
-/* Hero Section */
+
+
 .hero {
   padding: 8rem 0;
   background: linear-gradient(
@@ -80,7 +80,7 @@
   margin-right: 0.5rem;
 }
 
-/* Features Section */
+
 .features {
   padding: 6rem 0;
   background-color: var(--bg-primary);
@@ -150,7 +150,7 @@
   color: var(--text-secondary);
 }
 
-/* Benefits Section */
+
 .benefits {
   padding: 6rem 0;
   background-color: var(--bg-secondary);
@@ -217,7 +217,7 @@
   font-size: 1rem;
 }
 
-/* Testimonials Section */
+
 .testimonials {
   padding: 6rem 0;
   background-color: var(--bg-primary);
@@ -229,7 +229,7 @@
   margin-bottom: 3rem;
 }
 
-/* Carousel Container */
+
 .testimonial-carousel {
   position: relative;
   max-width: 900px;
@@ -307,7 +307,7 @@
   color: var(--text-secondary);
 }
 
-/* Carousel Controls */
+
 .carousel-controls {
   margin-top: 2rem;
   display: flex;
@@ -334,7 +334,7 @@
   transform: scale(1.2);
 }
 
-/* CTA Section */
+
 .cta {
   padding: 6rem 0;
   background: linear-gradient(
@@ -389,7 +389,7 @@
   border-color: white;
 }
 
-/* Animations */
+
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -402,7 +402,7 @@
   }
 }
 
-/* Responsive Design */
+
 @media (max-width: 992px) {
   .hero .container,
   .benefits .container {

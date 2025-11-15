@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  const API_BASE = 'http://localhost:5000'
+
   async function handleLogin(e) {
     e.preventDefault()
     const email = emailInput.value.trim()
@@ -105,41 +107,36 @@ document.addEventListener('DOMContentLoaded', function () {
     setLoadingState(true)
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000))
-      const storedUser = localStorage.getItem(email)
-      if (!storedUser) {
-        showMessage('Invalid email or password', 'error')
-        setLoadingState(false)
-        return
-      }
-      const parsedUser = JSON.parse(storedUser)
+
       const hashedInput = await hashPassword(password)
-      if (parsedUser.password !== hashedInput) {
-        showMessage('Invalid email or password', 'error')
+      const res = await fetch(`${API_BASE}/api/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password: hashedInput }),
+        credentials: 'include',
+      })
+
+      const data = await res.json()
+      if (!res.ok) {
+        showMessage(data.error || 'Invalid email or password', 'error')
         setLoadingState(false)
         return
       }
+
       if (shouldRemember) {
         localStorage.setItem('rememberEmail', email)
       } else {
         localStorage.removeItem('rememberEmail')
       }
 
-      localStorage.setItem("loggedInUser", email);
-
       showMessage('Login Successful! Redirecting...', 'success')
       setTimeout(() => {
-        // Store more complete user data for profile page
-        const userData = {
-          email,
-          name: parsedUser.name || "User",
-          institution: parsedUser.institution || "Not specified",
-          branch: parsedUser.branch || "Not specified",
-          year: parsedUser.year || "Not specified",
-          studentId: parsedUser.studentId || "Not specified"
-        }
-        localStorage.setItem("loggedInUser", JSON.stringify(userData))
-        window.location.href = 'pages/dashboard.html'
-      }, 1500)
+
+        const userData = data.user || { email }
+        localStorage.setItem('loggedInUser', JSON.stringify(userData))
+        if (window.auth && typeof window.auth.notifyAuthChange === 'function') window.auth.notifyAuthChange()
+        window.location.href = '/pages/dashboard.html'
+      }, 800)
     } catch (error) {
       console.error('Login error:', error)
       showMessage('Login Failed. Please Try Again...', 'error')

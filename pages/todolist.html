@@ -1,4 +1,4 @@
-<!-- To-Do List (HTML) -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,30 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NotesVault - To-Do List</title>
 
-    <!-- Favicon -->
+
     <link
       rel="icon"
-      href="../assets/index/images/favicon.png"
+      href="/assets/index/images/favicon.png"
       type="image/x-icon"
     />
 
-    <!-- Font Awesome -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../styling/variables.css" />
-    <link rel="stylesheet" href="../styling/todolist.css" />
-    <link rel="stylesheet" href="../styling/base.css" />
+
+    <link rel="stylesheet" href="/styling/variables.css" />
+    <link rel="stylesheet" href="/styling/todolist.css" />
+    <link rel="stylesheet" href="/styling/base.css" />
   </head>
 
   <body>
-    <!-- Header -->
+
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
+
     <section class="todolist-hero">
       <div class="container">
         <h1>To-Do List</h1>
@@ -40,10 +40,10 @@
       </div>
     </section>
 
-    <!-- Main Content -->
+
     <main class="todo-main">
       <div class="todo-container">
-        <!-- Add Task Form -->
+
         <div class="todo-form-container">
           <form id="todoForm" class="todo-form">
             <div class="input-group">
@@ -62,7 +62,7 @@
           </form>
         </div>
 
-        <!-- Task Controls -->
+
         <div class="todo-controls">
           <div class="task-stats">
             <span id="taskCount" class="task-count">0 Tasks</span>
@@ -80,13 +80,13 @@
           </div>
         </div>
 
-        <!-- Task List -->
+
         <div class="todo-list-container">
           <ul id="todoList" class="todo-list">
-            <!-- Task List (Dynamic) -->
+
           </ul>
 
-          <!-- Empty State -->
+
           <div id="emptyState" class="empty-state">
             <i class="fas fa-clipboard-list"></i>
             <h3>No tasks yet</h3>
@@ -96,18 +96,19 @@
       </div>
     </main>
 
-    <!-- Footer -->
+
     <div id="footer-placeholder"></div>
 
-    <!-- JavaScript -->
+
      <script>
 
     if (!localStorage.getItem("loggedInUser")) {
       alert("You must be logged in to access the dashboard!");
-      window.location.href = "login.html";
+      window.location.href = "/pages/login.html";
     }
   </script>
-    <script src="../scripts/script.js"></script>
-    <script src="../scripts/todolist.js"></script>
+    <script src="/scripts/auth.js" defer></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/todolist.js"></script>
   </body>
 </html>

@@ -1,0 +1,222 @@
+/* Upload Notes (CSS) */
+
+/* Hero Section */
+.upload-hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-500) 0%,
+    var(--primary-700) 100%
+  );
+  padding: 6rem 0 4rem 0;
+  text-align: center;
+}
+
+.upload-hero h1 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.upload-hero .subtitle {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Main Container */
+.upload-notes-container {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.upload-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+/* Form Elements */
+.upload-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.upload-form select,
+.upload-form input[type='text'],
+.upload-form input[type='file'],
+.upload-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.upload-form select:focus,
+.upload-form input:focus,
+.upload-form textarea:focus {
+  border-color: var(--primary-400);
+  outline: none;
+}
+
+/* File Drop Zone */
+.drop-zone {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.drop-zone:hover {
+  border-color: var(--primary-400);
+  background-color: var(--bg-secondary);
+}
+
+.drop-zone.active {
+  border-color: var(--primary-500);
+  background-color: var(--primary-100);
+}
+
+#preview {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Status Messages */
+.status-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.status-error {
+  background-color: var(--error);
+  color: var(--white);
+}
+
+.status-info {
+  background-color: var(--info);
+  color: var(--white);
+}
+
+/* Custom Input Container */
+.custom-input-container {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.custom-input-container input[type='text'] {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  min-width: 0;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Multiple Inputs (Subject Section) */
+.custom-input-container.multiple-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.75rem;
+}
+
+/* Add Button */
+.confirm-btn {
+  background-color: var(--primary-500);
+  color: var(--white);
+  padding: 0.7rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.confirm-btn:hover {
+  background-color: var(--primary-600);
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: var(--primary-500);
+  color: var(--white);
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-600);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:active {
+  background-color: var(--primary-700);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .upload-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .custom-input-container {
+    flex-direction: column;
+  }
+
+  .custom-input-container.multiple-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .confirm-btn {
+    width: 100%;
+    padding: 0.75rem;
+    height: auto;
+  }
+}

@@ -1,0 +1,159 @@
+<!-- JotPad (HTML) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - JotPad</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styling/jotpad.css" />
+    <link rel="stylesheet" href="/styling/base.css" />
+    <link rel="stylesheet" href="/styling/variables.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="jotpad-hero">
+      <div class="container">
+        <h1>JotPad</h1>
+        <p class="subtitle">A Clean, Real Time Note Taking Editor!</p>
+      </div>
+    </section>
+
+     <br/>
+    <div class="editor-wrapper">
+      <div class="editor-container">
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="textModeBtn">Text Mode</button>
+          <button class="mode-btn" id="drawModeBtn">Draw Mode</button>
+        </div>
+
+        <!-- Markdown Toolbar (only visible in text mode) -->
+        <div class="markdown-toolbar" id="markdownToolbar">
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="boldBtn" title="Bold (Ctrl+B)" data-format="bold">
+              <i class="fa-solid fa-bold"></i>
+            </button>
+            <button class="toolbar-btn" id="italicBtn" title="Italic (Ctrl+I)" data-format="italic">
+              <i class="fa-solid fa-italic"></i>
+            </button>
+            <button class="toolbar-btn" id="strikeBtn" title="Strikethrough" data-format="strikethrough">
+              <i class="fa-solid fa-strikethrough"></i>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="h1Btn" title="Heading 1" data-format="h1">
+              <i class="fa-solid fa-heading"></i><sub>1</sub>
+            </button>
+            <button class="toolbar-btn" id="h2Btn" title="Heading 2" data-format="h2">
+              <i class="fa-solid fa-heading"></i><sub>2</sub>
+            </button>
+            <button class="toolbar-btn" id="h3Btn" title="Heading 3" data-format="h3">
+              <i class="fa-solid fa-heading"></i><sub>3</sub>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="ulBtn" title="Bulleted List" data-format="ul">
+              <i class="fa-solid fa-list-ul"></i>
+            </button>
+            <button class="toolbar-btn" id="olBtn" title="Numbered List" data-format="ol">
+              <i class="fa-solid fa-list-ol"></i>
+            </button>
+            <button class="toolbar-btn" id="checkBtn" title="Checklist" data-format="checklist">
+              <i class="fa-solid fa-list-check"></i>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="linkBtn" title="Insert Link" data-format="link">
+              <i class="fa-solid fa-link"></i>
+            </button>
+            <button class="toolbar-btn" id="codeBtn" title="Inline Code" data-format="code">
+              <i class="fa-solid fa-code"></i>
+            </button>
+            <button class="toolbar-btn" id="codeBlockBtn" title="Code Block" data-format="codeblock">
+              <i class="fa-solid fa-file-code"></i>
+            </button>
+          </div>
+          <div class="toolbar-divider"></div>
+          <div class="toolbar-group">
+            <button class="toolbar-btn" id="quoteBtn" title="Blockquote" data-format="quote">
+              <i class="fa-solid fa-quote-left"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="drawing-container">
+          <textarea
+            class="note-box empty"
+            id="noteArea"
+            spellcheck="true"
+            placeholder="Start typing here... Use markdown syntax for formatting!"
+          ></textarea>
+          <div class="markdown-preview" id="markdownPreview"></div>
+          <canvas id="drawingCanvas"></canvas>
+        </div>
+
+        <div class="button-wrapper">
+          <!-- Drawing Tools (only visible in draw mode) -->
+          <div class="drawing-tools" id="drawingTools" style="display: none;">
+            <button class="tool-btn active" id="penTool" title="Pen Tool">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="tool-btn" id="eraserTool" title="Eraser Tool">
+              <i class="fa-solid fa-eraser"></i>
+            </button>
+            <label for="brushSize" style="font-size: 14px; margin-left: 10px;">Size:</label>
+            <input type="range" id="brushSize" min="1" max="20" value="2" class="brush-slider" style="width: 80px; margin-left: 5px;">
+          </div>
+
+          <button class="download-btn" onclick="downloadPDF()">
+            Download as PDF
+          </button>
+          <button class="delete-btn" onclick="deleteAll()">Delete All</button>
+          <button
+            class="download-btn"
+            id="saveDrawingBtn"
+            style="display: none"
+          >
+            Save Drawing
+          </button>
+          <button class="delete-btn" id="clearDrawingBtn" style="display: none">
+            Clear Drawing
+          </button>
+      </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script src="/scripts/auth.js" defer></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/markdown-parser.js"></script>
+    <script src="/scripts/jotpad.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </body>
+</html>

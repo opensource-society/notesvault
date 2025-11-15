@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // DOM Elements
+
   const notesGrid = document.getElementById('notesGrid')
   const loadingMessage = document.getElementById('loadingMessage')
   const noNotesMessage = document.getElementById('noNotesMessage')
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const noteDetailModal = document.getElementById('noteDetailModal')
   const closeModalButton = noteDetailModal.querySelector('.close-button')
 
-  // Modal Elements
   const modalElements = {
     title: document.getElementById('modalNoteTitle'),
     branch: document.getElementById('modalNoteBranch'),
@@ -23,13 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let allNotes = []
 
-  // Initialize Page
   async function init() {
     await fetchNotes()
     setupEventListeners()
   }
 
-  // Fetch Notes From JSON File
   async function fetchNotes() {
     loadingMessage.style.display = 'block'
     noNotesMessage.style.display = 'none'
@@ -50,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Filter Dropdown
   function populateFilters(notes) {
     const branches = [...new Set(notes.map(note => note.branch))].sort();
     const semesters = [...new Set(notes.map(note => note.semester))];
@@ -58,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     branchFilter.innerHTML = '<option value="">All Branches</option>' +
       branches.map(branch => `<option value="${branch}">${branch}</option>`).join('');
 
-    // Sort semesters numerically, handling strings like "Semester 1"
     semesters.sort((a, b) => {
       const numA = parseInt(String(a).match(/\d+/)?.[0] || 0, 10);
       const numB = parseInt(String(b).match(/\d+/)?.[0] || 0, 10);
@@ -69,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
       semesters.map(semester => `<option value="${semester}">${semester}</option>`).join('');
   }
 
-  // Display Notes with DocumentFragment for better performance
   function displayNotes(notes) {
     notesGrid.innerHTML = ''
 
@@ -80,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     noNotesMessage.style.display = 'none'
 
-    // Use DocumentFragment to minimize reflows
     const fragment = document.createDocumentFragment();
     notes.forEach((note) => {
       const noteCard = createNoteCard(note)
@@ -89,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     notesGrid.appendChild(fragment);
   }
 
-  // Create Note Card Element
   function createNoteCard(note) {
     const noteCard = document.createElement('div')
     noteCard.classList.add('note-card')
@@ -121,12 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return noteCard
   }
 
-  // Generate Download Filename
   function getDownloadFilename(note) {
     return `${note.title.replace(/\s/g, '_')}.pdf`
   }
 
-  // Open Note Modal
   function openNoteDetailModal(note) {
     modalElements.title.textContent = note.title
     modalElements.branch.textContent = note.branch
@@ -150,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', handleEscKey)
   }
 
-  // Close Note Modal
   function closeNoteDetailModal() {
     noteDetailModal.style.display = 'none'
     document.body.style.overflow = 'auto'
@@ -163,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Error Message
   function showErrorMessage(message) {
     const errorElement = document.createElement('p')
     errorElement.className = 'error-message'
@@ -171,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
     notesGrid.appendChild(errorElement)
   }
 
-  // Filter Notes Based On All Active Filters
   function filterNotes() {
     const searchQuery = searchInput.value.toLowerCase().trim()
     const selectedBranch = branchFilter.value
@@ -190,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     displayNotes(filteredNotes)
   }
 
-  // Reset All Filters
   function resetAllFilters() {
     searchInput.value = ''
     branchFilter.value = ''
@@ -198,9 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     filterNotes()
   }
 
-  // Event Listeners
   function setupEventListeners() {
-    // Debounce search input for better performance (300ms delay)
+
     const debouncedFilter = debounce(filterNotes, 300)
     searchInput.addEventListener('input', debouncedFilter)
     branchFilter.addEventListener('change', filterNotes)
@@ -212,7 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  // Debounce function to limit how often a function can execute
   function debounce(func, wait) {
     let timeout
     return function executedFunction(...args) {
@@ -225,11 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Initialize
   init()
 })
 
-// Optional: Protect Upload Notes button in footer for guests
 document.addEventListener('DOMContentLoaded', () => {
   const uploadLink = document.querySelector('a[href="pages/upload.html"]');
   if (uploadLink && !localStorage.getItem("loggedInUser")) {
