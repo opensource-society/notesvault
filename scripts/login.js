@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
           studentId: parsedUser.studentId || "Not specified"
         }
         localStorage.setItem("loggedInUser", JSON.stringify(userData))
-        window.location.href = 'dashboard.html'
+        window.location.href = 'pages/dashboard.html'
       }, 1500)
     } catch (error) {
       console.error('Login error:', error)
