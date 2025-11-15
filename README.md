@@ -1,5 +1,5 @@
                   🚨 Please make sure you are sending pull requrest for 'master' branch.
-                                            
+
 
 # 📚 NotesVault - Academic Resource Management Platform
 
@@ -7,7 +7,7 @@
 
 ---
 
-## ✨ Key Features
+## ✨ KEY FEATURES
 
 ### 📖 Core Functionality
 
