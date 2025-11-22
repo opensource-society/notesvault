@@ -10,10 +10,10 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Peehu1308](https://github.com/Peehu1308) | 7 | 3 | 0 | 9 |
 | [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 12 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 2 | 0 | 9 |
+| [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 3 |
 | [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 4 | 1 | 4 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
-| [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 0 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
