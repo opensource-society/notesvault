@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     const searchInput = DOM.searchForm?.querySelector("input[type='text']")
     if (searchInput?.value) {
-      // Redirect to notes.html in the same directory — avoid `pages/pages/` when current page is in /pages/
+
       window.location.href = `notes.html?query=${encodeURIComponent(searchInput.value)}`
     }
   }
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const setupBackToTop = () => {
     if (!DOM.backToTop) return
-    // Throttle scroll event for better performance
+
     const handleScroll = () => {
       DOM.backToTop.classList.toggle('visible', window.scrollY > 300)
     }
@@ -146,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  // Throttle function for performance optimization
   const throttle = (func, limit) => {
     let inThrottle
     return function(...args) {
@@ -159,46 +158,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const updateNavbarAuth = () => {
-    const user = JSON.parse(localStorage.getItem('loggedInUser'))
-    // Desktop nav elements
+
+    const user = window.auth && typeof window.auth.getUser === 'function' ? window.auth.getUser() : JSON.parse(localStorage.getItem('loggedInUser'))
+
     const loginLink = document.getElementById('nav-login')
     const signupLink = document.getElementById('nav-signup')
-    const profileLink = document.getElementById('nav-profile')
-    const logoutLink = document.getElementById('nav-logout')
+    const navUser = document.getElementById('nav-user')
+    const navUserBtn = document.getElementById('nav-user-btn')
+    const navUserName = document.getElementById('nav-user-name')
+    const navUserDropdown = document.getElementById('nav-user-dropdown')
+    const navLogoutBtn = document.getElementById('nav-logout-btn')
 
-    // Mobile nav elements
     const mobileLoginBtn = document.getElementById('mobile-nav-login')
     const mobileSignupBtn = document.getElementById('mobile-nav-signup')
     const mobileProfileBtn = document.getElementById('mobile-nav-profile')
     const mobileLogoutBtn = document.getElementById('mobile-nav-logout')
-    const mobilMenuProfileItem = document.getElementById('mobile-menu-profile')
+    const mobileMenuProfileItem = document.getElementById('mobile-menu-profile')
 
-    // Update desktop navigation
-    if (loginLink && signupLink && profileLink && logoutLink) {
-      if (user) {
+    const showLoggedIn = !!user
+
+    if (loginLink && signupLink && navUser) {
+      if (showLoggedIn) {
         loginLink.style.display = 'none'
         signupLink.style.display = 'none'
-        profileLink.style.display = 'inline-block'
-        logoutLink.style.display = 'inline-block'
+        navUser.style.display = 'inline-block'
+        if (navUserName) navUserName.textContent = (user && (user.name || user.email)) || 'User'
       } else {
         loginLink.style.display = 'inline-block'
         signupLink.style.display = 'inline-block'
-        profileLink.style.display = 'none'
-        logoutLink.style.display = 'none'
+        navUser.style.display = 'none'
+        if (navUserDropdown) navUserDropdown.style.display = 'none'
       }
-
-      logoutLink.addEventListener('click', (e) => {
-        e.preventDefault()
-        localStorage.removeItem('loggedInUser')
-        window.location.href = 'login.html'
-      }
-      logoutLink.removeEventListener('click', handleLogout)
-      logoutLink.addEventListener('click', handleLogout)
     }
 
-    // Update mobile navigation buttons
     if (mobileLoginBtn && mobileSignupBtn && mobileProfileBtn && mobileLogoutBtn) {
-      if (user) {
+      if (showLoggedIn) {
         mobileLoginBtn.style.display = 'none'
         mobileSignupBtn.style.display = 'none'
         mobileProfileBtn.style.display = 'inline-block'
@@ -209,18 +203,48 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileProfileBtn.style.display = 'none'
         mobileLogoutBtn.style.display = 'none'
       }
-
-      mobileLogoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('loggedInUser')
-        window.location.href = 'login.html'
-      }
-      mobileLogoutBtn.removeEventListener('click', handleMobileLogout)
-      mobileLogoutBtn.addEventListener('click', handleMobileLogout)
     }
 
-    // Update mobile menu profile item
-    if (mobilMenuProfileItem) {
-      mobilMenuProfileItem.style.display = user ? 'block' : 'none'
+    if (mobileMenuProfileItem) mobileMenuProfileItem.style.display = showLoggedIn ? 'block' : 'none'
+
+    if (navUserBtn && navUserDropdown) {
+      navUserBtn.onclick = (e) => {
+        e.preventDefault()
+        const isOpen = navUserDropdown.style.display === 'block'
+        navUserDropdown.style.display = isOpen ? 'none' : 'block'
+        navUserBtn.setAttribute('aria-expanded', String(!isOpen))
+      }
+
+      document.addEventListener('click', (ev) => {
+        if (!navUser.contains(ev.target)) {
+          navUserDropdown.style.display = 'none'
+          navUserBtn.setAttribute('aria-expanded', 'false')
+        }
+      })
+    }
+
+    if (navLogoutBtn) {
+      navLogoutBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        if (window.auth && typeof window.auth.logout === 'function') {
+          window.auth.logout()
+        } else {
+          localStorage.removeItem('loggedInUser')
+          window.location.href = '/pages/login.html'
+        }
+      })
+    }
+
+    if (mobileLogoutBtn) {
+      mobileLogoutBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        if (window.auth && typeof window.auth.logout === 'function') {
+          window.auth.logout()
+        } else {
+          localStorage.removeItem('loggedInUser')
+          window.location.href = '/pages/login.html'
+        }
+      })
     }
   }
 
@@ -235,6 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
       setupThemeToggle()
       setupMobileMenu()
       updateNavbarAuth()
+
+      document.addEventListener('auth-changed', updateNavbarAuth)
       const currentPath = window.location.pathname.split('/').pop()
       document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((link) => {
         const linkPath = link.getAttribute('href')?.split('/').pop()
@@ -253,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Testimonial Carousel Functionality
   const initTestimonialCarousel = () => {
     if (!DOM.testimonialTrack) return;
 
@@ -261,7 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     let autoSlideInterval;
 
-    // Create dots for each testimonial
     if (DOM.carouselDots && cards.length) {
       cards.forEach((_, index) => {
         const dot = document.createElement('div');
@@ -272,66 +296,52 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Set initial active card
     if (cards.length) {
       cards[0].classList.add('active');
     }
 
-    // Function to go to a specific slide
     const goToSlide = (index) => {
       if (!DOM.testimonialTrack || !cards.length) return;
 
-      // Update currentIndex
       currentIndex = index;
 
-      // Handle index boundaries
       if (currentIndex < 0) currentIndex = cards.length - 1;
       if (currentIndex >= cards.length) currentIndex = 0;
 
-      // Transform the track to show the current slide
       const slideWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(cards[0]).marginLeft) * 2;
       DOM.testimonialTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-      // Update active states
       cards.forEach((card, i) => {
         card.classList.toggle('active', i === currentIndex);
       });
 
-      // Update dots
       const dots = DOM.carouselDots.querySelectorAll('.carousel-dot');
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === currentIndex);
       });
 
-      // Reset auto slide timer
       resetAutoSlide();
     };
 
-    // Function to go to the next slide
     const nextSlide = () => {
       goToSlide(currentIndex + 1);
     };
 
-    // Function to go to the previous slide
     const prevSlide = () => {
       goToSlide(currentIndex - 1);
     };
 
-    // Set up automatic sliding
     const startAutoSlide = () => {
       autoSlideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
     };
 
-    // Reset auto slide timer
     const resetAutoSlide = () => {
       clearInterval(autoSlideInterval);
       startAutoSlide();
     };
 
-    // Initialize the carousel with automatic sliding
     startAutoSlide();
 
-    // Add swipe functionality for mobile
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -349,10 +359,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleSwipe = () => {
       const swipeThreshold = 50;
       if (touchStartX - touchEndX > swipeThreshold) {
-        // Swipe left - next slide
+
         nextSlide();
       } else if (touchEndX - touchStartX > swipeThreshold) {
-        // Swipe right - previous slide
+
         prevSlide();
       }
     };
@@ -379,8 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
     DOM.backToTop = document.querySelector('.back-to-top')
     setupBackToTop()
 
-    // Initialize the testimonial carousel after components are loaded
-    // Need to reselect DOM elements after components are loaded
+
     DOM.testimonialTrack = document.querySelector('.testimonial-track');
     DOM.testimonialCarousel = document.querySelector('.testimonial-carousel');
     DOM.testimonialCards = document.querySelectorAll('.testimonial-card');
@@ -404,9 +413,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const loggedInUser = localStorage.getItem("loggedInUser");
 
       if (loggedInUser) {
-        window.location.href = "dashboard.html";
+        window.location.href = "/pages/dashboard.html";
       } else {
-        window.location.href = "login.html";
+        window.location.href = "/pages/login.html";
       }
     });
   }
@@ -417,7 +426,6 @@ function submitFeedback() {
     const feedbackText = document.getElementById("feedback-text");
     const message = document.getElementById("feedback-message");
 
-    // Validation
     const textValue = feedbackText.value.trim();
     if (!rating) {
       message.textContent = "Please select a rating before submitting.";
@@ -433,16 +441,13 @@ function submitFeedback() {
       return;
     }
 
-    // Show success message
     message.textContent = "✅ Your feedback has been submitted successfully!";
     message.style.color = "green";
     message.style.display = "block";
 
-    // Clear input & rating
     feedbackText.value = "";
     rating.checked = false;
 
-    // Hide message after 3 seconds
     setTimeout(() => {
       message.style.display = "none";
     }, 3000);

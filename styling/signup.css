@@ -1,6 +1,6 @@
-/* Sign Up (CSS) */
 
-/* Base Layout */
+
+
 .signup-page {
   background: linear-gradient(
     135deg,
@@ -17,7 +17,7 @@
   transition: background 0.5s ease;
 }
 
-/* Back Button */
+
 .floating-back-btn {
   position: fixed;
   top: 2rem;
@@ -55,7 +55,7 @@
   transform: translateX(-3px);
 }
 
-/* Signup Card */
+
 .signup-card {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
@@ -106,14 +106,14 @@
   margin: 0 auto;
 }
 
-/* Signup Form */
+
 .signup-form {
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
 }
 
-/* Input Fields */
+
 .floating-input {
   position: relative;
   margin-bottom: 0rem;
@@ -170,7 +170,7 @@
   background: var(--bg-secondary);
 }
 
-/* Password Toggle */
+
 .password-toggle {
   position: absolute;
   right: 1rem;
@@ -190,7 +190,7 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Primary Button */
+
 .btn-primary {
   position: relative;
   overflow: hidden;
@@ -251,7 +251,7 @@
   left: 100%;
 }
 
-/* Signin Link */
+
 .signin-link {
   text-align: center;
   margin-top: 2rem;
@@ -290,7 +290,7 @@
   transform-origin: left;
 }
 
-/* Message Box */
+
 .message-box {
   position: fixed;
   top: -100px;
@@ -340,7 +340,7 @@
   content: '\f06a';
 }
 
-/* Spinner */
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -360,7 +360,7 @@
   display: none;
 }
 
-/* Responsive Design */
+
 @media (max-width: 480px) {
   .signup-card {
     padding: 2.5rem 1.75rem;

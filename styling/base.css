@@ -1,4 +1,4 @@
-/* Base Styles  */
+
 
 * {
   margin: 0;
@@ -15,7 +15,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Typography */
+
 h1,
 h2,
 h3,
@@ -53,7 +53,7 @@ a:hover {
   color: var(--primary-700);
 }
 
-/* Buttons */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -91,7 +91,7 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* Utility Classes */
+
 .container {
   width: 100%;
   max-width: 1200px;

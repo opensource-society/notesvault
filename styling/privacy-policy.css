@@ -1,4 +1,4 @@
-/* privacy_policy_styles.css */
+
 
 * {
     margin: 0;
@@ -228,7 +228,7 @@ body {
     margin-top: 2rem;
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 768px) {
     .privacy_policy_container {
         padding: 10px;

@@ -1,6 +1,6 @@
-/* Student Dashboard (CSS) - Enhanced UI */
 
-/* Main Container */
+
+
 .dashboard-container {
   padding: 8rem 2rem;
   min-height: calc(100vh - 6rem);
@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-/* Dashboard Grid Layout */
+
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -22,7 +22,7 @@
   align-items: stretch;
 }
 
-/* Left and Right Column Layout */
+
 .left-column {
   grid-column: span 6;
   display: flex;
@@ -32,10 +32,10 @@
 
 .right-column {
   grid-column: span 6;
-  height: 100%; /* Ensure it takes full height */
+  height: 100%; 
 }
 
-/* Card Styling Base */
+
 .profile-card,
 .stats-card,
 .notes-section,
@@ -61,7 +61,7 @@
   transform: translateY(-5px);
 }
 
-/* Profile Card */
+
 .profile-card {
   padding: 2rem;
   display: flex;
@@ -229,15 +229,15 @@
   box-shadow: 0 6px 15px rgba(0, 140, 45, 0.3);
 }
 
-/* Stats Card */
+
 .stats-card {
-  padding: 2rem; /* Matching the padding of the notes section */
+  padding: 2rem; 
   position: relative;
   overflow: hidden;
   flex: 1 1 auto;
 }
 
-/* Compact stats card with height matching notes section */
+
 .stats-card-compact {
   padding: 2rem;
   height: auto;
@@ -245,7 +245,7 @@
 
 .stats-card h3 {
   font-size: 1.375rem;
-  margin-bottom: 2rem; /* Match the notes section header margin */
+  margin-bottom: 2rem; 
   display: flex;
   align-items: center;
   color: var(--text-primary);
@@ -254,7 +254,7 @@
 
 .stats-card-compact h3 {
   font-size: 1.375rem;
-  margin-bottom: 2rem; /* Match the notes section header margin */
+  margin-bottom: 2rem; 
 }
 
 .stats-card h3 i {
@@ -317,22 +317,22 @@
 }
 
 .stat-value {
-  font-size: 1.5rem; /* Smaller font size for 4-column layout */
+  font-size: 1.5rem; 
   font-weight: 700;
   background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  margin-bottom: 0.25rem; /* Reduced margin */
+  margin-bottom: 0.25rem; 
   line-height: 1;
   position: relative;
   display: inline-block;
 }
 
 .stats-card-compact .stat-value {
-  font-size: 1.35rem; /* Even smaller font size for compact view */
-  margin-bottom: 0.125rem; /* Minimized margin */
+  font-size: 1.35rem; 
+  margin-bottom: 0.125rem; 
 }
 
 .stat-label {
@@ -344,10 +344,10 @@
 }
 
 .stats-card-compact .stat-label {
-  font-size: 0.675rem; /* Smaller label for compact view */
+  font-size: 0.675rem; 
 }
 
-/* Notes Section */
+
 .notes-section {
   padding: 2rem;
   position: relative;
@@ -682,7 +682,7 @@
   color: transparent !important;
 }
 
-/* Hover effects */
+
 .add-note-card:hover .add-note-icon {
   transform: scale(1.1) rotate(45deg) !important;
 }
@@ -702,7 +702,7 @@
   color: var(--primary-600) !important;
 }
 
-/* Dark mode support */
+
 [data-theme="dark"] .add-note-content span {
   background: linear-gradient(135deg, var(--primary-400), var(--primary-300));
   background-clip: text !important;
@@ -717,13 +717,13 @@
   color: var(--primary-400) !important;
 }
 
-/* PYQs Section */
+
 .pyqs-section {
   grid-column: span 12;
   padding: 2rem;
   margin-top: 1.5rem;
   position: relative;
-  /* Keep full width in the new layout */
+  
 }
 
 .pyqs-table-container {
@@ -823,7 +823,7 @@
   box-shadow: 0 5px 15px rgba(0, 140, 45, 0.2);
 }
 
-/* Modal Design */
+
 .modal {
   position: fixed;
   top: 0;
@@ -1013,7 +1013,7 @@
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
   .profile-card,
   .stats-card {
@@ -1085,7 +1085,7 @@
   }
 }
 
-/* Dark Mode Specific Enhancements */
+
 [data-theme="dark"] .stat-value {
   background: linear-gradient(135deg, var(--primary-400), var(--accent-400));
   -webkit-background-clip: text;
@@ -1102,7 +1102,7 @@
   color: #60a5fa;
 }
 
-/* Animation Classes */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -1118,7 +1118,5 @@
   100% { transform: scale(1); }
 }
 
-/* Pulse animation class removed from the upload button */
-/* .pulse {
-  animation: pulse 2s infinite;
-} */
+
+
