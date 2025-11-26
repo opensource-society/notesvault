@@ -20,11 +20,10 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
 | [@Gourangi4](https://github.com/Gourangi4) | 4 | 0 | 0 | 2 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
-| [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@dodithakur](https://github.com/dodithakur) | 4 | 0 | 0 | 1 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
-| [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
+| [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 1 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 2 | 1 | 0 | 0 |
@@ -60,6 +59,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@diiviikk5](https://github.com/diiviikk5) | 1 | 0 | 0 | 1 |
 | [@neelima-singh07](https://github.com/neelima-singh07) | 1 | 0 | 0 | 1 |
 | [@HayatZarine](https://github.com/HayatZarine) | 1 | 0 | 0 | 1 |
+| [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 0 |
 | [@AkshitBhandariCodes](https://github.com/AkshitBhandariCodes) | 1 | 0 | 0 | 1 |
 | [@Mehuli15](https://github.com/Mehuli15) | 1 | 0 | 0 | 1 |
 | [@shoaib2000857](https://github.com/shoaib2000857) | 1 | 0 | 0 | 1 |
