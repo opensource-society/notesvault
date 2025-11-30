@@ -1,4 +1,4 @@
-/* Login (CSS) */
+
 
 .login-page {
   background: linear-gradient(
@@ -16,7 +16,7 @@
   transition: background 0.5s ease;
 }
 
-/* Back Button */
+
 .floating-back-btn {
   position: fixed;
   top: 2rem;
@@ -54,7 +54,7 @@
   transform: translateX(-3px);
 }
 
-/* Login Card */
+
 .login-card {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
@@ -105,7 +105,7 @@
   margin: 0 auto;
 }
 
-/* Form Layout */
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -116,7 +116,7 @@
   margin-bottom: 1.25rem;
 }
 
-/* Input Fields */
+
 .floating-input {
   position: relative;
   margin-bottom: 0rem;
@@ -173,7 +173,7 @@
   background: var(--bg-secondary);
 }
 
-/* Password Toggle */
+
 .password-toggle {
   position: absolute;
   right: 1rem;
@@ -193,7 +193,7 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Form Options */
+
 .form-options {
   display: flex;
   justify-content: space-between;
@@ -201,7 +201,7 @@
   margin: 0rem 0 0.5rem;
 }
 
-/* Checkbox */
+
 .remember-me {
   display: flex;
   align-items: center;
@@ -268,7 +268,7 @@
   text-decoration: underline;
 }
 
-/* Primary Button */
+
 .btn-primary {
   position: relative;
   overflow: hidden;
@@ -328,7 +328,7 @@
   left: 100%;
 }
 
-/* Message Box */
+
 .message-box {
   position: fixed;
   top: -100px;
@@ -378,7 +378,7 @@
   content: '\f06a';
 }
 
-/* Signup Link */
+
 .signup-link {
   text-align: center;
   margin-top: 2rem;
@@ -417,7 +417,7 @@
   transform-origin: left;
 }
 
-/* Responsive Design */
+
 @media (max-width: 480px) {
   .login-page {
     padding: 1.5rem;

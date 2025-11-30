@@ -1,4 +1,4 @@
-<!-- Student Dashboard (HTML) -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,30 +8,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NotesVault - Student Dashboard</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
 
-  <!-- Font Awesome -->
+  <link rel="icon" href="/assets/index/images/favicon.png" type="image/x-icon" />
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="../styling/variables.css" />
-  <link rel="stylesheet" href="../styling/base.css" />
-  <link rel="stylesheet" href="../styling/dashboard.css" />
-  <link rel="stylesheet" href="../styling/feedback.css" />
+
+  <link rel="stylesheet" href="/styling/variables.css" />
+  <link rel="stylesheet" href="/styling/base.css" />
+  <link rel="stylesheet" href="/styling/dashboard.css" />
+  <link rel="stylesheet" href="/styling/feedback.css" />
 </head>
 
-<body>
-  <!-- Header -->
+<body data-require-auth="true">
+
   <div id="header-placeholder"></div>
 
-  <!-- Main Content -->
+
   <main class="dashboard-container">
     <div class="dashboard-grid">
 
-      <!-- Left Column: Profile and Stats -->
+
       <div class="left-column">
-        <!-- Profile Card -->
+
         <section class="profile-card fadeIn">
           <div class="profile-header">
             <div class="avatar"><i class="fas fa-user-graduate"></i></div>
@@ -61,7 +61,7 @@
           <a href="edit-profile.html" class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</a>
         </section>
 
-        <!-- Stats Section -->
+
         <section class="stats-card stats-card-compact fadeIn" style="animation-delay: 0.1s;">
           <h3><i class="fas fa-chart-line"></i> Your Stats</h3>
           <div class="stats-grid">
@@ -101,7 +101,7 @@
         </section>
       </div>
 
-      <!-- Right Column: Notes Section -->
+
       <section class="notes-section fadeIn right-column" style="animation-delay: 0.2s;">
         <div class="section-header">
           <h2><i class="fas fa-book"></i> Your Notes</h2>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="notes-grid">
-          <!-- Note Card 1 -->
+
           <div class="note-card">
             <div class="note-header">
               <i class="fas fa-file-pdf note-icon"></i>
@@ -136,7 +136,7 @@
             </div>
           </div>
 
-          <!-- Note Card 2 -->
+
           <div class="note-card">
             <div class="note-header">
               <i class="fas fa-file-powerpoint note-icon"></i>
@@ -157,7 +157,7 @@
             </div>
           </div>
 
-          <!-- Add New Note -->
+
           <div class="add-note-card">
             <div class="add-note-content">
               <div class="add-note-icon">
@@ -171,7 +171,7 @@
         </div>
       </section>
 
-      <!-- PYQs Section -->
+
       <section class="pyqs-section fadeIn" style="animation-delay: 0.3s;">
         <div class="section-header">
           <h2><i class="fas fa-file-alt"></i> Previous Year Questions</h2>
@@ -234,7 +234,7 @@
 
   </main>
 
-  <!-- Upload Modal -->
+
   <div class="modal" id="upload-modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -299,20 +299,21 @@
 
     <p id="feedback-message" class="feedback-msg"></p>
   </section>
-  <!-- Footer -->
+
   <div id="footer-placeholder"></div>
 
-  <!-- JavaScript -->
+
   <script>
 
     if (!localStorage.getItem("loggedInUser")) {
       alert("You must be logged in to access the dashboard!");
-      window.location.href = "login.html";
+      window.location.href = "/pages/login.html";
     }
   </script>
 
-  <script src="../scripts/script.js"></script>
-  <script src="../scripts/dashboard.js"></script>
+  <script src="/scripts/auth.js" defer></script>
+  <script src="/scripts/script.js"></script>
+  <script src="/scripts/dashboard.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,127 @@
+<!-- Sign Up (HTML) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotesVault - Sign Up</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/assets/index/images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styling/signup.css" />
+    <link rel="stylesheet" href="/styling/base.css" />
+    <link rel="stylesheet" href="/styling/variables.css" />
+  </head>
+
+  <body class="signup-page">
+    <!-- Back Button -->
+    <a href="index.html" class="floating-back-btn">
+      <i class="fas fa-chevron-left"></i>
+      <span>Home</span>
+    </a>
+
+    <!-- Animated Message Box -->
+    <div id="messageBox" class="message-box"></div>
+
+    <!-- Signup Card -->
+    <div class="signup-card">
+      <div class="signup-header">
+        <div class="logo-preview">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h2>Create Your Account</h2>
+        <p>Join NotesVault Today!</p>
+      </div>
+
+      <form id="signupForm" class="signup-form">
+        <div class="form-group floating-input">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder=" "
+            autocomplete="name"
+          />
+          <label for="name">Full Name</label>
+          <div class="input-border"></div>
+        </div>
+
+        <div class="form-group floating-input">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder=" "
+            autocomplete="email"
+          />
+          <label for="email">Email address</label>
+          <div class="input-border"></div>
+        </div>
+
+        <div class="form-group floating-input">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder=" "
+            autocomplete="new-password"
+            minlength="6"
+          />
+          <label for="password">Password</label>
+          <div class="input-border"></div>
+          <button type="button" class="password-toggle">
+            <i class="far fa-eye"></i>
+          </button>
+        </div>
+
+        <div class="form-group floating-input">
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+            placeholder=" "
+            autocomplete="new-password"
+            minlength="6"
+          />
+          <label for="confirm-password">Confirm Password</label>
+          <div class="input-border"></div>
+          <button type="button" class="password-toggle">
+            <i class="far fa-eye"></i>
+          </button>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="signupBtn">
+          <span class="spinner hidden" id="spinner"></span>
+          <span id="btnText">Sign Up</span>
+          <i class="fas fa-arrow-right btn-icon"></i>
+        </button>
+      </form>
+
+      <div class="signin-link">
+        <p>Already have an account? <a href="login.html">Sign in here</a></p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/scripts/auth.js" defer></script>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/signup.js"></script>
+  </body>
+</html>
