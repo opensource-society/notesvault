@@ -32,6 +32,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 2 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 2 | 0 | 0 | 1 |
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
+| [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
@@ -52,7 +53,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@utkarshwrks](https://github.com/utkarshwrks) | 1 | 0 | 0 | 1 |
 | [@Kalika-Jay](https://github.com/Kalika-Jay) | 0 | 0 | 1 | 1 |
 | [@vanshika-ramchandani](https://github.com/vanshika-ramchandani) | 1 | 0 | 0 | 1 |
-| [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 0 |
 | [@DivyaJain-DataAnalyst](https://github.com/DivyaJain-DataAnalyst) | 1 | 0 | 0 | 1 |
 | [@dhruv-git-sys](https://github.com/dhruv-git-sys) | 1 | 0 | 0 | 1 |
 | [@ParulAgrawal-bot](https://github.com/ParulAgrawal-bot) | 1 | 0 | 0 | 1 |
