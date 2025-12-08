@@ -27,7 +27,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
-| [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 2 | 1 | 0 | 0 |
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 2 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 2 | 0 | 0 | 1 |
@@ -40,6 +39,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@Apo-orva17](https://github.com/Apo-orva17) | 2 | 0 | 0 | 0 |
+| [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 2 | 0 | 0 | 0 |
 | [@JiyaAgrawal27](https://github.com/JiyaAgrawal27) | 1 | 0 | 0 | 1 |
 | [@Sagar1610Codes](https://github.com/Sagar1610Codes) | 1 | 0 | 0 | 1 |
 | [@harshgupta9129](https://github.com/harshgupta9129) | 1 | 0 | 0 | 1 |
