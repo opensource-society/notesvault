@@ -19,6 +19,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
 | [@Gourangi4](https://github.com/Gourangi4) | 4 | 0 | 0 | 2 |
+| [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
 | [@AshmitSherigar](https://github.com/AshmitSherigar) | 3 | 0 | 0 | 3 |
 | [@dodithakur](https://github.com/dodithakur) | 4 | 0 | 0 | 1 |
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
@@ -31,7 +32,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Yug210705](https://github.com/Yug210705) | 2 | 0 | 0 | 1 |
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
-| [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 0 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
