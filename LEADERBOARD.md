@@ -33,6 +33,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
+| [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
 | [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
 | [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
@@ -64,7 +65,9 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@shoaib2000857](https://github.com/shoaib2000857) | 1 | 0 | 0 | 1 |
 | [@Shalini22-ui](https://github.com/Shalini22-ui) | 1 | 0 | 0 | 1 |
 | [@unnati-078](https://github.com/unnati-078) | 1 | 0 | 0 | 1 |
-| [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 0 |
+| [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 1 |
+| [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 1 |
+| [@Milan0407](https://github.com/Milan0407) | 1 | 0 | 0 | 1 |
 | [@Aripilli-Bhavana](https://github.com/Aripilli-Bhavana) | 1 | 0 | 0 | 1 |
 | [@Bala327](https://github.com/Bala327) | 1 | 0 | 0 | 1 |
 | [@Mehak-Parveen](https://github.com/Mehak-Parveen) | 1 | 0 | 0 | 1 |
@@ -101,9 +104,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
 | [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
-| [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 0 |
-| [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 0 |
-| [@Milan0407](https://github.com/Milan0407) | 1 | 0 | 0 | 0 |
 
 ---
 
