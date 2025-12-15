@@ -30,6 +30,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 2 | 0 | 1 |
 | [@Yug210705](https://github.com/Yug210705) | 2 | 0 | 0 | 1 |
+| [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
@@ -43,7 +44,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Sagar1610Codes](https://github.com/Sagar1610Codes) | 1 | 0 | 0 | 1 |
 | [@harshgupta9129](https://github.com/harshgupta9129) | 1 | 0 | 0 | 1 |
 | [@MehakGo](https://github.com/MehakGo) | 1 | 0 | 0 | 1 |
-| [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 0 |
 | [@Abhiyanshu-Sharma](https://github.com/Abhiyanshu-Sharma) | 0 | 1 | 0 | 1 |
 | [@priyanshu5ingh](https://github.com/priyanshu5ingh) | 1 | 1 | 0 | 0 |
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
