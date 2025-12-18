@@ -16,6 +16,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
+| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
 | [@Gourangi4](https://github.com/Gourangi4) | 4 | 0 | 0 | 2 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
@@ -35,6 +36,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
 | [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
+| [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@Apo-orva17](https://github.com/Apo-orva17) | 2 | 0 | 0 | 0 |
 | [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 2 | 0 | 0 | 0 |
@@ -56,8 +58,11 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ParulAgrawal-bot](https://github.com/ParulAgrawal-bot) | 1 | 0 | 0 | 1 |
 | [@ud-ai](https://github.com/ud-ai) | 1 | 0 | 0 | 1 |
 | [@diiviikk5](https://github.com/diiviikk5) | 1 | 0 | 0 | 1 |
+| [@neelima-singh07](https://github.com/neelima-singh07) | 1 | 0 | 0 | 1 |
 | [@HayatZarine](https://github.com/HayatZarine) | 1 | 0 | 0 | 1 |
 | [@AkshitBhandariCodes](https://github.com/AkshitBhandariCodes) | 1 | 0 | 0 | 1 |
+| [@Mehuli15](https://github.com/Mehuli15) | 1 | 0 | 0 | 1 |
+| [@shoaib2000857](https://github.com/shoaib2000857) | 1 | 0 | 0 | 1 |
 | [@Shalini22-ui](https://github.com/Shalini22-ui) | 1 | 0 | 0 | 1 |
 | [@unnati-078](https://github.com/unnati-078) | 1 | 0 | 0 | 1 |
 | [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 1 |
@@ -69,7 +74,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
-| [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 0 |
 | [@ShahanasParapporu](https://github.com/ShahanasParapporu) | 0 | 1 | 0 | 0 |
 | [@dimpal-yadav](https://github.com/dimpal-yadav) | 1 | 0 | 0 | 0 |
 | [@Sneha-Goswami123](https://github.com/Sneha-Goswami123) | 1 | 0 | 0 | 0 |
@@ -99,11 +103,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@ChaitanyaBadukale777](https://github.com/ChaitanyaBadukale777) | 1 | 0 | 0 | 0 |
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
-| [@neelima-singh07](https://github.com/neelima-singh07) | 1 | 0 | 0 | 0 |
 | [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
-| [@Mehuli15](https://github.com/Mehuli15) | 1 | 0 | 0 | 0 |
-| [@shoaib2000857](https://github.com/shoaib2000857) | 1 | 0 | 0 | 0 |
-| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 0 |
 
 ---
 
