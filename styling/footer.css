@@ -1,4 +1,4 @@
-/* Footer (CSS) */
+
 
 .footer {
   background-color: var(--bg-secondary);
@@ -97,7 +97,7 @@
   margin: 0;
 }
 
-/* Footer Links */
+
 .footer-link {
   color: var(--text-secondary);
   text-decoration: none;
@@ -127,7 +127,7 @@
   width: 100%;
 }
 
-/* Community Section */
+
 .footer-community {
   display: flex;
   flex-direction: column;
@@ -188,7 +188,7 @@
   opacity: 1;
 }
 
-/* Footer Bottom */
+
 .footer-bottom {
   display: flex;
   flex-direction: column;
@@ -248,7 +248,7 @@
   }
 }
 
-/* Back To Top Button */
+
 .back-to-top {
   position: fixed;
   bottom: 2rem;
@@ -281,7 +281,7 @@
   transform: translateY(-3px);
 }
 
-/* Dark Mode Adjustments */
+
 [data-theme="dark"] .footer {
   background-color: var(--gray-900);
 }
@@ -295,11 +295,11 @@
 }
 
 [data-theme="dark"] .social-link:hover {
-  background-color: var(--primary-500); /*green clr*/
+  background-color: var(--primary-500); 
   color: white;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;

@@ -1,6 +1,6 @@
-/* Home Page (CSS) */
 
-/* Hero Section */
+
+
 .hero {
   padding: 8rem 0;
   position: relative;
@@ -14,7 +14,7 @@
   --search-card-width: 480px;
 }
 
-/* Background Gradient */
+
 .hero::before {
   content: '';
   position: absolute;
@@ -44,7 +44,7 @@
   }
 }
 
-/* Container Layout */
+
 .hero .container {
   display: grid;
   grid-template-columns: 1fr var(--search-card-width);
@@ -53,7 +53,7 @@
   position: relative;
 }
 
-/* Hero Content */
+
 .hero-content {
   max-width: 640px;
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -101,7 +101,7 @@
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
 }
 
-/* CTA Buttons */
+
 .cta-buttons {
   display: flex;
   gap: 1rem;
@@ -147,7 +147,7 @@
   margin-right: 0.5rem;
 }
 
-/* Search Card */
+
 .search-card {
   background-color: var(--card-bg);
   border-radius: 1.5rem;
@@ -184,7 +184,7 @@
   font-weight: 600;
 }
 
-/* Search Form */
+
 .search-form {
   width: 100%;
   position: relative;
@@ -230,7 +230,7 @@
   stroke: var(--primary-500);
 }
 
-/* Features Section */
+
 .features {
   position: relative;
   padding: 6rem 0;
@@ -310,7 +310,7 @@
   line-height: 1.6;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1200px) {
   .hero .container {
     gap: 3rem;
@@ -386,7 +386,7 @@
   }
 }
 
-/* Animations */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

@@ -1,6 +1,6 @@
-/* Pomodoro Timer (CSS) */
 
-/* Hero Section */
+
+
 .pomodoro-hero {
   background: linear-gradient(
     135deg,
@@ -26,7 +26,7 @@
   margin: 0 auto;
 }
 
-/* Main Container */
+
 .pomodoro-container {
   max-width: 800px;
   margin: 2rem auto;
@@ -220,7 +220,7 @@
   transform: rotate(-90deg);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .timer-circle {
     width: 220px;

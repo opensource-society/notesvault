@@ -1,10 +1,10 @@
-/* About (CSS) */
+
 
 .about-page {
   padding-bottom: 4rem;
 }
 
-/* Hero Section */
+
 .about-hero {
   background: linear-gradient(
     135deg,
@@ -110,7 +110,7 @@
   font-weight: 500;
 }
 
-/* Floating icons in hero */
+
 .hero-decoration {
   position: absolute;
   top: 0;
@@ -169,7 +169,7 @@
   }
 }
 
-/* Introduction Section */
+
 .about-intro {
   padding: 5rem 0;
   background-color: var(--bg-primary);
@@ -237,7 +237,7 @@
   color: var(--text-primary);
 }
 
-/* Mission & Vision Section */
+
 .mission-vision {
   padding: 5rem 0;
   background-color: var(--bg-secondary);
@@ -334,7 +334,7 @@
   font-size: 1rem;
 }
 
-/* Problem/Solution Section */
+
 .problem-solution {
   padding: 5rem 0;
   background-color: var(--bg-primary);
@@ -459,7 +459,7 @@
   z-index: 1;
 }
 
-/* Tech Stack Section */
+
 .tech-stack {
   padding: 5rem 0;
   background-color: var(--bg-secondary);
@@ -545,7 +545,7 @@
   font-size: 0.85rem;
 }
 
-/* Open Source Section */
+
 .opensource {
   padding: 5rem 0;
   background: linear-gradient(135deg, var(--primary-50) 0%, var(--bg-primary) 100%);
@@ -670,7 +670,7 @@
   margin-right: 0.5rem;
 }
 
-/* Responsive Design */
+
 @media (max-width: 992px) {
   .intro-grid {
     grid-template-columns: 1fr;

@@ -1,4 +1,4 @@
-// forgot-password.js
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const formId = document.querySelector("form")?.id;
@@ -62,7 +62,7 @@ function handlePasswordReset() {
 
     showMessage("Password updated successfully!", "success");
     localStorage.removeItem("resetOTP");
-    setTimeout(() => (window.location.href = "login.html"), 1500);
+    setTimeout(() => (window.location.href = "/pages/login.html"), 1500);
   });
 }
 
@@ -90,7 +90,6 @@ async function handlePasswordReset() {
 
     const hashedPass = await hashPassword(newPass);
 
-    // Update user password in localStorage
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     let nvUser = JSON.parse(localStorage.getItem("nv_currentUser"));
@@ -117,6 +116,6 @@ async function handlePasswordReset() {
     localStorage.removeItem("otpExpiry");
 
     showMessage("Password updated successfully!", "success");
-    setTimeout(() => (window.location.href = "login.html"), 1500);
+    setTimeout(() => (window.location.href = "/pages/login.html"), 1500);
   });
 }

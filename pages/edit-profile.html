@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NotesVault - Update Profile</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
 
-  <!-- Font Awesome -->
+  <link rel="icon" href="/assets/index/images/favicon.png" type="image/x-icon" />
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="../styling/variables.css" />
-  <link rel="stylesheet" href="../styling/base.css" />
-  <link rel="stylesheet" href="../styling/profile.css" />
+
+  <link rel="stylesheet" href="/styling/variables.css" />
+  <link rel="stylesheet" href="/styling/base.css" />
+  <link rel="stylesheet" href="/styling/profile.css" />
 </head>
-<body>
-  <!-- Header -->
+<body data-require-auth="true">
+
   <div id="header-placeholder"></div>
 
-  <!-- Main Content -->
+
   <main class="profile-container">
     <div class="profile-header">
       <h1>Update Profile</h1>
@@ -87,11 +87,12 @@
     </section>
   </main>
 
-  <!-- Footer -->
+
   <div id="footer-placeholder"></div>
 
-  <!-- JS -->
-  <script src="../scripts/script.js"></script>
+
+  <script src="/scripts/auth.js" defer></script>
+  <script src="/scripts/script.js"></script>
   <script>
     document.getElementById("update-profile-form").addEventListener("submit", (e) => {
       e.preventDefault();
