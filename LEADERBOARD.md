@@ -13,6 +13,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 3 |
 | [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 4 | 1 | 4 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
+| [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
@@ -24,7 +25,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Shobhini](https://github.com/Shobhini) | 2 | 0 | 0 | 3 |
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
-| [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 0 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
 | [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 2 | 1 | 0 | 0 |
