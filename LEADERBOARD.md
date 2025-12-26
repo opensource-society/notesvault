@@ -33,7 +33,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Yug210705](https://github.com/Yug210705) | 2 | 0 | 0 | 1 |
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
-| [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
 | [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
@@ -60,6 +59,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@diiviikk5](https://github.com/diiviikk5) | 1 | 0 | 0 | 1 |
 | [@neelima-singh07](https://github.com/neelima-singh07) | 1 | 0 | 0 | 1 |
 | [@HayatZarine](https://github.com/HayatZarine) | 1 | 0 | 0 | 1 |
+| [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 0 |
 | [@AkshitBhandariCodes](https://github.com/AkshitBhandariCodes) | 1 | 0 | 0 | 1 |
 | [@Mehuli15](https://github.com/Mehuli15) | 1 | 0 | 0 | 1 |
 | [@shoaib2000857](https://github.com/shoaib2000857) | 1 | 0 | 0 | 1 |
