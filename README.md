@@ -1,4 +1,4 @@
-                  🚨 Please make sure you are sending pull requrest for 'master' branch.
+                  🚨 Please make sure you are sending pull request for 'master' branch.
                                             
 
 # 📚 NotesVault - Academic Resource Management Platform
