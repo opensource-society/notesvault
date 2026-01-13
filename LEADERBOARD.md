@@ -63,6 +63,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@AkshitBhandariCodes](https://github.com/AkshitBhandariCodes) | 1 | 0 | 0 | 1 |
 | [@Mehuli15](https://github.com/Mehuli15) | 1 | 0 | 0 | 1 |
 | [@shoaib2000857](https://github.com/shoaib2000857) | 1 | 0 | 0 | 1 |
+| [@Shalini22-ui](https://github.com/Shalini22-ui) | 1 | 0 | 0 | 1 |
 | [@unnati-078](https://github.com/unnati-078) | 1 | 0 | 0 | 1 |
 | [@mehershiri](https://github.com/mehershiri) | 1 | 0 | 0 | 1 |
 | [@Forever-299](https://github.com/Forever-299) | 1 | 0 | 0 | 1 |
@@ -103,7 +104,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
 | [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
-| [@Shalini22-ui](https://github.com/Shalini22-ui) | 1 | 0 | 0 | 0 |
 
 ---
 
