@@ -15,6 +15,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
+| [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
 | [@Gourangi4](https://github.com/Gourangi4) | 4 | 0 | 0 | 2 |
@@ -103,7 +104,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
 | [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
-| [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 0 |
 
 ---
 
