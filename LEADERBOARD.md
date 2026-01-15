@@ -10,10 +10,10 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Peehu1308](https://github.com/Peehu1308) | 7 | 3 | 0 | 9 |
 | [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 12 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 2 | 0 | 9 |
-| [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 3 |
 | [@FrostByte-49](https://github.com/FrostByte-49) | 0 | 4 | 1 | 4 |
 | [@Pallavi-kr6](https://github.com/Pallavi-kr6) | 3 | 2 | 0 | 3 |
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
+| [@Srushtee1706](https://github.com/Srushtee1706) | 7 | 1 | 0 | 0 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
 | [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
@@ -49,7 +49,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Kushanware](https://github.com/Kushanware) | 1 | 0 | 0 | 1 |
 | [@Samruddhiwagh1606](https://github.com/Samruddhiwagh1606) | 1 | 0 | 0 | 1 |
 | [@Disha19-09](https://github.com/Disha19-09) | 0 | 0 | 1 | 1 |
-| [@Snehadas2005](https://github.com/Snehadas2005) | 0 | 1 | 0 | 1 |
 | [@utkarshwrks](https://github.com/utkarshwrks) | 1 | 0 | 0 | 1 |
 | [@Kalika-Jay](https://github.com/Kalika-Jay) | 0 | 0 | 1 | 1 |
 | [@vanshika-ramchandani](https://github.com/vanshika-ramchandani) | 1 | 0 | 0 | 1 |
@@ -96,6 +95,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@zoxilsi](https://github.com/zoxilsi) | 0 | 1 | 0 | 0 |
 | [@AnkushRawat0](https://github.com/AnkushRawat0) | 1 | 0 | 0 | 0 |
 | [@Ayushii-uniyal](https://github.com/Ayushii-uniyal) | 1 | 0 | 0 | 0 |
+| [@Snehadas2005](https://github.com/Snehadas2005) | 0 | 1 | 0 | 0 |
 | [@Samridha0305](https://github.com/Samridha0305) | 0 | 1 | 0 | 0 |
 | [@madegowda11](https://github.com/madegowda11) | 1 | 0 | 0 | 0 |
 | [@shrvtiprasad](https://github.com/shrvtiprasad) | 1 | 0 | 0 | 0 |
