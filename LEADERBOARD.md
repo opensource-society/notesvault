@@ -38,6 +38,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
 | [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
 | [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
+| [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@Apo-orva17](https://github.com/Apo-orva17) | 2 | 0 | 0 | 0 |
 | [@JiyaAgrawal27](https://github.com/JiyaAgrawal27) | 1 | 0 | 0 | 1 |
 | [@Sagar1610Codes](https://github.com/Sagar1610Codes) | 1 | 0 | 0 | 1 |
@@ -75,7 +76,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
 | [@ShahanasParapporu](https://github.com/ShahanasParapporu) | 0 | 1 | 0 | 0 |
 | [@dimpal-yadav](https://github.com/dimpal-yadav) | 1 | 0 | 0 | 0 |
-| [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 0 |
 | [@Sneha-Goswami123](https://github.com/Sneha-Goswami123) | 1 | 0 | 0 | 0 |
 | [@s0wjanyaa](https://github.com/s0wjanyaa) | 1 | 0 | 0 | 0 |
 | [@Saloni182004](https://github.com/Saloni182004) | 1 | 0 | 0 | 0 |
