@@ -6,7 +6,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
-| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 20 | 3 | 0 | 14 |
+| [@VaibhavChougule236](https://github.com/VaibhavChougule236) | 20 | 3 | 0 | 12 |
 | [@Peehu1308](https://github.com/Peehu1308) | 7 | 3 | 0 | 9 |
 | [@Harsh-26626](https://github.com/Harsh-26626) | 2 | 2 | 0 | 12 |
 | [@AlapatiSreeHarsha](https://github.com/AlapatiSreeHarsha) | 2 | 2 | 0 | 9 |
@@ -36,8 +36,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
-| [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
-| [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@Apo-orva17](https://github.com/Apo-orva17) | 2 | 0 | 0 | 0 |
 | [@JiyaAgrawal27](https://github.com/JiyaAgrawal27) | 1 | 0 | 0 | 1 |
@@ -74,6 +72,8 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@RAJVEER42](https://github.com/RAJVEER42) | 0 | 1 | 0 | 1 |
 | [@SHUBBHAM-KUMARR](https://github.com/SHUBBHAM-KUMARR) | 1 | 0 | 0 | 1 |
 | [@suedaysse](https://github.com/suedaysse) | 1 | 0 | 0 | 1 |
+| [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 0 |
+| [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 0 |
 | [@ShahanasParapporu](https://github.com/ShahanasParapporu) | 0 | 1 | 0 | 0 |
 | [@dimpal-yadav](https://github.com/dimpal-yadav) | 1 | 0 | 0 | 0 |
 | [@Sneha-Goswami123](https://github.com/Sneha-Goswami123) | 1 | 0 | 0 | 0 |
