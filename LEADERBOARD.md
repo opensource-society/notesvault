@@ -26,7 +26,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Arsenal17x](https://github.com/Arsenal17x) | 1 | 0 | 1 | 3 |
 | [@MeenakshiAM](https://github.com/MeenakshiAM) | 2 | 1 | 0 | 2 |
 | [@VidhanThakur09](https://github.com/VidhanThakur09) | 0 | 2 | 0 | 2 |
-| [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 3 |
 | [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 2 | 1 | 0 | 0 |
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 2 | 0 | 1 |
@@ -104,6 +103,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@vinita-rajaram](https://github.com/vinita-rajaram) | 0 | 1 | 0 | 0 |
 | [@nitin-gumber](https://github.com/nitin-gumber) | 1 | 0 | 0 | 0 |
 | [@Sandraa16012007](https://github.com/Sandraa16012007) | 0 | 0 | 1 | 0 |
+| [@Sujal-Raj](https://github.com/Sujal-Raj) | 0 | 1 | 0 | 0 |
 
 ---
 
