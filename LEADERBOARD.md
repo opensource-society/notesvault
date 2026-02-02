@@ -16,6 +16,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@StephanosNikitis](https://github.com/StephanosNikitis) | 4 | 0 | 0 | 4 |
 | [@SagnikDey1503](https://github.com/SagnikDey1503) | 3 | 1 | 0 | 4 |
 | [@adityai0](https://github.com/adityai0) | 0 | 1 | 0 | 7 |
+| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 7 |
 | [@Radhika984](https://github.com/Radhika984) | 2 | 1 | 0 | 4 |
 | [@Gourangi4](https://github.com/Gourangi4) | 4 | 0 | 0 | 2 |
 | [@snehhhcodes](https://github.com/snehhhcodes) | 2 | 1 | 0 | 3 |
@@ -35,7 +36,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
 | [@deepanshu-prajapati01](https://github.com/deepanshu-prajapati01) | 2 | 0 | 0 | 1 |
 | [@Soumyosish](https://github.com/Soumyosish) | 2 | 0 | 0 | 1 |
-| [@Copilot](https://github.com/Copilot) | 0 | 1 | 0 | 2 |
 | [@Suupratik](https://github.com/Suupratik) | 1 | 0 | 0 | 1 |
 | [@MrunaliniPachpute](https://github.com/MrunaliniPachpute) | 1 | 0 | 0 | 1 |
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
