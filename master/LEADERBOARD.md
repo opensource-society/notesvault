@@ -2,7 +2,7 @@
 
 This leaderboard tracks contributors who have completed issues labeled as `level1`, `level2`, or `level3`, along with their merged pull requests.
 
-*Last updated: 2026-01-26*
+*Last updated: 2026-02-03*
 
 | Username | Level 1 | Level 2 | Level 3 | PRs Merged |
 |----------|---------|---------|---------|-------------|
@@ -30,7 +30,6 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Akshay-gurav-31](https://github.com/Akshay-gurav-31) | 2 | 1 | 0 | 0 |
 | [@Manika-Sabharwal](https://github.com/Manika-Sabharwal) | 2 | 0 | 0 | 1 |
 | [@AriyanPal08](https://github.com/AriyanPal08) | 0 | 2 | 0 | 1 |
-| [@Yug210705](https://github.com/Yug210705) | 2 | 0 | 0 | 1 |
 | [@JeevithaR3](https://github.com/JeevithaR3) | 1 | 1 | 0 | 1 |
 | [@Surabhi210](https://github.com/Surabhi210) | 2 | 0 | 0 | 1 |
 | [@lobby11](https://github.com/lobby11) | 2 | 0 | 0 | 1 |
@@ -41,6 +40,7 @@ This leaderboard tracks contributors who have completed issues labeled as `level
 | [@Renu-code123](https://github.com/Renu-code123) | 0 | 1 | 0 | 1 |
 | [@Apo-orva17](https://github.com/Apo-orva17) | 2 | 0 | 0 | 0 |
 | [@JiyaAgrawal27](https://github.com/JiyaAgrawal27) | 1 | 0 | 0 | 1 |
+| [@Yug210705](https://github.com/Yug210705) | 2 | 0 | 0 | 0 |
 | [@Sagar1610Codes](https://github.com/Sagar1610Codes) | 1 | 0 | 0 | 1 |
 | [@harshgupta9129](https://github.com/harshgupta9129) | 1 | 0 | 0 | 1 |
 | [@MehakGo](https://github.com/MehakGo) | 1 | 0 | 0 | 1 |
