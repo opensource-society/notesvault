@@ -28,3 +28,6 @@ AGENT.md
 
 
 .idea
+
+# React/Vite specific
+.tmp/

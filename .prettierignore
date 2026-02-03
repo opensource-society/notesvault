@@ -1,0 +1,8 @@
+node_modules
+dist
+build
+coverage
+.env
+.env.local
+.env.*.local
+backup_existing_project
