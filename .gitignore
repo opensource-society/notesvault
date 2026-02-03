@@ -28,3 +28,11 @@ AGENT.md
 
 
 .idea
+
+# Frontend specific
+frontend/node_modules/
+frontend/dist/
+frontend/.tmp/
+
+# Backup folder (temporary)
+backup_original_frontend/

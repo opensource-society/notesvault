@@ -33,43 +33,94 @@
 ---
 
 
-## 📁 Folder Structure (Suggested)
+## 📁 Folder Structure
 
 ```
 notesvault/
-├── assets/            # Icons, PDFs, static files
-    └── <asset_folders>
-├── data/              # All JSON files for notes/PYQs
-│   └── notes.json
-├── pages/             # All pages used in the project
-│   └── <all .html files>
-├── scripts            # Application logic (load/display/filter)
-    └── <scripts>
-├── styling            # Global styles and theming
-    └── <style files>
+├── frontend/          # React + TypeScript + Vite frontend
+│   ├── src/
+│   │   ├── components/    # Reusable React components
+│   │   ├── pages/         # Page components
+│   │   ├── hooks/         # Custom React hooks
+│   │   ├── utils/         # Utility functions
+│   │   ├── types/         # TypeScript types
+│   │   ├── styles/        # Global styles
+│   │   ├── context/       # React Context providers
+│   │   └── services/      # API services
+│   └── package.json
+├── backend/           # Flask API backend
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── routes.py
+│   │   └── config.py
+│   ├── requirements.txt
+│   └── run.py
+├── assets/            # Icons, PDFs, static files (legacy)
+├── data/              # JSON files for notes/PYQs (legacy)
+├── pages/             # HTML pages (legacy)
+├── scripts/           # JavaScript files (legacy)
+├── styling/           # CSS files (legacy)
 └── README.md
 ```
+
+**Note**: Legacy frontend files (pages, scripts, styling) are preserved in `backup_original_frontend/` for reference.
 
 ---
 
 ## 🛠️ Getting Started (Development)
 
-1. **Clone the repository**
+### Prerequisites
 
-    ```bash
-    git clone https://github.com/opensource-society/NotesVault.git
-    cd NotesVault
-    ```
+- Node.js 20+ (for frontend)
+- Python 3.x (for backend)
 
-2. **Open the app**
+### 1. Clone the repository
 
-Simply open `index.html` in your browser. All data is stored locally via JSON or localStorage.
+```bash
+git clone https://github.com/opensource-society/NotesVault.git
+cd NotesVault
+```
 
-3. **Develop and test**
+### 2. Set up Frontend (React + Vite)
 
-- Edit `notes.json` to simulate new data
-- Modify layout or logic in `style.css` and `script.js`
-- Use browser DevTools to inspect results
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The frontend will run at `http://localhost:5173`
+
+For more details, see [frontend/README.md](frontend/README.md)
+
+### 3. Set up Backend (Flask)
+
+**Terminal 2:**
+```bash
+cd backend
+pip install -r requirements.txt
+python run.py
+```
+
+The backend API will run at `http://localhost:5000`
+
+### 4. Access the Application
+
+- Frontend: `http://localhost:5173`
+- Backend API: `http://localhost:5000`
+
+The frontend is configured to proxy API requests to the backend automatically.
+
+### Development Scripts
+
+**Frontend:**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+
+**Backend:**
+- `python run.py` - Start Flask development server
 
 ---
 
