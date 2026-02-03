@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify OTP</title>
+
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../styling/forgot-password.css" />
+  <link rel="stylesheet" href="../styling/variables.css" />
+  <script defer src="../scripts/forgot-password.js"></script>
+</head>
+<body class="login-page">
+
+  <a href="forgot-password.html" class="floating-back-btn">
+    <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+  </a>
+
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo-preview"><i class="fa-solid fa-key"></i></div>
+      <h2>Verify OTP</h2>
+      <p>Enter the 6-digit OTP sent to your email.</p>
+    </div>
+
+    <form id="verifyOtpForm" class="login-form">
+      <div class="floating-input">
+        <input type="text" id="otp" required maxlength="6" placeholder=" " />
+        <label for="otp">Enter OTP</label>
+        <span class="input-border"></span>
+      </div>
+
+      <button type="submit" class="btn-primary">
+        Verify OTP <i class="fa-solid fa-check btn-icon"></i>
+      </button>
+    </form>
+
+    <div class="signup-link">
+      <p>Didn’t receive OTP? <a href="forgot-password.html">Resend</a></p>
+    </div>
+  </div>
+
+  <div id="messageBox" class="message-box"></div>
+
+  <script src="https://kit.fontawesome.com/a2e0e6ad4c.js" crossorigin="anonymous"></script>
+</body>
+</html>

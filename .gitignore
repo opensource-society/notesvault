@@ -31,6 +31,3 @@ AGENT.md
 
 # React/Vite specific
 .tmp/
-
-# Backup folder
-backup_existing_project/

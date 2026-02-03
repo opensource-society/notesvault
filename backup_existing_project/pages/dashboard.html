@@ -1,0 +1,318 @@
+<!-- Student Dashboard (HTML) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotesVault - Student Dashboard</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/index/images/favicon.png" type="image/x-icon" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styling/variables.css" />
+  <link rel="stylesheet" href="../styling/base.css" />
+  <link rel="stylesheet" href="../styling/dashboard.css" />
+  <link rel="stylesheet" href="../styling/feedback.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main Content -->
+  <main class="dashboard-container">
+    <div class="dashboard-grid">
+
+      <!-- Left Column: Profile and Stats -->
+      <div class="left-column">
+        <!-- Profile Card -->
+        <section class="profile-card fadeIn">
+          <div class="profile-header">
+            <div class="avatar"><i class="fas fa-user-graduate"></i></div>
+            <div class="profile-info">
+              <h2>Pranav K</h2>
+              <p class="email">pranavk@gmail.com</p>
+              <p class="institution">University of Mumbai</p>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="detail-item"><i class="fas fa-graduation-cap"></i>
+              <div><span>Branch</span>
+                <p>Computer Science</p>
+              </div>
+            </div>
+            <div class="detail-item"><i class="fas fa-calendar-alt"></i>
+              <div><span>Year</span>
+                <p>2nd Year</p>
+              </div>
+            </div>
+            <div class="detail-item"><i class="fas fa-id-card"></i>
+              <div><span>Student ID</span>
+                <p>CS2024-049</p>
+              </div>
+            </div>
+          </div>
+          <a href="edit-profile.html" class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</a>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-card stats-card-compact fadeIn" style="animation-delay: 0.1s;">
+          <h3><i class="fas fa-chart-line"></i> Your Stats</h3>
+          <div class="stats-grid">
+            <div class="stat-item fadeIn" style="animation-delay: 0.1s;">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Notes</div>
+            </div>
+            <div class="stat-item fadeIn" style="animation-delay: 0.2s;">
+              <div class="stat-value">8</div>
+              <div class="stat-label">PYQs</div>
+            </div>
+            <div class="stat-item fadeIn" style="animation-delay: 0.3s;">
+              <div class="stat-value">5</div>
+              <div class="stat-label">Subjects</div>
+            </div>
+            <div class="stat-item fadeIn" style="animation-delay: 0.4s;">
+              <div class="stat-value">75%</div>
+              <div class="stat-label">Completion</div>
+            </div>
+            <div class="stat-item fadeIn" style="animation-delay: 0.5s;">
+              <div class="stat-value">8</div>
+              <div class="stat-label">Downloads</div>
+            </div>
+            <div class="stat-item fadeIn" style="animation-delay: 0.6s;">
+              <div class="stat-value">3</div>
+              <div class="stat-label">Shared</div>
+            </div>
+            <div class="stat-item fadeIn" style="animation-delay: 0.7s;">
+              <div class="stat-value">92%</div>
+              <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-item fadeIn" style="animation-delay: 0.8s;">
+              <div class="stat-value">15hr</div>
+              <div class="stat-label">Study Time</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Notes Section -->
+      <section class="notes-section fadeIn right-column" style="animation-delay: 0.2s;">
+        <div class="section-header">
+          <h2><i class="fas fa-book"></i> Your Notes</h2>
+          <div class="section-actions">
+            <button href="upload.html" class="btn-primary" id="upload-note-btn"><i class="fas fa-cloud-upload-alt"></i>
+              Upload
+              Notes</button>
+            <div class="search-box"><input type="text" placeholder="Search notes..." /><i class="fas fa-search"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-grid">
+          <!-- Note Card 1 -->
+          <div class="note-card">
+            <div class="note-header">
+              <i class="fas fa-file-pdf note-icon"></i>
+              <div class="note-actions">
+                <button class="icon-btn" title="Download"><i class="fas fa-download"></i></button>
+                <button class="icon-btn" title="Share"><i class="fas fa-share-alt"></i></button>
+                <button class="icon-btn" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+            <div class="note-body">
+              <h3>DBMS - Normalization</h3>
+              <p class="note-meta"><i class="fas fa-laptop-code"></i> Computer Science • 2.4 MB</p>
+              <p class="note-description">Complete notes on database normalization forms with examples.</p>
+            </div>
+            <div class="note-footer">
+              <span class="note-date"><i class="far fa-calendar-alt"></i> Uploaded: 15 May 2023</span>
+              <div class="note-tags"><span class="tag">DB</span><span class="tag">Theory</span></div>
+            </div>
+          </div>
+
+          <!-- Note Card 2 -->
+          <div class="note-card">
+            <div class="note-header">
+              <i class="fas fa-file-powerpoint note-icon"></i>
+              <div class="note-actions">
+                <button class="icon-btn" title="Download"><i class="fas fa-download"></i></button>
+                <button class="icon-btn" title="Share"><i class="fas fa-share-alt"></i></button>
+                <button class="icon-btn" title="More Options"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+            <div class="note-body">
+              <h3>OS - Deadlock</h3>
+              <p class="note-meta"><i class="fas fa-server"></i> Operating Systems • 5.1 MB</p>
+              <p class="note-description">Presentation on deadlock conditions and prevention algorithms.</p>
+            </div>
+            <div class="note-footer">
+              <span class="note-date"><i class="far fa-calendar-alt"></i> Uploaded: 2 Apr 2023</span>
+              <div class="note-tags"><span class="tag">OS</span><span class="tag">Slides</span></div>
+            </div>
+          </div>
+
+          <!-- Add New Note -->
+          <div class="add-note-card">
+            <div class="add-note-content">
+              <div class="add-note-icon">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+              <span>Add New Notes</span>
+            </div>
+            <p style="font-size: 0.875rem; color: #666; margin-top: 1rem; text-align: center; line-height: 1.4;">Upload
+              and organize your study materials</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PYQs Section -->
+      <section class="pyqs-section fadeIn" style="animation-delay: 0.3s;">
+        <div class="section-header">
+          <h2><i class="fas fa-file-alt"></i> Previous Year Questions</h2>
+          <div class="section-actions">
+            <button class="btn-outline"><i class="fas fa-filter"></i> Filter</button>
+          </div>
+        </div>
+
+        <div class="pyqs-table-container">
+          <table class="pyqs-table">
+            <thead>
+              <tr>
+                <th><i class="fas fa-book-open"></i> Subject</th>
+                <th><i class="fas fa-clipboard-list"></i> Exam</th>
+                <th><i class="fas fa-calendar-day"></i> Year</th>
+                <th><i class="fas fa-file-alt"></i> File Type</th>
+                <th><i class="fas fa-cogs"></i> Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Computer Networks</td>
+                <td>Midterm</td>
+                <td>2022</td>
+                <td><span class="file-badge pdf">PDF</span></td>
+                <td>
+                  <button class="table-action-btn" title="Download"><i class="fas fa-download"></i></button>
+                  <button class="table-action-btn" title="Preview"><i class="fas fa-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Data Structures</td>
+                <td>Final</td>
+                <td>2021</td>
+                <td><span class="file-badge doc">DOC</span></td>
+                <td>
+                  <button class="table-action-btn" title="Download"><i class="fas fa-download"></i></button>
+                  <button class="table-action-btn" title="Preview"><i class="fas fa-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Algorithms</td>
+                <td>Quiz</td>
+                <td>2023</td>
+                <td><span class="file-badge pdf">PDF</span></td>
+                <td>
+                  <button class="table-action-btn" title="Download"><i class="fas fa-download"></i></button>
+                  <button class="table-action-btn" title="Preview"><i class="fas fa-eye"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+
+    </div>
+
+
+  </main>
+
+  <!-- Upload Modal -->
+  <div class="modal" id="upload-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-cloud-upload-alt"></i> Upload New Notes</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="upload-form">
+          <div class="form-group">
+            <label for="note-title"><i class="fas fa-heading"></i> Title</label>
+            <input type="text" id="note-title" placeholder="Enter note title" />
+          </div>
+          <div class="form-group">
+            <label for="note-subject"><i class="fas fa-book"></i> Subject</label>
+            <select id="note-subject">
+              <option value="">Select subject</option>
+              <option value="dbms">Database Management</option>
+              <option value="os">Operating Systems</option>
+              <option value="ds">Data Structures</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="note-file"><i class="fas fa-file-alt"></i> File</label>
+            <div class="file-upload">
+              <input type="file" id="note-file" accept=".pdf,.doc,.docx,.ppt,.pptx" />
+              <label for="note-file" class="file-upload-label">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Choose file or drag here</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="note-tags"><i class="fas fa-tags"></i> Tags (comma separated)</label>
+            <input type="text" id="note-tags" placeholder="e.g., theory, practical, slides" />
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-outline close-modal">Cancel</button>
+            <button type="submit" class="btn-primary">Upload</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <section class="feedback-container" id="feedback-section">
+    <h3>We value your feedback!</h3>
+
+    <div class="stars">
+      <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+      <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+      <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+      <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+      <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+    </div>
+
+    <textarea id="feedback-text" placeholder="Leave your feedback (optional)..."></textarea>
+
+    <div class="feedback-buttons">
+      <button class="submit-btn" onclick="submitFeedback()">Submit</button>
+      <button class="skip-btn" onclick="skipFeedback()">Skip</button>
+    </div>
+
+    <p id="feedback-message" class="feedback-msg"></p>
+  </section>
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JavaScript -->
+  <script>
+
+    if (!localStorage.getItem("loggedInUser")) {
+      alert("You must be logged in to access the dashboard!");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <script src="../scripts/script.js"></script>
+  <script src="../scripts/dashboard.js"></script>
+</body>
+
+</html>
