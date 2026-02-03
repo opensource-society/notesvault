@@ -29,10 +29,8 @@ AGENT.md
 
 .idea
 
-# Frontend specific
-frontend/node_modules/
-frontend/dist/
-frontend/.tmp/
+# React/Vite specific
+.tmp/
 
-# Backup folder (temporary)
-backup_original_frontend/
+# Backup folder
+backup_existing_project/

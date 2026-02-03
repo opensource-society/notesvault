@@ -5,3 +5,4 @@ coverage
 .env
 .env.local
 .env.*.local
+backup_existing_project
