@@ -65,6 +65,7 @@ notesvault/
 
 Simply open `index.html` in your browser. All data is stored locally via JSON or localStorage.
 
+
 3. **Develop and test**
 
 - Edit `notes.json` to simulate new data
@@ -72,6 +73,17 @@ Simply open `index.html` in your browser. All data is stored locally via JSON or
 - Use browser DevTools to inspect results
 
 ---
+
+## ▶️ How to Run Locally
+
+Follow these steps to run the project on your system:
+
+1. Clone the repository
+2. Navigate to the project folder
+3. Open `index.html` in any modern browser (Chrome/Edge/Firefox)
+4. Start exploring NotesVault
+
+No additional setup or installation is required.
 
 ## 🧑‍💻 Contributing
 
