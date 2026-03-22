@@ -78,9 +78,16 @@ notesvault/
 
 ### Prerequisites
 
-- **Node.js 20+** (for frontend)
-- **Python 3.x** (for backend)
-- **npm 10+**
+- **Node.js 20+** (for frontend) - [Download](https://nodejs.org/)
+- **Python 3.8+** (for backend) - [Download](https://www.python.org/)
+- **npm 10+** (usually comes with Node.js)
+
+#### Verify installations:
+```bash
+node --version
+npm --version
+python3 --version
+```
 
 ### 1. Clone the repository
 
@@ -100,11 +107,19 @@ The frontend will run at `http://localhost:5173`
 
 ### 3. Set up Backend (Flask)
 
-**Terminal 2:**
+**Terminal 2 (new terminal window):**
+
+First, set up Python virtual environment:
 ```bash
 cd backup_existing_project/backend
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+Then install dependencies and run:
+```bash
 pip install -r requirements.txt
-python run.py
+python3 run.py
 ```
 
 The backend API will run at `http://localhost:5000`
@@ -115,6 +130,32 @@ The backend API will run at `http://localhost:5000`
 - **Backend API**: `http://localhost:5000`
 
 The frontend is configured to proxy API requests to the backend automatically.
+
+### Troubleshooting
+
+**Backend won't start - "Port 5000 in use"**
+```bash
+# Check what's using port 5000
+lsof -i :5000
+
+# Kill the process (replace PID)
+kill -9 <PID>
+
+# Or start on a different port
+python3 run.py --port 5001
+```
+
+**Command not found: python or pip**
+- Use `python3` and `pip3` instead
+- Verify Python 3 is installed: `python3 --version`
+
+**npm install fails**
+- Clear npm cache: `npm cache clean --force`
+- Delete `node_modules` and `package-lock.json`, then try again
+
+**Module not found errors on backend**
+- Ensure virtual environment is activated (should see `(venv)` in terminal)
+- Reinstall requirements: `pip install -r requirements.txt --force-reinstall`
 
 ---
 

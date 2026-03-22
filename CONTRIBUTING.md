@@ -21,14 +21,16 @@ This project is in its early stage — so **you’re welcome to help build it fr
    ```bash
    git checkout -b my-feature
    ```
-4. **Start coding!** Edit files, add features, fix bugs.
-5. **Commit and push**
+4. **Set up your development environment** (see [README.md](README.md#-getting-started-development))
+5. **Start coding!** Edit files, add features, fix bugs.
+6. **Test your changes** (see section below)
+7. **Commit and push**
 
    ```bash
    git commit -m "Add: my feature"
    git push origin my-feature
    ```
-6. **Open a Pull Request** on the main repository. Your PR must target the `master` branch!
+8. **Open a Pull Request** on the main repository. Your PR must target the `master` branch!
 
 ---
 
@@ -45,6 +47,58 @@ Since the project is new, feel free to contribute:
 * 📄 Documentation and tutorials
 
 We’ll also add `good first issue` and `help wanted` labels as the project evolves.
+
+---
+
+### 🧪 Testing Your Changes
+
+Before submitting a pull request, make sure to test your changes locally:
+
+#### 1. Frontend Testing
+
+**Run the development server:**
+```bash
+npm run dev
+```
+- Manually test your feature in the browser at `http://localhost:5173`
+- Check that your changes work across different screen sizes (responsive design)
+- Open DevTools (F12) and check for console errors or warnings
+
+**Run linting and formatting checks:**
+```bash
+npm run lint        # Check code quality
+npm run lint:fix    # Automatically fix issues
+npm run format:check # Check if files are formatted correctly
+npm run format      # Format all files
+```
+
+**Build for production (optional but recommended):**
+```bash
+npm run build
+npm run preview     # Preview the production build
+```
+
+#### 2. Backend Testing
+
+**Make sure the backend is running:**
+```bash
+cd backup_existing_project/backend
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+python3 run.py
+```
+
+**Test your API changes:**
+- Use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to test API endpoints
+- Check that error handling works correctly
+- Test with invalid inputs to ensure proper validation
+
+#### 3. Before Committing
+
+- Ensure no console errors in browser DevTools
+- Ensure linting passes (`npm run lint` shows no errors)
+- Ensure formatting is correct (`npm run format:check` passes)
+- Test on both desktop and mobile browsers if possible
+- Write clear, descriptive commit messages
 
 ---
 
